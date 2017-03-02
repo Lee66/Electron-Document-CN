@@ -1,2 +1,0 @@
-# 18.JumpListItem Object
-

@@ -1,2 +1,0 @@
-# 5.Certificate Object
-
