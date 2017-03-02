@@ -32,86 +32,69 @@
 
 ##接口参考
 
-[1.Synopsis](tutorials/synopsis.html)   
-[1.进程对象](tutorials/process-object.html)   
-[1.Supported Chrome Command Line Switches](tutorials/supported-chrome-command-line-switches.html)   
-[1.环境变量](tutorials/environment-variables.html)   
+[1.Synopsis](APIs/synopsis.html)   
+[2.进程对象](APIs/process-object.html)   
+[3.Supported Chrome Command Line Switches](APIs/supported-chrome-command-line-switches.html)   
+[4.环境变量](APIs/environment-variables.html)   
 
 
-##### 主进程
+#####自定义DOM元素
 
-[1.Accelerator](chapter2/chapter1/section1.html)  
-2.app  
-3.autoUpdater  
-4.BrowserWindow  
-5.Certificate Object  
-6.Supported Chrome Command Line Switches  
-7.ClientRequest  
-8.contentTracing  
-9.Cookies  
-10.Debugger  
-11.dialog  
-12.DownloadItem  
-13.Frameless Window  
-14.globalShortcut  
-15.IncomingMessage  
-16.ipcMain  
-17.JumpListCategory Object  
-18.JumpListItem Object  
-19.Locales  
-20.Menu  
-21.MenuItem  
-22.net  
-23.powerMonitor  
-24.powerSaveBlocker  
-25.protocol  
-26.session  
-27.systemPreferences  
-28.Task Object  
-29.ThumbarButton Object  
-30.Tray  
-31.webContents  
-32.WebRequest
+[1.`File` Object](APIs/DOM/file-object.html)   
+[2.`<webview>` Tag](APIs/DOM/webview-tag.html)   
+[3.`window.open` Function](APIs/DOM/window-open-function.html)   
 
-##### 渲染进程
+#####主进程模块
 
-1.BrowserWindowProxy  
-2.desktopCapturer  
-3.File Object  
-4.ipcRenderer  
-5.MemoryUsageDetails Object  
-6.remote  
-7.webFrame  
-8.`<webview>` Tag  
-9.window.open Function
+[1.app](APIs/main/app.html)    
+[2.autoUpdater](APIs/main/autoUpdater.html)    
+[3.BrowserWindow](APIs/main/BrowserWindow.html)   
+[4.contentTracing](APIs/main/contentTracing.html)   
+[5.dialog](APIs/main/dialog.html)   
+[6.globalShortcut](APIs/main/globalShortcut.html)   
+[7.ipcMain](APIs/main/ipcMain.html)   
+[8.Menu](APIs/main/Menu.html)   
+[9.MenuItem](APIs/main/MenuItem.html)   
+[10.net](APIs/main/net.html)   
+[11.powerMonitor](APIs/main/powerMonitor.html)   
+[12.powerSaveBlocker](APIs/main/powerSaveBlocker.html)   
+[13.protocol](APIs/main/protocol.html)   
+[14.session](APIs/main/session.html)   
+[15.systemPreferences](APIs/main/systemPreferences.html)   
+[16.Tray](APIs/main/Tray.html)   
+[17.webContents](APIs/main/webContents.html)   
 
-##### 进程通用
+#####渲染进程模块（网页）
 
-1.clipboard  
-2.crashReporter  
-3.Display Object  
-4.Environment Variables  
-5.nativeImage  
-6.process  
-7.Rectangle Object  
-8.screen  
-9.shell  
-10.ShortcutDetails Object  
-11.Synopsis
+[1.desktopCapturer](APIs/renderer/desktopCapturer.html)    
+[2.ipcRenderer](APIs/renderer/ipcRenderer.html)   
+[3.remote](APIs/renderer/remote.html)   
+[4.webFrame](APIs/renderer/webFrame.html) 
 
-## 高级
+#####共享模块  
 
-1.Technical Differences Between Electron and NW.js \(formerly node-webkit\)  
-2.Build Instructions \(Linux\)  
-3.Build Instructions \(macOS\)  
-4.Build Instructions \(Windows\)  
-5.Build System Overview  
-6.Using clang-format on C++ Code  
-7.Coding Style  
-8.Debugging on Windows  
-9.Debugging on macOS  
-10.Releasing  
-11.Setting Up Symbol Server in Debugger  
-12.Source Code Directory Structure  
-13.Upgrading Chrome Checklist
+[1.clipboard](APIs/both/clipboard.html)    
+[2.crashReporter](APIs/both/crashReporter.html)   
+[3.nativeImage](APIs/both/nativeImage.html)   
+[4.screen](APIs/both/screen.html)   
+[5.shell](APIs/both/shell.html)   
+
+###进阶
+
+[1.Coding Style](development/coding-style.html)    
+[2.Using clang-format on C++ Code](development/using-clang-format-on-cpp-code.html)   
+[3.Source Code Directory Structure](development/source-code-directory-structure.html)   
+[4.Technical Differences to NW.js (formerly node-webkit)](development/technical-differences-to-nwjs.html)   
+[5.Build System Overview](development/build-system-overview.html)   
+[6.Build Instructions (macOS)](development/build-instructions-macos.html)   
+[7.Build Instructions (Windows)](development/build-instructions-windows.html)   
+[8.Build Instructions (Linux)](development/build-instructions-linux.html)   
+[9.Debug Instructions (macOS)](development/debug-instructions-macos.html)   
+[10.Debug Instructions (Windows)](development/debug-instructions-windows.html)   
+[11.Setting Up Symbol Server in debugger](development/setting-up-symbol-server-in-debugger.html)   
+[12.Documentation Styleguide](development/documentation-styleguide.html)   
+
+###FAQ
+
+[Electron FAQ](FAQ/electron-faq.html)    
 
