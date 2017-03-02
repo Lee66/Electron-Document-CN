@@ -7,7 +7,7 @@
 
 [1.关于Electron](chapter1/section1.html)  
 2.Accessibility  
-[3.发布应用程序](chapter1/sectio31.html)  
+[3.发布应用程序](chapter1/sectio3.html)  
 4.打包应用  
 5.调试的主要过程  
 6.在node-inspector中调试的主要过程  
