@@ -5,30 +5,30 @@
 
 ## 指南
 
-[1.关于Electron](chapter1/section1.html)  
-2.Accessibility  
-[3.发布应用程序](chapter1/sectio3.html)  
-4.打包应用  
-5.调试的主要过程  
-6.在node-inspector中调试的主要过程  
-[7.使用VSCode调试的主要过程](chapter1/section7.html)  
-[8.桌面环境的整合](chapter1/section8.html)  
-[9.工具扩展](chapter1/section9.html)  
-10.Electron版本  
-11.Mac应用商店提交指南  
-12.离线渲染  
-[13.联网／脱机事件监听](chapter1/section13.html)  
-14.Planned Breaking API Changes  
-[15.快速开始](chapter1/section15.html)  
-[16.REPL](chapter1/section16.html)  
-17.安全、本地性能和你的职能  
-18.支持的平台  
-19.Testing on Headless CI Systems \(Travis CI, Jenkins\)  
-[20.使用native Node modules](chapter1/section20.html)  
-21.使用Pepper Flash插件  
-22.使用Selenium和WebDriver  
-23.使用Widevine CDM插件  
-24.Windows Store指导
+[关于Electron](guides/about.html)   
+[1.术语表](guides/glossary-of-terms.html)   
+[2.支持的平台](guides/supported-platforms.html)   
+[3.安全](guides/security.html)   
+[4.Electron的版本管理](guides/electron-versioning.html)    
+[5.应用发布](guides/application-distribution.html)   
+[6.Mac App Store提交指南](guides/mac-app-store-submission-guide.html)   
+[7.Windows Store指南](guides/windows-store-guide.html)   
+[8.应用打包](guides/application-packaging.html)   
+[9.使用Native Node Modules](guides/using-native-node-modules.html)   
+[10.调试主线程](guides/debugging-main-process.html)   
+[11.使用Selenium和WebDriver](guides/using-selenium-and-webDriver.html)   
+[12.开发工具扩展](guides/devTools-extension.html)   
+[13.使用Pepper Flash插件](guides/using-pepper-flash-plugin.html)   
+[14.使用Widevine CDM插件](guides/using-widevine-cmd-plugin.html)   
+[15.在Headless CI Systems中测试(Travis, Jenkins)](guides/testing-on-headless-ci-systems.html)   
+[16.离屏渲染](guides/offscreen-rendering.html)   
+
+##教程
+
+[1.Quick Start](tutorials/quick-start.html)   
+[2.Desktop Environment Integration](tutorials/desktop-environment-integration.html)   
+[3.Online/Offline Event Detection](tutorials/online-offline-event-detection.html)   
+[4.REPL](tutorials/REPL.html)   
 
 ## 接口
 
