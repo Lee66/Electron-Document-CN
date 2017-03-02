@@ -25,12 +25,18 @@
 
 ##教程
 
-[1.Quick Start](tutorials/quick-start.html)   
-[2.Desktop Environment Integration](tutorials/desktop-environment-integration.html)   
-[3.Online/Offline Event Detection](tutorials/online-offline-event-detection.html)   
+[1.快速开始](tutorials/quick-start.html)   
+[2.桌面环境整合](tutorials/desktop-environment-integration.html)   
+[3.联网／脱机事件监听](tutorials/online-offline-event-detection.html)   
 [4.REPL](tutorials/REPL.html)   
 
-## 接口
+##接口参考
+
+[1.Synopsis](tutorials/synopsis.html)   
+[1.进程对象](tutorials/process-object.html)   
+[1.Supported Chrome Command Line Switches](tutorials/supported-chrome-command-line-switches.html)   
+[1.环境变量](tutorials/environment-variables.html)   
+
 
 ##### 主进程
 
