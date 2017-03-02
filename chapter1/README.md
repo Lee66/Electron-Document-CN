@@ -1,6 +1,6 @@
 # 指南
 
-> 原文地址：https://electron.atom.io/docs/guides/
+> 原文地址：https://electron.atom.io/docs/guides/   
 译者：Lin
 
 
@@ -10,7 +10,7 @@
 4.打包应用  
 5.调试的主要过程  
 6.在node-inspector中调试的主要过程  
-[7.在VSCode中调试的主要过程](section7.html)  
+[7.使用VSCode调试的主要过程](section7.html)  
 [8.桌面环境的整合](section8.html)  
 [9.工具扩展](section9.html)  
 10.Electron版本  
