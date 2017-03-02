@@ -5,26 +5,26 @@
 
 ## 指南
 
-[1.关于Electron](/chapter1/section1.html)  
+[1.关于Electron](chapter1/section1.html)  
 2.Accessibility  
-[3.发布应用程序](http://www.jianshu.com/p/ed46ada99ad0)  
+[3.发布应用程序](chapter1/sectio31.html)  
 4.打包应用  
 5.调试的主要过程  
 6.在node-inspector中调试的主要过程  
-[7.在VSCode中调试的主要过程](http://www.jianshu.com/p/b8064292e4ee)  
-[8.桌面环境的整合](http://www.jianshu.com/p/2f90bfa5973d)  
-[9.工具扩展](http://www.jianshu.com/p/affa9aa91b65)  
+[7.在VSCode中调试的主要过程](chapter1/section7.html)  
+[8.桌面环境的整合](chapter1/section8.html)  
+[9.工具扩展](chapter1/section9.html)  
 10.Electron版本  
 11.Mac应用商店提交指南  
 12.离线渲染  
-[13.联网／脱机事件监听](http://www.jianshu.com/p/d8e9c2751188)  
+[13.联网／脱机事件监听](chapter1/section13.html)  
 14.Planned Breaking API Changes  
-[15.快速开始](http://www.jianshu.com/p/eed0635df712)  
-[16.REPL](http://www.jianshu.com/p/f7e8f8355fe7)  
+[15.快速开始](chapter1/section15.html)  
+[16.REPL](chapter1/section16.html)  
 17.安全、本地性能和你的职能  
 18.支持的平台  
 19.Testing on Headless CI Systems \(Travis CI, Jenkins\)  
-[20.使用native Node modules](http://www.jianshu.com/p/f13485ac9472)  
+[20.使用native Node modules](chapter1/section20.html)  
 21.使用Pepper Flash插件  
 22.使用Selenium和WebDriver  
 23.使用Widevine CDM插件  
@@ -34,7 +34,7 @@
 
 ##### 主进程
 
-[1.Accelerator](http://www.jianshu.com/p/a11c7969eed2)  
+[1.Accelerator](chapter2/chapter1/section1.html)  
 2.app  
 3.autoUpdater  
 4.BrowserWindow  
