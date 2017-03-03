@@ -1,7 +1,7 @@
 # 1.快速开始
 
-> 原文：https://electron.atom.io/docs/tutorial/quick-start/
-译者：Lin
+> 原文：https://electron.atom.io/docs/tutorial/quick-start/   
+译者：[Lin]()   
 
 Electron提供包含了丰富的原生（操作系统）接口的运行时，使你能够使用纯粹的JavaScript创建桌面应用程序。你可以把它看作是一个变形的重点是在桌面应用程序而不是网页服务上的Node.js运行时。   
 这并不意味着Electron是一个将JavaScript绑定到*图形用户界面（GUI）*上的库。相反，Electron使用网页作为它的GUI，所以你也可以把它看成是一个使用JavaScript控制的极小的Chromium浏览器。   

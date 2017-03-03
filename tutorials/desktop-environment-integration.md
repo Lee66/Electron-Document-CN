@@ -1,7 +1,7 @@
 # 2.桌面环境整合
 
-> 原文：https://electron.atom.io/docs/tutorial/desktop-environment-integration/
-译者：Lin
+> 原文：https://electron.atom.io/docs/tutorial/desktop-environment-integration/   
+译者：[Lin]()   
 
 不同的操作系统为集成桌面应用程序到它们的桌面环境提供了不同的特性。例如，Windows系统中，应用程序可以在任务栏的跳转列表中放置它们的快捷方式，Mac系统中，应用程序可以在dock菜单中放置一个自定义的菜单。
 本篇指南将讲解如何使用Electron接口集成你的应用程序到这些桌面环境中。
