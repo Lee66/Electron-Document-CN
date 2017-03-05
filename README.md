@@ -3,6 +3,10 @@
 > 写在前面：  
 > Electron的官方文档我只是顺手翻译给自己看，只是作为参考，并不完全准确，部分翻译结果中有自己的理解和语言润色成分，介意的勿看。
 
+请在这个地址阅读文档：https://shmilylin.github.io/Electron-Document-CN/guides/about.html
+
+**注意：**文档目前尚未翻译完成，翻译完成部分尚在校订中，如有疏漏或疑问请留言。
+
 ## 指南
 
 [关于Electron](guides/about.html)   

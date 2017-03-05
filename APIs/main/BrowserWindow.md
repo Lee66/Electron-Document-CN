@@ -32,7 +32,7 @@
 
 当直接在窗口中加载一个页面，用户可能看到页面逐渐加载的过程，这对于原生应用来说不是一个很好的体验。为了使窗口没有视觉上的闪烁，针对不同的情况这里又两种解决方案。
 
-<h3 id="using-ready-to-show-event">使用`ready-to-show`事件</h3>
+<h3 id="using-ready-to-show-event">使用<code>ready-to-show</code>事件</h3>
 
 页面加载的时候，渲染进程已经开始首次绘制时`ready-to-show`事件将会被分发，在这个事件之后展示窗口将不会出现视觉上的闪烁：   
 
@@ -44,7 +44,7 @@
 
 这个事件通常在`did-finish-load`事件之后被分发，但是包含了很多远程资源的页面可能会在`did-finish-load`事件之前被分发。   
 
-<h3 id="setting-backgroundColor">设置`backgroundColor`</h3>
+<h3 id="setting-backgroundColor">设置<code>backgroundColor`</code></h3>
 
 在一个复杂的应用中，`ready-to-show`事件可能很晚才会被分发，这会使得应用感觉很慢。这种情况下，建议立刻展示窗口，使用一个`backgroundColor`覆盖住你应用的背景：
 
@@ -98,7 +98,7 @@
 
 它使用`options`设置的本地属性的创建一个新的`BrowserWindow`。
 
-<h3 id="new-browserWindow">`new BrowserWindow([options])`</h3>
+<h3 id="new-browserWindow"><code>new BrowserWindow([options])</code></h3>
 
  * `options` Object类型（可选参数）   
      * `width` Integer类型（可选参数）- 以像素为单位的窗口的宽度。默认是`800`。   
@@ -281,7 +281,7 @@
 
 **注意：**MacOS中这个事件仅仅是`moved`事件的一个别名。
 
-<h4 id="event-moved">事件：‘moved’ *（MacOS）*</h4>
+<h4 id="event-moved">事件：‘moved’ <i>（MacOS）</i></h4>
 
 当窗口已经被移动到新的位置的时候被分发一次。
 
@@ -301,7 +301,7 @@
 
 当窗口因为HTML接口而从全屏状态中退出的时候被分发。
 
-<h4 id="event-app-command">事件：‘app-command’ *（Windows）*</h4>
+<h4 id="event-app-command">事件：‘app-command’ <i>（Windows）</i></h4>
 
 返回值为：
 
@@ -321,19 +321,19 @@
         }
     })
 
-<h4 id="event-scroll-touch-begin">事件：‘scroll-touch-begin’ *（MacOS）*</h4>
+<h4 id="event-scroll-touch-begin">事件：‘scroll-touch-begin’ <i>（MacOS）</i></h4>
 
 当滚轮事件开始时被分发。
 
-<h4 id="event-scroll-touch-end">事件：‘scroll-touch-end’ *（MacOS）*</h4>
+<h4 id="event-scroll-touch-end">事件：‘scroll-touch-end’ <i>（MacOS）</i></h4>
 
 当滚轮事件结束时被分发。
 
-<h4 id="event-scroll-touch-edge">事件：‘scroll-touch-edge’ *（MacOS）*</h4>
+<h4 id="event-scroll-touch-edge">事件：‘scroll-touch-edge’ <i>（MacOS）</i></h4>
 
 当滚轮事件到达元素边缘的时候被分发。
 
-<h4 id="event-swipe">事件：‘swipe’ *（MacOS）*</h4>
+<h4 id="event-swipe">事件：‘swipe’ <i>（MacOS）</i></h4>
 
 返回值为：
 
@@ -502,7 +502,7 @@
 
 返回值为`Boolean`类型 - 窗口是否在全屏模式下。
 
-<h4 id="win-setAspectRatio">win.setAspectRatio (aspectRatio[, extraSize]) *（MacOS）*</h4>
+<h4 id="win-setAspectRatio">win.setAspectRatio (aspectRatio[, extraSize]) <i>（MacOS）</i></h4>
 
  * `aspectRatio` Float类型 - 保持的部分内容视图的纵横比。
  * `extraSize` Object类型（可选参数）- 不在保持的纵横比内的额外的尺寸。
@@ -513,14 +513,14 @@
 
 考虑到一个HD视频播放器和相关控件的一般窗口。可能在左边框会有15像素的控件，有边框有25像素控件，播放器下方还会有50像素的控件。为了在播放器内保持它自己的`16:9`的纵横比（1920x1080HD的标准纵横比），我们需要调用这个方法，并传入参数`16/9`和`[40,50]`。第二个参数不关心额外的宽度和高度在内容视图的什么位置——只关心是否存在。只会在整个内容视图中计算你要的额外的宽高就。
 
-<h4 id="win-previewFile">win.win.previewFile(path[, displayName]) *（MacOS）*</h4>
+<h4 id="win-previewFile">win.win.previewFile(path[, displayName]) <i>（MacOS）</i></h4>
 
  * `path` String类型 - 要使用QuickLook查看的文件的绝对路径。对于Quick Look这是非常重要的，因为要使用路径中的文件名和扩展名来决定打开文件内容的类型。
  * `displayName` String类型（可选参数）- 在Quick Look模态视图上展示的文件的名字。只是用来展示而不会决定文件的打开方式。默认是`path`中的。
 
 使用[Quick Look](https://en.wikipedia.org/wiki/Quick_Look) 查看给定路径的文件。
 
-<h4 id="win-closeFilePreview">win.closeFilePreview() *（MacOS）*</h4>
+<h4 id="win-closeFilePreview">win.closeFilePreview() <i>（MacOS）</i></h4>
 
 关闭当前打开的[Quick Look](https://en.wikipedia.org/wiki/Quick_Look)面板
 
@@ -602,37 +602,37 @@
 
 返回值为`Boolean`类型 - 是否允许用户手动调整窗口的大小。
 
-<h4 id="win-setMovable">win.setMovable(movable) *（MacOS，Windows）*</h4>
+<h4 id="win-setMovable">win.setMovable(movable) <i>（MacOS，Windows）</i></h4>
 
  * `movable` Boolean类型
 
 设置是否允许用户移动窗口。Linux下是无效的。
 
-<h4 id="win-isMovable">win.isMovable() *（MacOS，Windows）*</h4>
+<h4 id="win-isMovable">win.isMovable() <i>（MacOS，Windows）</i></h4>
 
 返回值为`Boolean`类型 - 是否允许用户移动窗口。
 
 Linux下是总会返回`true`。
 
-<h4 id="win-setMinimizable">win.setMinimizable(minimizable) *（MacOS，Windows）*</h4>
+<h4 id="win-setMinimizable">win.setMinimizable(minimizable) <i>（MacOS，Windows）</i></h4>
 
  * `minimizable` Boolean类型
 
 设置是否允许用户手动最小化窗口。Linux下是无效的。
 
-<h4 id="win-isMinimizable">win.isMinimizable() *（MacOS，Windows）*</h4>
+<h4 id="win-isMinimizable">win.isMinimizable() <i>（MacOS，Windows）</i></h4>
 
 返回值为`Boolean`类型 - 是否允许用户手动最小化窗口。
 
 Linux下是总会返回`true`。
 
-<h4 id="win-setMaximizable">win.setMaximizable(maximizable) *（MacOS，Windows）*</h4>
+<h4 id="win-setMaximizable">win.setMaximizable(maximizable) <i>（MacOS，Windows）</i></h4>
 
  * `maximizable` Boolean类型
 
 设置是否允许用户手动最大化窗口。Linux下是无效的。
 
-<h4 id="win-isMaximizable">win.isMaximizable() *（MacOS，Windows）*</h4>
+<h4 id="win-isMaximizable">win.isMaximizable() <i>（MacOS，Windows）</i></h4>
 
 返回值为`Boolean`类型 - 是否允许用户手动最大化窗口。
 
@@ -648,13 +648,13 @@ Linux下是总会返回`true`。
 
 返回值为Boolean类型 - 是否允许最大化／缩放窗口按钮切换全屏模式或最大化窗口。
 
-<h4 id="win-setClosable">win.setClosable(closable) *（MacOS，Windows）*</h4>
+<h4 id="win-setClosable">win.setClosable(closable) <i>（MacOS，Windows）</i></h4>
 
  * `closable` Boolean类型
 
 设置是否允许用户手动关闭窗口。Linux下是无效的。
 
-<h4 id="win-isClosable">win.isClosable() *（MacOS，Windows）*</h4>
+<h4 id="win-isClosable">win.isClosable() <i>（MacOS，Windows）</i></h4>
 
 返回值为`Boolean`类型 - 是否允许用户手动关闭窗口。
 
@@ -700,7 +700,7 @@ Linux下是总会返回`true`。
 
 **注意：**网页的标题可能和原生窗口的标题不同。
 
-<h4 id="win-setSheetOffset">win.setSheetOffset(offsetY[, offsetX]) *（MacOS）*</h4>
+<h4 id="win-setSheetOffset">win.setSheetOffset(offsetY[, offsetX]) <i>（MacOS）</i></h4>
 
  * `offsetY` Float类型
  * `offsetX` Float类型（可选参数）
@@ -741,46 +741,46 @@ MacOS上改变表单的依附点。默认情况下，表单只依附在窗口边
 
 原生操作类型在Windows下是`HWND`，在MacOS下是`NSView*`，在Linux下是`Window`（`unsigned long`）。
 
-<h4 id="win-hookWindowMessage">win.hookWindowMessage(message, callback) *（Windows）*</h4>
+<h4 id="win-hookWindowMessage">win.hookWindowMessage(message, callback) <i>（Windows）</i></h4>
 
  * `message` Integer类型
  * `callback` Function类型
 
 联播一个窗口信息。当消息在WndProc被收到时会调用`callback`。
 
-<h4 id="win-isWindowMessageHooked">win.isWindowMessageHooked(message) *（Windows）*</h4>
+<h4 id="win-isWindowMessageHooked">win.isWindowMessageHooked(message) <i>（Windows）</i></h4>
 
  * `message` Integer类型
 
 返回值为`Boolean`类型 - `true`还是`false`取决于消息是否被联播。
 
-<h4 id="win-unhookWindowMessage">win.unhookWindowMessage(message) *（Windows）*</h4>
+<h4 id="win-unhookWindowMessage">win.unhookWindowMessage(message) <i>（Windows）</i></h4>
 
  * `message` Integer类型
 
 取消联播窗口的消息。
 
-<h4 id="win-unhookAllWindowMessages">win.unhookAllWindowMessages() *（Windows）*</h4>
+<h4 id="win-unhookAllWindowMessages">win.unhookAllWindowMessages() <i>（Windows）</i></h4>
 
 取消联播窗口的所有消息。
 
-<h4 id="win-setRepresentedFilename">win.setRepresentedFilename(filename) *（macOS）*</h4>
+<h4 id="win-setRepresentedFilename">win.setRepresentedFilename(filename) <i>（macOS）</i></h4>
 
  * `filename` String类型
 
 设置代表窗口的文件的路径名以及文件的图标，文件将会被展示在窗口的标题栏。
 
-<h4 id="win-getRepresentedFilename">win.getRepresentedFilename() *（macOS）*</h4>
+<h4 id="win-getRepresentedFilename">win.getRepresentedFilename() <i>（macOS）</i></h4>
 
 返回值为`String` - 代表窗口的文件的路径名。
 
-<h4 id="win-setDocumentEdited">win.setDocumentEdited(edited) *（macOS）*</h4>
+<h4 id="win-setDocumentEdited">win.setDocumentEdited(edited) <i>（macOS）</i></h4>
 
  * `edited` Boolean
 
 指定窗口的文档是否已经被编辑，如果设置为`true`那么标题栏上的图标将会变成灰色。
 
-<h4 id="win-isDocumentEdited">win.isDocumentEdited() *（macOS）*</h4>
+<h4 id="win-isDocumentEdited">win.isDocumentEdited() <i>（macOS）</i></h4>
 
 返回值为`Boolean`类型 - 窗口的文件是否被编辑。
 
@@ -831,7 +831,7 @@ MacOS上改变表单的依附点。默认情况下，表单只依附在窗口边
 
 同`webContents.reload`一样。
 
-<h4 id="win-setMenu">win.setMenu(menu) *（Linux，Windows）*</h4>
+<h4 id="win-setMenu">win.setMenu(menu) <i>（Linux，Windows）</i></h4>
 
  * `menu` Menu类型
 
@@ -851,26 +851,26 @@ Linux平台中，只支持Unity桌面环境，你需要在`package.json`文件�
 
 Windows中，一个模式可以被忽略。接受的值为`none`，`normal`，`indeterminate`，`error`和`paused`。如果你没有设置一个模式（没有一个值在有效范围内）就调用`setProgressBar`，值将会假设为`normal`。
 
-<h4 id="win-setOverlayIcon">win.setOverlayIcon(overlay, description) *(Windows)*</h4>
+<h4 id="win-setOverlayIcon">win.setOverlayIcon(overlay, description) <i>（Windows）</i></h4>
 
  * `overlay` [NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md)类型 - 展示在任务栏右下角按钮上的图标。如果这个参数是`null`，则覆盖物将会被清除。
  * `description` String类型 - 一个将提供给给屏幕阅读器的描述。
 
 设置一个16 x 16像素的覆盖物到当前任务栏图标上，通常被用来传达某种应用状态或者被动的通知用户。
 
-<h4 id="win-setHasShadow">win.setHasShadow(hasShadow) *（MacOS）*</h4>
+<h4 id="win-setHasShadow">win.setHasShadow(hasShadow) <i>（MacOS）</i></h4>
 
  * `hasShadow` Boolean类型
 
 设置窗口是否因该有一个阴影。Windows和Linux下无效。
 
-<h4 id="win-hasShadow">win.hasShadow() *（MacOS）*</h4>
+<h4 id="win-hasShadow">win.hasShadow() <i>（MacOS）</i></h4>
 
 返回值为`Boolean`类型 - 窗口是否有一个阴影。
 
 Windows和Linux下总是返回`true`。
 
-<h4 id="win-setThumbarButtons">win.setThumbarButtons(buttons) *（Windows）*</h4>
+<h4 id="win-setThumbarButtons">win.setThumbarButtons(buttons) <i>（Windows）</i></h4>
 
  * `buttons` [ThumbarButton[]](https://github.com/electron/electron/blob/master/docs/api/structures/thumbar-button.md)类型
 
