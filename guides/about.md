@@ -1,7 +1,7 @@
 # 关于Electron
 
 > 原文：http://electron.atom.io/docs/tutorial/about/   
-译者：[Lin]()   
+译者：[Lin](https://github.com/ShmilyLin)   
 校订：[Zyan](https://github.com/irockyan)   
 
 ##关于Electron

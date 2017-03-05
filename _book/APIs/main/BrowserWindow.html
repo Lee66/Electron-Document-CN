@@ -1,0 +1,1452 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.BrowserWindow · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="contentTracing.html" />
+    
+    
+    <link rel="prev" href="autoUpdater.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../guides/">
+            
+                <a href="../../guides/">
+            
+                    
+                    指南
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../guides/about.html">
+            
+                <a href="../../guides/about.html">
+            
+                    
+                    关于Electron
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../guides/glossary-of-terms.html">
+            
+                <a href="../../guides/glossary-of-terms.html">
+            
+                    
+                    1.术语表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../guides/supported-platforms.html">
+            
+                <a href="../../guides/supported-platforms.html">
+            
+                    
+                    2.支持的平台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../guides/security.html">
+            
+                <a href="../../guides/security.html">
+            
+                    
+                    3.安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../guides/electron-versioning.html">
+            
+                <a href="../../guides/electron-versioning.html">
+            
+                    
+                    4.Electron的版本管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../../guides/application-distribution.html">
+            
+                <a href="../../guides/application-distribution.html">
+            
+                    
+                    5.应用发布
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../../guides/mac-app-store-submission-guide.html">
+            
+                <a href="../../guides/mac-app-store-submission-guide.html">
+            
+                    
+                    6.Mac App Store提交指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../../guides/windows-store-guide.html">
+            
+                <a href="../../guides/windows-store-guide.html">
+            
+                    
+                    7.Windows Store指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../../guides/application-packaging.html">
+            
+                <a href="../../guides/application-packaging.html">
+            
+                    
+                    8.应用打包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../../guides/using-native-node-modules.html">
+            
+                <a href="../../guides/using-native-node-modules.html">
+            
+                    
+                    9.使用Native Node Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../../guides/debugging-main-process.html">
+            
+                <a href="../../guides/debugging-main-process.html">
+            
+                    
+                    10.调试主线程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../../guides/using-selenium-and-webDriver.html">
+            
+                <a href="../../guides/using-selenium-and-webDriver.html">
+            
+                    
+                    11.使用Selenium和WebDriver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../../guides/devTools-extension.html">
+            
+                <a href="../../guides/devTools-extension.html">
+            
+                    
+                    12.开发工具扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../../guides/using-pepper-flash-plugin.html">
+            
+                <a href="../../guides/using-pepper-flash-plugin.html">
+            
+                    
+                    13.使用Pepper Flash插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../../guides/using-widevine-cmd-plugin.html">
+            
+                <a href="../../guides/using-widevine-cmd-plugin.html">
+            
+                    
+                    14.使用Widevine CDM插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../../guides/testing-on-headless-ci-systems.html">
+            
+                <a href="../../guides/testing-on-headless-ci-systems.html">
+            
+                    
+                    15.在Headless CI Systems中测试(Travis, Jenkins)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../../guides/offscreen-rendering.html">
+            
+                <a href="../../guides/offscreen-rendering.html">
+            
+                    
+                    16.离屏渲染
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../tutorials/">
+            
+                <a href="../../tutorials/">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../tutorials/quick-start.html">
+            
+                <a href="../../tutorials/quick-start.html">
+            
+                    
+                    1.快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../tutorials/desktop-environment-integration.html">
+            
+                <a href="../../tutorials/desktop-environment-integration.html">
+            
+                    
+                    2.桌面环境整合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../tutorials/online-offline-event-detection.html">
+            
+                <a href="../../tutorials/online-offline-event-detection.html">
+            
+                    
+                    3.联网／脱机事件监听
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../tutorials/REPL.html">
+            
+                <a href="../../tutorials/REPL.html">
+            
+                    
+                    4.REPL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    接口参考
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../synopsis.html">
+            
+                <a href="../synopsis.html">
+            
+                    
+                    1.Synopsis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../process-object.html">
+            
+                <a href="../process-object.html">
+            
+                    
+                    2.进程对象
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../supported-chrome-command-line-switches.html">
+            
+                <a href="../supported-chrome-command-line-switches.html">
+            
+                    
+                    3.Supported Chrome Command Line Switches
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../environment-variables.html">
+            
+                <a href="../environment-variables.html">
+            
+                    
+                    4.环境变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../DOM/">
+            
+                <a href="../DOM/">
+            
+                    
+                    自定义DOM元素
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.5.1" data-path="../DOM/file-object.html">
+            
+                <a href="../DOM/file-object.html">
+            
+                    
+                    1.File Object
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.2" data-path="../DOM/webview-tag.html">
+            
+                <a href="../DOM/webview-tag.html">
+            
+                    
+                    2. Tag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5.3" data-path="../DOM/window-open-function.html">
+            
+                <a href="../DOM/window-open-function.html">
+            
+                    
+                    3.window.open Function
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    主进程模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.6.1" data-path="app.html">
+            
+                <a href="app.html">
+            
+                    
+                    1.app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.2" data-path="autoUpdater.html">
+            
+                <a href="autoUpdater.html">
+            
+                    
+                    2.autoUpdater
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.6.3" data-path="BrowserWindow.html">
+            
+                <a href="BrowserWindow.html">
+            
+                    
+                    3.BrowserWindow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.4" data-path="contentTracing.html">
+            
+                <a href="contentTracing.html">
+            
+                    
+                    4.contentTracing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.5" data-path="dialog.html">
+            
+                <a href="dialog.html">
+            
+                    
+                    5.dialog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.6" data-path="globalShortcut.html">
+            
+                <a href="globalShortcut.html">
+            
+                    
+                    6.globalShortcut
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.7" data-path="ipcMain.html">
+            
+                <a href="ipcMain.html">
+            
+                    
+                    7.ipcMain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.8" data-path="Menu.html">
+            
+                <a href="Menu.html">
+            
+                    
+                    8.Menu
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.9" data-path="MenuItem.html">
+            
+                <a href="MenuItem.html">
+            
+                    
+                    9.MenuItem
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.10" data-path="net.html">
+            
+                <a href="net.html">
+            
+                    
+                    10.net
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.11" data-path="powerMonitor.html">
+            
+                <a href="powerMonitor.html">
+            
+                    
+                    11.powerMonitor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.12" data-path="powerSaveBlocker.html">
+            
+                <a href="powerSaveBlocker.html">
+            
+                    
+                    12.powerSaveBlocker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.13" data-path="protocol.html">
+            
+                <a href="protocol.html">
+            
+                    
+                    13.protocol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.14" data-path="session.html">
+            
+                <a href="session.html">
+            
+                    
+                    14.session
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.15" data-path="systemPreferences.html">
+            
+                <a href="systemPreferences.html">
+            
+                    
+                    15.systemPreferences
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.16" data-path="Tray.html">
+            
+                <a href="Tray.html">
+            
+                    
+                    16.Tray
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6.17" data-path="webContents.html">
+            
+                <a href="webContents.html">
+            
+                    
+                    17.webContents
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../renderer/">
+            
+                <a href="../renderer/">
+            
+                    
+                    渲染进程模块（网页）
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.7.1" data-path="../renderer/desktopCapturer.html">
+            
+                <a href="../renderer/desktopCapturer.html">
+            
+                    
+                    1.desktopCapturer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7.2" data-path="../renderer/ipcRenderer.html">
+            
+                <a href="../renderer/ipcRenderer.html">
+            
+                    
+                    2.ipcRenderer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7.3" data-path="../renderer/remote.html">
+            
+                <a href="../renderer/remote.html">
+            
+                    
+                    3.remote
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7.4" data-path="../renderer/webFrame.html">
+            
+                <a href="../renderer/webFrame.html">
+            
+                    
+                    4.webFrame
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../both/">
+            
+                <a href="../both/">
+            
+                    
+                    共享模块
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.8.1" data-path="../both/clipboard.html">
+            
+                <a href="../both/clipboard.html">
+            
+                    
+                    1.clipboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.2" data-path="../both/crashReporter.html">
+            
+                <a href="../both/crashReporter.html">
+            
+                    
+                    2.crashReporter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.3" data-path="../both/nativeImage.html">
+            
+                <a href="../both/nativeImage.html">
+            
+                    
+                    3.nativeImage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.4" data-path="../both/screen.html">
+            
+                <a href="../both/screen.html">
+            
+                    
+                    4.screen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.5" data-path="../both/shell.html">
+            
+                <a href="../both/shell.html">
+            
+                    
+                    5.shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../development/">
+            
+                <a href="../../development/">
+            
+                    
+                    进阶
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../development/coding-style.html">
+            
+                <a href="../../development/coding-style.html">
+            
+                    
+                    1.Coding Style
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../development/using-clang-format-on-cpp-code.html">
+            
+                <a href="../../development/using-clang-format-on-cpp-code.html">
+            
+                    
+                    2.Using clang-format on C++ Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../development/source-code-directory-structure.html">
+            
+                <a href="../../development/source-code-directory-structure.html">
+            
+                    
+                    3.Source Code Directory Structure
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../development/technical-differences-to-nwjs.html">
+            
+                <a href="../../development/technical-differences-to-nwjs.html">
+            
+                    
+                    4.Technical Differences to NW.js (formerly node-webkit)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../development/build-system-overview.html">
+            
+                <a href="../../development/build-system-overview.html">
+            
+                    
+                    5.Build System Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../../development/build-instructions-macos.html">
+            
+                <a href="../../development/build-instructions-macos.html">
+            
+                    
+                    6.Build Instructions (macOS)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../../development/build-instructions-windows.html">
+            
+                <a href="../../development/build-instructions-windows.html">
+            
+                    
+                    7.Build Instructions (Windows)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../../development/build-instructions-linux.html">
+            
+                <a href="../../development/build-instructions-linux.html">
+            
+                    
+                    8.Build Instructions (Linux)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../../development/debug-instructions-macos.html">
+            
+                <a href="../../development/debug-instructions-macos.html">
+            
+                    
+                    9.Debug Instructions (macOS)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../../development/debug-instructions-windows.html">
+            
+                <a href="../../development/debug-instructions-windows.html">
+            
+                    
+                    10.Debug Instructions (Windows)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../../development/setting-up-symbol-server-in-debugger.html">
+            
+                <a href="../../development/setting-up-symbol-server-in-debugger.html">
+            
+                    
+                    11.Setting Up Symbol Server in debugger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../../development/documentation-styleguide.html">
+            
+                <a href="../../development/documentation-styleguide.html">
+            
+                    
+                    12.Documentation Styleguide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../FAQ/">
+            
+                <a href="../../FAQ/">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../FAQ/electron-faq.html">
+            
+                <a href="../../FAQ/electron-faq.html">
+            
+                    
+                    Electron FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../end/">
+            
+                <a href="../../end/">
+            
+                    
+                    结束
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >3.BrowserWindow</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="3-browserwindow">3. BrowserWindow</h1>
+<blockquote>
+<p>&#x539F;&#x6587;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md" target="_blank">https://github.com/electron/electron/blob/master/docs/api/browser-window.md</a><br>&#x8BD1;&#x8005;&#xFF1A;<a href="https://github.com/ShmilyLin" target="_blank">Lin</a>   </p>
+<p>&#x521B;&#x5EFA;&#x5E76;&#x4E14;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x3002;</p>
+</blockquote>
+<p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/glossary.md#main-process" target="_blank">&#x4E3B;&#x8FDB;&#x7A0B;</a>   </p>
+<pre><code>// In the main process.
+const {BrowserWindow} = require(&apos;electron&apos;)
+
+// Or use `remote` from the renderer process.
+// const {BrowserWindow} = require(&apos;electron&apos;).remote
+
+let win = new BrowserWindow({width: 800, height: 600})
+win.on(&apos;closed&apos;, () =&gt; {
+    win = null
+})
+
+// Load a remote URL
+win.loadURL(&apos;https://github.com&apos;)
+
+// Or load a local HTML file
+win.loadURL(`file://${__dirname}/app/index.html`)
+</code></pre><h3 id="&#x65E0;&#x6846;&#x67B6;&#x7A97;&#x53E3;">&#x65E0;&#x6846;&#x67B6;&#x7A97;&#x53E3;</h3>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;chrome&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x4EFB;&#x610F;&#x5F62;&#x72B6;&#x7684;&#x900F;&#x660E;&#x7A97;&#x53E3;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="https://github.com/electron/electron/blob/master/docs/api/frameless-window.md" target="_blank">Frameless Window</a>&#x63A5;&#x53E3;&#x3002;   </p>
+<h3 id="&#x4F18;&#x96C5;&#x7684;&#x5C55;&#x793A;&#x7A97;&#x53E3;">&#x4F18;&#x96C5;&#x7684;&#x5C55;&#x793A;&#x7A97;&#x53E3;</h3>
+<p>&#x5F53;&#x76F4;&#x63A5;&#x5728;&#x7A97;&#x53E3;&#x4E2D;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x770B;&#x5230;&#x9875;&#x9762;&#x9010;&#x6E10;&#x52A0;&#x8F7D;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x539F;&#x751F;&#x5E94;&#x7528;&#x6765;&#x8BF4;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x4F53;&#x9A8C;&#x3002;&#x4E3A;&#x4E86;&#x4F7F;&#x7A97;&#x53E3;&#x6CA1;&#x6709;&#x89C6;&#x89C9;&#x4E0A;&#x7684;&#x95EA;&#x70C1;&#xFF0C;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x8FD9;&#x91CC;&#x53C8;&#x4E24;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<h5 id="&#x4F7F;&#x7528;ready-to-show&#x4E8B;&#x4EF6;">&#x4F7F;&#x7528;<code>ready-to-show</code>&#x4E8B;&#x4EF6;</h5>
+<p>&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6E32;&#x67D3;&#x8FDB;&#x7A0B;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x9996;&#x6B21;&#x7ED8;&#x5236;&#x65F6;<code>ready-to-show</code>&#x4E8B;&#x4EF6;&#x5C06;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x5C55;&#x793A;&#x7A97;&#x53E3;&#x5C06;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x89C6;&#x89C9;&#x4E0A;&#x7684;&#x95EA;&#x70C1;&#xFF1A;   </p>
+<pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
+let win = new BrowserWindow({show: false})
+win.once(&apos;ready-to-show&apos;, () =&gt; {
+    win.show()
+})
+</code></pre><p>&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x901A;&#x5E38;&#x5728;<code>did-finish-load</code>&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x4F46;&#x662F;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x8FDC;&#x7A0B;&#x8D44;&#x6E90;&#x7684;&#x9875;&#x9762;&#x53EF;&#x80FD;&#x4F1A;&#x5728;<code>did-finish-load</code>&#x4E8B;&#x4EF6;&#x4E4B;&#x524D;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
+<h5 id="&#x8BBE;&#x7F6E;backgroundcolor">&#x8BBE;&#x7F6E;<code>backgroundColor</code></h5>
+<p>&#x5728;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;<code>ready-to-show</code>&#x4E8B;&#x4EF6;&#x53EF;&#x80FD;&#x5F88;&#x665A;&#x624D;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x8FD9;&#x4F1A;&#x4F7F;&#x5F97;&#x5E94;&#x7528;&#x611F;&#x89C9;&#x5F88;&#x6162;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5EFA;&#x8BAE;&#x7ACB;&#x523B;&#x5C55;&#x793A;&#x7A97;&#x53E3;&#xFF0C;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;<code>backgroundColor</code>&#x8986;&#x76D6;&#x4F4F;&#x4F60;&#x5E94;&#x7528;&#x7684;&#x80CC;&#x666F;&#xFF1A;</p>
+<pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
+
+let win = new BrowserWindow({backgroundColor: &apos;#2e2c29&apos;})
+win.loadURL(&apos;https://github.com&apos;)
+</code></pre><p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5373;&#x4F7F;&#x5E94;&#x7528;&#x4F7F;&#x7528;&#x4E86;<code>ready-to-show</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x4E5F;&#x4F9D;&#x7136;&#x5EFA;&#x8BAE;&#x8BBE;&#x7F6E;<code>backgroundColor</code>&#x6765;&#x4F7F;&#x5F97;&#x5E94;&#x7528;&#x66F4;&#x50CF;&#x539F;&#x751F;&#x5E94;&#x7528;&#x3002;</p>
+<h3 id="&#x7236;&#x7A97;&#x53E3;&#x548C;&#x5B50;&#x7A97;&#x53E3;">&#x7236;&#x7A97;&#x53E3;&#x548C;&#x5B50;&#x7A97;&#x53E3;</h3>
+<p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;<code>parent</code>&#x9009;&#x9879;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B50;&#x7A97;&#x53E3;&#xFF1A;</p>
+<pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
+
+let top = new BrowserWindow()
+let child = new BrowserWindow({parent: top})
+child.show()
+top.show()
+</code></pre><p>&#x8FD9;&#x4E2A;<code>child</code>&#x7A97;&#x53E3;&#x5C06;&#x603B;&#x5C55;&#x793A;&#x5728;<code>top</code>&#x7A97;&#x53E3;&#x7684;&#x4E0A;&#x9762;&#x3002;</p>
+<h5 id="&#x6A21;&#x6001;&#x7A97;&#x53E3;">&#x6A21;&#x6001;&#x7A97;&#x53E3;</h5>
+<p>&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x662F;&#x4E00;&#x4E2A;&#x7981;&#x7528;&#x7236;&#x7A97;&#x53E3;&#x7684;&#x5B50;&#x7A97;&#x53E3;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8BBE;&#x7F6E;<code>parent</code>&#x548C;<code>modal</code>&#x9009;&#x9879;&#xFF1A;</p>
+<pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
+
+let child = new BrowserWindow({parent: top, modal: true, show: false})
+child.loadURL(&apos;https://github.com&apos;)
+child.once(&apos;ready-to-show&apos;, () =&gt; {
+  child.show()
+})
+</code></pre><h5 id="&#x5E73;&#x53F0;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x5E73;&#x53F0;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h5>
+<ul>
+<li>MacOS&#x4E2D;&#xFF0C;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x5C06;&#x88AB;&#x4F5C;&#x4E3A;&#x9644;&#x52A0;&#x9875;&#x5C55;&#x793A;&#x5728;&#x7236;&#x7A97;&#x53E3;&#x4E2D;&#x3002;   </li>
+<li>MacOS&#x4E2D;&#xFF0C;&#x5F53;&#x7236;&#x7A97;&#x53E3;&#x79FB;&#x52A8;&#x65F6;&#x5B50;&#x7A97;&#x53E3;&#x5C06;&#x4E0E;&#x7236;&#x7A97;&#x53E3;&#x4FDD;&#x6301;&#x76F8;&#x5BF9;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x800C;&#x5728;Windows&#x548C;Linux&#x4E2D;&#x5B50;&#x7A97;&#x53E3;&#x5C06;&#x4E0D;&#x4F1A;&#x79FB;&#x52A8;&#x3002;   </li>
+<li>Windows&#x4E2D;&#xFF0C; &#x4E0D;&#x652F;&#x6301;&#x52A8;&#x6001;&#x7684;&#x6539;&#x53D8;&#x7236;&#x7A97;&#x53E3;&#x3002;   </li>
+<li>Linux&#x4E2D;&#xFF0C;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x7684;&#x7C7B;&#x578B;&#x5C06;&#x4F1A;&#x53D8;&#x4E3A;&#x5BF9;&#x8BDD;&#x6846;&#x3002;   </li>
+<li>Linux&#x4E2D;&#xFF0C;&#x591A;&#x6570;&#x684C;&#x9762;&#x73AF;&#x5883;&#x4E0D;&#x652F;&#x6301;&#x9690;&#x85CF;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x3002;</li>
+</ul>
+<h3 id="&#x7C7B;&#xFF1A;browserwindow">&#x7C7B;&#xFF1A;BrowserWindow</h3>
+<blockquote>
+<p>&#x521B;&#x5EFA;&#x5E76;&#x4E14;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x3002;   </p>
+</blockquote>
+<p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/glossary.md#main-process" target="_blank">&#x4E3B;&#x8FDB;&#x7A0B;</a>    </p>
+<p><code>BrowserWindow</code>&#x662F;&#x4E00;&#x4E2A;<a href="http://nodejs.org/api/events.html#events_class_events_eventemitter" target="_blank">EventEmitter</a>&#x3002;   </p>
+<p>&#x5B83;&#x4F7F;&#x7528;<code>options</code>&#x8BBE;&#x7F6E;&#x7684;&#x672C;&#x5730;&#x5C5E;&#x6027;&#x7684;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>BrowserWindow</code>&#x3002;</p>
+<h5 id="new-browserwindowoptions"><code>new BrowserWindow([options])</code></h5>
+<ul>
+<li><code>options</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   <ul>
+<li><code>width</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x4EE5;&#x50CF;&#x7D20;&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#x7A97;&#x53E3;&#x7684;&#x5BBD;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>800</code>&#x3002;   </li>
+<li><code>height</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x4EE5;&#x50CF;&#x7D20;&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#x7A97;&#x53E3;&#x7684;&#x9AD8;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>600</code>&#x3002;   </li>
+<li><code>x</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;&#xFF08;&#x5982;&#x679C;&#x4F7F;&#x7528;<code>y</code>&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x6709;&#x8BE5;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x57FA;&#x4E8E;&#x5C4F;&#x5E55;&#x7684;&#x5DE6;&#x4FA7;&#x504F;&#x79FB;&#x91CF;&#x3002;&#x9ED8;&#x8BA4;&#x662F;&#x7A97;&#x53E3;&#x5C45;&#x4E2D;&#x3002;   </li>
+<li><code>y</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;&#xFF08;&#x5982;&#x679C;&#x4F7F;&#x7528;<code>x</code>&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x6709;&#x8BE5;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x57FA;&#x4E8E;&#x5C4F;&#x5E55;&#x7684;&#x9876;&#x90E8;&#x504F;&#x79FB;&#x91CF;&#x3002;&#x9ED8;&#x8BA4;&#x662F;&#x7A97;&#x53E3;&#x5C45;&#x4E2D;&#x3002;   </li>
+<li><code>useContentSize</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- <code>width</code>&#x548C;<code>height</code>&#x662F;&#x5426;&#x76F4;&#x63A5;&#x4F5C;&#x7528;&#x4E8E;&#x7F51;&#x9875;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5982;&#x679C;<code>true</code>&#x5219;&#x610F;&#x5473;&#x7740;&#x771F;&#x5B9E;&#x7684;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x5C06;&#x5305;&#x542B;&#x7A97;&#x53E3;&#x8FB9;&#x6846;&#x7684;&#x5927;&#x5C0F;&#x5E76;&#x4E14;&#x6BD4;&#x5B83;&#x7565;&#x5927;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>false</code>&#x3002;   </li>
+<li><code>center</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x5728;&#x5C4F;&#x5E55;&#x4E2D;&#x95F4;&#x5C55;&#x793A;&#x7A97;&#x53E3;&#x3002;   </li>
+<li><code>minWidth</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x6700;&#x5C0F;&#x5BBD;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>0</code>&#x3002;   </li>
+<li><code>minHeight</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x6700;&#x5C0F;&#x9AD8;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>0</code>&#x3002;   </li>
+<li><code>maxWidth</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x6700;&#x5927;&#x5BBD;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x3002;   </li>
+<li><code>maxHeight</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x6700;&#x5927;&#x9AD8;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x3002;   </li>
+<li><code>resizable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8C03;&#x6574;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;   </li>
+<li><code>movable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x79FB;&#x52A8;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5728;Linux&#x4E2D;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;    </li>
+<li><code>minimizable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x6700;&#x5C0F;&#x5316;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5728;Linux&#x4E2D;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;   </li>
+<li><code>maximizable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x6700;&#x5927;&#x5316;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5728;Linux&#x4E2D;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;   </li>
+<li><code>closable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x5173;&#x95ED;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5728;Linux&#x4E2D;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;   </li>
+<li><code>focusable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x805A;&#x7126;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;Windows&#x4E2D;&#x8BBE;&#x7F6E;<code>focusable: false</code> &#x4E5F;&#x4EE3;&#x8868;&#x7740;&#x8BBE;&#x7F6E;<code>skipTaskbar: true</code>&#x3002;Linux&#x4E2D;&#x8BBE;&#x7F6E;<code>focusable: false</code>&#x4F1A;&#x4F7F;&#x5F97;&#x7A97;&#x53E3;&#x505C;&#x6B62;&#x4E0E;wm&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x6240;&#x4EE5;&#x7A97;&#x53E3;&#x5C06;&#x603B;&#x4FDD;&#x6301;&#x5728;&#x6240;&#x6709;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x7684;&#x9876;&#x90E8;&#x3002;   </li>
+<li><code>alwaysOnTop</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x603B;&#x4FDD;&#x6301;&#x5728;&#x5176;&#x4ED6;&#x7A97;&#x53E3;&#x7684;&#x4E0A;&#x9762;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>false</code>&#x3002;   </li>
+<li><code>fullscreen</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x9700;&#x8981;&#x5168;&#x5C4F;&#x5C55;&#x793A;&#x3002;MacOS&#x4E2D;&#xFF0C;&#x5F53;&#x663E;&#x5F0F;&#x7684;&#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#xFF0C;&#x5168;&#x5C4F;&#x6309;&#x94AE;&#x5C06;&#x4F1A;&#x88AB;&#x9690;&#x85CF;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>false</code>&#x3002;</li>
+<li><code>fullscreenable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8FDB;&#x5165;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;&#x3002;MacOS&#x4E2D;&#xFF0C;&#x4E5F;&#x4EE3;&#x8868;&#x7740;&#x6700;&#x5927;&#x5316;&#xFF0F;&#x653E;&#x5927;&#x6309;&#x94AE;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x5207;&#x6362;&#x5168;&#x5C4F;&#x6216;&#x6700;&#x5927;&#x5316;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>true</code>&#x3002;</li>
+<li><code>skipTaskbar</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x4E0A;&#x663E;&#x793A;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>false</code>&#x3002;</li>
+<li><code>kiosk</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- kiosk&#x6A21;&#x5F0F;&#xFF08;&#x9501;&#x5B9A;&#x8FD0;&#x884C;&#x6A21;&#x5F0F;&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>false</code>&#x3002;</li>
+<li><code>title</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x9ED8;&#x8BA4;&#x6807;&#x9898;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>&quot;Electron&quot;</code>&#x3002;</li>
+<li><code>icon</code> (<a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a> | String)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x56FE;&#x6807;&#x3002;Windows&#x4E2D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>ICO</code>&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x6807;&#x6765;&#x83B7;&#x5F97;&#x6700;&#x597D;&#x7684;&#x89C6;&#x89C9;&#x6548;&#x679C;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;&#x8FD9;&#x6837;executable&#x7684;&#x56FE;&#x6807;&#x5C31;&#x4F1A;&#x9ED8;&#x8BA4;&#x7684;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;</li>
+<li><code>show</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x663E;&#x793A;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
+<li><code>frame</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<a href="https://github.com/electron/electron/blob/master/docs/api/frameless-window.md" target="_blank">Frameless Window</a>&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
+<li><code>parent</code> BrowserWindow&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5236;&#x5B9A;&#x7236;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>null</code>&#x3002;</li>
+<li><code>modal</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether this is a modal window. This only works when the window is a child window. Default is false.</li>
+<li><code>acceptFirstMouse</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is false.</li>
+<li><code>disableAutoHideCursor</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether to hide cursor when typing. Default is false.</li>
+<li><code>autoHideMenuBar</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Auto hide the menu bar unless the Alt key is pressed. Default is false.</li>
+<li><code>enableLargerThanScreen</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enable the window to be resized larger than screen. Default is false.</li>
+<li><code>backgroundColor</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Window&apos;s background color as Hexadecimal value, like #66CD00 or #FFF or #80FFFFFF (alpha is supported). Default is #FFF (white).</li>
+<li><code>hasShadow</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether window should have a shadow. This is only implemented on macOS. Default is true.</li>
+<li><code>darkTheme</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is false.</li>
+<li><code>transparent</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Makes the window transparent. Default is false.</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- The type of window, default is normal window. See more about this below.</li>
+<li><code>titleBarStyle</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- The style of window title bar. Default is default. Possible values are:<ul>
+<li><code>default</code> - Results in the standard gray opaque Mac title bar.</li>
+<li><code>hidden</code> - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (&quot;traffic lights&quot;) in the top left.</li>
+<li><code>hidden-inset</code> - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.</li>
+</ul>
+</li>
+<li><code>thickFrame</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Use WS_THICKFRAME style for frameless windows on Windows, which adds standard window frame. Setting it to false will remove window shadow and window animations. Default is true.</li>
+<li><code>vibrancy</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Add a type of vibrancy effect to the window, only on macOS. Can be appearance-based, light, dark, titlebar, selection, menu, popover, sidebar, medium-light or ultra-dark.</li>
+<li><code>zoomToPageWidth</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window &gt; Zoom menu item. If true, the window will grow to the preferred width of the web page when zoomed, false will cause it to zoom to the width of the screen. This will also affect the behavior when calling maximize() directly. Default is false.</li>
+<li><code>webPreferences</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Settings of web page&apos;s features.<ul>
+<li><code>devTools</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether to enable DevTools. If it is set to false, can not use BrowserWindow.webContents.openDevTools() to open DevTools. Default is true.</li>
+<li><code>nodeIntegration</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether node integration is enabled. Default is true.</li>
+<li><code>preload</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example here.</li>
+<li><code>session</code> Session&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the partition option instead, which accepts a partition string. When both session and partition are provided, session will be preferred. Default is the default session.</li>
+<li><code>partition</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Sets the session used by the page according to the session&apos;s partition string. If partition starts with persist:, the page will use a persistent session available to all pages in the app with the same partition. If there is no persist: prefix, the page will use an in-memory session. By assigning the same partition, multiple pages can share the same session. Default is the default session.</li>
+<li><code>zoomFactor</code> Number&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- The default zoom factor of the page, 3.0 represents 300%. Default is 1.0.</li>
+<li><code>javascript</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enables JavaScript support. Default is true.</li>
+<li><code>webSecurity</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- When false, it will disable the same-origin policy (usually using testing websites by people), and set allowRunningInsecureContent to true if this options has not been set by user. Default is true.</li>
+<li><code>allowRunningInsecureContent</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is false.</li>
+<li><code>images</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enables image support. Default is true.</li>
+<li><code>textAreasAreResizable</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Make TextArea elements resizable. Default is true.</li>
+<li><code>webgl</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enables WebGL support. Default is true.</li>
+<li><code>webaudio</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enables WebAudio support. Default is true.</li>
+<li><code>plugins</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether plugins should be enabled. Default is false.</li>
+<li><code>experimentalFeatures</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enables Chromium&apos;s experimental features. Default is false.</li>
+<li><code>experimentalCanvasFeatures</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enables Chromium&apos;s experimental canvas features. Default is false.</li>
+<li><code>scrollBounce</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Enables scroll bounce (rubber banding) effect on macOS. Default is false.</li>
+<li><code>blinkFeatures</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the RuntimeEnabledFeatures.json5 file.</li>
+<li><code>disableBlinkFeatures</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to disable. The full list of supported feature strings can be found in the RuntimeEnabledFeatures.json5 file.</li>
+<li><code>defaultFontFamily</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Sets the default font for the font-family.<ul>
+<li><code>standard</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to Times New Roman.</li>
+<li><code>serif</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to Times New Roman.</li>
+<li><code>sansSerif</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to Arial.</li>
+<li><code>monospace</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to Courier New.</li>
+<li><code>cursive</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to Script.</li>
+<li><code>fantasy</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to Impact.</li>
+</ul>
+</li>
+<li><code>defaultFontSize</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to 16.</li>
+<li><code>defaultMonospaceFontSize</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to 13.</li>
+<li><code>minimumFontSize</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to 0.</li>
+<li><code>defaultEncoding</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Defaults to ISO-8859-1.</li>
+<li><code>backgroundThrottling</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether to throttle animations and timers when the page becomes background. Defaults to true.</li>
+<li><code>offscreen</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether to enable offscreen rendering for the browser window. Defaults to false. See the offscreen rendering tutorial for more details.</li>
+<li><code>sandbox</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether to enable Chromium OS-level sandbox.</li>
+<li><code>contextIsolation</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Whether to run Electron APIs and the specified preload script in a separate JavaScript context. Defaults to false. The context that the preload script runs in will still have full access to the document and window globals but it will use its own set of JavaScript builtins (Array, Object, JSON, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the preload script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the preload script and any Electron APIs being used. This option uses the same technique used by Chrome Content Scripts. You can access this context in the dev tools by selecting the &apos;Electron Isolated Context&apos; entry in the combo box at the top of the Console tab. Note: This option is currently experimental and may change or be removed in future Electron releases.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="autoUpdater.html" class="navigation navigation-prev " aria-label="Previous page: 2.autoUpdater">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="contentTracing.html" class="navigation navigation-next " aria-label="Next page: 4.contentTracing">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.BrowserWindow","level":"1.4.6.3","depth":3,"next":{"title":"4.contentTracing","level":"1.4.6.4","depth":3,"path":"APIs/main/contentTracing.md","ref":"APIs/main/contentTracing.md","articles":[]},"previous":{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/BrowserWindow.md","mtime":"2017-03-03T10:29:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-03T02:23:25.371Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

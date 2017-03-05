@@ -1,6 +1,6 @@
 # 2.支持的平台
 
-原文地址：https://github.com/electron/electron/blob/master/docs/tutorial/supported-platforms.md   
+> 原文地址：https://github.com/electron/electron/blob/master/docs/tutorial/supported-platforms.md   
 译者：[Lin]()   
 
 以下平台支持Electron：   
