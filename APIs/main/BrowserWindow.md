@@ -5,7 +5,7 @@
 
 > 创建并且控制浏览器窗口。
 
-进程：[主进程](https://github.com/electron/electron/blob/master/docs/glossary.md#main-process)   
+进程：[主进程](../../guides/glossary-of-terms.html#main-process)   
 
     // In the main process.
     const {BrowserWindow} = require('electron')
@@ -68,7 +68,7 @@
 
 这个`child`窗口将总展示在`top`窗口的上面。
 
-<h3 id="modal-windows">模态窗口<h3>
+<h3 id="modal-windows">模态窗口</h3>
 
 一个模态窗口是一个禁用父窗口的子窗口，创建一个模态窗口，你需要设置`parent`和`modal`选项：
 
@@ -92,7 +92,7 @@
 
 > 创建并且控制浏览器窗口。   
 
-进程：[主进程](https://github.com/electron/electron/blob/master/docs/glossary.md#main-process)    
+进程：[主进程](../../guides/glossary-of-terms.html#main-process)    
 
 `BrowserWindow`是一个[EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)。   
 
@@ -176,7 +176,7 @@
          * `minimumFontSize` Integer类型（可选参数）- 最小字体大小，默认是`0`。
          * `defaultEncoding` String类型（可选参数）- 默认编码，默认是`ISO-8859-1`。
          * `backgroundThrottling` Boolean类型（可选参数）- 当页面变成背景时是否停止动画和计时器。默认是`true`。
-         * `offscreen` Boolean类型（可选参数）- 是否启用浏览器窗口在屏幕外渲染。查看[离屏渲染教程](https://github.com/electron/electron/blob/master/docs/tutorial/offscreen-rendering.md)来获得详细信息。
+         * `offscreen` Boolean类型（可选参数）- 是否启用浏览器窗口在屏幕外渲染。查看[离屏渲染教程](../../guides/offscreen-rendering.html)来获得详细信息。
          * `sandbox` Boolean类型（可选参数）- 是否开启Chromium系统级别的沙盒。
          * `contextIsolation` Boolean类型（可选参数）- 是否在一个隔离的Javascript环境中运行Ellectron接口和指定的预加载脚本。默认是`false`。Defaults to false. The context that the preload script runs in will still have full access to the document and window globals but it will use its own set of JavaScript builtins (Array, Object, JSON, etc.) and will be isolated from any changes made to the global environment by the loaded page. Electron接口将会仅在`preload`脚本中有效而不在已经加载的页面中有效。This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the preload script and any Electron APIs being used. 这个选项使用和[Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)使用的相同的技术。你可以在开发工具中通过在控制台选项卡的顶部的组合框中选中'Electron Isolated Context'入口里获取context。**注意：**这个选项仅是当前的实验项，可能会在未来的Electron版本中改变或被移除。   
 
@@ -412,7 +412,7 @@
 
 窗口拥有的一个`WebContents`对象。所有与网页有关的事件和操作都会通过它来完成。
 
-查看[`webContents` documentation](https://github.com/electron/electron/blob/master/docs/api/web-contents.md)来了解它的方法和事件。
+查看[`webContents` documentation](./webContents.html)来了解它的方法和事件。
 
 <h4 id="win-id">win.id</h4>
 
@@ -876,47 +876,138 @@ Windows和Linux下总是返回`true`。
 
 返回值为`Boolean`类型 - 按钮是否被成功的添加。
 
-添加一个小的工具栏 with a specified set of buttons to the thumbnail image of a window 在一个任务栏按钮布局上。 Returns a Boolean object indicates whether the thumbnail has been added successfully.
+添加一个带有一些按钮的缩略图工具栏在一个任务栏按钮布局上的窗口的缩略图上。返回一个`Boolean`对象来表示这个小东西是否被添加成功。
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+缩略图工具栏上由于有限的空间按钮的数量应该不能超过7个。一旦你设置了缩略图工具栏，由于平台的限制，这个工具栏将不可以被移除。但是你可以调用这个接口传入一个空的数组来清空这些按钮。
 
-The buttons is an array of Button objects:
+`buttons`是一个`Button`对象的数组：
 
-    Button Object
-        icon NativeImage - The icon showing in thumbnail toolbar.
-        click Function
-        tooltip String (optional) - The text of the button's tooltip.
-        flags String - Control specific states and behaviors of the button. By default, it is ['enabled'].
+ * `Button` Object类型
+     * `icon` NativeImage类型 - 在缩略图工具栏上展示的图标。
+     * `click` Function类型
+     * `tooltip` String类型（可选参数）- 这按钮的工具提示的文字。
+     * `flags` String类型 - 控制按钮的特殊的状态和行为。通常来说这个值是`['enabled']`。
 
-The flags is an array that can include following Strings:
+`flags`是一个可以包含下面字符串的数组：
 
-    enabled - The button is active and available to the user.
-    disabled - The button is disabled. It is present, but has a visual state indicating it will not respond to user action.
-    dismissonclick - When the button is clicked, the thumbnail window closes immediately.
-    nobackground - Do not draw a button border, use only the image.
-    hidden - The button is not shown to the user.
-    noninteractive - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+ * `enabled` - 按钮是可点击的并且对用户有效。
+ * `disabled` - 按钮是禁用的。按钮存在，但是有一个视觉状态表明它不可以响应用户的点击。
+ * `dismissonclick` - 当按钮被点击，这个缩略图窗口将会被立刻关闭。
+ * `nobackground` - 不绘制按钮的边框，只使用图片。
+ * `hidden` - 按钮不展示给用户。
+ * `noninteractive` - 按钮已经启用但是不进行交互；按下按钮的状态不会被绘制。这个值适用于被用在通知中的按钮中。
 
+<h4 id="win-setThumbnailClip">win.setThumbnailClip(region) <i>（Windows）</i></h4>
 
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
-<h4 id="win-">win.()</h4>
+ * `region` [Rectangle](https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md) - 窗口的区域。
 
+设置当鼠标悬停在任务栏上时，窗口中展示缩略图的区域。你可以通过指定一个空的区域`{x: 0, y: 0, width: 0, height: 0}`来重新设置整个窗口的缩略图。
 
+<h4 id="win-setThumbnailToolTip">win.setThumbnailToolTip(toolTip) <i>Windows</i></h4>
+
+ * `toolTip` String类型
+
+设置当鼠标悬停在任务栏的缩略图窗口上时展示的提示文字。
+
+<h4 id="win-setAppDetails">win.setAppDetails(options) <i>（Windows）<i></h4>
+
+ * `options` Object类型
+     * `appId` String类型（可选参数）- 窗口的[App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。它必须被设置，否则其他的设置选项将没有效果。
+     * `appIconPath` String类型（可选参数）- 窗口的[Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
+     * `appIconIndex` Integer类型（可选参数） - `appIconPath`中的图标的索引值。当`appIconPath`没有被设置的时候将会被忽略。默认是`0`。
+     * `relaunchCommand` String类型（可选参数）- 窗口的[Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
+     * `relaunchDisplayName` String类型（可选参数）- 窗口的[Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
+
+设置窗口的任务栏按钮的特性。
+
+**注意：**`relaunchCommand`和`relaunchDisplayName`必须被一起设置。如果有一个没有被设置，那么它们都不会被使用。
+
+<h4 id="win-showDefinitionForSelection">win.showDefinitionForSelection() <i>（MacOS）</i></h4>
+
+同`webContents.showDefinitionForSelection()`一样。
+
+<h4 id="win-setIcon">win.setIcon(icon) <i>（Windows，Linux）</i></h4>
+
+ * `icon` [NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md)
+
+改变窗口的图标。
+
+<h4 id="win-setAutoHideMenuBar">win.setAutoHideMenuBar(hide)</h4>
+
+ * `hide` Boolean类型
+
+设置窗口的菜单栏是否自动隐藏。一旦设置，菜单栏将只会在用户按下`Alt`键时展示。
+
+如果菜单栏已经是可见的，调用`setAutoHideMenuBar(true)`将不会被立刻隐藏。
+
+<h4 id="win-isMenuBarVisible">win.isMenuBarVisible()</h4>
+
+返回值为`Boolean`类型 - 菜单栏是否是可见的。
+
+<h4 id="win-setVisibleOnAllWorkspaces">win.setVisibleOnAllWorkspaces(visible)</h4>
+
+ * `visible` Boolean类型
+
+设置窗口在所有工作空间是否可见。
+
+**注意：**这个接口将不会在Windows下工作。
+
+<h4 id="win-isVisibleOnAllWorkspaces">win.isVisibleOnAllWorkspaces()</h4>
+
+返回值为`Boolean`类型 - 窗口是否在所有工作空间是否可见。
+
+**注意：**这个接口将不会在Windows下工作。
+
+<h4 id="win-setIgnoreMouseEvents">win.setIgnoreMouseEvents(ignore)</h4>
+
+ * `ignore` Boolean类型
+
+使窗口忽略所有鼠标事件。
+
+所有在这个窗口中发生的鼠标事件都会被转移到这个窗口的下面窗口中，但是如果这个窗口获得焦点，它仍然会接收键盘事件。
+
+<h4 id="win-setContentProtection">win.setContentProtection(enable) <i>（MacOS，Windows）</i></h4>
+
+ * `enable` Boolean类型
+
+防止窗口的内容被其他的应用捕获。
+
+MacOS中它会设置`NSWindow`的`sharingType`为`NSWindowSharingNone`。Windows中它会调用`SetWindowDisplayAffinity`传入`WDA_MONITOR`。
+
+<h4 id="win-setFocusable">win.setFocusable(focusable) <i>（Windows）</i></h4>
+
+ * `focusable` Boolean类型
+
+改变窗口是否可以被聚焦。
+
+<h4 id="win-setParentWindow">win.setParentWindow(parent) <i>（Linux，MacOS）</i></h4>
+
+ * `parent` BrowserWindow类型
+
+设置`parent`为当前窗口的父窗口，设置`null`将会使当前窗口放到一个顶级窗口中。
+
+<h4 id="win-getParentWindow">win.getParentWindow()</h4>
+
+返回值为`BrowserWindow`类型 - 父窗口。
+
+<h4 id="win-getChildWindows">win.getChildWindows()</h4>
+
+返回值为`BrowserWindow[]`类型 - 所有子窗口。
+
+<h4 id="win-setAutoHideCursor">win.setAutoHideCursor(autoHide) <i>（MacOS）</i></h4>
+
+ * `autoHide` Boolean类型
+
+控制是否在输入时隐藏光标。
+
+<h4 id="win-setVibrancy">win.setVibrancy(type) <i>（MacOS）</i></h4>
+
+ * `type` String类型 - 可以是`appearance-based`，`light`，`dark`，`titlebar`，`selection`，`menu`，`popover`，`sidebar`，`medium-light`或`ultra-dark`。查看[macOS documentation](https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc)获取更多内容。
+
+给浏览器窗口添加一个震动效果。传入`null`或者是空字符串将会移除窗口的震动效果。
+
+<h4 id="win-setTouchBar">win.setTouchBar(touchBar) <i>（MacOS）</i></h4>
+
+ * `touchBar` TouchBar类型
+
+为当前窗口设置touchBar布局。指定`null`或者`undefined`将清除touch bar。这个方法只会在电脑有一个touch bar并且运行MacOS 10.12.1+系统上才会有效果。

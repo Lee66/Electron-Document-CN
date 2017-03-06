@@ -15,30 +15,30 @@
         app.quit()
     })
 
-### 事件   
+<h2 id="events">事件</h2>
 
 `app`对象会分发下面的事件。   
 
-##### 事件：‘will-finish-launching’   
+<h3 id="event-">事件：‘will-finish-launching’</h3>
 
 应用程序完成基本的启动时分发。Windows和Linux下，`will-finish-launching`事件和`ready`事件是相同的；macOS下，这个事件代表了`NSApplication`中的`applicationWillFinishLaunching`通知。你通常会在这里设置`open-file`和`open-url`事件的监听，并且开始记录崩溃日志和自动更新。   
 
 大多数情况下，你只需要在`ready`事件回调中做所有事情。   
 
-##### 事件：‘ready’   
+<h3 id="event-">事件：‘ready’</h3>
 返回值：   
 
  * `launchInfo`Object类型（macOS）   
 
 Electron完成初始化时分发事件。MacOS中，`launchInfo`包含了`NSUserNotification`中用来打开应用程序的`userInfo`，如果它从通知中心被分发。如果这个事件被分发你可以调用`app.isReady()`检查。   
 
-##### 事件：‘window-all-closed’   
+<h3 id="event-">事件：‘window-all-closed’</h3>
 
 当所有窗口都被关闭时分发此事件。   
 
 如果你没有订阅这个事件，那么当所有窗口都被关闭时默认行为是退出应用程序；然而，如果你订阅了，你可以控制是否退出应用程序。如果用户按`Cmd + Q`，或者开发者调用`app.quit()`，Electron将会首先尝试关闭所有窗口，然后分发`will-quit`事件，在这种情况下`window-all-closed`事件并不会被分发。   
 
-##### 事件：‘before-quit’   
+<h3 id="event-">事件：‘before-quit’</h3>
 返回值：   
 
  * `event` Event类型
@@ -47,7 +47,7 @@ Electron完成初始化时分发事件。MacOS中，`launchInfo`包含了`NSUser
 
 **注意：**如果应用程序是因为`autoUpdater.quitAndInstall()`而退出，那么`before-quit`将会在所有窗口分发`close`事件并且关闭所有窗口之后被分发。   
 
-##### 事件：‘will-quit’   
+<h3 id="event-">事件：‘will-quit’</h3>
 返回值：   
 
  * `event` Event类型   
@@ -56,7 +56,7 @@ Electron完成初始化时分发事件。MacOS中，`launchInfo`包含了`NSUser
 
 查看`window-all-closed`事件和`will-quit and window-all-closed`事件描述上的区别。   
 
-##### 事件：‘quit’   
+<h3 id="event-quit">事件：‘quit’</h3>
 返回值：   
 
  * `event` Event类型   
@@ -64,7 +64,7 @@ Electron完成初始化时分发事件。MacOS中，`launchInfo`包含了`NSUser
 
 应用程序正在退出时被分发。   
 
-##### 事件：‘open-file’ *（MacOS）*     
+<h3 id="event-open-file">事件：‘open-file’ <i>（MacOS）</i></h3>
 返回值：    
 
  * `event` Event类型   
@@ -76,7 +76,7 @@ Electron完成初始化时分发事件。MacOS中，`launchInfo`包含了`NSUser
 
 Windows中，你需要分析`process.argv`（在主进程中）来得到文件路径。   
 
-##### 事件：‘open-url’    
+<h3 id="event-open-url">事件：‘open-url’ <i>（MacOS）</i></h3>
 返回值：   
 
  * `event` Event类型   
@@ -86,7 +86,7 @@ Windows中，你需要分析`process.argv`（在主进程中）来得到文件�
 
 如果你想要处理这个事件，你需要调用event.preventDefault()。   
 
-##### 事件：‘activate’   
+<h3 id="event-activate">事件：‘activate’ <i>（MacOS）</i></h3>
 返回值：   
 
  * `event` Event类型    
@@ -94,7 +94,7 @@ Windows中，你需要分析`process.argv`（在主进程中）来得到文件�
 
 当用户点击应用程序在dock上的图标导致应用程序被激活时分发。   
 
-##### 事件：‘continue-activity’   
+<h3 id="event-continue-activity">事件：‘continue-activity’ <i>（MacOS）</i></h3>
 返回值：   
 
  * `event` Event类型   
@@ -105,31 +105,31 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 A user activity can be continued only in an app that has the same developer Team ID as the activity’s source app and that supports the activity’s type. Supported activity types are specified in the app’s Info.plist under the NSUserActivityTypes key.   
 
-##### 事件：‘browser-window-blur’   
+<h3 id="event-browser-window-blur">事件：‘browser-window-blur’</h3>
 返回值：   
 
  * `event` Event类型   
  * `window` BrowserWindow类型   
 
-当一个[browserWindow](https://electron.atom.io/docs/api/browser-window)失去焦点的时候被分发。   
+当一个[browserWindow](./BrowserWindow.html)失去焦点的时候被分发。   
 
-##### 事件：‘browser-window-focus’   
+<h3 id="event-browser-window-focus">事件：‘browser-window-focus’</h3>
 返回值：   
 
  * `event` Event类型   
  * `window` BrowserWindow类型   
 
-当一个[browserWindow](https://electron.atom.io/docs/api/browser-window)获得焦点的时候被分发。   
+当一个[browserWindow](./BrowserWindow.html)获得焦点的时候被分发。   
 
-###### 事件：'browser-window-created’   
+<h3 id="event-browser-window-created">事件：'browser-window-created’</h3>
 返回值：   
 
  * `event` Event类型   
  * `window` BrowserWindow类型   
 
-当一个新的[browserWindow](https://electron.atom.io/docs/api/browser-window)被创建的时候被分发。   
+当一个新的[browserWindow](./BrowserWindow.html)被创建的时候被分发。   
 
-##### 事件：‘certificate-error’   
+<h3 id="event-certificate-error">事件：‘certificate-error’</h3>
 返回值：   
 
  * `event` Event类型   
@@ -154,7 +154,7 @@ A user activity can be continued only in an app that has the same developer Team
         }
     })
 
-##### 事件：‘select-client-certificate’   
+<h3 id="event-select-client-certificate">事件：‘select-client-certificate’</h3>
 返回值：   
 
  * `event` Event类型   
@@ -175,7 +175,7 @@ A user activity can be continued only in an app that has the same developer Team
         callback(list[0])
     })
 
-##### 事件：‘login’   
+<h3 id="event-login">事件：‘login’</h3>
 返回值：   
 
  * `event` Event类型   
@@ -205,7 +205,7 @@ A user activity can be continued only in an app that has the same developer Team
         callback('username', 'secret')
     })
 
-##### 事件：‘gpu-process-crashed’   
+<h3 id="event-gpu-process-crashed">事件：‘gpu-process-crashed’</h3>
 返回值：   
 
  * `event` Event类型   
@@ -213,7 +213,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 当GPU进程崩溃或者被杀死时被分发。   
 
-##### 事件：‘accessibility-support-changed’ *（MacOS，Windows）*   
+<h3 id="event-accessibility-support-changed">事件：‘accessibility-support-changed’ <i>（MacOS，Windows）</i></h3>
 返回值：   
 
  * `event` Event类型   
@@ -221,19 +221,19 @@ A user activity can be continued only in an app that has the same developer Team
 
 当Chrome的accessibility支持改变时被分发。这个事件在残疾人辅助功能，如屏幕阅读器被启用或停用时触发。详情见https://www.chromium.org/developers/design-documents/accessibility。   
 
-### 方法   
+<h2 id="methods">方法</h2>
 
 `app`对象有以下方法：   
 
 **注意：**某些方法只适用于特定的操作系统，已经被标记。   
 
-##### app.quit()   
+<h3 id="app-quit">app.quit()</h3>
 
 尝试关闭所有窗口。`before-quit`事件将首先被分发。如果所有窗口都被成功的关闭则`will-quit`事件将会被分发，并且默认情况下应用程序将会被终止。   
 
 这个方法保证了所有`beforeunload`和`unload`事件的回调被正确的执行。有可能在某个窗口取消退出并且在`beforeunload`事件中返回`false`。   
 
-##### app.exit([exitCode])   
+<h3 id="app-exit">app.exit([exitCode])</h3>
 
  * `exitCode` Integer类型（可选参数）   
 
@@ -241,7 +241,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 除非告诉用户否则所有窗口立刻关闭，并且`before-quit`事件和`will-quit`事件将不会被分发。   
 
-##### app.relaunch([options])   
+<h3 id="app-relaunch">app.relaunch([options])</h3>
 
  * `options` Object类型（可选参数）   
       * `args` String[]类型 -（可选参数）   
@@ -261,26 +261,27 @@ A user activity can be continued only in an app that has the same developer Team
     app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
     app.exit(0)
 
-##### app.isReady()   
+<h3 id="app-isReady">app.isReady()</h3>
 
 返回值为`Boolean`类型 - 如果是`true`则表示Electron已经完成初始化，如果是`false`则表示尚未完成初始化。   
 
-##### app.focus()   
+<h3 id="app-focus">app.focus()</h3>
 
 Linux中，聚焦在第一个可见的窗口。MacOS中，使得应用程序变成激活状态的应用程序。Windows中，聚焦在应用程序的第一个窗口。   
 
-##### app.hide()   
+<h3 id="app-hide">app.hide()</h3>
 
 隐藏所有应用程序的窗口，而不是最小化它们。   
 
-##### app.show()   
+<h3 id="app-show">app.show()</h3>
 
 显示隐藏后的应用程序窗口。但不会自动聚焦它们。   
 
-##### app.getAppPath()   
+<h3 id="app-getAppPath">app.getAppPath()</h3>
+
 返回值为`String`类型 - 当前应用程序的目录。   
 
-##### app.getPath(name)   
+<h3 id="app-getPath">app.getPath(name)</h3>
 
  * `name` String类型   
 
@@ -305,7 +306,7 @@ Linux中，聚焦在第一个可见的窗口。MacOS中，使得应用程序变�
  * `videos` 用户的视频目录。   
  * `pepperFlashSystemPlugin` Pepper Flash插件在当前系统版本中的完整路径。   
 
-##### app.setPath(name, path)   
+<h3 id="app-setPath">app.setPath(name, path)</h3>
 
  * `name` String类型   
  * `path` String类型   
@@ -316,23 +317,23 @@ Linux中，聚焦在第一个可见的窗口。MacOS中，使得应用程序变�
 
 默认情况下，网页的cookies和缓存将会被存储在`userData`目录下。如果你想要改变这个本地路径，你需要在`ready`事件被`app`模块分发之前重写`userData`对应的路径。   
 
-##### app.getVersion()   
+<h3 id="app-getVersion">app.getVersion()</h3>
 
 R返回值为`String`类型 - 已经加载的应用程序的版本号。如果在`package.json`文件内没有发现应用程序的版本号，那么就会返回当前包或者可执行文件的版本号。   
 
-##### app.getName()   
+<h3 id="app-getName">app.getName()</h3>
 
 返回值为`String`类型 - 写在应用程序`package.json`文件中的当前应用程序的名字。   
 
 通常根据npm 模块说明，`package.json`中的`name`字段是短的小写名称。你通常都需要指定一个`productName`字段，这个字段是你应用程序的全部大写的名字，这个字段的名字Electron将会作为首选名称。   
 
-##### app.setName(name)   
+<h3 id="app-setName">app.setName(name)</h3>
 
  * `name` String类型   
 
 重写当前应用程序的名字。   
 
-##### app.getLocale()   
+<h3 id="app-getLocale">app.getLocale()</h3>
 
 返回值为`String`类型 - 当前应用程序的本地路径。可能的返回值都将会被记录在这里。   
 
@@ -340,7 +341,7 @@ R返回值为`String`类型 - 已经加载的应用程序的版本号。如果�
 
 **注意：**Windows中你需要在`ready`事件被分发之后调用它。   
 
-##### app.addRecentDocument(path) *（MacOS，Windows）*   
+<h3 id="app-addRecentDocument">app.addRecentDocument(path) <i>（MacOS，Windows）</i></h3>
 
  * `path` String类型   
 
@@ -348,11 +349,11 @@ R返回值为`String`类型 - 已经加载的应用程序的版本号。如果�
 
 这个列表由系统管理。Windows中你可以在任务栏查看这个列表，macOS中你可以在dock菜单中查看这个列表。   
 
-##### app.clearRecentDocuments() *（MacOS，Windows）*   
+<h3 id="app-clearRecentDocuments">app.clearRecentDocuments() <i>（MacOS，Windows）</i></h3>
 
 清除最近使用的文件列表。   
 
-##### app.setAsDefaultProtocolClient(protocol[, path, args]) *（MacOS，Windows）*   
+<h3 id="app-setAsDefaultProtocolClient">app.setAsDefaultProtocolClient(protocol[, path, args]) <i>（MacOS，Windows）</i></h3>
 
  * `protocol` String类型 - 你的协议的名字，不包含`://`。如果你想要你的应用处理`electron://`链接，则使用`electron`作为参数来调用这个方法。   
  * `path` String类型（可选参数） Windows可用 - 默认为`process.execPath`   
@@ -368,7 +369,7 @@ Windows中你可以提供可选的`path`参数，路径指向的可执行文件�
 
 这个接口使用Windows Registry和LSSetDefaultHandlerForURLScheme内核。   
 
-##### app.removeAsDefaultProtocolClient(protocol[, path, args]) *（MacOS，Windows）*   
+<h3 id="app-removeAsDefaultProtocolClient">app.removeAsDefaultProtocolClient(protocol[, path, args]) <i>（MacOS，Windows）</i></h3>
 
  * `rotocol` String类型 - 你的协议的名字，不包含`://`。   
  * `path` String类型（可选参数）Windows可用 - 默认为`process.execPath`   
@@ -378,7 +379,7 @@ Windows中你可以提供可选的`path`参数，路径指向的可执行文件�
 
 这个方法检查当前可执行文件是否会默认处理一个协议（又名URI方案）。如果会处理，将从应用中移除这个默认处理。   
 
-##### app.isDefaultProtocolClient(protocol[, path, args]) *（MacOS，Windows）*   
+<h3 id="app-isDefaultProtocolClient">app.isDefaultProtocolClient(protocol[, path, args]) <i>（MacOS，Windows）</i></h3>
 
  * `protocol` String类型 - 你的协议的名字，不包含`://`。   
  * `path` String类型（可选参数）Windows可用 - 默认为`process.execPath`   
@@ -392,7 +393,7 @@ Windows中你可以提供可选的`path`参数，路径指向的可执行文件�
 
 这个接口使用Windows Registry和LSSetDefaultHandlerForURLScheme内核。   
 
-##### app.setUserTasks(tasks) *（Windows）*   
+<h3 id="app-setUserTasks">app.setUserTasks(tasks) <i>（Windows）</i></h3>
 
  * `tasks` [Task[]](https://electron.atom.io/docs/api/structures/task)类型 - Task类型的对象的数组。   
 
@@ -404,14 +405,14 @@ Windows中添加`tasks`到跳转列表的[Tasks](http://msdn.microsoft.com/en-us
 
 **注意：**如果你想要自定义更多关于跳转列表的内容，请使用`app.setJumpList(categories)`。   
 
-##### app.getJumpListSettings() *（Windows）*   
+<h3 id="app-getJumpListSettings">app.getJumpListSettings() <i>（Windows）</i></h3>
 
 返回值为`Object`类型：   
 
  * `minItems` Integer类型 - 将在跳转列表中展示的项目的最小数量（关于这个值的更详细的描述请看[MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)）。   
  * `removedItems` [JumpListItem[]](https://electron.atom.io/docs/api/structures/jump-list-item)类型 - `JumpListItem`对象类型的数组，`JumpListItem`对象对应的项是已经明确的从跳转列表中被用户删除的。这些项一定不能在下一次调用`app.setJumpList()`时被重新加入到跳转列表中，否则Windows将不会展示任何包含了删除项的内容。   
 
-##### app.setJumpList(categories) *（Windows）*   
+<h3 id="app-setJumpList">app.setJumpList(categories) <i>（Windows）</i></h3>
 
  * `categories` [JumpListCategory[]](https://electron.atom.io/docs/api/structures/jump-list-category)类型或者为`null` - `JumpListCategory`类型的对象的数组。   
 
@@ -487,7 +488,7 @@ Windows中添加`tasks`到跳转列表的[Tasks](http://msdn.microsoft.com/en-us
         }
     ])
 
-##### app.makeSingleInstance(callback)   
+<h3 id="app-makeSingleInstance">app.makeSingleInstance(callback)</h3>
 
  * `callback` Function类型   
       * `argv` String[]类型 - 第二实例的命令行参数数组   
@@ -524,11 +525,11 @@ MacOS中，当用户尝试在Finder中打开一个你应用程序的第二实例
     app.on('ready', () => {
     })
 
-##### app.releaseSingleInstance()   
+<h3 id="app-releaseSingleInstance">app.releaseSingleInstance()</h3>
 
 释放所有通过`makeSingleInstance`创建的锁。这将允许应用程序的多个实例再一次并排运行。   
 
-##### app.setUserActivity(type, userInfo[, webpageURL]) *（MacOS）*   
+<h3 id="app-setUserActivity">app.setUserActivity(type, userInfo[, webpageURL]) <i>（MacOS）</i></h3>
 
  * `type` String类型 - 活动的唯一标识。对应[`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)。   
  * `userInfo` Object类型 - App-specific state to store for use by another device.
@@ -537,17 +538,17 @@ MacOS中，当用户尝试在Finder中打开一个你应用程序的第二实例
 创建一个`NSUserActivity`并且将它设置为当前的活动。这个活动是有资格在以后[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html)到其他设备的。
 
 
-##### app.getCurrentActivityType() *（MacOS）*   
+<h3 id="app-getCurrentActivityType">app.getCurrentActivityType() <i>（MacOS）</i></h3>
 
 返回值为`String`类型 - 当前正在运行的活动的类型。   
 
-##### app.setAppUserModelId(id) *（Windows）*   
+<h3 id="app-setAppUserModelId">app.setAppUserModelId(id) <i>（Windows）</i></h3>
 
  * `id` String类型   
 
 使用参数`id`更改[Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx)。   
 
-##### app.importCertificate(options, callback) *（Linux）*   
+<h3 id="app-importCertificate">app.importCertificate(options, callback) <i>（Linux）</i></h3>
 
  * `options` Object类型   
      * `certificate` String类型 - pkcs12文件的路径。
@@ -557,13 +558,13 @@ MacOS中，当用户尝试在Finder中打开一个你应用程序的第二实例
 
 引用pkcs12类型的证书到到平台证书存储中。引用操作之后会将`result`传入调用`callback`，根据chromium的[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)，值为`0`时代表成功，其他任何值都代表失败。
 
-##### app.disableHardwareAcceleration()   
+<h3 id="app-disableHardwareAcceleration">app.disableHardwareAcceleration()</h3>
 
 禁用当前应用的硬件加速。   
 
 这个方法只能在应用准备之前调用。   
 
-##### app.setBadgeCount(count) *（MacOS，Linux）*   
+<h3 id="app-setBadgeCount">app.setBadgeCount(count) <i>（MacOS，Linux）</i></h3>
 
  * `count` Integer类型   
 
@@ -573,17 +574,17 @@ MacOS中，当用户尝试在Finder中打开一个你应用程序的第二实例
 
 MacOS中它将展示在dock的图标上。Linux中它只在Unity的启动器上工作。   
 
-**注意：**Unity启动器需要一个`.desktop`文件的实例才能工作，查看更多信息请阅读[Desktop Environment Integration](https://github.com/electron/electron/blob/master/docs/tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。   
+**注意：**Unity启动器需要一个`.desktop`文件的实例才能工作，查看更多信息请阅读[Desktop Environment Integration](../../tutorials/desktop-environment-integration.html#unity-launcher-shortcuts-linux)。   
 
-##### app.getBadgeCount() *（MacOS，Linux）*   
+<h3 id="app-getBadgeCount">app.getBadgeCount() <i>（MacOS，Linux）</i></h3>
 
 返回值是`Integer`类型 - 当前展示的计数标识的值。   
 
-##### app.isUnityRunning() *（Linux）*   
+<h3 id="app-isUnityRunning">app.isUnityRunning() <i>（Linux）</i></h3>
 
 返回值为Boolean - 当前的桌面面环境是否为Unity启动器。   
 
-##### app.getLoginItemSettings([options]) *（MacOS，Windows）*   
+<h3 id="app-getLoginItemSettings">app.getLoginItemSettings([options]) <i>（MacOS，Windows）</i></h3>
 
  * `options` Object类型（可选参数）   
      * `path` String类型（可选参数）Windows可用 - 与之前的可执行文件的目录相比较。默认是`process.execPath`。
@@ -601,7 +602,7 @@ MacOS中它将展示在dock的图标上。Linux中它只在Unity的启动器上�
 
 **注意：**这个接口在[MAS builds](https://github.com/electron/electron/blob/master/docs/tutorial/mac-app-store-submission-guide.md)上是没有效果的。
 
-##### app.setLoginItemSettings(settings[, path, args])*（MacOS，Windows）*    
+<h3 id="app-setLoginItemSettings">app.setLoginItemSettings(settings[, path, args]) <i>（MacOS，Windows）</i></h3>
 
  * `settings` Object类型   
      * `openAtLogin` Boolean类型（可选参数）- `true`为设置应用在登录系统时打开，`false`则将应用从登录启动项中移除。默认是`false`。   
@@ -628,11 +629,11 @@ Windows中和Electron的`autoUpdater`一起工作，which uses [Squirrel](https:
 
 **注意：**这个接口在[MAS builds](https://github.com/electron/electron/blob/master/docs/tutorial/mac-app-store-submission-guide.md)上是没有效果的。   
 
-##### app.isAccessibilitySupportEnabled() *（MacOS，Windows）*   
+<h3 id="app-isAccessibilitySupportEnabled">app.isAccessibilitySupportEnabled() <i>（MacOS，Windows）</i></h3>
 
 返回值为`Boolean`类型 - 如果Chrome的辅助功能被开启则是`true`，`false`则是尚未开启。如果检测到使用了辅助技术，比如屏幕阅读，这个接口将会返回`true`。详细请见https://www.chromium.org/developers/design-documents/accessibility。   
 
-##### app.setAboutPanelOptions(options) *(MacOS）*      
+<h3 id="app-setAboutPanelOptions">app.setAboutPanelOptions(options) <i>（MacOS）</i></h3>
 
  * `options` Object类型   
      * `applicationName` String类型（可选参数）- 应用的名字。   
@@ -643,7 +644,7 @@ Windows中和Electron的`autoUpdater`一起工作，which uses [Squirrel](https:
 
 设置关于面板的选项。这将会覆盖应用的`.plist`文件中的定义的值。查看[Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)获取更多信息。   
 
-##### app.commandLine.appendSwitch(switch[, value])   
+<h3 id="app-commandLine-appendSwitch">app.commandLine.appendSwitch(switch[, value])</h3>
 
  * `switch` String类型 - 一个命令行开关
  * `value` String类型（可选参数）- 传给开关的值
@@ -652,7 +653,7 @@ Windows中和Electron的`autoUpdater`一起工作，which uses [Squirrel](https:
 
 **注意：**这将不会影响`process.argv`，通常使用这个方法控制一些底层的Chromium行为。
 
-##### app.commandLine.appendArgument(value)   
+<h3 id="app-commandLine-appendArgument">app.commandLine.appendArgument(value)</h3>
 
  * `value` String类型 - 这个参数将会被加入到命令行中。
 
@@ -660,7 +661,7 @@ Windows中和Electron的`autoUpdater`一起工作，which uses [Squirrel](https:
 
 **注意：**这将不会影响`process.argv`。
 
-##### app.dock.bounce([type]) *（macOS）*   
+<h3 id="app-dock-bounce">app.dock.bounce([type]) <i>（MacOS）</i></h3>
 
  * `type` String类型（可选参数）- 可以是`critical`或者`informational`。默认是`informational`。   
 
@@ -670,47 +671,47 @@ Windows中和Electron的`autoUpdater`一起工作，which uses [Squirrel](https:
 
 返回值为代表着请求的`Integer`类型的ID。   
 
-##### app.dock.cancelBounce(id) *（macOS）*   
+<h3 id="app-dock-cancelBounce">app.dock.cancelBounce(id) <i>（MacOS）</i></h3>
 
  * `id` Integer类型   
 
 通过`id`来取消跳动。
 
-##### app.dock.downloadFinished(filePath) *（macOS）*   
+<h3 id="app-dock-downloadFinished">app.dock.downloadFinished(filePath) <i>（MacOS）</i></h3>
 
  * `filePath` String类型   
 
 如果`filePath`指向的是Downloads文件夹则会使下载图标跳动。   
 
-##### app.dock.setBadge(text) *（macOS）*   
+<h3 id="app-dock-setBadge">app.dock.setBadge(text) <i>（MacOS）</i></h3>
 
  * `text` String类型   
 
 设置在dock区域显示的字符串。   
 
-##### app.dock.getBadge() *（macOS）*   
+<h3 id="app-dock-getBadge">app.dock.getBadge() <i>（MacOS）</i></h3>
 
 返回值为`String`类型 - dock区域显示的字符串。   
 
-##### app.dock.hide() *（macOS）*    
+<h3 id="app-dock-hide">app.dock.hide() <i>（MacOS）</i></h3>
 
 隐藏dock上的图标。   
 
-##### app.dock.show() *（macOS）*    
+<h3 id="app-dock-show">app.dock.show() <i>（MacOS）</i></h3>
 
 展示dock上的图标。   
 
-##### app.dock.isVisible() *（macOS）*   
+<h3 id="app-dock-isVisible">app.dock.isVisible() <i>（MacOS）</i></h3>
 
 返回值为`Boolean`类型 - dock上的图标是否可见。`app.dock.show()`是异步调用，所以可能不会在调用后立刻返回结果。
 
-##### app.dock.setMenu(menu) *（macOS）*    
+<h3 id="app-dock-setMenu">app.dock.setMenu(menu) <i>（MacOS）</i></h3>
 
  * `menu` Menu类型
 
 设置应用的[dock菜单](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)。
 
-##### app.dock.setIcon(image) *（macOS）*   
+<h3 id="app-dock-setIcon">app.dock.setIcon(image) <i>（MacOS）</i></h3>
 
  * `image` (NativeImage | String)   
 

@@ -18,17 +18,17 @@
  * [squirrel-updates-server](https://github.com/Aluxian/squirrel-updates-server): *一个基于使用GitHub的Squirrel.Mac和Squirrel.Windows发布的简单的node.js的服务*   
  * [squirrel-release-server](https://github.com/Arcath/squirrel-release-server): *一个基于Squirrel.Windows的简单的PHP应用，通过folder. Supports读取更新信息进行更新*
 
-### 平台的注意事项   
+<h2 id="platform-notices">平台的注意事项</h2>
 
 虽然`autoUpdater`对不同平台提供一个统一的借口，但是每一个平台都有着细微的差别。   
 
-##### MacOS   
+<h3 id="macOS">MacOS<h3>   
 
 MacOS中，`autoUpdater`模块是基于[Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac)的，这意味着你不需要任何特殊的设置就能让他工作。对于服务器端的要求，你可以阅读[Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support)。请注意，[App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) 适用于将所有的请求都作为更新过程的一部分。应用如果需要禁用ATS可以将`NSAllowsArbitraryLoads`添加到他们应用的plist文件中。   
 
 **注意：**你的应用必须在MacOS上注册自动更新。这是`Squirrel.Mac`的要求。   
 
-##### Windows   
+<h3 id="windows">Windows</h3>
 
 Windows中，你需要在你使用`autoUpdater`之前安装你的应用到用户的机器上，所以建议你使用[electron-winstaller](https://github.com/electron/windows-installer)，[electron-builder](https://github.com/electron-userland/electron-builder)或者[grunt-electron-installer](https://github.com/electron/grunt-electron-installer)来打包生成一个Windows安装包。   
 
@@ -38,15 +38,15 @@ Windows中，你需要在你使用`autoUpdater`之前安装你的应用到用户
 
 服务端的设置也是不同于MacOS。你可以阅读[Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows)的文档来获取更多信息。   
 
-##### Linux   
+<h3 id="linux">Linux</h3>
 
 Linux中没有内置支持自动更新，所以建议使用发布包管理器来更新你的应用。   
 
-### 事件   
+<h2 id="events">事件</h2>
 
 `autoUpdater`对象分发下面的事件：
 
-##### 事件：'error'   
+<h3 id="event-error">事件：'error'</h3>
 
 返回值：
 
@@ -54,19 +54,19 @@ Linux中没有内置支持自动更新，所以建议使用发布包管理器来
 
 更新出错时被分发。   
 
-##### 事件：'checking-for-update'   
+<h3 id="event-checking-for-update">事件：'checking-for-update'</h3>
 
 检查更新是否启动时被分发。
 
-##### 事件：'update-available'   
+<h3 id="event-update-available">事件：'update-available'</h3>
 
 当有可用的更新时被分发。这个更新将会被自动下载。
 
-##### 事件：'update-not-available'   
+<h3 id="event-update-not-available">事件：'update-not-available'</h3>
 
 当有没有可用的更新时被分发。
 
-##### 事件：'update-downloaded'   
+<h3 id="event-update-downloaded">事件：'update-downloaded'</h3>
 
 返回值：   
 
@@ -80,26 +80,26 @@ Linux中没有内置支持自动更新，所以建议使用发布包管理器来
 
 Windows中只有`releaseName`是有效的。
 
-### 方法   
+<h2 id="methods">方法</h2>
 
 `autoUpdater`对象有以下的方法：
 
-##### autoUpdater.setFeedURL(url[, requestHeaders])   
+<h3 id="autoUpdater-setFeedURL">autoUpdater.setFeedURL(url[, requestHeaders])</h3>
 
  * `url` String类型
  * `requestHeaders` Object类型 *MacOS可用* （可选参数）- HTTP请求头。
 
 设置`url`和初始化自动更新。    
 
-##### autoUpdater.getFeedURL()   
+<h3 id="autoUpdater-getFeedURL">autoUpdater.getFeedURL()</h3>
 
 返回值为`String`类型 - 当前的提供更新的URL。   
 
-##### autoUpdater.checkForUpdates()   
+<h3 id="autoUpdater-checkForUpdates">autoUpdater.checkForUpdates()</h3>
 
 询问服务器是否有更新。你必须在使用这个接口之前`setFeedURL`。
 
-##### autoUpdater.quitAndInstall()
+<h3 id="autoUpdater-quitAndInstall">autoUpdater.quitAndInstall()</h3>
 
 在下载完之后安装更新并且重启应用。这个接口需要在`update-downloaded`事件被分发之后调用。
 

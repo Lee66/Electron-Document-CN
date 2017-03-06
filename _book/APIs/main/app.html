@@ -1204,7 +1204,7 @@
                                 
                                 <h1 id="1app">1.app</h1>
 <blockquote>
-<p>&#x539F;&#x6587;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/api/app.md" target="_blank">https://github.com/electron/electron/blob/master/docs/api/app.md</a><br>&#x8BD1;&#x8005;&#xFF1A;<a href="">Lin</a>   </p>
+<p>&#x539F;&#x6587;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/api/app.md" target="_blank">https://github.com/electron/electron/blob/master/docs/api/app.md</a><br>&#x8BD1;&#x8005;&#xFF1A;<a href="https://github.com/ShmilyLin" target="_blank">Lin</a>   </p>
 <p>&#x63A7;&#x5236;&#x4F60;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E8B;&#x4EF6;   </p>
 </blockquote>
 <p>&#x8FDB;&#x7A0B;&#xFF1A;&#x4E3B;&#x8FDB;&#x7A0B;   </p>
@@ -1213,200 +1213,226 @@
 app.on(&apos;window-all-closed&apos;, () =&gt; {
     app.quit()
 })
-</code></pre><h3 id="&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6;</h3>
+</code></pre><h2 id="events">&#x4E8B;&#x4EF6;</h2>
+
 <p><code>app</code>&#x5BF9;&#x8C61;&#x4F1A;&#x5206;&#x53D1;&#x4E0B;&#x9762;&#x7684;&#x4E8B;&#x4EF6;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;will-finish-launching">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;will-finish-launching&#x2019;</h5>
+<h3 id="event-">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;will-finish-launching&#x2019;</h3>
+
 <p>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5B8C;&#x6210;&#x57FA;&#x672C;&#x7684;&#x542F;&#x52A8;&#x65F6;&#x5206;&#x53D1;&#x3002;Windows&#x548C;Linux&#x4E0B;&#xFF0C;<code>will-finish-launching</code>&#x4E8B;&#x4EF6;&#x548C;<code>ready</code>&#x4E8B;&#x4EF6;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF1B;macOS&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x4EE3;&#x8868;&#x4E86;<code>NSApplication</code>&#x4E2D;&#x7684;<code>applicationWillFinishLaunching</code>&#x901A;&#x77E5;&#x3002;&#x4F60;&#x901A;&#x5E38;&#x4F1A;&#x5728;&#x8FD9;&#x91CC;&#x8BBE;&#x7F6E;<code>open-file</code>&#x548C;<code>open-url</code>&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#xFF0C;&#x5E76;&#x4E14;&#x5F00;&#x59CB;&#x8BB0;&#x5F55;&#x5D29;&#x6E83;&#x65E5;&#x5FD7;&#x548C;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x3002;   </p>
 <p>&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x5728;<code>ready</code>&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x4E2D;&#x505A;&#x6240;&#x6709;&#x4E8B;&#x60C5;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;ready">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;ready&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>launchInfo</code>Object&#x7C7B;&#x578B;&#xFF08;macOS&#xFF09;   </li>
-</ul>
-<p>Electron&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x5206;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;MacOS&#x4E2D;&#xFF0C;<code>launchInfo</code>&#x5305;&#x542B;&#x4E86;<code>NSUserNotification</code>&#x4E2D;&#x7528;&#x6765;&#x6253;&#x5F00;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;<code>userInfo</code>&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4ECE;&#x901A;&#x77E5;&#x4E2D;&#x5FC3;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x88AB;&#x5206;&#x53D1;&#x4F60;&#x53EF;&#x4EE5;&#x8C03;&#x7528;<code>app.isReady()</code>&#x68C0;&#x67E5;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;window-all-closed">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;window-all-closed&#x2019;</h5>
+<h3 id="event-">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;ready&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `launchInfo`Object&#x7C7B;&#x578B;&#xFF08;macOS&#xFF09;   
+
+Electron&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x5206;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;MacOS&#x4E2D;&#xFF0C;`launchInfo`&#x5305;&#x542B;&#x4E86;`NSUserNotification`&#x4E2D;&#x7528;&#x6765;&#x6253;&#x5F00;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;`userInfo`&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4ECE;&#x901A;&#x77E5;&#x4E2D;&#x5FC3;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x88AB;&#x5206;&#x53D1;&#x4F60;&#x53EF;&#x4EE5;&#x8C03;&#x7528;`app.isReady()`&#x68C0;&#x67E5;&#x3002;   
+
+<h3 id="event-">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;window-all-closed&#x2019;</h3>
+
 <p>&#x5F53;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x90FD;&#x88AB;&#x5173;&#x95ED;&#x65F6;&#x5206;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;   </p>
 <p>&#x5982;&#x679C;&#x4F60;&#x6CA1;&#x6709;&#x8BA2;&#x9605;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x90FD;&#x88AB;&#x5173;&#x95ED;&#x65F6;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x662F;&#x9000;&#x51FA;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF1B;&#x7136;&#x800C;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x8BA2;&#x9605;&#x4E86;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x662F;&#x5426;&#x9000;&#x51FA;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;&#x5982;&#x679C;&#x7528;&#x6237;&#x6309;<code>Cmd + Q</code>&#xFF0C;&#x6216;&#x8005;&#x5F00;&#x53D1;&#x8005;&#x8C03;&#x7528;<code>app.quit()</code>&#xFF0C;Electron&#x5C06;&#x4F1A;&#x9996;&#x5148;&#x5C1D;&#x8BD5;&#x5173;&#x95ED;&#x6240;&#x6709;&#x7A97;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x5206;&#x53D1;<code>will-quit</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;<code>window-all-closed</code>&#x4E8B;&#x4EF6;&#x5E76;&#x4E0D;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;before-quit">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;before-quit&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;</li>
-</ul>
-<p>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5F00;&#x59CB;&#x5173;&#x95ED;&#x7A97;&#x53E3;&#x4E4B;&#x524D;&#x5206;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;&#x8C03;&#x7528;<code>event.preventDefault()</code>&#x5C06;&#x963B;&#x6B62;&#x7EC8;&#x6B62;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;   </p>
-<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x5982;&#x679C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x662F;&#x56E0;&#x4E3A;<code>autoUpdater.quitAndInstall()</code>&#x800C;&#x9000;&#x51FA;&#xFF0C;&#x90A3;&#x4E48;<code>before-quit</code>&#x5C06;&#x4F1A;&#x5728;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x5206;&#x53D1;<code>close</code>&#x4E8B;&#x4EF6;&#x5E76;&#x4E14;&#x5173;&#x95ED;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x4E4B;&#x540E;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;will-quit">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;will-quit&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x6240;&#x6709;&#x7A97;&#x53E3;&#x90FD;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C06;&#x8981;&#x9000;&#x51FA;&#x7684;&#x65F6;&#x5019;&#x5206;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;&#x8C03;&#x7528;event.preventDefault()&#x5C06;&#x963B;&#x6B62;&#x7EC8;&#x6B62;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;   </p>
-<p>&#x67E5;&#x770B;<code>window-all-closed</code>&#x4E8B;&#x4EF6;&#x548C;<code>will-quit and window-all-closed</code>&#x4E8B;&#x4EF6;&#x63CF;&#x8FF0;&#x4E0A;&#x7684;&#x533A;&#x522B;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;quit">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;quit&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>exitCode</code> Integer&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6B63;&#x5728;&#x9000;&#x51FA;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;open-file-&#xFF08;macos&#xFF09;">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;open-file&#x2019; <em>&#xFF08;MacOS&#xFF09;</em></h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;    </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>path</code> String&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x7528;&#x6237;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;<code>open-file</code>&#x4E8B;&#x4EF6;&#x901A;&#x5E38;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5DF2;&#x7ECF;&#x6253;&#x5F00;&#x5E76;&#x4E14;&#x7CFB;&#x7EDF;&#x60F3;&#x8981;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x91CD;&#x65B0;&#x6587;&#x4EF6;&#x65F6;&#x5206;&#x53D1;&#x3002;<code>open-file</code>&#x4E5F;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x62D6;&#x5165;&#x5230;dock&#x5E76;&#x4E14;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C1A;&#x672A;&#x8FD0;&#x884C;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x8BF7;&#x786E;&#x8BA4;&#x975E;&#x5E38;&#x65E9;&#x7684;&#x76D1;&#x542C;<code>open-file</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x4F60;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x65F6;&#x80FD;&#x591F;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF08;&#x751A;&#x81F3;&#x4F1A;&#x5728;<code>ready</code>&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x4E4B;&#x524D;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#xFF09;&#x3002;   </p>
-<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;<code>event.preventDefault()</code>&#x3002;   </p>
-<p>Windows&#x4E2D;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5206;&#x6790;<code>process.argv</code>&#xFF08;&#x5728;&#x4E3B;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF09;&#x6765;&#x5F97;&#x5230;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;open-url">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;open-url&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>url</code> String&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x5F53;&#x7528;&#x6237;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;<code>Info.plist</code>&#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x4F7F;&#x7528;<code>CFBundleURLTypes</code>&#x952E;&#x5B9A;&#x4E49;url&#x4F53;&#x7CFB;&#xFF0C;&#x5E76;&#x4E14;&#x5728;<code>AtomApplication</code>&#x4E2D;&#x8BBE;&#x7F6E;<code>NSPrincipalClass</code>&#x3002;   </p>
-<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;event.preventDefault()&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;activate">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;activate&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;    </li>
-<li><code>hasVisibleWindows</code> Boolean&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x5F53;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5728;dock&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x5BFC;&#x81F4;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x88AB;&#x6FC0;&#x6D3B;&#x65F6;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;continue-activity">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;continue-activity&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>type</code> String&#x7C7B;&#x578B; - A string identifying the activity&#x3002;&#x5BF9;&#x5E94;<code>NSUserActivity.activityType</code>&#x3002;   </li>
-<li><code>userInfo</code> Object&#x7C7B;&#x578B; - Contains app-specific state stored by the activity on another device.   </li>
-</ul>
-<p>Emitted during <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html" target="_blank">Handoff</a> when an activity from a different device wants to be resumed. &#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;event.preventDefault()&#x3002;   </p>
-<p>A user activity can be continued only in an app that has the same developer Team ID as the activity&#x2019;s source app and that supports the activity&#x2019;s type. Supported activity types are specified in the app&#x2019;s Info.plist under the NSUserActivityTypes key.   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;browser-window-blur">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;browser-window-blur&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>window</code> BrowserWindow&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x5F53;&#x4E00;&#x4E2A;<a href="https://electron.atom.io/docs/api/browser-window" target="_blank">browserWindow</a>&#x5931;&#x53BB;&#x7126;&#x70B9;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;browser-window-focus">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;browser-window-focus&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>window</code> BrowserWindow&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x5F53;&#x4E00;&#x4E2A;<a href="https://electron.atom.io/docs/api/browser-window" target="_blank">browserWindow</a>&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h6 id="&#x4E8B;&#x4EF6;&#xFF1A;browser-window-created">&#x4E8B;&#x4EF6;&#xFF1A;&apos;browser-window-created&#x2019;</h6>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>window</code> BrowserWindow&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x5F53;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<a href="https://electron.atom.io/docs/api/browser-window" target="_blank">browserWindow</a>&#x88AB;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;certificate-error">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;certificate-error&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>webContents</code> WebContents&#x7C7B;&#x578B;   </li>
-<li><code>url</code> String&#x7C7B;&#x578B;   </li>
-<li><code>error</code> String&#x7C7B;&#x578B; - &#x9519;&#x8BEF;&#x4EE3;&#x7801;   </li>
-<li><code>certificate</code> Certificate&#x7C7B;&#x578B;   </li>
-<li><code>callback</code> Function&#x7C7B;&#x578B;   <ul>
-<li><code>isTrusted</code> Boolean&#x7C7B;&#x578B; - &#x8BC1;&#x4E66;&#x662F;&#x5426;&#x662F;&#x53EF;&#x4FE1;&#x7684;   </li>
-</ul>
-</li>
-</ul>
-<p>&#x65E0;&#x6CD5;&#x9A8C;&#x8BC1;<code>url</code>&#x7684;<code>certificate</code>&#x65F6;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x76F8;&#x4FE1;&#x8FD9;&#x4E2A;&#x8BC1;&#x4E66;&#xFF0C;&#x5E76;&#x4E14;&#x4F60;&#x9700;&#x8981;&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;<code>event.preventDefault()</code>&#x548C;<code>callback(true)</code>&#x3002;   </p>
-<pre><code>const {app} = require(&apos;electron&apos;)
+<h3 id="event-">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;before-quit&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
 
-app.on(&apos;certificate-error&apos;, (event, webContents, url, error, certificate, callback) =&gt; {
-    if (url === &apos;https://github.com&apos;) {
-        // Verification logic.
+ * `event` Event&#x7C7B;&#x578B;
+
+&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5F00;&#x59CB;&#x5173;&#x95ED;&#x7A97;&#x53E3;&#x4E4B;&#x524D;&#x5206;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;&#x8C03;&#x7528;`event.preventDefault()`&#x5C06;&#x963B;&#x6B62;&#x7EC8;&#x6B62;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;   
+
+**&#x6CE8;&#x610F;&#xFF1A;**&#x5982;&#x679C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x662F;&#x56E0;&#x4E3A;`autoUpdater.quitAndInstall()`&#x800C;&#x9000;&#x51FA;&#xFF0C;&#x90A3;&#x4E48;`before-quit`&#x5C06;&#x4F1A;&#x5728;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x5206;&#x53D1;`close`&#x4E8B;&#x4EF6;&#x5E76;&#x4E14;&#x5173;&#x95ED;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x4E4B;&#x540E;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+<h3 id="event-">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;will-quit&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+
+&#x6240;&#x6709;&#x7A97;&#x53E3;&#x90FD;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C06;&#x8981;&#x9000;&#x51FA;&#x7684;&#x65F6;&#x5019;&#x5206;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;&#x8C03;&#x7528;event.preventDefault()&#x5C06;&#x963B;&#x6B62;&#x7EC8;&#x6B62;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;   
+
+&#x67E5;&#x770B;`window-all-closed`&#x4E8B;&#x4EF6;&#x548C;`will-quit and window-all-closed`&#x4E8B;&#x4EF6;&#x63CF;&#x8FF0;&#x4E0A;&#x7684;&#x533A;&#x522B;&#x3002;   
+
+<h3 id="event-quit">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;quit&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `exitCode` Integer&#x7C7B;&#x578B;   
+
+&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6B63;&#x5728;&#x9000;&#x51FA;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+<h3 id="event-open-file">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;open-file&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;    
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `path` String&#x7C7B;&#x578B;   
+
+&#x7528;&#x6237;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;`open-file`&#x4E8B;&#x4EF6;&#x901A;&#x5E38;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5DF2;&#x7ECF;&#x6253;&#x5F00;&#x5E76;&#x4E14;&#x7CFB;&#x7EDF;&#x60F3;&#x8981;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x91CD;&#x65B0;&#x6587;&#x4EF6;&#x65F6;&#x5206;&#x53D1;&#x3002;`open-file`&#x4E5F;&#x5728;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x62D6;&#x5165;&#x5230;dock&#x5E76;&#x4E14;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C1A;&#x672A;&#x8FD0;&#x884C;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x8BF7;&#x786E;&#x8BA4;&#x975E;&#x5E38;&#x65E9;&#x7684;&#x76D1;&#x542C;`open-file`&#x4E8B;&#x4EF6;&#xFF0C;&#x4EE5;&#x4FBF;&#x5728;&#x4F60;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x65F6;&#x80FD;&#x591F;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF08;&#x751A;&#x81F3;&#x4F1A;&#x5728;`ready`&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x4E4B;&#x524D;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#xFF09;&#x3002;   
+
+&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;`event.preventDefault()`&#x3002;   
+
+Windows&#x4E2D;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5206;&#x6790;`process.argv`&#xFF08;&#x5728;&#x4E3B;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF09;&#x6765;&#x5F97;&#x5230;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;   
+
+<h3 id="event-open-url">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;open-url&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `url` String&#x7C7B;&#x578B;   
+
+&#x5F53;&#x7528;&#x6237;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;`Info.plist`&#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x4F7F;&#x7528;`CFBundleURLTypes`&#x952E;&#x5B9A;&#x4E49;url&#x4F53;&#x7CFB;&#xFF0C;&#x5E76;&#x4E14;&#x5728;`AtomApplication`&#x4E2D;&#x8BBE;&#x7F6E;`NSPrincipalClass`&#x3002;   
+
+&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;event.preventDefault()&#x3002;   
+
+<h3 id="event-activate">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;activate&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;    
+ * `hasVisibleWindows` Boolean&#x7C7B;&#x578B;   
+
+&#x5F53;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5728;dock&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x5BFC;&#x81F4;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x88AB;&#x6FC0;&#x6D3B;&#x65F6;&#x5206;&#x53D1;&#x3002;   
+
+<h3 id="event-continue-activity">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;continue-activity&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `type` String&#x7C7B;&#x578B; - A string identifying the activity&#x3002;&#x5BF9;&#x5E94;`NSUserActivity.activityType`&#x3002;   
+ * `userInfo` Object&#x7C7B;&#x578B; - Contains app-specific state stored by the activity on another device.   
+
+Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. &#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;event.preventDefault()&#x3002;   
+
+A user activity can be continued only in an app that has the same developer Team ID as the activity&#x2019;s source app and that supports the activity&#x2019;s type. Supported activity types are specified in the app&#x2019;s Info.plist under the NSUserActivityTypes key.   
+
+<h3 id="event-browser-window-blur">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;browser-window-blur&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `window` BrowserWindow&#x7C7B;&#x578B;   
+
+&#x5F53;&#x4E00;&#x4E2A;[browserWindow](./BrowserWindow.html)&#x5931;&#x53BB;&#x7126;&#x70B9;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+<h3 id="event-browser-window-focus">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;browser-window-focus&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `window` BrowserWindow&#x7C7B;&#x578B;   
+
+&#x5F53;&#x4E00;&#x4E2A;[browserWindow](./BrowserWindow.html)&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+<h3 id="event-browser-window-created">&#x4E8B;&#x4EF6;&#xFF1A;&apos;browser-window-created&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `window` BrowserWindow&#x7C7B;&#x578B;   
+
+&#x5F53;&#x4E00;&#x4E2A;&#x65B0;&#x7684;[browserWindow](./BrowserWindow.html)&#x88AB;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+<h3 id="event-certificate-error">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;certificate-error&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `webContents` WebContents&#x7C7B;&#x578B;   
+ * `url` String&#x7C7B;&#x578B;   
+ * `error` String&#x7C7B;&#x578B; - &#x9519;&#x8BEF;&#x4EE3;&#x7801;   
+ * `certificate` Certificate&#x7C7B;&#x578B;   
+ * `callback` Function&#x7C7B;&#x578B;   
+      * `isTrusted` Boolean&#x7C7B;&#x578B; - &#x8BC1;&#x4E66;&#x662F;&#x5426;&#x662F;&#x53EF;&#x4FE1;&#x7684;   
+
+&#x65E0;&#x6CD5;&#x9A8C;&#x8BC1;`url`&#x7684;`certificate`&#x65F6;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x76F8;&#x4FE1;&#x8FD9;&#x4E2A;&#x8BC1;&#x4E66;&#xFF0C;&#x5E76;&#x4E14;&#x4F60;&#x9700;&#x8981;&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;`event.preventDefault()`&#x548C;`callback(true)`&#x3002;   
+
+    const {app} = require(&apos;electron&apos;)
+
+    app.on(&apos;certificate-error&apos;, (event, webContents, url, error, certificate, callback) =&gt; {
+        if (url === &apos;https://github.com&apos;) {
+            // Verification logic.
+            event.preventDefault()
+            callback(true)
+        } else {
+            callback(false)
+        }
+    })
+
+<h3 id="event-select-client-certificate">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;select-client-certificate&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `webContents` WebContents&#x7C7B;&#x578B;   
+ * `url` URL&#x7C7B;&#x578B;   
+ * `certificateList` Certificate[]&#x7C7B;&#x578B;   
+ * `callback` Function&#x7C7B;&#x578B;   
+      * `certificate` Certificate&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   
+
+&#x8BF7;&#x6C42;&#x5BA2;&#x6237;&#x7AEF;&#x8BC1;&#x4E66;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+`url`&#x5BF9;&#x5E94;&#x7684;&#x662F;&#x8BF7;&#x6C42;&#x5BA2;&#x6237;&#x7AEF;&#x8BC1;&#x4E66;&#x7684;&#x5BFC;&#x822A;&#x8BB0;&#x5F55;&#xFF0C;`callback`&#x88AB;&#x8C03;&#x7528;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x4ECE;&#x5217;&#x8868;&#x4E2D;&#x8FC7;&#x6EE4;&#x7684;&#x8BB0;&#x5F55;&#x3002;&#x4F7F;&#x7528;`event.preventDefault()`&#x963B;&#x6B62;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;&#x4FDD;&#x5B58;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8BC1;&#x4E66;&#x3002;   
+
+    const {app} = require(&apos;electron&apos;)
+
+    app.on(&apos;select-client-certificate&apos;, (event, webContents, url, list, callback) =&gt; {
         event.preventDefault()
-        callback(true)
-    } else {
-        callback(false)
-    }
-})
-</code></pre><h5 id="&#x4E8B;&#x4EF6;&#xFF1A;select-client-certificate">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;select-client-certificate&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>webContents</code> WebContents&#x7C7B;&#x578B;   </li>
-<li><code>url</code> URL&#x7C7B;&#x578B;   </li>
-<li><code>certificateList</code> Certificate[]&#x7C7B;&#x578B;   </li>
-<li><code>callback</code> Function&#x7C7B;&#x578B;   <ul>
-<li><code>certificate</code> Certificate&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   </li>
-</ul>
-</li>
-</ul>
-<p>&#x8BF7;&#x6C42;&#x5BA2;&#x6237;&#x7AEF;&#x8BC1;&#x4E66;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<p><code>url</code>&#x5BF9;&#x5E94;&#x7684;&#x662F;&#x8BF7;&#x6C42;&#x5BA2;&#x6237;&#x7AEF;&#x8BC1;&#x4E66;&#x7684;&#x5BFC;&#x822A;&#x8BB0;&#x5F55;&#xFF0C;<code>callback</code>&#x88AB;&#x8C03;&#x7528;&#x5E76;&#x4E14;&#x4F20;&#x5165;&#x4ECE;&#x5217;&#x8868;&#x4E2D;&#x8FC7;&#x6EE4;&#x7684;&#x8BB0;&#x5F55;&#x3002;&#x4F7F;&#x7528;<code>event.preventDefault()</code>&#x963B;&#x6B62;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;&#x4FDD;&#x5B58;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8BC1;&#x4E66;&#x3002;   </p>
-<pre><code>const {app} = require(&apos;electron&apos;)
+        callback(list[0])
+    })
 
-app.on(&apos;select-client-certificate&apos;, (event, webContents, url, list, callback) =&gt; {
-    event.preventDefault()
-    callback(list[0])
-})
-</code></pre><h5 id="&#x4E8B;&#x4EF6;&#xFF1A;login">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;login&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>webContents</code> WebContents&#x7C7B;&#x578B;  </li>
-<li><code>request</code> Object&#x7C7B;&#x578B;   <ul>
-<li><code>method</code> String&#x7C7B;&#x578B;   </li>
-<li><code>url</code> URL&#x7C7B;&#x578B;   </li>
-<li><code>referrer</code> URL&#x7C7B;&#x578B;   </li>
-</ul>
-</li>
-<li><code>authInfo</code> Object&#x7C7B;&#x578B;   <ul>
-<li><code>isProxy</code> Boolean&#x7C7B;&#x578B;   </li>
-<li><code>scheme</code> String&#x7C7B;&#x578B;   </li>
-<li><code>host</code> String&#x7C7B;&#x578B;   </li>
-<li><code>port</code> Integer&#x7C7B;&#x578B;   </li>
-<li><code>realm</code> String&#x7C7B;&#x578B;   </li>
-</ul>
-</li>
-<li><code>callback</code> Function&#x7C7B;&#x578B;   <ul>
-<li><code>username</code> String&#x7C7B;&#x578B;   </li>
-<li><code>password</code> String&#x7C7B;&#x578B;   </li>
-</ul>
-</li>
-</ul>
-<p><code>webContents</code>&#x60F3;&#x8981;&#x505A;&#x57FA;&#x672C;&#x8BA4;&#x8BC1;&#xFF08;auth&#xFF09;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<p>&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x662F;&#x53D6;&#x6D88;&#x6240;&#x6709;&#x8BA4;&#x8BC1;&#xFF0C;&#x60F3;&#x8981;&#x91CD;&#x5199;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;<code>event.preventDefault()</code>&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x8BC1;&#x4E66;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8C03;&#x7528;<code>callback(username, password)</code>&#x3002;   </p>
-<pre><code>const {app} = require(&apos;electron&apos;)
+<h3 id="event-login">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;login&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
 
-app.on(&apos;login&apos;, (event, webContents, request, authInfo, callback) =&gt; {
-    event.preventDefault()
-    callback(&apos;username&apos;, &apos;secret&apos;)
-})
-</code></pre><h5 id="&#x4E8B;&#x4EF6;&#xFF1A;gpu-process-crashed">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;gpu-process-crashed&#x2019;</h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>killed</code> Boolean&#x7C7B;&#x578B;   </li>
-</ul>
-<p>&#x5F53;GPU&#x8FDB;&#x7A0B;&#x5D29;&#x6E83;&#x6216;&#x8005;&#x88AB;&#x6740;&#x6B7B;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="&#x4E8B;&#x4EF6;&#xFF1A;accessibility-support-changed-&#xFF08;macos&#xFF0C;windows&#xFF09;">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;accessibility-support-changed&#x2019; <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
-<p>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   </p>
-<ul>
-<li><code>event</code> Event&#x7C7B;&#x578B;   </li>
-<li><code>accessibilitySupportEnabled</code> Boolean&#x7C7B;&#x578B; - <code>true</code>&#x662F;Chrome&#x7684;accessibility&#x652F;&#x6301;&#x88AB;&#x5F00;&#x542F;&#xFF0C;<code>false</code>&#x5219;&#x662F;&#x88AB;&#x505C;&#x7528;&#x3002;   </li>
-</ul>
-<p>&#x5F53;Chrome&#x7684;accessibility&#x652F;&#x6301;&#x6539;&#x53D8;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x5728;&#x6B8B;&#x75BE;&#x4EBA;&#x8F85;&#x52A9;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x5C4F;&#x5E55;&#x9605;&#x8BFB;&#x5668;&#x88AB;&#x542F;&#x7528;&#x6216;&#x505C;&#x7528;&#x65F6;&#x89E6;&#x53D1;&#x3002;&#x8BE6;&#x60C5;&#x89C1;<a href="https://www.chromium.org/developers/design-documents/accessibility&#x3002;" target="_blank">https://www.chromium.org/developers/design-documents/accessibility&#x3002;</a>   </p>
-<h3 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h3>
-<p><code>app</code>&#x5BF9;&#x8C61;&#x6709;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;   </p>
-<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x67D0;&#x4E9B;&#x65B9;&#x6CD5;&#x53EA;&#x9002;&#x7528;&#x4E8E;&#x7279;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x5DF2;&#x7ECF;&#x88AB;&#x6807;&#x8BB0;&#x3002;   </p>
-<h5 id="appquit">app.quit()</h5>
+ * `event` Event&#x7C7B;&#x578B;   
+ * `webContents` WebContents&#x7C7B;&#x578B;  
+ * `request` Object&#x7C7B;&#x578B;   
+      * `method` String&#x7C7B;&#x578B;   
+      * `url` URL&#x7C7B;&#x578B;   
+      * `referrer` URL&#x7C7B;&#x578B;   
+ * `authInfo` Object&#x7C7B;&#x578B;   
+      * `isProxy` Boolean&#x7C7B;&#x578B;   
+      * `scheme` String&#x7C7B;&#x578B;   
+      * `host` String&#x7C7B;&#x578B;   
+      * `port` Integer&#x7C7B;&#x578B;   
+      * `realm` String&#x7C7B;&#x578B;   
+ * `callback` Function&#x7C7B;&#x578B;   
+      * `username` String&#x7C7B;&#x578B;   
+      * `password` String&#x7C7B;&#x578B;   
+
+`webContents`&#x60F3;&#x8981;&#x505A;&#x57FA;&#x672C;&#x8BA4;&#x8BC1;&#xFF08;auth&#xFF09;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x662F;&#x53D6;&#x6D88;&#x6240;&#x6709;&#x8BA4;&#x8BC1;&#xFF0C;&#x60F3;&#x8981;&#x91CD;&#x5199;&#x4F60;&#x9700;&#x8981;&#x8C03;&#x7528;`event.preventDefault()`&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x8BC1;&#x4E66;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8C03;&#x7528;`callback(username, password)`&#x3002;   
+
+    const {app} = require(&apos;electron&apos;)
+
+    app.on(&apos;login&apos;, (event, webContents, request, authInfo, callback) =&gt; {
+        event.preventDefault()
+        callback(&apos;username&apos;, &apos;secret&apos;)
+    })
+
+<h3 id="event-gpu-process-crashed">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;gpu-process-crashed&#x2019;</h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `killed` Boolean&#x7C7B;&#x578B;   
+
+&#x5F53;GPU&#x8FDB;&#x7A0B;&#x5D29;&#x6E83;&#x6216;&#x8005;&#x88AB;&#x6740;&#x6B7B;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;   
+
+<h3 id="event-accessibility-support-changed">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;accessibility-support-changed&#x2019; <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+&#x8FD4;&#x56DE;&#x503C;&#xFF1A;   
+
+ * `event` Event&#x7C7B;&#x578B;   
+ * `accessibilitySupportEnabled` Boolean&#x7C7B;&#x578B; - `true`&#x662F;Chrome&#x7684;accessibility&#x652F;&#x6301;&#x88AB;&#x5F00;&#x542F;&#xFF0C;`false`&#x5219;&#x662F;&#x88AB;&#x505C;&#x7528;&#x3002;   
+
+&#x5F53;Chrome&#x7684;accessibility&#x652F;&#x6301;&#x6539;&#x53D8;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x5728;&#x6B8B;&#x75BE;&#x4EBA;&#x8F85;&#x52A9;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x5C4F;&#x5E55;&#x9605;&#x8BFB;&#x5668;&#x88AB;&#x542F;&#x7528;&#x6216;&#x505C;&#x7528;&#x65F6;&#x89E6;&#x53D1;&#x3002;&#x8BE6;&#x60C5;&#x89C1;https://www.chromium.org/developers/design-documents/accessibility&#x3002;   
+
+<h2 id="methods">&#x65B9;&#x6CD5;</h2>
+
+`app`&#x5BF9;&#x8C61;&#x6709;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;   
+
+**&#x6CE8;&#x610F;&#xFF1A;**&#x67D0;&#x4E9B;&#x65B9;&#x6CD5;&#x53EA;&#x9002;&#x7528;&#x4E8E;&#x7279;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x5DF2;&#x7ECF;&#x88AB;&#x6807;&#x8BB0;&#x3002;   
+
+<h3 id="app-quit">app.quit()</h3>
+
 <p>&#x5C1D;&#x8BD5;&#x5173;&#x95ED;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x3002;<code>before-quit</code>&#x4E8B;&#x4EF6;&#x5C06;&#x9996;&#x5148;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x5982;&#x679C;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x90FD;&#x88AB;&#x6210;&#x529F;&#x7684;&#x5173;&#x95ED;&#x5219;<code>will-quit</code>&#x4E8B;&#x4EF6;&#x5C06;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x5E76;&#x4E14;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C06;&#x4F1A;&#x88AB;&#x7EC8;&#x6B62;&#x3002;   </p>
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4FDD;&#x8BC1;&#x4E86;&#x6240;&#x6709;<code>beforeunload</code>&#x548C;<code>unload</code>&#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x88AB;&#x6B63;&#x786E;&#x7684;&#x6267;&#x884C;&#x3002;&#x6709;&#x53EF;&#x80FD;&#x5728;&#x67D0;&#x4E2A;&#x7A97;&#x53E3;&#x53D6;&#x6D88;&#x9000;&#x51FA;&#x5E76;&#x4E14;&#x5728;<code>beforeunload</code>&#x4E8B;&#x4EF6;&#x4E2D;&#x8FD4;&#x56DE;<code>false</code>&#x3002;   </p>
-<h5 id="appexitexitcode">app.exit([exitCode])</h5>
+<h3 id="app-exit">app.exit([exitCode])</h3>
+
 <ul>
 <li><code>exitCode</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   </li>
 </ul>
 <p>&#x4F20;&#x5165;&#x53C2;&#x6570;<code>exitCode</code>&#x7ACB;&#x5373;&#x9000;&#x51FA;&#x3002;<code>exitCode</code>&#x9ED8;&#x8BA4;&#x4E3A;0&#x3002;   </p>
 <p>&#x9664;&#x975E;&#x544A;&#x8BC9;&#x7528;&#x6237;&#x5426;&#x5219;&#x6240;&#x6709;&#x7A97;&#x53E3;&#x7ACB;&#x523B;&#x5173;&#x95ED;&#xFF0C;&#x5E76;&#x4E14;<code>before-quit</code>&#x4E8B;&#x4EF6;&#x548C;<code>will-quit</code>&#x4E8B;&#x4EF6;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h5 id="apprelaunchoptions">app.relaunch([options])</h5>
+<h3 id="app-relaunch">app.relaunch([options])</h3>
+
 <ul>
 <li><code>options</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   <ul>
 <li><code>args</code> String[]&#x7C7B;&#x578B; -&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   </li>
@@ -1423,17 +1449,23 @@ app.on(&apos;login&apos;, (event, webContents, request, authInfo, callback) =&gt
 
 app.relaunch({args: process.argv.slice(1).concat([&apos;--relaunch&apos;])})
 app.exit(0)
-</code></pre><h5 id="appisready">app.isReady()</h5>
+</code></pre><h3 id="app-isReady">app.isReady()</h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x5982;&#x679C;&#x662F;<code>true</code>&#x5219;&#x8868;&#x793A;Electron&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5982;&#x679C;&#x662F;<code>false</code>&#x5219;&#x8868;&#x793A;&#x5C1A;&#x672A;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#x3002;   </p>
-<h5 id="appfocus">app.focus()</h5>
+<h3 id="app-focus">app.focus()</h3>
+
 <p>Linux&#x4E2D;&#xFF0C;&#x805A;&#x7126;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x53EF;&#x89C1;&#x7684;&#x7A97;&#x53E3;&#x3002;MacOS&#x4E2D;&#xFF0C;&#x4F7F;&#x5F97;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53D8;&#x6210;&#x6FC0;&#x6D3B;&#x72B6;&#x6001;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;Windows&#x4E2D;&#xFF0C;&#x805A;&#x7126;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;&#x3002;   </p>
-<h5 id="apphide">app.hide()</h5>
+<h3 id="app-hide">app.hide()</h3>
+
 <p>&#x9690;&#x85CF;&#x6240;&#x6709;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6700;&#x5C0F;&#x5316;&#x5B83;&#x4EEC;&#x3002;   </p>
-<h5 id="appshow">app.show()</h5>
+<h3 id="app-show">app.show()</h3>
+
 <p>&#x663E;&#x793A;&#x9690;&#x85CF;&#x540E;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7A97;&#x53E3;&#x3002;&#x4F46;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x805A;&#x7126;&#x5B83;&#x4EEC;&#x3002;   </p>
-<h5 id="appgetapppath">app.getAppPath()</h5>
+<h3 id="app-getAppPath">app.getAppPath()</h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x5F53;&#x524D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x76EE;&#x5F55;&#x3002;   </p>
-<h5 id="appgetpathname">app.getPath(name)</h5>
+<h3 id="app-getPath">app.getPath(name)</h3>
+
 <ul>
 <li><code>name</code> String&#x7C7B;&#x578B;   </li>
 </ul>
@@ -1459,7 +1491,8 @@ app.exit(0)
 <li><code>videos</code> &#x7528;&#x6237;&#x7684;&#x89C6;&#x9891;&#x76EE;&#x5F55;&#x3002;   </li>
 <li><code>pepperFlashSystemPlugin</code> Pepper Flash&#x63D2;&#x4EF6;&#x5728;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x4E2D;&#x7684;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#x3002;   </li>
 </ul>
-<h5 id="appsetpathname-path">app.setPath(name, path)</h5>
+<h3 id="app-setPath">app.setPath(name, path)</h3>
+
 <ul>
 <li><code>name</code> String&#x7C7B;&#x578B;   </li>
 <li><code>path</code> String&#x7C7B;&#x578B;   </li>
@@ -1467,29 +1500,36 @@ app.exit(0)
 <p>&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x6216;&#x8005;&#x6587;&#x4EF6;&#x91CD;&#x5199;&#x6307;&#x5B9A;&#x7684;<code>name</code>&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E0D;&#x5B58;&#x5728;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C06;&#x81EA;&#x52A8;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#x3002;&#x5982;&#x679C;&#x53D1;&#x751F;&#x6545;&#x969C;&#x5C06;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;   </p>
 <p>&#x4F60;&#x53EA;&#x80FD;&#x91CD;&#x5199;<code>app.getPath</code>&#x4E2D;&#x5B9A;&#x4E49;&#x7684;<code>name</code>&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x5F84;&#x3002;   </p>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7F51;&#x9875;&#x7684;cookies&#x548C;&#x7F13;&#x5B58;&#x5C06;&#x4F1A;&#x88AB;&#x5B58;&#x50A8;&#x5728;<code>userData</code>&#x76EE;&#x5F55;&#x4E0B;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x6539;&#x53D8;&#x8FD9;&#x4E2A;&#x672C;&#x5730;&#x8DEF;&#x5F84;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728;<code>ready</code>&#x4E8B;&#x4EF6;&#x88AB;<code>app</code>&#x6A21;&#x5757;&#x5206;&#x53D1;&#x4E4B;&#x524D;&#x91CD;&#x5199;<code>userData</code>&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x5F84;&#x3002;   </p>
-<h5 id="appgetversion">app.getVersion()</h5>
+<h3 id="app-getVersion">app.getVersion()</h3>
+
 <p>R&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x7248;&#x672C;&#x53F7;&#x3002;&#x5982;&#x679C;&#x5728;<code>package.json</code>&#x6587;&#x4EF6;&#x5185;&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x7248;&#x672C;&#x53F7;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4F1A;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5305;&#x6216;&#x8005;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x7248;&#x672C;&#x53F7;&#x3002;   </p>
-<h5 id="appgetname">app.getName()</h5>
+<h3 id="app-getName">app.getName()</h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x5199;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;<code>package.json</code>&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x540D;&#x5B57;&#x3002;   </p>
 <p>&#x901A;&#x5E38;&#x6839;&#x636E;npm &#x6A21;&#x5757;&#x8BF4;&#x660E;&#xFF0C;<code>package.json</code>&#x4E2D;&#x7684;<code>name</code>&#x5B57;&#x6BB5;&#x662F;&#x77ED;&#x7684;&#x5C0F;&#x5199;&#x540D;&#x79F0;&#x3002;&#x4F60;&#x901A;&#x5E38;&#x90FD;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;<code>productName</code>&#x5B57;&#x6BB5;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x662F;&#x4F60;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5168;&#x90E8;&#x5927;&#x5199;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x5B57;Electron&#x5C06;&#x4F1A;&#x4F5C;&#x4E3A;&#x9996;&#x9009;&#x540D;&#x79F0;&#x3002;   </p>
-<h5 id="appsetnamename">app.setName(name)</h5>
+<h3 id="app-setName">app.setName(name)</h3>
+
 <ul>
 <li><code>name</code> String&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x91CD;&#x5199;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x540D;&#x5B57;&#x3002;   </p>
-<h5 id="appgetlocale">app.getLocale()</h5>
+<h3 id="app-getLocale">app.getLocale()</h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x5F53;&#x524D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x672C;&#x5730;&#x8DEF;&#x5F84;&#x3002;&#x53EF;&#x80FD;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x90FD;&#x5C06;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#x5728;&#x8FD9;&#x91CC;&#x3002;   </p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x5F53;&#x53D1;&#x5E03;&#x4F60;&#x7684;&#x6253;&#x5305;&#x597D;&#x7684;&#x5E94;&#x7528;&#x65F6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x53D1;&#x9001;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5939;&#x3002;   </p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>Windows&#x4E2D;&#x4F60;&#x9700;&#x8981;&#x5728;<code>ready</code>&#x4E8B;&#x4EF6;&#x88AB;&#x5206;&#x53D1;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#x5B83;&#x3002;   </p>
-<h5 id="appaddrecentdocumentpath-&#xFF08;macos&#xFF0C;windows&#xFF09;">app.addRecentDocument(path) <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-addRecentDocument">app.addRecentDocument(path) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>path</code> String&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x6DFB;&#x52A0;&#x8DEF;&#x5F84;&#x5230;&#x6700;&#x8FD1;&#x4F7F;&#x7528;&#x7684;&#x6587;&#x6863;&#x5217;&#x8868;&#x3002;   </p>
 <p>&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#x7531;&#x7CFB;&#x7EDF;&#x7BA1;&#x7406;&#x3002;Windows&#x4E2D;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x67E5;&#x770B;&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#xFF0C;macOS&#x4E2D;&#x4F60;&#x53EF;&#x4EE5;&#x5728;dock&#x83DC;&#x5355;&#x4E2D;&#x67E5;&#x770B;&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#x3002;   </p>
-<h5 id="appclearrecentdocuments-&#xFF08;macos&#xFF0C;windows&#xFF09;">app.clearRecentDocuments() <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-clearRecentDocuments">app.clearRecentDocuments() <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <p>&#x6E05;&#x9664;&#x6700;&#x8FD1;&#x4F7F;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x5217;&#x8868;&#x3002;   </p>
-<h5 id="appsetasdefaultprotocolclientprotocol-path-args-&#xFF08;macos&#xFF0C;windows&#xFF09;">app.setAsDefaultProtocolClient(protocol[, path, args]) <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-setAsDefaultProtocolClient">app.setAsDefaultProtocolClient(protocol[, path, args]) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>protocol</code> String&#x7C7B;&#x578B; - &#x4F60;&#x7684;&#x534F;&#x8BAE;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4E0D;&#x5305;&#x542B;<code>://</code>&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x5904;&#x7406;<code>electron://</code>&#x94FE;&#x63A5;&#xFF0C;&#x5219;&#x4F7F;&#x7528;<code>electron</code>&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x6765;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;   </li>
 <li><code>path</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09; Windows&#x53EF;&#x7528; - &#x9ED8;&#x8BA4;&#x4E3A;<code>process.execPath</code>   </li>
@@ -1500,7 +1540,8 @@ app.exit(0)
 <p>Windows&#x4E2D;&#x4F60;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x53EF;&#x9009;&#x7684;<code>path</code>&#x53C2;&#x6570;&#xFF0C;&#x8DEF;&#x5F84;&#x6307;&#x5411;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#xFF0C;&#x5F53;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x542F;&#x52A8;&#x65F6;&#xFF0C;<code>args</code>&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x88AB;&#x4F20;&#x9012;&#x5230;&#x90A3;&#x4E2A;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x4E2D;&#x3002;   </p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>MacOS&#x4E2D;&#x4F60;&#x53EA;&#x80FD;&#x6CE8;&#x518C;&#x5DF2;&#x7ECF;&#x6DFB;&#x52A0;&#x5230;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;<code>info.plist</code>&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x5185;&#x66F4;&#x6539;&#x7684;&#x3002;&#x7136;&#x800C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x7F16;&#x8BD1;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x6216;&#x811A;&#x672C;&#x6765;&#x66F4;&#x6539;&#x5B83;&#x3002;&#x8BE6;&#x60C5;&#x8BF7;&#x53C2;&#x9605;<a href="https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115" target="_blank">Apple&#x2019;s documentation</a>&#x3002;   </p>
 <p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4F7F;&#x7528;Windows Registry&#x548C;LSSetDefaultHandlerForURLScheme&#x5185;&#x6838;&#x3002;   </p>
-<h5 id="appremoveasdefaultprotocolclientprotocol-path-args-&#xFF08;macos&#xFF0C;windows&#xFF09;">app.removeAsDefaultProtocolClient(protocol[, path, args]) <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-removeAsDefaultProtocolClient">app.removeAsDefaultProtocolClient(protocol[, path, args]) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>rotocol</code> String&#x7C7B;&#x578B; - &#x4F60;&#x7684;&#x534F;&#x8BAE;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4E0D;&#x5305;&#x542B;<code>://</code>&#x3002;   </li>
 <li><code>path</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;Windows&#x53EF;&#x7528; - &#x9ED8;&#x8BA4;&#x4E3A;<code>process.execPath</code>   </li>
@@ -1508,7 +1549,8 @@ app.exit(0)
 </ul>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x8C03;&#x7528;&#x6210;&#x529F;&#x3002;   </p>
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x4F1A;&#x9ED8;&#x8BA4;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#xFF08;&#x53C8;&#x540D;URI&#x65B9;&#x6848;&#xFF09;&#x3002;&#x5982;&#x679C;&#x4F1A;&#x5904;&#x7406;&#xFF0C;&#x5C06;&#x4ECE;&#x5E94;&#x7528;&#x4E2D;&#x79FB;&#x9664;&#x8FD9;&#x4E2A;&#x9ED8;&#x8BA4;&#x5904;&#x7406;&#x3002;   </p>
-<h5 id="appisdefaultprotocolclientprotocol-path-args-&#xFF08;macos&#xFF0C;windows&#xFF09;">app.isDefaultProtocolClient(protocol[, path, args]) <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-isDefaultProtocolClient">app.isDefaultProtocolClient(protocol[, path, args]) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>protocol</code> String&#x7C7B;&#x578B; - &#x4F60;&#x7684;&#x534F;&#x8BAE;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4E0D;&#x5305;&#x542B;<code>://</code>&#x3002;   </li>
 <li><code>path</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;Windows&#x53EF;&#x7528; - &#x9ED8;&#x8BA4;&#x4E3A;<code>process.execPath</code>   </li>
@@ -1518,7 +1560,8 @@ app.exit(0)
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x4F1A;&#x9ED8;&#x8BA4;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#xFF08;&#x53C8;&#x540D;URI&#x65B9;&#x6848;&#xFF09;&#x3002;&#x5982;&#x679C;&#x4F1A;&#x5904;&#x7406;&#xFF0C;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;<code>true</code>&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;<code>false</code>&#x3002;   </p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>MacOS&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5DF2;&#x7ECF;&#x6CE8;&#x518C;&#x4E86;&#x9ED8;&#x8BA4;&#x5904;&#x7406;&#x7684;&#x534F;&#x8BAE;&#xFF0C;&#x5219;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x68C0;&#x67E5;&#x3002;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;macOS&#x673A;&#x5668;&#x4E2D;&#x7684;<code>~/Library/Preferences/com.apple.LaunchServices.plist</code>&#x6587;&#x4EF6;&#x6765;&#x68C0;&#x67E5;&#x3002;&#x8BE6;&#x60C5;&#x8BF7;&#x53C2;&#x9605;<a href="https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme" target="_blank">Apple&#x2019;s documentation</a>&#x3002;   </p>
 <p>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4F7F;&#x7528;Windows Registry&#x548C;LSSetDefaultHandlerForURLScheme&#x5185;&#x6838;&#x3002;   </p>
-<h5 id="appsetusertaskstasks-&#xFF08;windows&#xFF09;">app.setUserTasks(tasks) <em>&#xFF08;Windows&#xFF09;</em></h5>
+<h3 id="app-setUserTasks">app.setUserTasks(tasks) <i>&#xFF08;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>tasks</code> <a href="https://electron.atom.io/docs/api/structures/task" target="_blank">Task[]</a>&#x7C7B;&#x578B; - Task&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x7EC4;&#x3002;   </li>
 </ul>
@@ -1526,13 +1569,15 @@ app.exit(0)
 <p><code>tasks</code>&#x662F;<code>Task</code>&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x7EC4;&#x3002;   </p>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x8C03;&#x7528;&#x6210;&#x529F;&#x3002;   </p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x66F4;&#x591A;&#x5173;&#x4E8E;&#x8DF3;&#x8F6C;&#x5217;&#x8868;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;<code>app.setJumpList(categories)</code>&#x3002;   </p>
-<h5 id="appgetjumplistsettings-&#xFF08;windows&#xFF09;">app.getJumpListSettings() <em>&#xFF08;Windows&#xFF09;</em></h5>
+<h3 id="app-getJumpListSettings">app.getJumpListSettings() <i>&#xFF08;Windows&#xFF09;</i></h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Object</code>&#x7C7B;&#x578B;&#xFF1A;   </p>
 <ul>
 <li><code>minItems</code> Integer&#x7C7B;&#x578B; - &#x5C06;&#x5728;&#x8DF3;&#x8F6C;&#x5217;&#x8868;&#x4E2D;&#x5C55;&#x793A;&#x7684;&#x9879;&#x76EE;&#x7684;&#x6700;&#x5C0F;&#x6570;&#x91CF;&#xFF08;&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x503C;&#x7684;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x63CF;&#x8FF0;&#x8BF7;&#x770B;<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85" target="_blank">MSDN docs</a>.aspx)&#xFF09;&#x3002;   </li>
 <li><code>removedItems</code> <a href="https://electron.atom.io/docs/api/structures/jump-list-item" target="_blank">JumpListItem[]</a>&#x7C7B;&#x578B; - <code>JumpListItem</code>&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x7EC4;&#xFF0C;<code>JumpListItem</code>&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;&#x9879;&#x662F;&#x5DF2;&#x7ECF;&#x660E;&#x786E;&#x7684;&#x4ECE;&#x8DF3;&#x8F6C;&#x5217;&#x8868;&#x4E2D;&#x88AB;&#x7528;&#x6237;&#x5220;&#x9664;&#x7684;&#x3002;&#x8FD9;&#x4E9B;&#x9879;&#x4E00;&#x5B9A;&#x4E0D;&#x80FD;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x8C03;&#x7528;<code>app.setJumpList()</code>&#x65F6;&#x88AB;&#x91CD;&#x65B0;&#x52A0;&#x5165;&#x5230;&#x8DF3;&#x8F6C;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x5426;&#x5219;Windows&#x5C06;&#x4E0D;&#x4F1A;&#x5C55;&#x793A;&#x4EFB;&#x4F55;&#x5305;&#x542B;&#x4E86;&#x5220;&#x9664;&#x9879;&#x7684;&#x5185;&#x5BB9;&#x3002;   </li>
 </ul>
-<h5 id="appsetjumplistcategories-&#xFF08;windows&#xFF09;">app.setJumpList(categories) <em>&#xFF08;Windows&#xFF09;</em></h5>
+<h3 id="app-setJumpList">app.setJumpList(categories) <i>&#xFF08;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>categories</code> <a href="https://electron.atom.io/docs/api/structures/jump-list-category" target="_blank">JumpListCategory[]</a>&#x7C7B;&#x578B;&#x6216;&#x8005;&#x4E3A;<code>null</code> - <code>JumpListCategory</code>&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x7EC4;&#x3002;   </li>
 </ul>
@@ -1603,7 +1648,8 @@ app.setJumpList([
         ]
     }
 ])
-</code></pre><h5 id="appmakesingleinstancecallback">app.makeSingleInstance(callback)</h5>
+</code></pre><h3 id="app-makeSingleInstance">app.makeSingleInstance(callback)</h3>
+
 <ul>
 <li><code>callback</code> Function&#x7C7B;&#x578B;   <ul>
 <li><code>argv</code> String[]&#x7C7B;&#x578B; - &#x7B2C;&#x4E8C;&#x5B9E;&#x4F8B;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x6570;&#x7EC4;   </li>
@@ -1635,23 +1681,28 @@ if (shouldQuit) {
 // Create myWindow, load the rest of the app, etc...
 app.on(&apos;ready&apos;, () =&gt; {
 })
-</code></pre><h5 id="appreleasesingleinstance">app.releaseSingleInstance()</h5>
+</code></pre><h3 id="app-releaseSingleInstance">app.releaseSingleInstance()</h3>
+
 <p>&#x91CA;&#x653E;&#x6240;&#x6709;&#x901A;&#x8FC7;<code>makeSingleInstance</code>&#x521B;&#x5EFA;&#x7684;&#x9501;&#x3002;&#x8FD9;&#x5C06;&#x5141;&#x8BB8;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x591A;&#x4E2A;&#x5B9E;&#x4F8B;&#x518D;&#x4E00;&#x6B21;&#x5E76;&#x6392;&#x8FD0;&#x884C;&#x3002;   </p>
-<h5 id="appsetuseractivitytype-userinfo-webpageurl-&#xFF08;macos&#xFF09;">app.setUserActivity(type, userInfo[, webpageURL]) <em>&#xFF08;MacOS&#xFF09;</em></h5>
+<h3 id="app-setUserActivity">app.setUserActivity(type, userInfo[, webpageURL]) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>type</code> String&#x7C7B;&#x578B; - &#x6D3B;&#x52A8;&#x7684;&#x552F;&#x4E00;&#x6807;&#x8BC6;&#x3002;&#x5BF9;&#x5E94;<a href="https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType" target="_blank"><code>NSUserActivity.activityType</code></a>&#x3002;   </li>
 <li><code>userInfo</code> Object&#x7C7B;&#x578B; - App-specific state to store for use by another device.</li>
 <li><code>webpageURL</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be http or https.   </li>
 </ul>
 <p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>NSUserActivity</code>&#x5E76;&#x4E14;&#x5C06;&#x5B83;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x7684;&#x6D3B;&#x52A8;&#x3002;&#x8FD9;&#x4E2A;&#x6D3B;&#x52A8;&#x662F;&#x6709;&#x8D44;&#x683C;&#x5728;&#x4EE5;&#x540E;<a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html" target="_blank">Handoff</a>&#x5230;&#x5176;&#x4ED6;&#x8BBE;&#x5907;&#x7684;&#x3002;</p>
-<h5 id="appgetcurrentactivitytype-&#xFF08;macos&#xFF09;">app.getCurrentActivityType() <em>&#xFF08;MacOS&#xFF09;</em></h5>
+<h3 id="app-getCurrentActivityType">app.getCurrentActivityType() <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x5F53;&#x524D;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x6D3B;&#x52A8;&#x7684;&#x7C7B;&#x578B;&#x3002;   </p>
-<h5 id="appsetappusermodelidid-&#xFF08;windows&#xFF09;">app.setAppUserModelId(id) <em>&#xFF08;Windows&#xFF09;</em></h5>
+<h3 id="app-setAppUserModelId">app.setAppUserModelId(id) <i>&#xFF08;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>id</code> String&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x4F7F;&#x7528;&#x53C2;&#x6570;<code>id</code>&#x66F4;&#x6539;<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85" target="_blank">Application User Model ID</a>.aspx)&#x3002;   </p>
-<h5 id="appimportcertificateoptions-callback-&#xFF08;linux&#xFF09;">app.importCertificate(options, callback) <em>&#xFF08;Linux&#xFF09;</em></h5>
+<h3 id="app-importCertificate">app.importCertificate(options, callback) <i>&#xFF08;Linux&#xFF09;</i></h3>
+
 <ul>
 <li><code>options</code> Object&#x7C7B;&#x578B;   <ul>
 <li><code>certificate</code> String&#x7C7B;&#x578B; - pkcs12&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;</li>
@@ -1664,22 +1715,27 @@ app.on(&apos;ready&apos;, () =&gt; {
 </li>
 </ul>
 <p>&#x5F15;&#x7528;pkcs12&#x7C7B;&#x578B;&#x7684;&#x8BC1;&#x4E66;&#x5230;&#x5230;&#x5E73;&#x53F0;&#x8BC1;&#x4E66;&#x5B58;&#x50A8;&#x4E2D;&#x3002;&#x5F15;&#x7528;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#x4F1A;&#x5C06;<code>result</code>&#x4F20;&#x5165;&#x8C03;&#x7528;<code>callback</code>&#xFF0C;&#x6839;&#x636E;chromium&#x7684;<a href="https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h" target="_blank">net_error_list</a>&#xFF0C;&#x503C;&#x4E3A;<code>0</code>&#x65F6;&#x4EE3;&#x8868;&#x6210;&#x529F;&#xFF0C;&#x5176;&#x4ED6;&#x4EFB;&#x4F55;&#x503C;&#x90FD;&#x4EE3;&#x8868;&#x5931;&#x8D25;&#x3002;</p>
-<h5 id="appdisablehardwareacceleration">app.disableHardwareAcceleration()</h5>
+<h3 id="app-disableHardwareAcceleration">app.disableHardwareAcceleration()</h3>
+
 <p>&#x7981;&#x7528;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x7684;&#x786C;&#x4EF6;&#x52A0;&#x901F;&#x3002;   </p>
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x5728;&#x5E94;&#x7528;&#x51C6;&#x5907;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x3002;   </p>
-<h5 id="appsetbadgecountcount-&#xFF08;macos&#xFF0C;linux&#xFF09;">app.setBadgeCount(count) <em>&#xFF08;MacOS&#xFF0C;Linux&#xFF09;</em></h5>
+<h3 id="app-setBadgeCount">app.setBadgeCount(count) <i>&#xFF08;MacOS&#xFF0C;Linux&#xFF09;</i></h3>
+
 <ul>
 <li><code>count</code> Integer&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x8C03;&#x7528;&#x6210;&#x529F;&#x3002;   </p>
 <p>&#x7ED9;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x8BBE;&#x7F6E;&#x8BA1;&#x6570;&#x6807;&#x8BC6;&#x3002;&#x8BBE;&#x7F6E;&#x4E3A;<code>0</code>&#x5C06;&#x4F1A;&#x9690;&#x85CF;&#x8FD9;&#x4E2A;&#x6807;&#x8BC6;&#x3002;   </p>
 <p>MacOS&#x4E2D;&#x5B83;&#x5C06;&#x5C55;&#x793A;&#x5728;dock&#x7684;&#x56FE;&#x6807;&#x4E0A;&#x3002;Linux&#x4E2D;&#x5B83;&#x53EA;&#x5728;Unity&#x7684;&#x542F;&#x52A8;&#x5668;&#x4E0A;&#x5DE5;&#x4F5C;&#x3002;   </p>
-<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>Unity&#x542F;&#x52A8;&#x5668;&#x9700;&#x8981;&#x4E00;&#x4E2A;<code>.desktop</code>&#x6587;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#x624D;&#x80FD;&#x5DE5;&#x4F5C;&#xFF0C;&#x67E5;&#x770B;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x8BF7;&#x9605;&#x8BFB;<a href="https://github.com/electron/electron/blob/master/docs/tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux" target="_blank">Desktop Environment Integration</a>&#x3002;   </p>
-<h5 id="appgetbadgecount-&#xFF08;macos&#xFF0C;linux&#xFF09;">app.getBadgeCount() <em>&#xFF08;MacOS&#xFF0C;Linux&#xFF09;</em></h5>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>Unity&#x542F;&#x52A8;&#x5668;&#x9700;&#x8981;&#x4E00;&#x4E2A;<code>.desktop</code>&#x6587;&#x4EF6;&#x7684;&#x5B9E;&#x4F8B;&#x624D;&#x80FD;&#x5DE5;&#x4F5C;&#xFF0C;&#x67E5;&#x770B;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x8BF7;&#x9605;&#x8BFB;<a href="../../tutorials/desktop-environment-integration.html#unity-launcher-shortcuts-linux">Desktop Environment Integration</a>&#x3002;   </p>
+<h3 id="app-getBadgeCount">app.getBadgeCount() <i>&#xFF08;MacOS&#xFF0C;Linux&#xFF09;</i></h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>Integer</code>&#x7C7B;&#x578B; - &#x5F53;&#x524D;&#x5C55;&#x793A;&#x7684;&#x8BA1;&#x6570;&#x6807;&#x8BC6;&#x7684;&#x503C;&#x3002;   </p>
-<h5 id="appisunityrunning-&#xFF08;linux&#xFF09;">app.isUnityRunning() <em>&#xFF08;Linux&#xFF09;</em></h5>
+<h3 id="app-isUnityRunning">app.isUnityRunning() <i>&#xFF08;Linux&#xFF09;</i></h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;Boolean - &#x5F53;&#x524D;&#x7684;&#x684C;&#x9762;&#x9762;&#x73AF;&#x5883;&#x662F;&#x5426;&#x4E3A;Unity&#x542F;&#x52A8;&#x5668;&#x3002;   </p>
-<h5 id="appgetloginitemsettingsoptions-&#xFF08;macos&#xFF0C;windows&#xFF09;">app.getLoginItemSettings([options]) <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-getLoginItemSettings">app.getLoginItemSettings([options]) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>options</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   <ul>
 <li><code>path</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;Windows&#x53EF;&#x7528; - &#x4E0E;&#x4E4B;&#x524D;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#x76F8;&#x6BD4;&#x8F83;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>process.execPath</code>&#x3002;</li>
@@ -1697,7 +1753,8 @@ app.on(&apos;ready&apos;, () =&gt; {
 <li><code>restoreState</code> Boolean&#x7C7B;&#x578B; - &#x5982;&#x679C;&#x5E94;&#x7528;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x767B;&#x5F55;&#x9879;&#x5DF2;&#x7ECF;&#x88AB;&#x6253;&#x5F00;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x6062;&#x590D;&#x4E4B;&#x524D;&#x7684;&#x4F1A;&#x8BDD;&#x72B6;&#x6001;&#x5219;&#x662F;<code>true</code>&#x3002;&#x8FD9;&#x8868;&#x793A;&#x5E94;&#x7528;&#x9700;&#x8981;&#x6062;&#x590D;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x5173;&#x95ED;&#x5E94;&#x7528;&#x65F6;&#x6253;&#x5F00;&#x7684;&#x7A97;&#x53E3;&#x3002;&#x8FD9;&#x4E2A;&#x8BBE;&#x7F6E;&#x53EA;&#x6709;MacOS&#x652F;&#x6301;&#x3002;   </li>
 </ul>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5728;<a href="https://github.com/electron/electron/blob/master/docs/tutorial/mac-app-store-submission-guide.md" target="_blank">MAS builds</a>&#x4E0A;&#x662F;&#x6CA1;&#x6709;&#x6548;&#x679C;&#x7684;&#x3002;</p>
-<h5 id="appsetloginitemsettingssettings-path-args&#xFF08;macos&#xFF0C;windows&#xFF09;">app.setLoginItemSettings(settings[, path, args])<em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-setLoginItemSettings">app.setLoginItemSettings(settings[, path, args]) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <ul>
 <li><code>settings</code> Object&#x7C7B;&#x578B;   <ul>
 <li><code>openAtLogin</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- <code>true</code>&#x4E3A;&#x8BBE;&#x7F6E;&#x5E94;&#x7528;&#x5728;&#x767B;&#x5F55;&#x7CFB;&#x7EDF;&#x65F6;&#x6253;&#x5F00;&#xFF0C;<code>false</code>&#x5219;&#x5C06;&#x5E94;&#x7528;&#x4ECE;&#x767B;&#x5F55;&#x542F;&#x52A8;&#x9879;&#x4E2D;&#x79FB;&#x9664;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>false</code>&#x3002;   </li>
@@ -1722,9 +1779,11 @@ app.setLoginItemSettings({
     ]
 })
 </code></pre><p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5728;<a href="https://github.com/electron/electron/blob/master/docs/tutorial/mac-app-store-submission-guide.md" target="_blank">MAS builds</a>&#x4E0A;&#x662F;&#x6CA1;&#x6709;&#x6548;&#x679C;&#x7684;&#x3002;   </p>
-<h5 id="appisaccessibilitysupportenabled-&#xFF08;macos&#xFF0C;windows&#xFF09;">app.isAccessibilitySupportEnabled() <em>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</em></h5>
+<h3 id="app-isAccessibilitySupportEnabled">app.isAccessibilitySupportEnabled() <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x5982;&#x679C;Chrome&#x7684;&#x8F85;&#x52A9;&#x529F;&#x80FD;&#x88AB;&#x5F00;&#x542F;&#x5219;&#x662F;<code>true</code>&#xFF0C;<code>false</code>&#x5219;&#x662F;&#x5C1A;&#x672A;&#x5F00;&#x542F;&#x3002;&#x5982;&#x679C;&#x68C0;&#x6D4B;&#x5230;&#x4F7F;&#x7528;&#x4E86;&#x8F85;&#x52A9;&#x6280;&#x672F;&#xFF0C;&#x6BD4;&#x5982;&#x5C4F;&#x5E55;&#x9605;&#x8BFB;&#xFF0C;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;<code>true</code>&#x3002;&#x8BE6;&#x7EC6;&#x8BF7;&#x89C1;<a href="https://www.chromium.org/developers/design-documents/accessibility&#x3002;" target="_blank">https://www.chromium.org/developers/design-documents/accessibility&#x3002;</a>   </p>
-<h5 id="appsetaboutpaneloptionsoptions-macos&#xFF09;">app.setAboutPanelOptions(options) <em>(MacOS&#xFF09;</em></h5>
+<h3 id="app-setAboutPanelOptions">app.setAboutPanelOptions(options) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>options</code> Object&#x7C7B;&#x578B;   <ul>
 <li><code>applicationName</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5E94;&#x7528;&#x7684;&#x540D;&#x5B57;&#x3002;   </li>
@@ -1736,55 +1795,67 @@ app.setLoginItemSettings({
 </li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x5173;&#x4E8E;&#x9762;&#x677F;&#x7684;&#x9009;&#x9879;&#x3002;&#x8FD9;&#x5C06;&#x4F1A;&#x8986;&#x76D6;&#x5E94;&#x7528;&#x7684;<code>.plist</code>&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5B9A;&#x4E49;&#x7684;&#x503C;&#x3002;&#x67E5;&#x770B;<a href="https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc" target="_blank">Apple docs</a>&#x83B7;&#x53D6;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;   </p>
-<h5 id="appcommandlineappendswitchswitch-value">app.commandLine.appendSwitch(switch[, value])</h5>
+<h3 id="app-commandLine-appendSwitch">app.commandLine.appendSwitch(switch[, value])</h3>
+
 <ul>
 <li><code>switch</code> String&#x7C7B;&#x578B; - &#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x884C;&#x5F00;&#x5173;</li>
 <li><code>value</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x4F20;&#x7ED9;&#x5F00;&#x5173;&#x7684;&#x503C;</li>
 </ul>
 <p>&#x7ED9;Chromium&#x547D;&#x4EE4;&#x884C;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5F00;&#x5173;&#xFF08;&#x4F7F;&#x7528;<code>value</code>&#x53C2;&#x6570;&#xFF09;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x5C06;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;<code>process.argv</code>&#xFF0C;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x63A7;&#x5236;&#x4E00;&#x4E9B;&#x5E95;&#x5C42;&#x7684;Chromium&#x884C;&#x4E3A;&#x3002;</p>
-<h5 id="appcommandlineappendargumentvalue">app.commandLine.appendArgument(value)</h5>
+<h3 id="app-commandLine-appendArgument">app.commandLine.appendArgument(value)</h3>
+
 <ul>
 <li><code>value</code> String&#x7C7B;&#x578B; - &#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x88AB;&#x52A0;&#x5165;&#x5230;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x3002;</li>
 </ul>
 <p>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5230;Chromium&#x7684;&#x547D;&#x4EE4;&#x884C;&#x3002;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x88AB;&#x6B63;&#x786E;&#x7684;&#x5F15;&#x7528;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x5C06;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;<code>process.argv</code>&#x3002;</p>
-<h5 id="appdockbouncetype-&#xFF08;macos&#xFF09;">app.dock.bounce([type]) <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-bounce">app.dock.bounce([type]) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x53EF;&#x4EE5;&#x662F;<code>critical</code>&#x6216;&#x8005;<code>informational</code>&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>informational</code>&#x3002;   </li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x4E3A;<code>critical</code>&#x65F6;&#xFF0C;dock&#x7684;&#x56FE;&#x6807;&#x5C06;&#x4F1A;&#x4E0D;&#x65AD;&#x8DF3;&#x52A8;&#xFF0C;&#x76F4;&#x5230;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x88AB;&#x6FC0;&#x6D3B;&#x6216;&#x8005;&#x8BF7;&#x6C42;&#x88AB;&#x53D6;&#x6D88;&#x3002;   </p>
 <p>&#x8BBE;&#x7F6E;&#x4E3A;<code>informational</code>&#x65F6;&#xFF0C;dock&#x7684;&#x56FE;&#x6807;&#x5C06;&#x8DF3;&#x52A8;&#x4E00;&#x79D2;&#x3002;&#x7136;&#x800C;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x4E00;&#x76F4;&#x6709;&#x6548;&#xFF0C;&#x76F4;&#x5230;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x88AB;&#x6FC0;&#x6D3B;&#x6216;&#x8005;&#x8BF7;&#x6C42;&#x88AB;&#x53D6;&#x6D88;&#x3002;   </p>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x4EE3;&#x8868;&#x7740;&#x8BF7;&#x6C42;&#x7684;<code>Integer</code>&#x7C7B;&#x578B;&#x7684;ID&#x3002;   </p>
-<h5 id="appdockcancelbounceid-&#xFF08;macos&#xFF09;">app.dock.cancelBounce(id) <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-cancelBounce">app.dock.cancelBounce(id) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>id</code> Integer&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x901A;&#x8FC7;<code>id</code>&#x6765;&#x53D6;&#x6D88;&#x8DF3;&#x52A8;&#x3002;</p>
-<h5 id="appdockdownloadfinishedfilepath-&#xFF08;macos&#xFF09;">app.dock.downloadFinished(filePath) <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-downloadFinished">app.dock.downloadFinished(filePath) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>filePath</code> String&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x5982;&#x679C;<code>filePath</code>&#x6307;&#x5411;&#x7684;&#x662F;Downloads&#x6587;&#x4EF6;&#x5939;&#x5219;&#x4F1A;&#x4F7F;&#x4E0B;&#x8F7D;&#x56FE;&#x6807;&#x8DF3;&#x52A8;&#x3002;   </p>
-<h5 id="appdocksetbadgetext-&#xFF08;macos&#xFF09;">app.dock.setBadge(text) <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-setBadge">app.dock.setBadge(text) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>text</code> String&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x5728;dock&#x533A;&#x57DF;&#x663E;&#x793A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;   </p>
-<h5 id="appdockgetbadge-&#xFF08;macos&#xFF09;">app.dock.getBadge() <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-getBadge">app.dock.getBadge() <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - dock&#x533A;&#x57DF;&#x663E;&#x793A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;   </p>
-<h5 id="appdockhide-&#xFF08;macos&#xFF09;">app.dock.hide() <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-hide">app.dock.hide() <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <p>&#x9690;&#x85CF;dock&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x3002;   </p>
-<h5 id="appdockshow-&#xFF08;macos&#xFF09;">app.dock.show() <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-show">app.dock.show() <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <p>&#x5C55;&#x793A;dock&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x3002;   </p>
-<h5 id="appdockisvisible-&#xFF08;macos&#xFF09;">app.dock.isVisible() <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-isVisible">app.dock.isVisible() <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - dock&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x662F;&#x5426;&#x53EF;&#x89C1;&#x3002;<code>app.dock.show()</code>&#x662F;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x5728;&#x8C03;&#x7528;&#x540E;&#x7ACB;&#x523B;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
-<h5 id="appdocksetmenumenu-&#xFF08;macos&#xFF09;">app.dock.setMenu(menu) <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-setMenu">app.dock.setMenu(menu) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>menu</code> Menu&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x5E94;&#x7528;&#x7684;<a href="https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103" target="_blank">dock&#x83DC;&#x5355;</a>&#x3002;</p>
-<h5 id="appdockseticonimage-&#xFF08;macos&#xFF09;">app.dock.setIcon(image) <em>&#xFF08;macOS&#xFF09;</em></h5>
+<h3 id="app-dock-setIcon">app.dock.setIcon(image) <i>&#xFF08;MacOS&#xFF09;</i></h3>
+
 <ul>
 <li><code>image</code> (NativeImage | String)   </li>
 </ul>
@@ -1832,7 +1903,7 @@ app.setLoginItemSettings({
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.app","level":"1.4.6.1","depth":3,"next":{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},"previous":{"title":"主进程模块","level":"1.4.6","depth":2,"path":"APIs/main/README.md","ref":"APIs/main/README.md","articles":[{"title":"1.app","level":"1.4.6.1","depth":3,"path":"APIs/main/app.md","ref":"APIs/main/app.md","articles":[]},{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},{"title":"3.BrowserWindow","level":"1.4.6.3","depth":3,"path":"APIs/main/BrowserWindow.md","ref":"APIs/main/BrowserWindow.md","articles":[]},{"title":"4.contentTracing","level":"1.4.6.4","depth":3,"path":"APIs/main/contentTracing.md","ref":"APIs/main/contentTracing.md","articles":[]},{"title":"5.dialog","level":"1.4.6.5","depth":3,"path":"APIs/main/dialog.md","ref":"APIs/main/dialog.md","articles":[]},{"title":"6.globalShortcut","level":"1.4.6.6","depth":3,"path":"APIs/main/globalShortcut.md","ref":"APIs/main/globalShortcut.md","articles":[]},{"title":"7.ipcMain","level":"1.4.6.7","depth":3,"path":"APIs/main/ipcMain.md","ref":"APIs/main/ipcMain.md","articles":[]},{"title":"8.Menu","level":"1.4.6.8","depth":3,"path":"APIs/main/Menu.md","ref":"APIs/main/Menu.md","articles":[]},{"title":"9.MenuItem","level":"1.4.6.9","depth":3,"path":"APIs/main/MenuItem.md","ref":"APIs/main/MenuItem.md","articles":[]},{"title":"10.net","level":"1.4.6.10","depth":3,"path":"APIs/main/net.md","ref":"APIs/main/net.md","articles":[]},{"title":"11.powerMonitor","level":"1.4.6.11","depth":3,"path":"APIs/main/powerMonitor.md","ref":"APIs/main/powerMonitor.md","articles":[]},{"title":"12.powerSaveBlocker","level":"1.4.6.12","depth":3,"path":"APIs/main/powerSaveBlocker.md","ref":"APIs/main/powerSaveBlocker.md","articles":[]},{"title":"13.protocol","level":"1.4.6.13","depth":3,"path":"APIs/main/protocol.md","ref":"APIs/main/protocol.md","articles":[]},{"title":"14.session","level":"1.4.6.14","depth":3,"path":"APIs/main/session.md","ref":"APIs/main/session.md","articles":[]},{"title":"15.systemPreferences","level":"1.4.6.15","depth":3,"path":"APIs/main/systemPreferences.md","ref":"APIs/main/systemPreferences.md","articles":[]},{"title":"16.Tray","level":"1.4.6.16","depth":3,"path":"APIs/main/Tray.md","ref":"APIs/main/Tray.md","articles":[]},{"title":"17.webContents","level":"1.4.6.17","depth":3,"path":"APIs/main/webContents.md","ref":"APIs/main/webContents.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/app.md","mtime":"2017-03-03T08:04:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-03T02:23:25.371Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.app","level":"1.4.6.1","depth":3,"next":{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},"previous":{"title":"主进程模块","level":"1.4.6","depth":2,"path":"APIs/main/README.md","ref":"APIs/main/README.md","articles":[{"title":"1.app","level":"1.4.6.1","depth":3,"path":"APIs/main/app.md","ref":"APIs/main/app.md","articles":[]},{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},{"title":"3.BrowserWindow","level":"1.4.6.3","depth":3,"path":"APIs/main/BrowserWindow.md","ref":"APIs/main/BrowserWindow.md","articles":[]},{"title":"4.contentTracing","level":"1.4.6.4","depth":3,"path":"APIs/main/contentTracing.md","ref":"APIs/main/contentTracing.md","articles":[]},{"title":"5.dialog","level":"1.4.6.5","depth":3,"path":"APIs/main/dialog.md","ref":"APIs/main/dialog.md","articles":[]},{"title":"6.globalShortcut","level":"1.4.6.6","depth":3,"path":"APIs/main/globalShortcut.md","ref":"APIs/main/globalShortcut.md","articles":[]},{"title":"7.ipcMain","level":"1.4.6.7","depth":3,"path":"APIs/main/ipcMain.md","ref":"APIs/main/ipcMain.md","articles":[]},{"title":"8.Menu","level":"1.4.6.8","depth":3,"path":"APIs/main/Menu.md","ref":"APIs/main/Menu.md","articles":[]},{"title":"9.MenuItem","level":"1.4.6.9","depth":3,"path":"APIs/main/MenuItem.md","ref":"APIs/main/MenuItem.md","articles":[]},{"title":"10.net","level":"1.4.6.10","depth":3,"path":"APIs/main/net.md","ref":"APIs/main/net.md","articles":[]},{"title":"11.powerMonitor","level":"1.4.6.11","depth":3,"path":"APIs/main/powerMonitor.md","ref":"APIs/main/powerMonitor.md","articles":[]},{"title":"12.powerSaveBlocker","level":"1.4.6.12","depth":3,"path":"APIs/main/powerSaveBlocker.md","ref":"APIs/main/powerSaveBlocker.md","articles":[]},{"title":"13.protocol","level":"1.4.6.13","depth":3,"path":"APIs/main/protocol.md","ref":"APIs/main/protocol.md","articles":[]},{"title":"14.session","level":"1.4.6.14","depth":3,"path":"APIs/main/session.md","ref":"APIs/main/session.md","articles":[]},{"title":"15.systemPreferences","level":"1.4.6.15","depth":3,"path":"APIs/main/systemPreferences.md","ref":"APIs/main/systemPreferences.md","articles":[]},{"title":"16.Tray","level":"1.4.6.16","depth":3,"path":"APIs/main/Tray.md","ref":"APIs/main/Tray.md","articles":[]},{"title":"17.webContents","level":"1.4.6.17","depth":3,"path":"APIs/main/webContents.md","ref":"APIs/main/webContents.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/app.md","mtime":"2017-03-06T06:16:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-06T03:32:19.057Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
