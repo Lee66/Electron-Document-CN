@@ -12,7 +12,7 @@
     * [7.Windows Store指南](guides/windows-store-guide.md)
     * [8.应用打包](guides/application-packaging.md)
     * [9.使用Native Node Modules](guides/using-native-node-modules.md)
-    * [10.调试主线程](guides/debugging-main-process.md)
+    * [10.调试主进程](guides/debugging-main-process.md)
     * [11.使用Selenium和WebDriver](guides/using-selenium-and-webDriver.md)
     * [12.开发工具扩展](guides/devTools-extension.md)
     * [13.使用Pepper Flash插件](guides/using-pepper-flash-plugin.md)

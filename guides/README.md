@@ -10,7 +10,7 @@
 [7.Windows Store指南](windows-store-guide.html)   
 [8.应用打包](application-packaging.html)   
 [9.使用Native Node Modules](using-native-node-modules.html)   
-[10.调试主线程](debugging-main-process.html)   
+[10.调试主进程](debugging-main-process.html)   
 [11.使用Selenium和WebDriver](using-selenium-and-webDriver.html)   
 [12.开发工具扩展](devTools-extension.html)   
 [13.使用Pepper Flash插件](using-pepper-flash-plugin.html)   
