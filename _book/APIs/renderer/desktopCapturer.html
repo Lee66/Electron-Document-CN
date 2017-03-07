@@ -445,7 +445,7 @@
                 <a href="../process-object.html">
             
                     
-                    2.进程对象
+                    2.process对象
             
                 </a>
             
@@ -1203,6 +1203,64 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="1desktopcapturer">1.desktopCapturer</h1>
+<blockquote>
+<p>&#x539F;&#x6587;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/api/desktop-capturer.md" target="_blank">https://github.com/electron/electron/blob/master/docs/api/desktop-capturer.md</a><br>&#x8BD1;&#x8005;&#xFF1A;<a href="https://github.com/ShmilyLin" target="_blank">Lin</a>   </p>
+<p>&#x8BBF;&#x95EE;&#x5A92;&#x4F53;&#x8D44;&#x6E90;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x6765;&#x4F7F;&#x7528;<a href="https://developer.mozilla.org/en/docs/Web/API/Navigator/getUserMedia" target="_blank">navigator.webkitGetUserMedia</a>&#x63A5;&#x53E3;&#x4ECE;&#x684C;&#x9762;&#x6355;&#x6349;&#x97F3;&#x9891;&#x548C;&#x89C6;&#x9891;&#x3002;</p>
+</blockquote>
+<p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../../guides/glossary-of-terms.html#renderer-process">&#x6E32;&#x67D3;&#x8FDB;&#x7A0B;</a></p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x4ECE;&#x684C;&#x9762;&#x4E0A;&#x4E00;&#x4E2A;&#x6807;&#x9898;&#x662F;<code>Electron</code>&#x7684;&#x7A97;&#x53E3;&#x4E2D;&#x6355;&#x6349;&#x89C6;&#x9891;&#xFF1A;</p>
+<pre><code>// &#x6E32;&#x67D3;&#x8FDB;&#x7A0B;&#x4E2D;&#x3002;
+const {desktopCapturer} = require(&apos;electron&apos;)
+
+desktopCapturer.getSources({types: [&apos;window&apos;, &apos;screen&apos;]}, (error, sources) =&gt; {
+    if (error) throw error
+    for (let i = 0; i &lt; sources.length; ++i) {
+        if (sources[i].name === &apos;Electron&apos;) {
+            navigator.webkitGetUserMedia({
+                audio: false,
+                video: {
+                    mandatory: {
+                        chromeMediaSource: &apos;desktop&apos;,
+                        chromeMediaSourceId: sources[i].id,
+                        minWidth: 1280,
+                        maxWidth: 1280,
+                        minHeight: 720,
+                        maxHeight: 720
+                    }
+                }
+            }, handleStream, handleError)
+            return
+        }
+    }
+})
+
+function handleStream (stream) {
+    document.querySelector(&apos;video&apos;).src = URL.createObjectURL(stream)
+}
+
+function handleError (e) {
+    console.log(e)
+}
+</code></pre><p>&#x4F7F;&#x7528;<a href="">navigator.webkitGetUserMedia</a>&#x4F20;&#x5165;<code>desktopCapturer</code>&#x63D0;&#x4F9B;&#x7684;&#x8D44;&#x6E90;&#x6765;&#x6355;&#x6349;&#x89C6;&#x9891;&#xFF0C;&#x5219;&#x53C2;&#x6570;&#x91CD;&#x5FC5;&#x987B;&#x5305;&#x542B;<code>chromeMediaSource: &apos;desktop&apos;</code>&#xFF0C;&#x548C;<code>audio: false</code>&#x3002;</p>
+<h2 id="methods">&#x65B9;&#x6CD5;</h2>
+
+<p><code>desktopCapturer</code>&#x6A21;&#x5757;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h3 id="desktopCapturer-getSources"><code>desktopCapturer.getSources(options, callback)</code></h3>
+
+<ul>
+<li><code>options</code> Object&#x7C7B;&#x578B;<ul>
+<li><code>types</code> String[]&#x7C7B;&#x578B; - &#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#xFF0C;&#x5217;&#x51FA;&#x4E86;&#x8981;&#x6355;&#x6349;&#x7684;&#x684C;&#x9762;&#x8D44;&#x6E90;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x7528;&#x7C7B;&#x578B;&#x662F;<code>screen</code>&#x548C;<code>window</code>&#x3002;</li>
+<li><code>thumbnailSize</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5EFA;&#x8BAE;&#x5A92;&#x4F53;&#x8D44;&#x6E90;&#x7684;&#x7F29;&#x7565;&#x56FE;&#x5E94;&#x8BE5;&#x7F29;&#x653E;&#x5230;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;<code>{width: 150, height: 150}</code>&#x3002;</li>
+</ul>
+</li>
+<li><code>callback</code> Function&#x7C7B;&#x578B;<ul>
+<li><code>error</code> Error&#x7C7B;&#x578B;</li>
+<li><code>sources</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/desktop-capturer-source.md" target="_blank">DesktopCapturerSource[]</a>&#x7C7B;&#x578B;</li>
+</ul>
+</li>
+</ul>
+<p>&#x5F00;&#x59CB;&#x6536;&#x96C6;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;&#x684C;&#x9762;&#x5A92;&#x4F53;&#x8D44;&#x6E90;&#xFF0C;&#x5728;&#x6536;&#x96C6;&#x5B8C;&#x6210;&#x540E;&#x8C03;&#x7528;<code>callback(error, sources)</code>&#x3002;</p>
+<p><code>sources</code>&#x662F;&#x4E00;&#x4E2A;<a href="https://github.com/electron/electron/blob/master/docs/api/structures/desktop-capturer-source.md" target="_blank">DesktopCapturerSource</a>&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;<code>DesktopCapturerSource</code>&#x8868;&#x793A;&#x53EF;&#x4EE5;&#x88AB;&#x6355;&#x6349;&#x7684;&#x4E00;&#x4E2A;&#x5C4F;&#x5E55;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;&#x3002;</p>
 
                                 
                                 </section>
@@ -1246,7 +1304,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.desktopCapturer","level":"1.4.7.1","depth":3,"next":{"title":"2.ipcRenderer","level":"1.4.7.2","depth":3,"path":"APIs/renderer/ipcRenderer.md","ref":"APIs/renderer/ipcRenderer.md","articles":[]},"previous":{"title":"渲染进程模块（网页）","level":"1.4.7","depth":2,"path":"APIs/renderer/README.md","ref":"APIs/renderer/README.md","articles":[{"title":"1.desktopCapturer","level":"1.4.7.1","depth":3,"path":"APIs/renderer/desktopCapturer.md","ref":"APIs/renderer/desktopCapturer.md","articles":[]},{"title":"2.ipcRenderer","level":"1.4.7.2","depth":3,"path":"APIs/renderer/ipcRenderer.md","ref":"APIs/renderer/ipcRenderer.md","articles":[]},{"title":"3.remote","level":"1.4.7.3","depth":3,"path":"APIs/renderer/remote.md","ref":"APIs/renderer/remote.md","articles":[]},{"title":"4.webFrame","level":"1.4.7.4","depth":3,"path":"APIs/renderer/webFrame.md","ref":"APIs/renderer/webFrame.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/renderer/desktopCapturer.md","mtime":"2017-03-02T15:30:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-06T09:11:10.753Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.desktopCapturer","level":"1.4.7.1","depth":3,"next":{"title":"2.ipcRenderer","level":"1.4.7.2","depth":3,"path":"APIs/renderer/ipcRenderer.md","ref":"APIs/renderer/ipcRenderer.md","articles":[]},"previous":{"title":"渲染进程模块（网页）","level":"1.4.7","depth":2,"path":"APIs/renderer/README.md","ref":"APIs/renderer/README.md","articles":[{"title":"1.desktopCapturer","level":"1.4.7.1","depth":3,"path":"APIs/renderer/desktopCapturer.md","ref":"APIs/renderer/desktopCapturer.md","articles":[]},{"title":"2.ipcRenderer","level":"1.4.7.2","depth":3,"path":"APIs/renderer/ipcRenderer.md","ref":"APIs/renderer/ipcRenderer.md","articles":[]},{"title":"3.remote","level":"1.4.7.3","depth":3,"path":"APIs/renderer/remote.md","ref":"APIs/renderer/remote.md","articles":[]},{"title":"4.webFrame","level":"1.4.7.4","depth":3,"path":"APIs/renderer/webFrame.md","ref":"APIs/renderer/webFrame.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/renderer/desktopCapturer.md","mtime":"2017-03-07T06:15:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-07T10:13:28.074Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

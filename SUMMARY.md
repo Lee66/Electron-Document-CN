@@ -26,7 +26,7 @@
     * [4.REPL](tutorials/REPL.md)
 * [接口参考](APIs/README.md)
     * [1.Synopsis](APIs/synopsis.md)
-    * [2.进程对象](APIs/process-object.md)
+    * [2.process对象](APIs/process-object.md)
     * [3.Supported Chrome Command Line Switches](APIs/supported-chrome-command-line-switches.md)
     * [4.环境变量](APIs/environment-variables.md)
     * [自定义DOM元素](APIs/DOM/README.md)
