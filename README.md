@@ -37,7 +37,7 @@
 ##接口参考
 
 [1.Synopsis](APIs/synopsis.html)   
-[2.进程对象](APIs/process-object.html)   
+[2.process对象](APIs/process-object.html)   
 [3.Supported Chrome Command Line Switches](APIs/supported-chrome-command-line-switches.html)   
 [4.环境变量](APIs/environment-variables.html)   
 
