@@ -5,7 +5,7 @@
 
 > 监测电量状态改变
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)
 
 你不能引用或使用这个模块，直到`ready`事件被`app`模块分发。
 

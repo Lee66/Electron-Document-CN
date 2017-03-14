@@ -5,7 +5,7 @@
 
 > 阻止系统进入低功耗（休眠）模式
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)
 
 例如：
 

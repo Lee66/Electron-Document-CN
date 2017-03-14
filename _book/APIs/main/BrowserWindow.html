@@ -1208,10 +1208,10 @@
 <p>&#x521B;&#x5EFA;&#x5E76;&#x4E14;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x3002;</p>
 </blockquote>
 <p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../../guides/glossary-of-terms.html#main-process">&#x4E3B;&#x8FDB;&#x7A0B;</a>   </p>
-<pre><code>// In the main process.
+<pre><code>// &#x4E3B;&#x8FDB;&#x7A0B;&#x4E2D;
 const {BrowserWindow} = require(&apos;electron&apos;)
 
-// Or use `remote` from the renderer process.
+// &#x6216;&#x8005;&#x4F7F;&#x7528;&#x6E32;&#x67D3;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;`remote`
 // const {BrowserWindow} = require(&apos;electron&apos;).remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -1219,10 +1219,10 @@ win.on(&apos;closed&apos;, () =&gt; {
     win = null
 })
 
-// Load a remote URL
+// &#x52A0;&#x8F7D;&#x7F51;&#x7EDC;&#x5730;&#x5740;
 win.loadURL(&apos;https://github.com&apos;)
 
-// Or load a local HTML file
+// &#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x672C;&#x5730;HTML&#x6587;&#x4EF6;
 win.loadURL(`file://${__dirname}/app/index.html`)
 </code></pre><h2 id="frameless-window">&#x65E0;&#x6846;&#x67B6;&#x7A97;&#x53E3;</h2>
 
@@ -1310,7 +1310,7 @@ child.once(&apos;ready-to-show&apos;, () =&gt; {
 <li><code>skipTaskbar</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x4E0A;&#x663E;&#x793A;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>false</code>&#x3002;</li>
 <li><code>kiosk</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- kiosk&#x6A21;&#x5F0F;&#xFF08;&#x9501;&#x5B9A;&#x8FD0;&#x884C;&#x6A21;&#x5F0F;&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>false</code>&#x3002;   </li>
 <li><code>title</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x9ED8;&#x8BA4;&#x6807;&#x9898;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>&quot;Electron&quot;</code>&#x3002;   </li>
-<li><code>icon</code> (<a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a> | String)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x56FE;&#x6807;&#x3002;Windows&#x4E2D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>ICO</code>&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x6807;&#x6765;&#x83B7;&#x5F97;&#x6700;&#x597D;&#x7684;&#x89C6;&#x89C9;&#x6548;&#x679C;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;&#x8FD9;&#x6837;executable&#x7684;&#x56FE;&#x6807;&#x5C31;&#x4F1A;&#x9ED8;&#x8BA4;&#x7684;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;</li>
+<li><code>icon</code> (<a href="../both/nativeImage.html">NativeImage</a> | String)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x56FE;&#x6807;&#x3002;Windows&#x4E2D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>ICO</code>&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x6807;&#x6765;&#x83B7;&#x5F97;&#x6700;&#x597D;&#x7684;&#x89C6;&#x89C9;&#x6548;&#x679C;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;&#x8FD9;&#x6837;executable&#x7684;&#x56FE;&#x6807;&#x5C31;&#x4F1A;&#x9ED8;&#x8BA4;&#x7684;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;</li>
 <li><code>show</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x663E;&#x793A;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;   </li>
 <li><code>frame</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<a href="https://github.com/electron/electron/blob/master/docs/api/frameless-window.md" target="_blank">Frameless Window</a>&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
 <li><code>parent</code> BrowserWindow&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5236;&#x5B9A;&#x7236;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>null</code>&#x3002;   </li>
@@ -1336,8 +1336,8 @@ child.once(&apos;ready-to-show&apos;, () =&gt; {
 <li><code>webPreferences</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x7F51;&#x9875;&#x7684;&#x7279;&#x5F81;&#x3002;<ul>
 <li><code>devTools</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x542F;&#x7528;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#xFF0C;&#x5C06;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>BrowserWindow.webContents.openDevTools()</code>&#x6765;&#x6253;&#x5F00;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
 <li><code>nodeIntegration</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x542F;&#x7528;node&#x5B8C;&#x6574;&#x6027;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
-<li><code>preload</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x811A;&#x672C;&#x5BB6;&#x5728;&#x4E4B;&#x524D;&#x52A0;&#x8F7D;&#x3002;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x5C06;&#x6709;&#x6743;&#x4F7F;&#x7528;node&#x63A5;&#x53E3;&#xFF0C;&#x65E0;&#x8BBA;<code>nodeIntegration</code>&#x662F;&#x5426;&#x5F00;&#x542F;&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x5FC5;&#x987B;&#x662F;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x5F53;<code>nodeIntegration</code>&#x8BBE;&#x4E3A;<code>false</code>&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x9884;&#x52A0;&#x8F7D;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x4ECE;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x5185;&#x91CD;&#x65B0;&#x5F15;&#x7528;Node&#x5168;&#x5C40;&#x6807;&#x8BC6;&#x7B26;&#x3002;<a href="https://github.com/electron/electron/blob/master/docs/api/process.md#event-loaded" target="_blank">&#x4F8B;&#x5B50;</a>&#x8BF7;&#x770B;&#x8FD9;&#x91CC;&#x3002;</li>
-<li><code>session</code> <a href="https://github.com/electron/electron/blob/master/docs/api/session.md#class-session" target="_blank">Session</a>&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x7684;&#x4F1A;&#x8BDD;&#x3002;Instead of passing the Session object directly&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F7F;&#x7528;<code>partition</code>&#x9009;&#x9879;&#x4EE3;&#x66FF;&#xFF0C;which accepts a partition string. &#x5F53;<code>session</code>&#x548C;<code>partition</code>&#x90FD;&#x88AB;&#x63D0;&#x4F9B;&#xFF0C;<code>session</code>&#x5C06;&#x4F1A;&#x88AB;&#x4F5C;&#x4E3A;&#x9996;&#x9009;&#x3002;&#x9ED8;&#x8BA4;&#x662F;default session&#x3002;</li>
+<li><code>preload</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x811A;&#x672C;&#x5BB6;&#x5728;&#x4E4B;&#x524D;&#x52A0;&#x8F7D;&#x3002;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x5C06;&#x6709;&#x6743;&#x4F7F;&#x7528;node&#x63A5;&#x53E3;&#xFF0C;&#x65E0;&#x8BBA;<code>nodeIntegration</code>&#x662F;&#x5426;&#x5F00;&#x542F;&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x5FC5;&#x987B;&#x662F;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x5F53;<code>nodeIntegration</code>&#x8BBE;&#x4E3A;<code>false</code>&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x9884;&#x52A0;&#x8F7D;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x4ECE;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x5185;&#x91CD;&#x65B0;&#x5F15;&#x7528;Node&#x5168;&#x5C40;&#x6807;&#x8BC6;&#x7B26;&#x3002;<a href="../process.md#event-loaded">&#x4F8B;&#x5B50;</a>&#x8BF7;&#x770B;&#x8FD9;&#x91CC;&#x3002;</li>
+<li><code>session</code> <a href="session.html#class-session">Session</a>&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x7684;&#x4F1A;&#x8BDD;&#x3002;Instead of passing the Session object directly&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F7F;&#x7528;<code>partition</code>&#x9009;&#x9879;&#x4EE3;&#x66FF;&#xFF0C;which accepts a partition string. &#x5F53;<code>session</code>&#x548C;<code>partition</code>&#x90FD;&#x88AB;&#x63D0;&#x4F9B;&#xFF0C;<code>session</code>&#x5C06;&#x4F1A;&#x88AB;&#x4F5C;&#x4E3A;&#x9996;&#x9009;&#x3002;&#x9ED8;&#x8BA4;&#x662F;default session&#x3002;</li>
 <li><code>partition</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Sets the session used by the page according to the session&apos;s partition string. If partition starts with persist:, the page will use a persistent session available to all pages in the app with the same partition. If there is no persist: prefix, the page will use an in-memory session. By assigning the same partition, multiple pages can share the same session. Default is the default session.</li>
 <li><code>zoomFactor</code> Number&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x9875;&#x9762;&#x7684;&#x9ED8;&#x8BA4;&#x7F29;&#x653E;&#x56E0;&#x5B50;&#xFF0C;<code>3.0</code>&#x8868;&#x793A;<code>300%</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<code>1.0</code>&#x3002;   </li>
 <li><code>javascript</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x80FD;&#x591F;&#x652F;&#x6301;JavaScript&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>true</code>&#x3002;   </li>
@@ -1890,7 +1890,7 @@ win.setSheetOffset(toolbarRect.height)
 <ul>
 <li><code>rect</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x6355;&#x6349;&#x5230;&#x7684;&#x8FB9;&#x754C;&#x3002;</li>
 <li><code>callback</code> Function&#x7C7B;&#x578B;<ul>
-<li><code>image</code> <a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a></li>
+<li><code>image</code> <a href="../both/nativeImage.html">NativeImage</a></li>
 </ul>
 </li>
 </ul>
@@ -1950,7 +1950,7 @@ win.loadURL(url)
 <h4 id="win-setOverlayIcon">win.setOverlayIcon(overlay, description) <i>&#xFF08;Windows&#xFF09;</i></h4>
 
 <ul>
-<li><code>overlay</code> <a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a>&#x7C7B;&#x578B; - &#x5C55;&#x793A;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x53F3;&#x4E0B;&#x89D2;&#x6309;&#x94AE;&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;<code>null</code>&#xFF0C;&#x5219;&#x8986;&#x76D6;&#x7269;&#x5C06;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#x3002;</li>
+<li><code>overlay</code> <a href="../both/nativeImage.html">NativeImage</a>&#x7C7B;&#x578B; - &#x5C55;&#x793A;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x53F3;&#x4E0B;&#x89D2;&#x6309;&#x94AE;&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;<code>null</code>&#xFF0C;&#x5219;&#x8986;&#x76D6;&#x7269;&#x5C06;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#x3002;</li>
 <li><code>description</code> String&#x7C7B;&#x578B; - &#x4E00;&#x4E2A;&#x5C06;&#x63D0;&#x4F9B;&#x7ED9;&#x7ED9;&#x5C4F;&#x5E55;&#x9605;&#x8BFB;&#x5668;&#x7684;&#x63CF;&#x8FF0;&#x3002;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;16 x 16&#x50CF;&#x7D20;&#x7684;&#x8986;&#x76D6;&#x7269;&#x5230;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x680F;&#x56FE;&#x6807;&#x4E0A;&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x7528;&#x6765;&#x4F20;&#x8FBE;&#x67D0;&#x79CD;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x6216;&#x8005;&#x88AB;&#x52A8;&#x7684;&#x901A;&#x77E5;&#x7528;&#x6237;&#x3002;</p>
@@ -2023,7 +2023,7 @@ win.loadURL(url)
 <h4 id="win-setIcon">win.setIcon(icon) <i>&#xFF08;Windows&#xFF0C;Linux&#xFF09;</i></h4>
 
 <ul>
-<li><code>icon</code> <a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a></li>
+<li><code>icon</code> <a href="../both/nativeImage.html">NativeImage</a></li>
 </ul>
 <p>&#x6539;&#x53D8;&#x7A97;&#x53E3;&#x7684;&#x56FE;&#x6807;&#x3002;</p>
 <h4 id="win-setAutoHideMenuBar">win.setAutoHideMenuBar(hide)</h4>
@@ -2140,7 +2140,7 @@ win.loadURL(url)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.BrowserWindow","level":"1.4.6.3","depth":3,"next":{"title":"4.contentTracing","level":"1.4.6.4","depth":3,"path":"APIs/main/contentTracing.md","ref":"APIs/main/contentTracing.md","articles":[]},"previous":{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/BrowserWindow.md","mtime":"2017-03-06T06:26:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-09T10:29:45.429Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.BrowserWindow","level":"1.4.6.3","depth":3,"next":{"title":"4.contentTracing","level":"1.4.6.4","depth":3,"path":"APIs/main/contentTracing.md","ref":"APIs/main/contentTracing.md","articles":[]},"previous":{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/BrowserWindow.md","mtime":"2017-03-14T02:35:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-14T02:11:19.013Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

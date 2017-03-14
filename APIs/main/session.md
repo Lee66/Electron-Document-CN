@@ -333,7 +333,7 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
 
 <h4 id="ses-protocol"><code>ses.protocol</code></h4>
 
-这个会话的Protocol对象（一个[protocol](https://github.com/electron/electron/blob/master/docs/api/protocol.md)模块的实例）。
+这个会话的Protocol对象（一个[protocol](./protocol.md)模块的实例）。
 
     const {app, session} = require('electron')
     const path = require('path')

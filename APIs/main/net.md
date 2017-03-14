@@ -5,7 +5,7 @@
 
 > 使用Chromium的原生网络库发出HTTP/HTTPS请求。
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)
 
 `net`模块是一个发送HTTP(S)请求的客户端接口。它类似于Node.js中的[HTTP](https://nodejs.org/api/http.html)和[HTTPS](https://nodejs.org/api/https.html)模块，但是使用Chromium的原生网络库代替Node.js的实现，可以提供更好的网络代理。
 

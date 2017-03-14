@@ -5,12 +5,12 @@
 
 > 创建并且控制浏览器窗口。
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)   
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)   
 
-    // In the main process.
+    // 主进程中
     const {BrowserWindow} = require('electron')
 
-    // Or use `remote` from the renderer process.
+    // 或者使用渲染进程中的`remote`
     // const {BrowserWindow} = require('electron').remote
 
     let win = new BrowserWindow({width: 800, height: 600})
@@ -18,10 +18,10 @@
         win = null
     })
 
-    // Load a remote URL
+    // 加载网络地址
     win.loadURL('https://github.com')
 
-    // Or load a local HTML file
+    // 加载一个本地HTML文件
     win.loadURL(`file://${__dirname}/app/index.html`)
 
 <h2 id="frameless-window">无框架窗口</h2>
@@ -92,7 +92,7 @@
 
 > 创建并且控制浏览器窗口。   
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)    
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)    
 
 `BrowserWindow`是一个[EventEmitter](http://nodejs.org/api/events.html#events_class_events_eventemitter)。   
 
@@ -123,7 +123,7 @@
      * `skipTaskbar` Boolean类型（可选参数）- 是否在任务栏上显示窗口。默认为`false`。
      * `kiosk` Boolean类型（可选参数）- kiosk模式（锁定运行模式）。默认为`false`。   
      * `title` String类型（可选参数）- 窗口的默认标题。默认为`"Electron"`。   
-     * `icon` ([NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md) | String)类型（可选参数）- 窗口的图标。Windows中建议使用`ICO`格式的图标来获得最好的视觉效果，你也可以不设置这样executable的图标就会默认的被设置。
+     * `icon` ([NativeImage](../both/nativeImage.md) | String)类型（可选参数）- 窗口的图标。Windows中建议使用`ICO`格式的图标来获得最好的视觉效果，你也可以不设置这样executable的图标就会默认的被设置。
      * `show` Boolean类型（可选参数）- 是否在创建时显示窗口。默认为`true`。   
      * `frame` Boolean类型（可选参数）- 设置为`false`来创建一个[Frameless Window](https://github.com/electron/electron/blob/master/docs/api/frameless-window.md)。默认为`true`。
      * `parent` BrowserWindow类型（可选参数）- 制定父窗口。默认为`null`。   
@@ -147,8 +147,8 @@
      * `webPreferences` Object类型（可选参数）- 设置网页的特征。
          * `devTools` Boolean类型（可选参数）- 是否启用开发工具。如果设置为`false`，将不能使用`BrowserWindow.webContents.openDevTools()`来打开开发工具。默认为`true`。
          * `nodeIntegration` Boolean类型（可选参数）- 是否启用node完整性。默认为`true`。
-         * `preload` String类型（可选参数）- 制定一个脚本在这个页面中的其他脚本家在之前加载。这个脚本将有权使用node接口，无论`nodeIntegration`是否开启。这个属性的值必须是脚本文件的绝对路径。当`nodeIntegration`设为`false`时，这个预加载脚本可以从全局范围内重新引用Node全局标识符。[例子](https://github.com/electron/electron/blob/master/docs/api/process.md#event-loaded)请看这里。
-         * `session` [Session](https://github.com/electron/electron/blob/master/docs/api/session.md#class-session)类型（可选参数）- 设置页面使用的会话。Instead of passing the Session object directly，你也可以选择使用`partition`选项代替，which accepts a partition string. 当`session`和`partition`都被提供，`session`将会被作为首选。默认是default session。
+         * `preload` String类型（可选参数）- 制定一个脚本在这个页面中的其他脚本家在之前加载。这个脚本将有权使用node接口，无论`nodeIntegration`是否开启。这个属性的值必须是脚本文件的绝对路径。当`nodeIntegration`设为`false`时，这个预加载脚本可以从全局范围内重新引用Node全局标识符。[例子](../process.md#event-loaded)请看这里。
+         * `session` [Session](./session.md#class-session)类型（可选参数）- 设置页面使用的会话。Instead of passing the Session object directly，你也可以选择使用`partition`选项代替，which accepts a partition string. 当`session`和`partition`都被提供，`session`将会被作为首选。默认是default session。
          * `partition` String类型（可选参数）- Sets the session used by the page according to the session's partition string. If partition starts with persist:, the page will use a persistent session available to all pages in the app with the same partition. If there is no persist: prefix, the page will use an in-memory session. By assigning the same partition, multiple pages can share the same session. Default is the default session.
          * `zoomFactor` Number类型（可选参数）- 页面的默认缩放因子，`3.0`表示`300%`，默认为`1.0`。   
          * `javascript` Boolean类型（可选参数）- 能够支持JavaScript。默认是`true`。   
@@ -176,7 +176,7 @@
          * `minimumFontSize` Integer类型（可选参数）- 最小字体大小，默认是`0`。
          * `defaultEncoding` String类型（可选参数）- 默认编码，默认是`ISO-8859-1`。
          * `backgroundThrottling` Boolean类型（可选参数）- 当页面变成背景时是否停止动画和计时器。默认是`true`。
-         * `offscreen` Boolean类型（可选参数）- 是否启用浏览器窗口在屏幕外渲染。查看[离屏渲染教程](../../guides/offscreen-rendering.html)来获得详细信息。
+         * `offscreen` Boolean类型（可选参数）- 是否启用浏览器窗口在屏幕外渲染。查看[离屏渲染教程](../../guides/offscreen-rendering.md)来获得详细信息。
          * `sandbox` Boolean类型（可选参数）- 是否开启Chromium系统级别的沙盒。
          * `contextIsolation` Boolean类型（可选参数）- 是否在一个隔离的Javascript环境中运行Ellectron接口和指定的预加载脚本。默认是`false`。Defaults to false. The context that the preload script runs in will still have full access to the document and window globals but it will use its own set of JavaScript builtins (Array, Object, JSON, etc.) and will be isolated from any changes made to the global environment by the loaded page. Electron接口将会仅在`preload`脚本中有效而不在已经加载的页面中有效。This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the preload script and any Electron APIs being used. 这个选项使用和[Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)使用的相同的技术。你可以在开发工具中通过在控制台选项卡的顶部的组合框中选中'Electron Isolated Context'入口里获取context。**注意：**这个选项仅是当前的实验项，可能会在未来的Electron版本中改变或被移除。   
 
@@ -412,7 +412,7 @@
 
 窗口拥有的一个`WebContents`对象。所有与网页有关的事件和操作都会通过它来完成。
 
-查看[`webContents` documentation](./webContents.html)来了解它的方法和事件。
+查看[`webContents` documentation](./webContents.md)来了解它的方法和事件。
 
 <h4 id="win-id">win.id</h4>
 
@@ -790,7 +790,7 @@ MacOS上改变表单的依附点。默认情况下，表单只依附在窗口边
 
  * `rect` [Rectangle](https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md)类型（可选参数）- 捕捉到的边界。
  * `callback` Function类型
-     * `image` [NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md)
+     * `image` [NativeImage](../both/nativeImage.md)
 
 同`webContents.capturePage([rect, ]callback)`一样。
 
@@ -853,7 +853,7 @@ Windows中，一个模式可以被忽略。接受的值为`none`，`normal`，`i
 
 <h4 id="win-setOverlayIcon">win.setOverlayIcon(overlay, description) <i>（Windows）</i></h4>
 
- * `overlay` [NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md)类型 - 展示在任务栏右下角按钮上的图标。如果这个参数是`null`，则覆盖物将会被清除。
+ * `overlay` [NativeImage](../both/nativeImage.md)类型 - 展示在任务栏右下角按钮上的图标。如果这个参数是`null`，则覆盖物将会被清除。
  * `description` String类型 - 一个将提供给给屏幕阅读器的描述。
 
 设置一个16 x 16像素的覆盖物到当前任务栏图标上，通常被用来传达某种应用状态或者被动的通知用户。
@@ -928,7 +928,7 @@ Windows和Linux下总是返回`true`。
 
 <h4 id="win-setIcon">win.setIcon(icon) <i>（Windows，Linux）</i></h4>
 
- * `icon` [NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md)
+ * `icon` [NativeImage](../both/nativeImage.md)
 
 改变窗口的图标。
 

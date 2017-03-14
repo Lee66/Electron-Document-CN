@@ -1,4 +1,4 @@
 # FAQ
 
-[Electron FAQ](electron-faq.html)    
+[Electron FAQ](electron-faq.md)    
 

@@ -5,13 +5,13 @@
 
 > 从主进程到渲染进程的异步通讯。
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)
 
 `ipcMain`模块是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)类的实例。在主线程中使用时，它处理发送自渲染线程（网页）的异步和同步消息。发送自渲染器的消息将会使用这个模块中被分发。
 
 <h2 id="sending-messages">发送消息</h2>
 
-它也可以从主进程发送消息到渲染进程，更多信息请查看[webContents.send](https://github.com/electron/electron/blob/master/docs/api/web-contents.md#webcontentssendchannel-arg1-arg2-)。
+它也可以从主进程发送消息到渲染进程，更多信息请查看[webContents.send](./webContents.md#contents-send)。
 
  * 当发送一个消息，事件的名字是`channel`。
  * 回复一个同步消息，你需要设置`event.returnValue`。
@@ -82,4 +82,4 @@
 
 <h3 id="event-sender"><code>event.sender</code></h3>
 
-返回发送的消息的`webContents`，你可以调用`event.sender.send`来回复异步消息，查看[webContents.send](https://github.com/electron/electron/blob/master/docs/api/web-contents.md#webcontentssendchannel-arg1-arg2-)来获取更多消息。
+返回发送的消息的`webContents`，你可以调用`event.sender.send`来回复异步消息，查看[webContents.send](./webContents.md#contents-send)来获取更多消息。

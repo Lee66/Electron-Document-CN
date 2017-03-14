@@ -6,7 +6,7 @@
 
 > 控制你应用程序的生命周期事件   
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)   
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)   
 
 下面的例子将展示如何在最后一个窗口被关闭时关闭应用程序。   
 
@@ -111,7 +111,7 @@ A user activity can be continued only in an app that has the same developer Team
  * `event` Event类型   
  * `window` BrowserWindow类型   
 
-当一个[browserWindow](./BrowserWindow.html)失去焦点的时候被分发。   
+当一个[browserWindow](./BrowserWindow.md)失去焦点的时候被分发。   
 
 <h3 id="event-browser-window-focus">事件：‘browser-window-focus’</h3>
 返回值：   
@@ -119,7 +119,7 @@ A user activity can be continued only in an app that has the same developer Team
  * `event` Event类型   
  * `window` BrowserWindow类型   
 
-当一个[browserWindow](./BrowserWindow.html)获得焦点的时候被分发。   
+当一个[browserWindow](./BrowserWindow.md)获得焦点的时候被分发。   
 
 <h3 id="event-browser-window-created">事件：'browser-window-created’</h3>
 返回值：   
@@ -127,7 +127,7 @@ A user activity can be continued only in an app that has the same developer Team
  * `event` Event类型   
  * `window` BrowserWindow类型   
 
-当一个新的[browserWindow](./BrowserWindow.html)被创建的时候被分发。   
+当一个新的[browserWindow](./BrowserWindow.md)被创建的时候被分发。   
 
 <h3 id="event-certificate-error">事件：‘certificate-error’</h3>
 返回值：   
@@ -600,7 +600,7 @@ MacOS中它将展示在dock的图标上。Linux中它只在Unity的启动器上�
  * `wasOpenedAsHidden` Boolean类型 - 如果应用在作为一个隐藏启动项打开则是`true`。这表示应用在启动时并没有打开任何窗口。这个设置只有MacOS支持。   
  * `restoreState` Boolean类型 - 如果应用作为一个登录项已经被打开并且需要恢复之前的会话状态则是`true`。这表示应用需要恢复最近一次关闭应用时打开的窗口。这个设置只有MacOS支持。   
 
-**注意：**这个接口在[MAS builds](https://github.com/electron/electron/blob/master/docs/tutorial/mac-app-store-submission-guide.md)上是没有效果的。
+**注意：**这个接口在[MAS builds](../../guides/mac-app-store-submission-guide.md)上是没有效果的。
 
 <h3 id="app-setLoginItemSettings">app.setLoginItemSettings(settings[, path, args]) <i>（MacOS，Windows）</i></h3>
 
@@ -627,7 +627,7 @@ Windows中和Electron的`autoUpdater`一起工作，which uses [Squirrel](https:
         ]
     })
 
-**注意：**这个接口在[MAS builds](https://github.com/electron/electron/blob/master/docs/tutorial/mac-app-store-submission-guide.md)上是没有效果的。   
+**注意：**这个接口在[MAS builds](../../guides/mac-app-store-submission-guide.md)上是没有效果的。   
 
 <h3 id="app-isAccessibilitySupportEnabled">app.isAccessibilitySupportEnabled() <i>（MacOS，Windows）</i></h3>
 

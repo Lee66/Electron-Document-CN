@@ -6,7 +6,7 @@
 
 > 使应用程序自己自动更新。   
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)   
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)   
 
 
 `autoUpdater`模块提供一个[Squirrel](https://github.com/Squirrel)框架的接口。   

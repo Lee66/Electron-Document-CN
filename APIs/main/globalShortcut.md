@@ -5,7 +5,7 @@
 
 > 当程序没有键盘焦点时删除键盘事件。
 
-线程：[主进程](../../guides/glossary-of-terms.html#main-process)
+线程：[主进程](../../guides/glossary-of-terms.md#main-process)
 
 `globalShortcut`模块可以注册／注销一个操作系统的全局快捷键，所以你可以为操作自定义各种各样的快捷键。
 
