@@ -5,7 +5,7 @@
 
 请在这个地址阅读文档：https://shmilylin.github.io/Electron-Document-CN/guides/about.html
 
-**注意：**文档目前尚未翻译完成，翻译完成部分尚在校订中，如有疏漏或疑问请留言。
+**注意：**文档目前尚未翻译完成，翻译完成部分尚在校订中，如有疏漏或疑问请留言。  
 
 ## 指南
 
