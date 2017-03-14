@@ -3,11 +3,11 @@
 > 原文：https://github.com/electron/electron/blob/master/docs/glossary.md    
 译者：[Lin](https://github.com/ShmilyLin)   
 
-这个页面定义了一般在Electron中使用的专有名词。
+这个页面定义了一些在Electron中经常使用的专有名词。
 
 <h3 id="ASAR">ASAR</h3>
 
-ASAR是Atom Shell Archive Format的简称。一个[asar](https://github.com/electron/asar)文档是一个把文件都放在一个单独的文件中的简单的tar-like类型文件。Electron可以从中读取任意的文件而不用解压整个文件。
+ASAR是Atom Shell Archive Format的简称。一个[asar](https://github.com/electron/asar)文档是一个把文件都放在一个单独的文件中的简单的tar-like类型文件。Electron可以从中读取全部的文件而不用解压整个文件。
 
 创造ASAR类型主要是为了在Windows下提高性能... TODO
 
@@ -15,7 +15,7 @@ ASAR是Atom Shell Archive Format的简称。一个[asar](https://github.com/elec
 
 [Brightray](https://github.com/electron/brightray)是一个使[libchromiumcontent](#libchromiumcontent)更容易使用应用的静态库。它是专门为了Electron而创造的，但是也可以允许没有基于Electron的原生应用使用Chromium的渲染引擎。   
 
-Brightray是Electron的一个底层的依赖，大多数Electron的使用者并不会关心它。
+Brightray是Electron的一个底层的依赖，大多数Electron的使用者并不用担心它。
 
 <h3 id="DMG">DMG</h3>
 
@@ -23,7 +23,7 @@ Apple Disk Image是一个在MacOS上使用的打包类型。DMG文件通常用�
 
 <h3 id="IPC">IPC</h3>
 
-IPC是Inter-Process Communication的简称。Electron使用IPC在[主进程](#main-process)和[渲染进程](#renderer-process)之间发送联播JSON消息。
+IPC是Inter-Process Communication的简称。Electron使用IPC在[主进程](#main-process)和[渲染进程](#renderer-process)之间发送序列化的JSON消息。
 
 <h3 id="libchromiumcontent">libchromiumcontent</h3>
 
@@ -31,7 +31,7 @@ IPC是Inter-Process Communication的简称。Electron使用IPC在[主进程](#ma
 
 <h3 id="main-process">main process</h3>
 
-主进程，通常是一个叫做`main.js`的文件，是指向每一个Electron应用的入口。它控制着应用从打开到关闭的生命周期。它也管理着原生元素，比如`Menu`，`Menu Bar`，`Dock`，`Tray`等。主进程在应用中承担着创建每一个新的渲染进程的责任。全部的Node接口都在它里面。
+主进程，通常是一个叫做`main.js`的文件，是指向每一个Electron应用的入口。它控制着应用从打开到关闭的生命周期。它也管理着原生控件，比如`Menu`，`Menu Bar`，`Dock`，`Tray`等。主进程在应用中承担着创建每一个新的渲染进程的责任。全部的Node接口都在它里面。
 
 每一个应用的主线程文件是在`package.json`文件中的`main`属性中被指定的。这是`electron .`如何知道启动时要执行哪个文件的原因。
 
@@ -43,7 +43,7 @@ Apple's Mac App Store的缩写。关于提交你的应用程序到MAS的详细�
 
 <h3 id="native-modules">native modules</h3>
 
-Native modules（在Node.js中也叫[addons](https://nodejs.org/api/addons.html)）是C或C++写的模块，使用`require()`函数可以被加载到Node.js或Electron中，然后就可以像一个普通Node.js模块一样使用了。它们主要用来提供一个在Node.js上运行的JavaScript河C/C++库之间的接口。
+Native modules（在Node.js中也叫[插件](https://nodejs.org/api/addons.html)）是C或C++写的模块，使用`require()`函数可以被加载到Node.js或Electron中，然后就可以像一个普通Node.js模块一样使用了。它们主要用来提供一个把js运行在Node.js和C/C++库上的接口。
 
 Electron支持Native Node modules，但是由于Electron非常有可能使用安装在你电脑上的Node二进制文件中的不同版本的V8，你在编译native modules的时候需要手动指定Electron的头部位置。
 
