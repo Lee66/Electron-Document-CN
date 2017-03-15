@@ -1203,6 +1203,89 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="9menuitem">9.MenuItem</h1>
+<blockquote>
+<p>&#x539F;&#x6587;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/api/menu-item.md" target="_blank">https://github.com/electron/electron/blob/master/docs/api/menu-item.md</a><br>&#x8BD1;&#x8005;&#xFF1A;<a href="https://github.com/ShmilyLin" target="_blank">Lin</a>   </p>
+<p>&#x6DFB;&#x52A0;&#x9879;&#x5230;&#x539F;&#x751F;&#x5E94;&#x7528;&#x83DC;&#x5355;&#x548C;&#x53F3;&#x952E;&#x83DC;&#x5355;</p>
+</blockquote>
+<p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../../guides/glossary-of-terms.html#main-process">&#x4E3B;&#x8FDB;&#x7A0B;</a></p>
+<p>&#x67E5;&#x770B;<a href="Menu.html"><code>Menu</code></a>&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
+<h3 id="new-menuitemoptions"><code>new MenuItem(options)</code></h3>
+<ul>
+<li><code>options</code> Object&#x7C7B;&#x578B;<ul>
+<li><code>click</code> Function&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5F53;&#x83DC;&#x5355;&#x9879;&#x88AB;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x88AB;&#x4F7F;&#x7528;<code>click(menuItem, browserWindow, event)</code>&#x8C03;&#x7528;&#x3002;<ul>
+<li><code>menuItem</code> MenuItem&#x7C7B;&#x578B;</li>
+<li><code>browserWindow</code> BrowserWindow&#x7C7B;&#x578B;</li>
+<li><code>event</code> Event&#x7C7B;&#x578B;</li>
+</ul>
+</li>
+<li><code>role</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x83DC;&#x5355;&#x9879;&#x7684;&#x9ED8;&#x8BA4;&#x52A8;&#x4F5C;&#xFF0C;&#x5F53;&#x6307;&#x5B9A;<code>click</code>&#x5C5E;&#x6027;&#x540E;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x88AB;&#x5FFD;&#x7565;&#x3002;</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x53EF;&#x4EE5;&#x662F;<code>normal</code>&#x3001;<code>separator</code>&#x3001;<code>submenu</code>&#x3001;<code>checkbox</code>&#x6216;&#x8005;<code>radio</code>&#x3002;</li>
+<li><code>label</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>sublabel</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>accelerator</code> <a href="https://github.com/electron/electron/blob/master/docs/api/accelerator.md" target="_blank">Accelerator</a>&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>icon</code> (<a href="both/nativeImage.md">NativeImage</a> | String)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>enabled</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#xFF0C;&#x83DC;&#x5355;&#x9879;&#x5C06;&#x53D8;&#x4E3A;&#x7070;&#x8272;&#x5E76;&#x4E14;&#x65E0;&#x6CD5;&#x70B9;&#x51FB;&#x3002;</li>
+<li><code>visible</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#xFF0C;&#x83DC;&#x5355;&#x9879;&#x5C06;&#x88AB;&#x5B8C;&#x5168;&#x9690;&#x85CF;&#x3002;</li>
+<li><code>checked</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x53EA;&#x6709;&#x83DC;&#x5355;&#x9879;&#x88AB;&#x6307;&#x5B9A;&#x4E3A;<code>checkbox</code>&#x6216;&#x8005;<code>radio</code>&#x7C7B;&#x578B;&#x65F6;&#x6709;&#x6548;&#x3002;</li>
+<li><code>submenu</code> (MenuItemConstructorOptions[] | Menu)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x83DC;&#x5355;&#x9879;&#x9700;&#x8981;&#x88AB;&#x6307;&#x5B9A;&#x4E3A;<code>submenu</code>&#x7C7B;&#x578B;&#x3002;&#x5982;&#x679C;<code>submenu</code>&#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;<code>type: &apos;submenu&apos;</code>&#x53EF;&#x4EE5;&#x88AB;&#x7701;&#x7565;&#x3002;&#x5982;&#x679C;&#x503C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;<code>Menu</code>&#x7C7B;&#x578B;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C06;&#x88AB;&#x4F7F;&#x7528;<code>Menu.buildFromTemplate</code>&#x81EA;&#x52A8;&#x7684;&#x8F6C;&#x53D8;&#x6210;&#x4E00;&#x4E2A;<code>Menu</code>&#x7C7B;&#x578B;&#x3002;</li>
+<li><code>id</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x83DC;&#x5355;&#x5185;&#x552F;&#x4E00;&#x7684;&#x503C;&#x3002;&#x5982;&#x679C;&#x5B9A;&#x4E49;&#x8FD9;&#x4E2A;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;<code>position</code>&#x53C2;&#x6570;&#x7528;&#x6765;&#x6307;&#x5411;&#x8FD9;&#x4E2A;&#x9879;&#x3002;</li>
+<li><code>position</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x5141;&#x8BB8;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x83DC;&#x5355;&#x5185;&#x8BE6;&#x7EC6;&#x7684;&#x6307;&#x5B9A;&#x9879;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x6700;&#x597D;&#x5BF9;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x83DC;&#x5355;&#x9879;&#x90FD;&#x6307;&#x5B9A;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x6807;&#x51C6;&#x4F5C;&#x7528;&#x7684;<code>role</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8BD5;&#x56FE;&#x624B;&#x52A8;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;<code>click</code>&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x5185;&#x5BB9;&#x3002;&#x5185;&#x7F6E;&#x7684;<code>role</code>&#x884C;&#x4E3A;&#x5C06;&#x4F1A;&#x7ED9;&#x4E88;&#x6700;&#x597D;&#x7684;&#x539F;&#x751F;&#x4F53;&#x9A8C;&#x3002;</p>
+<p>&#x5F53;&#x4F7F;&#x7528;<code>role</code>&#x65F6;<code>label</code>&#x548C;<code>accelerator</code>&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x9ED8;&#x8BA4;&#x4E3A;&#x6BCF;&#x4E2A;&#x5E73;&#x53F0;&#x9002;&#x5F53;&#x7684;&#x503C;&#x3002;</p>
+<p><code>role</code>&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x6709;&#x4EE5;&#x4E0B;&#x503C;&#xFF1A;</p>
+<ul>
+<li><code>undo</code></li>
+<li><code>redo</code></li>
+<li><code>cut</code></li>
+<li><code>copy</code></li>
+<li><code>paste</code></li>
+<li><code>pasteandmatchstyle</code></li>
+<li><code>selectall</code></li>
+<li><code>delete</code></li>
+<li><code>minimize</code> - &#x6700;&#x5C0F;&#x5316;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;</li>
+<li><code>close</code> - &#x5173;&#x95ED;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;</li>
+<li><code>quit</code>- &#x9000;&#x51FA;&#x5E94;&#x7528;&#x3002;</li>
+<li><code>reload</code> - &#x91CD;&#x8F7D;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;</li>
+<li><code>forcereload</code> - &#x5FFD;&#x89C6;&#x7F13;&#x5B58;&#x91CD;&#x8F7D;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x3002;</li>
+<li><code>toggledevtools</code> - &#x5728;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x4E2D;&#x5207;&#x6362;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x3002;</li>
+<li><code>togglefullscreen</code> - &#x5728;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x4E2D;&#x5207;&#x6362;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;</li>
+<li><code>resetzoom</code> - &#x5C06;&#x805A;&#x7126;&#x7684;&#x9875;&#x9762;&#x7684;&#x7F29;&#x653E;&#x7B49;&#x7EA7;&#x91CD;&#x7F6E;&#x4E3A;&#x539F;&#x6765;&#x7684;&#x5927;&#x5C0F;&#x3002;</li>
+<li><code>zoomin</code> - &#x653E;&#x5927;&#x805A;&#x7126;&#x7684;&#x9875;&#x9762;10%</li>
+<li><code>zoomout</code> - &#x7F29;&#x5C0F;&#x805A;&#x7126;&#x7684;&#x9875;&#x9762;10%</li>
+</ul>
+<p>MacOS&#x4E2D;<code>role</code>&#x4E5F;&#x53EF;&#x4EE5;&#x6709;&#x4EE5;&#x4E0B;&#x9644;&#x52A0;&#x503C;&#xFF1A;</p>
+<ul>
+<li><code>about</code> - &#x6620;&#x5C04;&#x5230;<code>orderFrontStandardAboutPanel</code>&#x52A8;&#x4F5C;&#x3002;</li>
+<li><code>hide</code> - &#x6620;&#x5C04;&#x5230;<code>hide</code>&#x52A8;&#x4F5C;&#x3002;</li>
+<li><code>hideothers</code> - &#x6620;&#x5C04;&#x5230;<code>hideOtherApplications</code>&#x52A8;&#x4F5C;&#x3002;</li>
+<li><code>unhide</code> - &#x6620;&#x5C04;&#x5230;<code>unhideAllApplications</code>&#x52A8;&#x4F5C;&#x3002;</li>
+<li><code>startspeaking</code> - &#x6620;&#x5C04;&#x5230;<code>startSpeaking</code>&#x52A8;&#x4F5C;&#x3002;</li>
+<li><code>stopspeaking</code> - &#x6620;&#x5C04;&#x5230;`stopSpeakingv</li>
+<li><code>front</code> - &#x6620;&#x5C04;&#x5230;<code>arrangeInFront</code>&#x52A8;&#x4F5C;&#x3002;</li>
+<li><code>zoom</code> - &#x6620;&#x5C04;&#x5230;<code>performZoom</code>&#x52A8;&#x4F5C;&#x3002;</li>
+<li><code>window</code> - &#x5B50;&#x83DC;&#x5355;&#x662F;&#x4E00;&#x4E2A;<code>&quot;Window&quot;</code>&#x83DC;&#x5355;&#x3002;</li>
+<li><code>help</code> - &#x5B50;&#x83DC;&#x5355;&#x662F;&#x4E00;&#x4E2A;<code>&quot;Help&quot;</code>&#x83DC;&#x5355;&#x3002;</li>
+<li><code>services</code> - &#x5B50;&#x83DC;&#x5355;&#x662F;&#x4E00;&#x4E2A;<code>&quot;Services&quot;</code>&#x83DC;&#x5355;&#x3002;</li>
+</ul>
+<p>&#x5F53;&#x5728;MacOS&#x4E2D;&#x6307;&#x5B9A;<code>role</code>&#xFF0C;&#x53EA;&#x6709;<code>label</code>&#x548C;<code>accelerator</code>&#x662F;&#x53EF;&#x4EE5;&#x5F71;&#x54CD;&#x5230;<code>MenuItem</code>&#x7684;&#x9009;&#x9879;&#x3002;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x7684;&#x9009;&#x9879;&#x90FD;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p>
+<h3 id="&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;">&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;</h3>
+<p>&#x4E0B;&#x9762;&#x7684;&#x5C5E;&#x6027;&#x5728;<code>MenuItem</code>&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;&#x53EF;&#x7528;&#xFF1A;</p>
+<h4 id="menuitemenabled"><code>menuItem.enabled</code></h4>
+<p>&#x4E00;&#x4E2A;<code>Boolean</code>&#x7C7B;&#x578B;&#x7684;&#x6807;&#x5FD7;&#xFF0C;&#x6807;&#x793A;&#x9879;&#x662F;&#x5426;&#x662F;&#x53EF;&#x7528;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x52A8;&#x6001;&#x7684;&#x6539;&#x53D8;&#x3002;</p>
+<h4 id="menuitemvisible"><code>menuItem.visible</code></h4>
+<p>&#x4E00;&#x4E2A;<code>Boolean</code>&#x7C7B;&#x578B;&#x7684;&#x6807;&#x5FD7;&#xFF0C;&#x6807;&#x793A;&#x9879;&#x662F;&#x5426;&#x662F;&#x53EF;&#x89C1;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x52A8;&#x6001;&#x7684;&#x6539;&#x53D8;&#x3002;</p>
+<h4 id="menuitemchecked"><code>menuItem.checked</code></h4>
+<p>&#x4E00;&#x4E2A;<code>Boolean</code>&#x7C7B;&#x578B;&#x7684;&#x6807;&#x5FD7;&#xFF0C;&#x6807;&#x793A;&#x9879;&#x662F;&#x5426;&#x662F;&#x53EF;&#x70B9;&#x51FB;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x88AB;&#x52A8;&#x6001;&#x7684;&#x6539;&#x53D8;&#x3002;</p>
+<p><code>checkbox</code>&#x83DC;&#x5355;&#x9879;&#x5C06;&#x5728;&#x9009;&#x4E2D;&#x7684;&#x65F6;&#x5019;&#x5207;&#x6362;<code>checked</code>&#x5C5E;&#x6027;&#x4E3A;<code>on</code>&#x6216;&#x8005;<code>off</code>.</p>
+<p><code>radio</code>&#x83DC;&#x5355;&#x9879;&#x5F53;&#x5B83;&#x662F;&#x88AB;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C06;&#x6253;&#x5F00;&#x5B83;&#x81EA;&#x5DF1;&#x7684;<code>checked</code>&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5173;&#x95ED;&#x540C;&#x83DC;&#x5355;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x76F8;&#x90BB;&#x9879;&#x7684;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x9644;&#x52A0;&#x884C;&#x4E3A;&#x7684;<code>click</code>&#x51FD;&#x6570;&#x3002;</p>
+<h4 id="menuitemlabel"><code>menuItem.label</code></h4>
+<p><code>String</code>&#x7C7B;&#x578B;&#xFF0C;&#x83DC;&#x5355;&#x9879;&#x53EF;&#x89C1;&#x6807;&#x7B7E;&#x7684;&#x4EE3;&#x8868;&#x3002;</p>
+<h4 id="menuitemclick"><code>menuItem.click</code></h4>
+<p>&#x5F53;<code>MenuItem</code>&#x63A5;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x65F6;&#x88AB;&#x6FC0;&#x53D1;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
 
                                 
                                 </section>
@@ -1246,7 +1329,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"9.MenuItem","level":"1.4.6.9","depth":3,"next":{"title":"10.net","level":"1.4.6.10","depth":3,"path":"APIs/main/net.md","ref":"APIs/main/net.md","articles":[]},"previous":{"title":"8.Menu","level":"1.4.6.8","depth":3,"path":"APIs/main/Menu.md","ref":"APIs/main/Menu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/MenuItem.md","mtime":"2017-03-02T15:30:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T02:49:51.565Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9.MenuItem","level":"1.4.6.9","depth":3,"next":{"title":"10.net","level":"1.4.6.10","depth":3,"path":"APIs/main/net.md","ref":"APIs/main/net.md","articles":[]},"previous":{"title":"8.Menu","level":"1.4.6.8","depth":3,"path":"APIs/main/Menu.md","ref":"APIs/main/Menu.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/MenuItem.md","mtime":"2017-03-15T08:16:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T08:51:40.268Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

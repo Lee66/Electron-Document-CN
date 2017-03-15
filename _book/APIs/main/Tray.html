@@ -1203,6 +1203,206 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="16tray">16.Tray</h1>
+<blockquote>
+<p>&#x539F;&#x6587;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/api/tray.md" target="_blank">https://github.com/electron/electron/blob/master/docs/api/tray.md</a><br>&#x8BD1;&#x8005;&#xFF1A;<a href="https://github.com/ShmilyLin" target="_blank">Lin</a>   </p>
+<p>&#x6DFB;&#x52A0;&#x56FE;&#x6807;&#x548C;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x5230;&#x7CFB;&#x7EDF;&#x7684;&#x901A;&#x77E5;&#x533A;&#x57DF;</p>
+</blockquote>
+<p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../../guides/glossary-of-terms.html#main-process">&#x4E3B;&#x8FDB;&#x7A0B;</a>   </p>
+<p><code>Tray</code>&#x662F;&#x4E00;&#x4E2A;<a href="https://nodejs.org/api/events.html#events_class_eventemitter" target="_blank">EventEmitter</a>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> {app, Menu, Tray} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron&apos;</span>)
+
+<span class="hljs-keyword">let</span> tray = <span class="hljs-literal">null</span>
+app.on(<span class="hljs-string">&apos;ready&apos;</span>, () =&gt; {
+tray = <span class="hljs-keyword">new</span> Tray(<span class="hljs-string">&apos;/path/to/my/icon&apos;</span>)
+<span class="hljs-keyword">const</span> contextMenu = Menu.buildFromTemplate([
+    {label: <span class="hljs-string">&apos;Item1&apos;</span>, type: <span class="hljs-string">&apos;radio&apos;</span>},
+    {label: <span class="hljs-string">&apos;Item2&apos;</span>, type: <span class="hljs-string">&apos;radio&apos;</span>},
+    {label: <span class="hljs-string">&apos;Item3&apos;</span>, type: <span class="hljs-string">&apos;radio&apos;</span>, checked: <span class="hljs-literal">true</span>},
+    {label: <span class="hljs-string">&apos;Item4&apos;</span>, type: <span class="hljs-string">&apos;radio&apos;</span>}
+])
+tray.setToolTip(<span class="hljs-string">&apos;This is my application.&apos;</span>)
+tray.setContextMenu(contextMenu)
+})
+</code></pre>
+<p><strong>&#x5E73;&#x53F0;&#x7684;&#x5C40;&#x9650;&#x6027;&#xFF1A;</strong></p>
+<ul>
+<li>Linux&#x4E2D;&#x5982;&#x679C;&#x652F;&#x6301;&#x5E94;&#x7528;&#x6307;&#x793A;&#x5668;&#x90A3;&#x4E48;&#x5E94;&#x7528;&#x6307;&#x793A;&#x5668;&#x5C06;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x4F7F;&#x7528;<code>GtkStatusIcon</code>&#x4EE3;&#x66FF;&#x3002;</li>
+<li>Linux&#x53D1;&#x884C;&#x7248;&#x4E2D;&#x652F;&#x6301;&#x5E94;&#x7528;&#x6307;&#x793A;&#x5668;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5B89;&#x88C5;<code>libappindicator1</code>&#x6765;&#x4F7F;tray&#x56FE;&#x6807;&#x5DE5;&#x4F5C;&#x3002;</li>
+<li>&#x5F53;&#x6709;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x65F6;&#x624D;&#x4F1A;&#x5C55;&#x793A;&#x5E94;&#x7528;&#x6307;&#x793A;&#x5668;&#x3002;</li>
+<li>&#x5F53;Linux&#x4E2D;&#x7684;&#x5E94;&#x7528;&#x6307;&#x793A;&#x5668;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;<code>click</code>&#x4E8B;&#x4EF6;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;</li>
+<li>Linux&#x4E2D;&#x4E3A;&#x4E86;&#x4F7F;&#x4E2A;&#x522B;&#x7684;<code>MenuItems</code>&#x7684;&#x6539;&#x53D8;&#x751F;&#x6548;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x518D;&#x6B21;&#x8C03;&#x7528;<code>setContextMenu</code>&#x3002;&#x4F8B;&#x5982;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> {app, Menu, Tray} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron&apos;</span>)
+
+<span class="hljs-keyword">let</span> appIcon = <span class="hljs-literal">null</span>
+app.on(<span class="hljs-string">&apos;ready&apos;</span>, () =&gt; {
+    appIcon = <span class="hljs-keyword">new</span> Tray(<span class="hljs-string">&apos;/path/to/my/icon&apos;</span>)
+    <span class="hljs-keyword">const</span> contextMenu = Menu.buildFromTemplate([
+        {label: <span class="hljs-string">&apos;Item1&apos;</span>, type: <span class="hljs-string">&apos;radio&apos;</span>},
+        {label: <span class="hljs-string">&apos;Item2&apos;</span>, type: <span class="hljs-string">&apos;radio&apos;</span>}
+    ])
+
+    <span class="hljs-comment">// Make a change to the context menu</span>
+    contextMenu.items[<span class="hljs-number">1</span>].checked = <span class="hljs-literal">false</span>
+
+    <span class="hljs-comment">// Call this again for Linux because we modified the context menu</span>
+    appIcon.setContextMenu(contextMenu)
+})
+</code></pre>
+<ul>
+<li>Windows&#x4E2D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;ICO&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x6807;&#x6765;&#x83B7;&#x5F97;&#x6700;&#x597D;&#x7684;&#x89C6;&#x89C9;&#x6548;&#x679C;&#x3002;</li>
+</ul>
+<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5728;&#x6240;&#x6709;&#x5E73;&#x53F0;&#x4E0A;&#x4FDD;&#x6301;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4E0D;&#x4F9D;&#x8D56;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x5E76;&#x4E14;&#x5C06;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x4F9D;&#x9644;&#x5728;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x4E0A;&#x3002;</p>
+<h3 id="new-trayimage"><code>new Tray(image)</code></h3>
+<ul>
+<li><code>image</code> (<a href="../both/nativeImage.html">NativeImage</a> | String)&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x901A;&#x8FC7;<code>image</code>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x3002;</p>
+<h3 id="&#x5B9E;&#x4F8B;&#x7684;&#x4E8B;&#x4EF6;">&#x5B9E;&#x4F8B;&#x7684;&#x4E8B;&#x4EF6;</h3>
+<p><code>Tray</code>&#x6A21;&#x5757;&#x5206;&#x53D1;&#x4EE5;&#x4E0B;&#x4E8B;&#x4EF6;&#xFF1A;</p>
+<h4 id="&#x4E8B;&#x4EF6;-click">&#x4E8B;&#x4EF6;: &apos;click&apos;</h4>
+<ul>
+<li><code>event</code> Event&#x7C7B;&#x578B;<ul>
+<li><code>altKey</code> Boolean&#x7C7B;&#x578B;</li>
+<li><code>shiftKey</code> Boolean&#x7C7B;&#x578B;</li>
+<li><code>ctrlKey</code> Boolean&#x7C7B;&#x578B;</li>
+<li><code>metaKey</code> Boolean&#x7C7B;&#x578B;</li>
+</ul>
+</li>
+<li><code>bounds</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B; - &#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x8FB9;&#x754C;&#x3002;</li>
+</ul>
+<p>&#x5F53;&#x6258;&#x76D8;&#x56FE;&#x7247;&#x88AB;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-right-click-macos-windows">&#x4E8B;&#x4EF6;: &apos;right-click&apos; <em>MacOS Windows</em></h4>
+<ul>
+<li><code>event</code> Event<ul>
+<li><code>altKey</code> Boolean</li>
+<li><code>shiftKey</code> Boolean</li>
+<li><code>ctrlKey</code> Boolean</li>
+<li><code>metaKey</code> Boolean</li>
+</ul>
+</li>
+<li><code>bounds</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B; - &#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x8FB9;&#x754C;&#x3002;</li>
+</ul>
+<p>&#x5F53;&#x6258;&#x76D8;&#x56FE;&#x7247;&#x88AB;&#x53F3;&#x952E;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-double-click-macos-windows">&#x4E8B;&#x4EF6;: &apos;double-click&apos; <em>MacOS Windows</em></h4>
+<ul>
+<li><code>event</code> Event<ul>
+<li><code>altKey</code> Boolean</li>
+<li><code>shiftKey</code> Boolean</li>
+<li><code>ctrlKey</code> Boolean</li>
+<li><code>metaKey</code> Boolean</li>
+</ul>
+</li>
+<li><code>bounds</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B; - &#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x8FB9;&#x754C;&#x3002;</li>
+</ul>
+<p>&#x5F53;&#x6258;&#x76D8;&#x56FE;&#x7247;&#x88AB;&#x53CC;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-balloon-show-windows">&#x4E8B;&#x4EF6;: &apos;balloon-show&apos; <em>Windows</em></h4>
+<p>&#x5F53;&#x6258;&#x76D8;&#x6C14;&#x7403;&#x5C55;&#x793A;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-balloon-click-windows">&#x4E8B;&#x4EF6;: &apos;balloon-click&apos; <em>Windows</em></h4>
+<p>&#x5F53;&#x6258;&#x76D8;&#x6C14;&#x7403;&#x88AB;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-balloon-closed-windows">&#x4E8B;&#x4EF6;: &apos;balloon-closed&apos; <em>Windows</em></h4>
+<p>&#x5F53;&#x6258;&#x76D8;&#x6C14;&#x7403;&#x56E0;&#x4E3A;&#x8D85;&#x65F6;&#x5173;&#x95ED;&#x6216;&#x8005;&#x7528;&#x6237;&#x624B;&#x52A8;&#x70B9;&#x51FB;&#x5173;&#x95ED;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-drop-macos">&#x4E8B;&#x4EF6;: &apos;drop&apos; <em>MacOS</em></h4>
+<p>&#x4EFB;&#x4F55;&#x88AB;&#x62D6;&#x52A8;&#x7684;&#x9879;&#x76EE;&#x88AB;&#x62D6;&#x52A8;&#x5230;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x4E0A;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-drop-files-macos">&#x4E8B;&#x4EF6;: &apos;drop-files&apos; <em>MacOS</em></h4>
+<ul>
+<li><code>event</code> Event&#x7C7B;&#x578B;</li>
+<li><code>files</code> String[]&#x7C7B;&#x578B; - &#x88AB;&#x62D6;&#x52A8;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;</li>
+</ul>
+<p>&#x88AB;&#x62D6;&#x52A8;&#x7684;&#x6587;&#x4EF6;&#x62D6;&#x52A8;&#x5230;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x91CC;&#x9762;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-drop-text-macos">&#x4E8B;&#x4EF6;: &apos;drop-text&apos; <em>MacOS</em></h4>
+<ul>
+<li><code>event</code> Event&#x7C7B;&#x578B;</li>
+<li><code>text</code> String&#x7C7B;&#x578B; - &#x88AB;&#x62D6;&#x52A8;&#x7684;&#x6587;&#x672C;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+</ul>
+<p>&#x88AB;&#x62D6;&#x52A8;&#x7684;&#x6587;&#x672C;&#x62D6;&#x52A8;&#x5230;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x91CC;&#x9762;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-drag-enter-macos">&#x4E8B;&#x4EF6;: &apos;drag-enter&apos; <em>MacOS</em></h4>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x62D6;&#x52A8;&#x64CD;&#x4F5C;&#x8FDB;&#x5165;&#x5230;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-drag-leave-macos">&#x4E8B;&#x4EF6;: &apos;drag-leave&apos; <em>MacOS</em></h4>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x62D6;&#x52A8;&#x64CD;&#x4F5C;&#x79BB;&#x5F00;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h4 id="&#x4E8B;&#x4EF6;-drag-end-macos">&#x4E8B;&#x4EF6;: &apos;drag-end&apos; <em>MacOS</em></h4>
+<p>&#x5F53;&#x62D6;&#x52A8;&#x64CD;&#x4F5C;&#x5728;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x4E0A;&#x91CA;&#x653E;&#x6216;&#x5728;&#x5176;&#x4ED6;&#x7684;&#x4F4D;&#x7F6E;&#x91CA;&#x653E;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
+<h3 id="&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;">&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;</h3>
+<p><code>Tray</code>&#x7C7B;&#x6709;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<h4 id="traydestroy"><code>tray.destroy()</code></h4>
+<p>&#x7ACB;&#x523B;&#x9500;&#x6BC1;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x3002;</p>
+<h4 id="traysetimageimage"><code>tray.setImage(image)</code></h4>
+<ul>
+<li><code>image</code> (<a href="../both/nativeImage.html">NativeImage</a> | String)&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x3002;</p>
+<h4 id="traysetpressedimageimage-macos"><code>tray.setPressedImage(image)</code> <em>MacOS</em></h4>
+<ul>
+<li><code>image</code> <a href="../both/nativeImage.html">NativeImage</a>&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;MacOS&#x4E0B;&#x6309;&#x4E0B;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x662F;&#x7684;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x3002;</p>
+<h4 id="traysettooltiptooltip"><code>tray.setToolTip(toolTip)</code></h4>
+<ul>
+<li><code>toolTip</code> String&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x60AC;&#x505C;&#x6587;&#x672C;&#x3002;</p>
+<h4 id="traysettitletitle-macos"><code>tray.setTitle(title)</code> <em>MacOS</em></h4>
+<ul>
+<li><code>title</code> String&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;&#x663E;&#x793A;&#x5728;&#x72B6;&#x6001;&#x680F;&#x4E2D;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x65C1;&#x8FB9;&#x7684;&#x6587;&#x5B57;&#x3002;</p>
+<h4 id="traysethighlightmodemode-macos"><code>tray.setHighlightMode(mode)</code> <em>MacOS</em></h4>
+<ul>
+<li><code>mode</code> String&#x7C7B;&#x578B; - &#x9AD8;&#x4EAE;&#x6A21;&#x5F0F;&#x6709;&#x4EE5;&#x4E0B;&#x503C;&#x7C7B;&#x578B;&#xFF1A;<ul>
+<li><code>selection</code> - &#x6258;&#x76D8;&#x56FE;&#x6807;&#x88AB;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#x548C;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x6253;&#x5F00;&#x7684;&#x65F6;&#x5019;&#x9AD8;&#x4EAE;&#x3002;&#x8FD9;&#x4E2A;&#x662F;&#x9ED8;&#x8BA4;&#x503C;&#x3002;</li>
+<li><code>always</code> - &#x6258;&#x76D8;&#x56FE;&#x6807;&#x7EF4;&#x6301;&#x9AD8;&#x4EAE;&#x72B6;&#x4F53;&#x3002;</li>
+<li><code>never</code> - &#x6258;&#x76D8;&#x56FE;&#x6807;&#x6CA1;&#x6709;&#x9AD8;&#x4EAE;&#x72B6;&#x6001;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x8BBE;&#x7F6E;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x6258;&#x76D8;&#x7684;&#x56FE;&#x6807;&#x80CC;&#x666F;&#x53D8;&#x6210;&#x9AD8;&#x4EAE;&#x72B6;&#x6001;&#xFF08;&#x84DD;&#x8272;&#xFF09;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x5F53;&#x7A97;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x89C1;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href=""><code>BrowserWindow</code></a>&#x7684;<code>highlightMode</code>&#x5728;<code>&apos;never&apos;</code>&#x548C;<code>&apos;always&apos;</code>&#x6A21;&#x5F0F;&#x6307;&#x5C16;&#x5207;&#x6362;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> {BrowserWindow, Tray} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron&apos;</span>)
+
+<span class="hljs-keyword">const</span> win = <span class="hljs-keyword">new</span> BrowserWindow({width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span>})
+<span class="hljs-keyword">const</span> tray = <span class="hljs-keyword">new</span> Tray(<span class="hljs-string">&apos;/path/to/my/icon&apos;</span>)
+
+tray.on(<span class="hljs-string">&apos;click&apos;</span>, () =&gt; {
+    win.isVisible() ? win.hide() : win.show()
+})
+win.on(<span class="hljs-string">&apos;show&apos;</span>, () =&gt; {
+    tray.setHighlightMode(<span class="hljs-string">&apos;always&apos;</span>)
+})
+win.on(<span class="hljs-string">&apos;hide&apos;</span>, () =&gt; {
+    tray.setHighlightMode(<span class="hljs-string">&apos;never&apos;</span>)
+})
+</code></pre>
+<h4 id="traydisplayballoonoptions-windows"><code>tray.displayBalloon(options)</code> <em>Windows</em></h4>
+<ul>
+<li><code>options</code> Object&#x7C7B;&#x578B;<ul>
+<li><code>icon</code> (NativeImage | String)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>title</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>content</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+<p>&#x5C55;&#x793A;&#x4E00;&#x4E2A;&#x6258;&#x76D8;&#x6C14;&#x7403;&#x3002;</p>
+<h4 id="traypopupcontextmenumenu-position-macos-windows"><code>tray.popUpContextMenu([menu, position])</code> <em>MacOS Windows</em></h4>
+<ul>
+<li><code>menu</code> Menu&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>position</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5F39;&#x51FA;&#x7684;&#x4F4D;&#x7F6E;&#x3002;<ul>
+<li><code>x</code> Integer</li>
+<li><code>y</code> Integer</li>
+</ul>
+</li>
+</ul>
+<p>&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x3002;&#x5F53;<code>menu</code>&#x53C2;&#x6570;&#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;<code>menu</code>&#x5C06;&#x88AB;&#x5C55;&#x793A;&#x4EE3;&#x66FF;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x3002;</p>
+<p><code>position</code>&#x53EA;&#x5728;Windows&#x4E2D;&#x6709;&#x6548;&#xFF0C;&#x5E76;&#x4E14;&#x9ED8;&#x8BA4;&#x503C;&#x662F;<code>(0, 0)</code>&#x3002;</p>
+<h4 id="traysetcontextmenumenu"><code>tray.setContextMenu(menu)</code></h4>
+<ul>
+<li><code>menu</code> Menu&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x7ED9;&#x8FD9;&#x4E2A;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x8BBE;&#x7F6E;&#x53F3;&#x952E;&#x83DC;&#x5355;&#x3002;</p>
+<h4 id="traygetbounds-macos-windows"><code>tray.getBounds()</code> <em>MacOS Windows</em></h4>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank"><code>Rectangle</code></a>&#x7C7B;&#x578B;</p>
+<p>&#x4F5C;&#x4E3A;<code>Object</code>&#x7684;&#x6258;&#x76D8;&#x56FE;&#x6807;&#x7684;<code>bounds</code>&#x3002;</p>
+<h4 id="trayisdestroyed"><code>tray.isDestroyed()</code></h4>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x6258;&#x76D8;&#x56FE;&#x6807;&#x662F;&#x5426;&#x88AB;&#x9500;&#x6BC1;&#x3002;</p>
 
                                 
                                 </section>
@@ -1246,7 +1446,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"16.Tray","level":"1.4.6.16","depth":3,"next":{"title":"17.webContents","level":"1.4.6.17","depth":3,"path":"APIs/main/webContents.md","ref":"APIs/main/webContents.md","articles":[]},"previous":{"title":"15.systemPreferences","level":"1.4.6.15","depth":3,"path":"APIs/main/systemPreferences.md","ref":"APIs/main/systemPreferences.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/Tray.md","mtime":"2017-03-02T15:30:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T02:49:51.565Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"16.Tray","level":"1.4.6.16","depth":3,"next":{"title":"17.webContents","level":"1.4.6.17","depth":3,"path":"APIs/main/webContents.md","ref":"APIs/main/webContents.md","articles":[]},"previous":{"title":"15.systemPreferences","level":"1.4.6.15","depth":3,"path":"APIs/main/systemPreferences.md","ref":"APIs/main/systemPreferences.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/Tray.md","mtime":"2017-03-15T10:14:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T08:51:40.268Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
