@@ -43,7 +43,7 @@
 
 [1.clipboard](both/clipboard.md)    
 [2.crashReporter](both/crashReporter.md)   
-[3.nativeImage](both/nativeImage.md)   md
+[3.nativeImage](both/nativeImage.md)
 [4.screen](both/screen.md)   
 [5.shell](both/shell.md)   
 

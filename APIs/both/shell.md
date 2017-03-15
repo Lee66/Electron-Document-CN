@@ -3,9 +3,10 @@
 > 原文：https://github.com/electron/electron/blob/master/docs/api/shell.md    
 译者：[Lin](https://github.com/ShmilyLin)   
 
+
 > 使用文件和URL的默认应用管理文件和URL
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)，[渲染进程](../../guides/glossary-of-terms.html#renderer-process)
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)，[渲染进程](../../guides/glossary-of-terms.md#renderer-process)
 
 `shell`模块提供有关于桌面集成的函数。
 
@@ -15,11 +16,11 @@
 
     shell.openExternal('https://github.com')
 
-<h2 id="methods">方法</h2>
+## 方法
 
 `shell`模块有下面的方法：
 
-<h3 id="shell-showItemInFolder"><code>shell.showItemInFolder(fullPath)</code></h3>
+### `shell.showItemInFolder(fullPath)`
 
  * `fullPath` String类型
 
@@ -27,7 +28,7 @@
 
 在一个文件管理器中展示要展示的文件。如果可能，将会选中这个文件。
 
-<h3 id="shell-openItem"><code>shell.openItem(fullPath)</code></h3>
+### `shell.openItem(fullPath)`
 
  * `fullPath` String类型
 
@@ -35,7 +36,7 @@
 
 在桌面的默认方式中打开指定文件。
 
-<h3 id="shell-openExternal"><code>shell.openExternal(url[, options, callback])</code></h3>
+### `shell.openExternal(url[, options, callback])`
 
  * `url` String类型
  * `options` Object类型（可选参数）MacOS有效
@@ -47,7 +48,7 @@
 
 在桌面的默认打开方式中打开传入的外部协议URL。（例如，地址：用户的默认邮件代理的网址）。
 
-<h3 id="shell-moveItemToTrash"><code>shell.moveItemToTrash(fullPath)</code></h3>
+### `shell.moveItemToTrash(fullPath)`
 
  * `fullPath` String类型
 
@@ -55,11 +56,11 @@
 
 移动给定的文件到垃圾桶，并且返回一个`boolean`类型的操作状态。
 
-<h3 id="shell-beep"><code>shell.beep()</code></h3>
+### `shell.beep()`
 
 播放beep声音。
 
-<h3 id="shell-writeShortcutLink"><code>shell.writeShortcutLink(shortcutPath[, operation], options)</code> <i>（Windows）</i></h3>
+### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
  * `shortcutPath` String类型
  * `operation` String类型（可选参数）- 默认是`create`，可以使用下面中的一个：
@@ -72,7 +73,7 @@
 
 创建或者更新`shortcutPath`下的一个快捷方式的链接
 
-<h3 id="shell-"><code>shell.readShortcutLink(shortcutPath) Windows</code><i>（Windows）</i></h3>
+### `shell.readShortcutLink(shortcutPath)` *Windows*
 
  * `shortcutPath` String类型
 

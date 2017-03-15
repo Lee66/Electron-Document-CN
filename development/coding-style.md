@@ -7,7 +7,7 @@
 
 你可以运行`npm run lint`来展示任何风格 to show any style issues detected by `cpplint`和`eslint`.
 
-<h2 id="cpp-and-python">C++和Python</h2>
+## C++和Python
 
 对于C++和Python，我们遵循Chromium的[代码风格](http://www.chromium.org/developers/coding-style)。你可以使用[clang-format](https://github.com/electron/electron/blob/master/docs/development/clang-format.md)自动格式化C++代码。这里有一个脚本`script/cpplint.py`来检查是否所有的文件都遵循。
 
@@ -15,7 +15,7 @@ Python的版本我们现在使用的是Python 2.7。
 
 C++代码使用了大量的Chromium的抽象类，所以建议了解一下它们。一个好的开始是Chromium的[Important Abstractions and Data Structures](https://www.chromium.org/developers/coding-style/important-abstractions-and-data-structures)文档。这个文档中提到一些特殊的类型，作用域类型（当在作用域范围之外时自动释放内存），以及日志记录机制等。
 
-<h2 id="javascript">JavaScript</h2>
+## JavaScript
 
  * 写标准的JavaScript风格。
  * 文件名字应该是使用`-`连在一起的而不是使用`_`，例如，是`file-name.js`而不是`file_name.js`，因为在[github/atom](https://github.com/github/atom)模块中名字通常是`module-name`构成方式。这个规则只适用于`.js`文件。
@@ -25,7 +25,7 @@ C++代码使用了大量的Chromium的抽象类，所以建议了解一下它们
      * [`Arrow functions`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)代替`function () { }`
      * [`Template literals`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)用来代替使用`+`的字符串连接。
 
-<h2 id="naming-things">命名方式</h2>
+## 命名方式
 
 Electron接口使用和Node.js相同的命名方式：
 

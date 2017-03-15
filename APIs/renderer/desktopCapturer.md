@@ -3,9 +3,10 @@
 > 原文：https://github.com/electron/electron/blob/master/docs/api/desktop-capturer.md    
 译者：[Lin](https://github.com/ShmilyLin)   
 
+
 > 访问媒体资源的信息，可以被用来使用[navigator.webkitGetUserMedia](https://developer.mozilla.org/en/docs/Web/API/Navigator/getUserMedia)接口从桌面捕捉音频和视频。
 
-进程：[渲染进程](../../guides/glossary-of-terms.html#renderer-process)
+进程：[渲染进程](../../guides/glossary-of-terms.md#renderer-process)
 
 下面的例子演示如何从桌面上一个标题是`Electron`的窗口中捕捉视频：
 
@@ -44,11 +45,11 @@
 
 使用[navigator.webkitGetUserMedia]()传入`desktopCapturer`提供的资源来捕捉视频，则参数重必须包含`chromeMediaSource: 'desktop'`，和`audio: false`。
 
-<h2 id="methods">方法</h2>
+## 方法
 
 `desktopCapturer`模块有下面的方法：
 
-<h3 id="desktopCapturer-getSources"><code>desktopCapturer.getSources(options, callback)</code></h3>
+### `desktopCapturer.getSources(options, callback)`
 
  * `options` Object类型
      * `types` String[]类型 - 一个字符串数组，列出了要捕捉的桌面资源的类型，可用类型是`screen`和`window`。

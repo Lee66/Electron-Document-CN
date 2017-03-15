@@ -3,6 +3,7 @@
 > 原文：https://github.com/electron/electron/blob/master/docs/api/net.md    
 译者：[Lin](https://github.com/ShmilyLin)   
 
+
 > 使用Chromium的原生网络库发出HTTP/HTTPS请求。
 
 进程：[主进程](../../guides/glossary-of-terms.md#main-process)
@@ -41,11 +42,11 @@
 
 `net`接口只可以在应用分发`ready`事件之后使用。如果试图在`ready`事件之前使用将会抛出一个错误。
 
-<h2 id="methods">Methods</h2>
+## 方法
 
 `net`模块有下面的方法：
 
-<h3 id="net-request"><code>net.request(options)</code></h3>
+### `net.request(options)`
 
  * `options` (Object | String)类型 - `ClientRequest`构造器选项。
 

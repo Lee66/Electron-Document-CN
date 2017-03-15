@@ -1,7 +1,8 @@
-<h1 id="globalShortcut">6. globalShortcut</h1>
+# 6. globalShortcut</h1>
 
 > 原文：https://github.com/electron/electron/blob/master/docs/api/global-shortcut.md    
 译者：[Lin](https://github.com/ShmilyLin)   
+
 
 > 当程序没有键盘焦点时删除键盘事件。
 
@@ -35,11 +36,11 @@
         globalShortcut.unregisterAll()
     })
 
-<h2 id="methods">Methods</h2>
+## 方法
 
 `globalShortcut`模块有下面的方法：
 
-<h3 id="globalShortcut-register"><code>globalShortcut.register(accelerator, callback)</code></h3>
+### `globalShortcut.register(accelerator, callback)`
 
  * `accelerator` [Accelerator](https://github.com/electron/electron/blob/master/docs/api/accelerator.md)类型
  * `callback` Function类型
@@ -48,7 +49,7 @@
 
 当`accelerator`已经被其他应用占用，这个调用将没有任何反应的失败。这个行为是操作系统控制，因为它们（指操作系统）不想让应用程序因为全局快捷键而产生冲突。
 
-<h3 id="globalShortcut-isRegistered"><code>globalShortcut.isRegistered(accelerator)</code></h3>
+### `globalShortcut.isRegistered(accelerator)`
 
  * `accelerator` [Accelerator](https://github.com/electron/electron/blob/master/docs/api/accelerator.md)类型
 
@@ -56,12 +57,12 @@
 
 当`accelerator`已经被其他应用程序占用，这个方法将返回`false`。这个行为是操作系统控制，因为它们（指操作系统）不想让应用程序因为全局快捷键而产生冲突。
 
-<h3 id="globalShortcut-unregister"><code>globalShortcut.unregister(accelerator)</code></h3>
+### `globalShortcut.unregister(accelerator)`
 
  * `accelerator` [Accelerator](https://github.com/electron/electron/blob/master/docs/api/accelerator.md)类型
 
 传入`accelerator`来注销一个全局快捷键。
 
-<h3 id="globalShortcut-unregisterAll"><code>globalShortcut.unregisterAll()</code></h3>
+### `globalShortcut.unregisterAll()`
 
 注销所有全局快捷键。

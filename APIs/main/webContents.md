@@ -6,9 +6,9 @@
 
 > 渲染和控制网页
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)   
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)   
 
-`webContents`是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。它负责渲染和控制一个网页，并且是[`BrowserWindow`](./BrowerWindow.html)对象的一个属性。一个访问`webContents`对象的例子：
+`webContents`是一个[EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)。它负责渲染和控制一个网页，并且是[`BrowserWindow`](./BrowerWindow.md)对象的一个属性。一个访问`webContents`对象的例子：
 
     const {BrowserWindow} = require('electron')
 
@@ -18,40 +18,40 @@
     let contents = win.webContents
     console.log(contents)
 
-<h2 id="Methods">方法</h2>
+## 方法
 
 这里的方法可以通过`webContents`模块来访问：
 
     const {webContents} = require('electron')
     console.log(webContents)
 
-<h3 id="webContents-getAllWebContents"><code>webContents.getAllWebContents()</code></h3>
+### `webContents.getAllWebContents()`
 
 返回值为`WebContents[]`类型 - 所有`WebContents`实例组成的数组。这个将包含所有窗口、webview、打开的工具、和工具扩展北京页面的网络内容。
 
-<h3 id="webContents-getFocusedWebContents"><code>webContents.getFocusedWebContents()</code></h3>
+### `webContents.getFocusedWebContents()`
 
 返回值为`WebContents`类型 - 应用中的获得焦点的网络内容，如果没有就返回`null`。
 
-<h3 id="webContents-fromId"><code>webContents.fromId(id)</code></h3>
+### `webContents.fromId(id)`
 
  * `id` Integer类型
 
 返回值为`WebContents`类型 - 通过给的ID获取一个对应的`WebContents`实例。
 
-<h2 id="class-webcontents">Class: WebContents</h2>
+## Class: WebContents
 
 > 渲染和控制一个BrowserWindow实例的内容。
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)
 
-<h3 id="instance-events">实例事件</h3>
+### 实例事件
 
-<h4 id="event-did-finish-load">事件：'did-finish-load'</h4>
+#### 事件: 'did-finish-load'
 
 当导航被加载完成时被分发，即标签上的旋转标志已经停止旋转，并且`onload`事件被分发。
 
-<h4 id="event-did-fail-load">事件：'did-fail-load'</h4>
+#### 事件: 'did-fail-load'
 
 返回值为：
 
@@ -63,7 +63,7 @@
 
 这个事件和`did-finish-load`类似，但是是在当加载失败或者取消加载的时候被分发，例如`window.stop()`被调用。完整的错误代码列表和它们对应的意思在[这里](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)。
 
-<h4 id="event-did-frame-finish-load">事件：'did-frame-finish-load'</h4>
+#### 事件: 'did-frame-finish-load'
 
 返回值为：
 
@@ -72,15 +72,15 @@
 
 当一个frame完成导航的时候被分发。
 
-<h4 id="event-did-start-loading">事件：'did-start-loading'</h4>
+#### 事件: 'did-start-loading'
 
 当标签上的旋转标志开始旋转时的时间点上。
 
-<h4 id="event-did-stop-loading">事件：'did-stop-loading'</h4>
+#### 事件: 'did-stop-loading'
 
 当标签上的旋转标志停止旋转时的时间点上。
 
-<h4 id="event-did-get-response-details">事件：'did-get-response-details'</h4>
+#### 事件: 'did-get-response-details'
 
 返回值为：
 
@@ -96,7 +96,7 @@
 
 当关于一个请求资源的详细信息有效时被分发。`status`标识着socket连接到了下载的资源上。
 
-<h4 id="event-did-get-redirect-request">事件：'did-get-redirect-request'</h4>
+#### 事件: 'did-get-redirect-request'
 
 返回值为：
 
@@ -111,7 +111,7 @@
 
 当一个请求资源收到一个重定向时被分发。
 
-<h4 id="event-dom-ready">事件：'dom-ready'</h4>
+#### 事件: 'dom-ready'
 
 返回值为：
 
@@ -119,7 +119,7 @@
 
 当给定的frame中的文档被加载的时候被分发。
 
-<h4 id="event-page-favicon-updated">事件：'page-favicon-updated'</h4>
+#### 事件: 'page-favicon-updated'
 
 返回值为：
 
@@ -128,7 +128,7 @@
 
 当页面收到网站图标地址时被分发。
 
-<h4 id="event-new-window">事件：'new-window'</h4>
+#### 事件: 'new-window'
 
 返回值为：
 
@@ -153,7 +153,7 @@
         event.newGuest = win
     })
 
-<h4 id="event-will-navigate">事件：'will-navigate'</h4>
+#### 事件: 'will-navigate'
 
 返回值为：
 
@@ -168,7 +168,7 @@
 
 调用`event.preventDefault()`将会阻止导航。
 
-<h4 id="event-did-navigate">事件：'did-navigate'</h4>
+#### 事件: 'did-navigate'
 
 返回值为：
 
@@ -179,7 +179,7 @@
 
 页面之内的导航也不会使这个事件被分发，例如点击锚点链接或者更新`window.location.hash`。对于这些行为请使用`did-navigate-in-page`事件。
 
-<h4 id="event-did-navigate-in-page">事件：'did-navigate-in-page'</h4>
+#### 事件: 'did-navigate-in-page'
 
 返回值为：
 
@@ -191,7 +191,7 @@
 
 当一个页面内的导航发生，这个页面的URL被改变，但是不会导致导航到这个页面之外。例如这个事件是当锚点链接被点击或者当DOM的`hashchange`事件被触发时。
 
-<h4 id="event-crashed">事件：'crashed'</h4>
+#### 事件: 'crashed'
 
 返回值为：
 
@@ -200,7 +200,7 @@
 
 当渲染进程崩溃或者被杀死的时候被分发。
 
-<h4 id="event-plugin-crashed">事件：'plugin-crashed'</h4>
+#### 事件: 'plugin-crashed'
 
 返回值为：
 
@@ -210,11 +210,11 @@
 
 当一个插件进程崩溃时被分发。
 
-<h4 id="event-destroyed">事件：'destroyed'</h4>
+#### 事件: 'destroyed'
 
 当`webContents`被销毁的时候被分发。
 
-<h4 id="event-before-input-event">事件：'before-input-event'</h4>
+#### 事件: 'before-input-event'
 
 返回值为：
 
@@ -231,19 +231,19 @@
 
 在页面中的`keydown`和`keyup`事件被发出之前被分发。调用`event.preventDefault`将阻止页面的`keydown/keyup`事件发出。
 
-<h4 id="event-devtools-opened">事件：'devtools-opened'</h4>
+#### 事件: 'devtools-opened'
 
 当开发工具被打开的时候被分发。
 
-<h4 id="event-devtools-closed">事件：'devtools-closed'</h4>
+#### 事件: 'devtools-closed'
 
 当开发工具被关闭的时候被分发。
 
-<h4 id="event-devtools-focused">事件：'devtools-focused'</h4>
+#### 事件: 'devtools-focused'
 
 当开发工具被聚焦／打开的时候被分发。
 
-<h4 id="event-certificate-error">事件：'certificate-error'</h4>
+#### 事件: 'certificate-error'
 
 返回值为：
 
@@ -256,9 +256,9 @@
 
 当验证`url`指向的证书失败时被分发。
 
-使用起来和[`app`的`certificate-error`事件](./app.html#event-certificate-error)一样。
+使用起来和[`app`的`certificate-error`事件](./app.md#事件-certificate-error)一样。
 
-<h4 id="event-select-client-certificate">事件：'select-client-certificate'</h4>
+#### 事件: 'select-client-certificate'
 
 返回值为：
 
@@ -270,9 +270,9 @@
 
 当请求一个客户端证书时被分发。
 
-使用起来和[`app`的`select-client-certificate`事件](./app.html#event-select-client-certificate)一样。
+使用起来和[`app`的`select-client-certificate`事件](./app.html#事件-select-client-certificate)一样。
 
-<h4 id="event-login">事件：'login'</h4>
+#### 事件: 'login'
 
 返回值为：
 
@@ -293,9 +293,9 @@
 
 webContents想要进行基本验证的时候被分发。
 
-使用起来和[`app`的`login`事件](./app.html#event-login)一样。
+使用起来和[`app`的`login`事件](./app.html#事件-login)一样。
 
-<h4 id="event-found-in-page">事件：'found-in-page'</h4>
+#### 事件: 'found-in-page'
 
 返回值为：
 
@@ -308,21 +308,21 @@ webContents想要进行基本验证的时候被分发。
 
 [`webContents.findInPage`]请求有有效的结果时被分发。
 
-<h4 id="event-media-started-playing">事件：'media-started-playing'</h4>
+#### 事件: 'media-started-playing'
 
 媒体开始播放时被分发。
 
-<h4 id="event-media-paused">事件：'media-paused'</h4>
+#### 事件: 'media-paused'
 
 媒体被暂停或者完成播放时被分发。
 
-<h4 id="event-did-change-theme-color">事件：'did-change-theme-color'</h4>
+#### 事件: 'did-change-theme-color'
 
 页面的主题颜色改变时被分发。这个通常由于有一个meta标签：
 
     <meta name='theme-color' content='#ff0000'>
 
-<h4 id="event-update-target-url">事件：'update-target-url'</h4>
+#### 事件: 'update-target-url'
 
 返回值为：
 
@@ -331,7 +331,7 @@ webContents想要进行基本验证的时候被分发。
 
 当鼠标移动到一个链接或者键盘移动光标到链接上时被分发。
 
-<h4 id="event-cursor-changed">事件：'cursor-changed'</h4>
+#### 事件: 'cursor-changed'
 
 返回值为：
 
@@ -350,7 +350,7 @@ webContents想要进行基本验证的时候被分发。
 
 如果`type`参数是`custom`，`image`参数将是一个`NativeImage`类型的自定义光标图标，`scale`，`size`和`hotspot`也是关于自定义光标的附加信息。
 
-<h4 id="event-context-menu">事件：'context-menu'</h4>
+#### 事件: 'context-menu'
 
 返回值为：
 
@@ -392,7 +392,7 @@ webContents想要进行基本验证的时候被分发。
 
 当这里有一个新的需要处理的右键菜单时会被分发。
 
-<h4 id="event-select-bluetooth-device">事件：'select-bluetooth-device'</h4>
+#### 事件: 'select-bluetooth-device'
 
 返回值为：
 
@@ -420,13 +420,13 @@ webContents想要进行基本验证的时候被分发。
         })
     })
 
-<h4 id="event-paint">事件：'paint'</h4>
+#### 事件: 'paint'
 
 返回值为：
 
  * `event` Event类型
  * `dirtyRect` [Rectangle](https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md)类型
- * `image` [NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md)类型 - 整个frame的图片数据。
+ * `image` [NativeImage](../both/api/nativeImage.md)类型 - 整个frame的图片数据。
 
 当一个新的frame被生成的时候会被分发。只有脏区被传入缓冲区。
 
@@ -438,11 +438,11 @@ webContents想要进行基本验证的时候被分发。
     })
     win.loadURL('http://github.com')
 
-<h4 id="event-devtools-reload-page">事件：'devtools-reload-page'</h4>
+#### 事件: 'devtools-reload-page'
 
 当开发工具窗口通知`webContents`重载时被分发。
 
-<h4 id="event-will-attach-webview">事件：'will-attach-webview'</h4>
+#### 事件: 'will-attach-webview'
 
 返回值为：
 
@@ -454,9 +454,9 @@ webContents想要进行基本验证的时候被分发。
 
 这个事件可以被用来配置一个已经被加载的`<webview>`的`webContents`中的`webPreferences`，提供设置一些配置选项的能力，而这些配置选项不能通过`<webview>`的参数来设置。
 
-<h3 id="instance-methods">实例方法</h3>
+### 实例方法
 
-<h4 id="contents-loadURL"><code>contents.loadURL(url[, options])</code></h4>
+#### `contents.loadURL(url[, options])`
 
  * `url` String类型
  * `options` Object类型（可选参数）
@@ -472,13 +472,13 @@ webContents想要进行基本验证的时候被分发。
     const options = {extraHeaders: 'pragma: no-cache\n'}
     webContents.loadURL('https://github.com', options)
 
-<h4 id="contents-downloadURL"><code>contents.downloadURL(url)</code></h4>
+#### `contents.downloadURL(url)`
 
  * `url` String类型
 
 不导航过去就开始下载`url`中的资源。`session`的`will-download`事件将会被分发。
 
-<h4 id="contents-getURL"><code>contents.getURL()</code></h4>
+#### `contents.getURL()`
 
 返回值为`String`类型 - 当前页面的地址。
 
@@ -489,101 +489,101 @@ webContents想要进行基本验证的时候被分发。
     et currentURL = win.webContents.getURL()
     console.log(currentURL)
 
-<h4 id="contents-getTitle"><code>contents.getTitle()</code></h4>
+#### `contents.getTitle()`
 
 返回值为`String`类型 - 当前页面的标题。
 
-<h4 id="contents-isDestroyed"><code>contents.isDestroyed()</code></h4>
+#### `contents.isDestroyed()`
 
 返回值为`Boolean`类型 - 当前页面是否被销毁。
 
-<h4 id="contents-isFocused"><code>contents.isFocused()</code></h4>
+#### `contents.isFocused()`
 
 返回值为`Boolean`类型 - 当前页面是否聚焦。
 
-<h4 id="contents-isLoading"><code>contents.isLoading()</code></h4>
+#### `contents.isLoading()`
 
 返回值为`Boolean`类型 - 当前页面是否仍在加载资源。
 
-<h4 id="contents-isLoadingMainFrame"><code>contents.isLoadingMainFrame()</code></h4>
+#### `contents.isLoadingMainFrame()`
 
 返回值为`Boolean`类型 - 主frame（不仅仅它内部的是iframes或frames）是否仍在加载。
 
-<h4 id="contents-isWaitingForResponse"><code>contents.isWaitingForResponse()</code></h4>
+#### `contents.isWaitingForResponse()`
 
 返回值为`Boolean`类型 - 网页是否是等待页面主要资源的一个第一响应。
 
-<h4 id="contents-stop"><code>contents.stop()</code></h4>
+#### `contents.stop()`
 
 停止任何尚未完成的导航。
 
-<h4 id="contents-reload"><code>contents.reload()</code></h4>
+#### `contents.reload()`
 
 重载当前的网页。
 
-<h4 id="contents-reloadIgnoringCache"><code>contents.reloadIgnoringCache()</code></h4>
+#### `contents.reloadIgnoringCache()`
 
 忽视缓存并重载当前页面。
 
-<h4 id="contents-canGoBack"><code>contents.canGoBack()</code></h4>
+#### `contents.canGoBack()`
 
 返回值为`Boolean`类型 - 浏览器是否可以返回之前的网页。
 
-<h4 id="contents-canGoForward"><code>contents.canGoForward()</code></h4>
+#### `contents.canGoForward()`
 
 返回值为`Boolean`类型 - 浏览器是否可以转去下一个页面。
 
-<h4 id="contents-canGoToOffset"><code>contents.canGoToOffset(offset)</code></h4>
+#### `contents.canGoToOffset(offset)<`
 
  * `offset` Integer类型
 
 返回值为`Boolean`类型 - 网页是否可以定位到`offset`。
 
-<h4 id="contents-clearHistory"><code>contents.clearHistory()</code></h4>
+#### `contents.clearHistory()`
 
 清空导航历史记录。
 
-<h4 id="contents-goBack"><code>contents.goBack()</code></h4>
+#### `contents.goBack()`
 
 让浏览器返回一个页面。
 
-<h4 id="contents-goForward"><code>contents.goForward()</code></h4>
+#### `contents.goForward()`
 
 让浏览器前进一个页面。
 
-<h4 id="contents-goToIndex"><code>contents.goToIndex(index)</code></h4>
+#### `contents.goToIndex(index)`
 
  * `index` Integer类型
 
 通过指定的网页索引，导航浏览器到对应的页面。
 
-<h4 id="contents-goToOffset"><code>contents.goToOffset(offset)</code></h4>
+#### `contents.goToOffset(offset)`
 
  * `offset` Integer类型
 
 从“当前的位置”导航到指定的偏移位置。
 
-<h4 id="contents-isCrashed"><code>contents.isCrashed()</code></h4>
+#### `contents.isCrashed()`
 
 返回值为`Boolean`类型 - 渲染线程是否已经崩溃。
 
-<h4 id="contents-setUserAgent"><code>contents.setUserAgent(userAgent)</code></h4>
+#### `contents.setUserAgent(userAgent)`
 
  * `userAgent` String类型
 
 对这个网页重写用户代理。
 
-<h4 id="contents-getUserAgent"><code>contents.getUserAgent()</code></h4>
+#### `contents.getUserAgent()`
 
 返回值为`String`类型 - 这个网页的用户代理。
 
-<h4 id="contents-insertCSS"><code>contents.insertCSS(css)</code></h4>
+#### `contents.insertCSS(css)`
 
  * `css` String类型
 
 给当前网页注入一个CSS样式。
 
-<h4 id="contents-executeJavaScript"><code>contents.executeJavaScript(code[, userGesture, callback])</code></h4>
+#### `contents.executeJavaScript(code[, userGesture, callback])`
 
  * `code` String类型
  * `userGesture` Boolean类型（可选参数）- 默认是`false`。
@@ -603,125 +603,125 @@ webContents想要进行基本验证的时候被分发。
             console.log(result) // Will be the JSON object from the fetch call
         })
 
-<h4 id="contents-setAudioMuted"><code>contents.setAudioMuted(muted)</code></h4>
+#### `contents.setAudioMuted(muted)`
 
  * `muted` Boolean类型
 
 静音当前网页中的音频。
 
-<h4 id="contents-isAudioMuted"><code>contents.isAudioMuted()</code></h4>
+#### `contents.isAudioMuted()`
 
 返回值为`Boolean`类型 - 这个页面是否已经被静音。
 
-<h4 id="contents-setZoomFactor"><code>contents.setZoomFactor(factor)</code></h4>
+#### `contents.setZoomFactor(factor)`
 
  * `factor` Number类型 - 缩放因数。
 
 改变缩放因数为设置的缩放因数。缩放因数是缩放百分比除以100，所以300% = 3.0。
 
-<h4 id="contents-getZoomFactor"><code>contents.getZoomFactor(callback)</code></h4>
+#### `contents.getZoomFactor(callback)`
 
  * `callback` Function类型
      * `zoomFactor` Number类型
 
 发送一个请求来获得当前的缩放因数，`callback`将会被`callback(zoomFactor)`调用。
 
-<h4 id="contents-setZoomLevel"><code>contents.setZoomLevel(level)</code></h4>
+#### `contents.setZoomLevel(level)`
 
  * `level` Number类型 - 缩放等级
 
 改变缩放等级为设置的等级。原始大小为0，每一个增加或减小都将放大或缩小20%，默认的最大是300%，最小是50%。
 
-<h4 id="contents-getZoomLevel"><code>contents.getZoomLevel(callback)</code></h4>
+#### `contents.getZoomLevel(callback)`
 
  * `callback` Function类型
      * `zoomLevel` Numberl类型
 
 发送一个请求来获得当前的缩放等级，`callback`将会被`callback(zoomLevel)`调用。
 
-<h4 id="contents-setZoomLevelLimits"><code>contents.setZoomLevelLimits(minimumLevel, maximumLevel)</code></h4>
+#### `contents.setZoomLevelLimits(minimumLevel, maximumLevel)`
 
  * `minimumLevel` Number类型
  * `maximumLevel` Number类型
 
 不赞成：调用`setVisualZoomLevelLimits`代替设置视觉上的缩放等级上限。这个方法将会在Electron 2.0中被移除。
 
-<h4 id="contentssetVisualZoomLevelLimits-"><code>contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)</code></h4>
+#### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
  * `minimumLevel` Number类型
  * `maximumLevel` Number类型
 
 设置pinch-to-zoom等级的最大值和最小值。
 
-<h4 id="contents-setLayoutZoomLevelLimits"><code>contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)</code></h4>
+#### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
  * `minimumLevel` Number类型
  * `maximumLevel` Number类型
 
 设置布局基础（非视觉上的）缩放级别的最大值和最小值。
 
-<h4 id="contents-undo"><code>contents.undo()</code></h4>
+#### `contents.undo()`
 
 在网页中执行编辑命令`undo`。
 
-<h4 id="contents-redo"><code>contents.redo()</code></h4>
+#### `contents.redo()`
 
 在网页中执行编辑命令`redo`。
 
-<h4 id="contents-cut"><code>contents.cut()</code></h4>
+#### `contents.cut()`
 
 在网页中执行编辑命令`cut`。
 
-<h4 id="contents-copy"><code>contents.copy()</code></h4>
+#### `contents.copy()`
 
 在网页中执行编辑命令`copy`。
 
-<h4 id="contents-copyImageAt"><code>contents.copyImageAt(x, y)</code></h4>
+#### `contents.copyImageAt(x, y)`
 
  * `x` Integer类型
  * `y` Integer类型
 
 复制给定的定位的图片到剪贴板。
 
-<h4 id="contents-paste"><code>contents.paste()</code></h4>
+#### `contents.paste()`
 
 在网页中执行编辑命令`paste`。
 
-<h4 id="contents-pasteAndMatchStyle"><code>contents.pasteAndMatchStyle()</code></h4>
+#### `contents.pasteAndMatchStyle()`
 
 在网页中执行编辑命令`pasteAndMatchStyle`。
 
-<h4 id="contents-delete"><code>contents.delete()</code></h4>
+#### `contents.delete()`
 
 在网页中执行编辑命令`delete`。
 
-<h4 id="contents-selectAll"><code>contents.selectAll()</code></h4>
+#### `contents.selectAll()`
 
 在网页中执行编辑命令`selectAll`。
 
-<h4 id="contents-unselect"><code>contents.unselect()</code></h4>
+#### `contents.unselect()`
 
 在网页中执行编辑命令`unselect`。
 
-<h4 id="contents-replace"><code>contents.replace(text)</code></h4>
+#### `contents.replace(text)`
 
  * `text` String类型
 
 在网页中执行编辑命令`replace`。
 
-<h4 id="contents-replaceMisspelling"><code>contents.replaceMisspelling(text)</code></h4>
+#### `contents.replaceMisspelling(text)`
 
  * `text` String类型
 
 在网页中执行编辑命令`replaceMisspelling`。
 
-<h4 id="contents-insertText"><code>contents.insertText(text)</code></h4>
+#### `contents.insertText(text)`
 
  * `text` String类型
 
 插入`text`到获取焦点的元素。
 
-<h4 id="contents-findInPage"><code>contents.findInPage(text[, options])</code></h4>
+#### `contents.findInPage(text[, options])`
 
  * `text` String类型 - 要搜索的内容，不能为空。
  * `options` Object类型（可选参数）
@@ -733,7 +733,7 @@ webContents想要进行基本验证的时候被分发。
 
 发起一个请求来寻找这个网页内的所有`text`的匹配项，并且返回代表这个请求的一个`Integer`类型的请求ID。这个请求的结果可以通过订阅`found-in-page`事件来获得。
 
-<h4 id="contents-stopFindInPage"><code>contents.stopFindInPage(action)</code></h4>
+#### `contents.stopFindInPage(action)`
 
  * `action` String类型 - 当要结束[`webContents.findInPage`]请求时指定一个活动来停止。
      * `clearSelection` - 清除选中。
@@ -750,7 +750,7 @@ webContents想要进行基本验证的时候被分发。
     const requestId = webContents.findInPage('api')
     console.log(requestId)
 
-<h4 id="contents-capturePage"><code>contents.capturePage([rect, ]callback)</code></h4>
+#### `contents.capturePage([rect, ]callback)`
 
  * `rect` [Rectangle](https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md)类型（可选参数）- 要捕获的页面的区域
  * `callback` Function类型
@@ -758,21 +758,21 @@ webContents想要进行基本验证的时候被分发。
 
 捕获一个在页面`rect`范围内的快照。当上面的方法完成后`callback`将会被`callback(image)`调用。这个`image`是一个存储了快照的`NativeImage`类型的实例。省略`rect`将会捕获整个可见的页面。
 
-<h4 id="contents-hasServiceWorker"><code>contents.hasServiceWorker(callback)</code></h4>
+#### `contents.hasServiceWorker(callback)`
 
  * `callback` Function类型
      * `hasWorker` Boolean类型
 
 检测到如果有任何的ServiceWorker被注册那么久返回一个`boolean`类型的返回值给`callback`。
 
-<h4 id="contents-unregisterServiceWorker"><code>contents.unregisterServiceWorker(callback)</code></h4>
+#### `contents.unregisterServiceWorker(callback)`
 
  * `callback` Function类型
      * `success` Boolean类型
 
 注销任何现存的ServiceWorker，并且返回一个`boolean`类型的返回值给`callback`，当JS的promise被满足返回`true`，或者JS的promise被拒绝则返回`false`。
 
-<h4 id="contents-print"><code>contents.print([options])</code></h4>
+#### `contents.print([options])`
 
  * `options` Object类型（可选参数）
      * `silent` Boolean类型 - 不询问用户的打印设置。默认为`false`。
@@ -784,7 +784,7 @@ webContents想要进行基本验证的时候被分发。
 
 使用`page-break-before: always;`CSS样式被强制打印在一个新的页面上。
 
-<h4 id="contents-printToPDF"><code>contents.printToPDF(options, callback)</code></h4>
+#### `contents.printToPDF(options, callback)`
 
  * `options` Object类型
      * `marginsType` Integer类型 -（可选参数）指定使用的边距类型，使用0为默认边距，1为没有边距，2为最小边距。
@@ -832,7 +832,7 @@ webContents想要进行基本验证的时候被分发。
         })
     })
 
-<h4 id="contents-addWorkSpace"><code>contents.addWorkSpace(path)</code></h4>
+#### `contents.addWorkSpace(path)`
 
  * `path` String类型
 
@@ -844,43 +844,43 @@ webContents想要进行基本验证的时候被分发。
         win.webContents.addWorkSpace(__dirname)
     })
 
-<h4 id="contents-removeWorkSpace"><code>contents.removeWorkSpace(path)</code></h4>
+#### `contents.removeWorkSpace(path)`
 
  * `path` String类型
 
 从开发工具工作空间中移除指定的路径。
 
-<h4 id="contents-openDevTools"><code>contents.openDevTools([options])</code></h4>
+#### `contents.openDevTools([options])`
 
  * `options` Object类型（可选参数）
      * `mode` String类型 - 使用指定的dock状态打开开发工具，可以是`right`、`bottom`、`undocked`、`detach`。默认是上一次使用的dock状态。在`undocked`模式中它可能使dock返回。在`detach`模式中它则不是。
 
 打开开发工具。
 
-<h4 id="contents-closeDevTools"><code>contents.closeDevTools()</code></h4>
+#### `contents.closeDevTools()`
 
 关闭开发工具。
 
-<h4 id="contents-isDevToolsOpened"><code>contents.isDevToolsOpened()</code></h4>
+#### `contents.isDevToolsOpened()`
 
 返回值为`Boolean`类型 - 开发工具是否被打开。
 
-<h4 id="contents-toggleDevTools"><code>contents.toggleDevTools()</code></h4>
+#### `contents.toggleDevTools()`
 
 使用开发工具。
 
-<h4 id="contents-inspectElement"><code>contents.inspectElement(x, y)</code></h4>
+#### `contents.inspectElement(x, y)`
 
  * `x` Integer类型
  * `y` Integer类型
 
 开始检查点(`x`, `y`)位置的元素。
 
-<h4 id="contents-inspectServiceWorker"><code>contents.inspectServiceWorker()</code></h4>
+#### `contents.inspectServiceWorker()`
 
 Opens the developer tools for the service worker context.
 
-<h4 id="contents-send"><code>contents.send(channel[, arg1][, arg2][, ...])</code></h4>
+#### `contents.send(channel[, arg1][, arg2][, ...])`
 
  * `channel` String
  * `...args` any[]
@@ -915,7 +915,7 @@ Opens the developer tools for the service worker context.
     </body>
     </html>
 
-<h4 id="contents-enableDeviceEmulation"><code>contents.enableDeviceEmulation(parameters)</code></h4>
+#### `contents.enableDeviceEmulation(parameters)`
 
  * `parameters` Object类型
      * `screenPosition` String类型 - 设置要模拟的屏幕类型（默认：`desktop`）
@@ -939,11 +939,11 @@ Opens the developer tools for the service worker context.
 
 通过给定的参数允许设备模拟
 
-<h4 id="contents-disableDeviceEmulation"><code>contents.disableDeviceEmulation()</code></h4>
+#### `contents.disableDeviceEmulation()`
 
 关闭通过`webContents.enableDeviceEmulation`开启的设备模拟。
 
-<h4 id="contents-sendInputEvent"><code>contents.sendInputEvent(event)</code></h4>
+#### `contents.sendInputEvent(event)`
 
  * `event` Object类型
      * `type` String类型（必传参数）- 事件的类型，可以是`mouseDown`、`mouseUp`、`mouseEnter`、`mouseLeave`、`contextMenu`、`mouseWheel`、`mouseMove`、`keyDown`、`keyUp`、`char`。
@@ -978,7 +978,7 @@ Opens the developer tools for the service worker context.
  * `canScroll` Boolean类型
 
 
-<h4 id="contents-beginFrameSubscription"><code>contents.beginFrameSubscription([onlyDirty ,]callback)</code></h4>
+#### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
  * `onlyDirty` Boolean类型（可选参数）- 默认值为`false`
  * `callback` Function类型
@@ -991,19 +991,19 @@ Opens the developer tools for the service worker context.
 
 `dirtyRect`是带有`x, y, width, height`这些属性的对象，来描述页面的重绘部分。如果`onlyDirty`被设置为`true`，`frameBuffer`将只会包含重绘区域。`onlyDirty`默认为`false`。
 
-<h4 id="contents-endFrameSubscription"><code>contents.endFrameSubscription()</code></h4>
+#### `contents.endFrameSubscription()`
 
 结束订阅frame报告事件。
 
-<h4 id="contents-startDrag"><code>contents.startDrag(item)</code></h4>
+#### `contents.startDrag(item)`
 
  * `item` Object类型
      * `file` 字符串或者`files`类型的数组 - 开始拖拽的文件的路径。
-     * `icon` [NativeImage](https://github.com/electron/electron/blob/master/docs/api/native-image.md)类型 - MacOS下这个图片不可以为空。
+     * `icon` [NativeImage](../both/nativeImage.md)类型 - MacOS下这个图片不可以为空。
 
 设置这个`item`作为当前拖拽操作的拖拽项，`file`是被拖拽文件的绝对路径，`icon`是当拖拽时光标下方展示的图片。
 
-<h4 id="contents-savePage"><code>contents.savePage(fullPath, saveType, callback)</code></h4>
+#### `contents.savePage(fullPath, saveType, callback)`
 
  * `fullPath` String类型 - 文件的完整路径。
  * `saveType` String类型 - 指定保存类型。
@@ -1026,11 +1026,11 @@ Opens the developer tools for the service worker context.
         })
     })
 
-<h4 id="contents-showDefinitionForSelection"><code>contents.showDefinitionForSelection() <i>（MacOS）</i></code></h4>
+#### `contents.showDefinitionForSelection()` *MacOS*
 
 展示用来在页面上对选中的单词进行搜索的弹出式字典。
 
-<h4 id="contents-setSize"><code>contents.setSize(options)</code></h4>
+#### `contents.setSize(options)`
 
 设置页面的尺寸。这个只支持<webview>的guest内从。
 
@@ -1039,58 +1039,58 @@ Opens the developer tools for the service worker context.
          * `width` Integer类型
          * `height` Integer类型
 
-<h4 id="contents-isOffscreen"><code>contents.isOffscreen()</code></h4>
+#### `contents.isOffscreen()`
 
 返回值为`Boolean`类型 - 表示是否启用*离屏渲染*。
 
-<h4 id="contents-startPainting"><code>contents.startPainting()</code></h4>
+#### `contents.startPainting()`
 
 如果*离屏渲染*被启动但是没有开始绘制，那么就让它开始绘制。
 
-<h4 id="contents-stopPainting"><code>contents.stopPainting()</code></h4>
+#### `contents.stopPainting()`
 
 如果*离屏渲染*被启动并且正在绘制，那么就让它停止绘制。
 
-<h4 id="contents-isPainting"><code>contents.isPainting()</code></h4>
+#### `contents.isPainting()`
 
 返回值为`Boolean`类型 - 如果*离屏渲染*被启动则返回当前是否正在绘制。
 
-<h4 id="contents-setFrameRate"><code>contents.setFrameRate(fps)</code></h4>
+#### `contents.setFrameRate(fps)`
 
  * `fps` Integer类型
 
 如果*离屏渲染*被启动那么设置帧数为指定的数值。只接受在1到60之间的值。
 
-<h4 id="contents-getFrameRate"><code>contents.getFrameRate()</code></h4>
+#### `contents.getFrameRate()`
 
 返回值为`Integer`类型 - 如果*离屏渲染*被启动那么返回当前帧数。
 
-<h4 id="contents-invalidate"><code>contents.invalidate()</code></h4>
+#### `contents.invalidate()`
 
 安排一次这个网络内容所在的窗口的全屏重绘。
 
 如果*离屏渲染*被启那么使frame无效并且通过`'paint'`事件生成一个新的。
 
-<h3 id="instance-properties">实例属性</h3>
+### 实例属性
 
-<h4 id="contents-id"><code>contents.id</code></h4>
+#### `contents.id`
 
 一个作为WebContents的唯一的ID的整数。
 
-<h4 id="contents-session"><code>contents.session</code></h4>
+#### `contents.session`
 
 一个被这个webContents使用的Session对象（[session](https://github.com/electron/electron/blob/master/docs/api/session.md)）
 
-<h4 id="contents-hostWebContents"><code>contents.hostWebContents</code></h4>
+#### `contents.hostWebContents`
 
 一个可能拥有这个WebContents的[`WebContents`](https://github.com/electron/electron/blob/master/docs/api/web-contents.md)实例
 
-<h4 id="contents-devToolsWebContents"><code>contents.devToolsWebContents</code></h4>
+#### `contents.devToolsWebContents`
 
 这个WebContents的开发工具的WebContents。
 
 **注意：**用户不要存储这个对象，因为当这个开发工具被关闭的时候它可能会变为`null`。
 
-<h4 id="contents-debugger"><code>contents.debugger</code></h4>
+#### `contents.debugger`
 
 这个webContents的一个[Debugger](https://github.com/electron/electron/blob/master/docs/api/debugger.md)实例。

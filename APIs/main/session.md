@@ -6,11 +6,11 @@
 
 > 管理浏览器会话、cookie，缓存，代理设置等。
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)   
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)   
 
 `session`模块可以被用来创建新的`Session`对象。
 
-你也可以通过使用[`WebContents`](./webContents.html)的属性`session`来获取现存页面的`session`，或者从`session`模块获取。
+你也可以通过使用[`WebContents`](./webContents.md)的属性`session`来获取现存页面的`session`，或者从`session`模块获取。
 
     const {BrowserWindow} = require('electron')
 
@@ -20,11 +20,11 @@
     const ses = win.webContents.session
     console.log(ses.getUserAgent())
 
-<h2 id="methods">方法</h2>
+## 方法
 
 `session`模块有以下方法：
 
-<h3 id="session-fromPartition"><code>session.fromPartition(partition[, options])</code></h3>
+### `session.fromPartition(partition[, options])`
 
  * `partition` String类型
  * `options` Object类型
@@ -36,19 +36,19 @@
 
 使用`options`创建一个`Session`，你必须保证`Session`的`partition`在之前从来没有被使用过。这里没有方法改变一个存在的`Session`对象的`options`。
 
-<h2 id="properties">属性</h2>
+## 属性
 
 `session`模块有以下属性：
 
-<h3 id="session-defaultSession"><code>session.defaultSession</code></h3>
+### `session.defaultSession`
 
 一个`Session`对象，应用的默认会话对象。
 
-<h2 id="class-session">类：Session</h2>
+## 类: Session
 
 > 获取并设置一个会话的属性。
 
-进程：[主进程](../../guides/glossary-of-terms.html#main-process)   
+进程：[主进程](../../guides/glossary-of-terms.md#main-process)   
 
 你可以使用`session`模块来创建一个新的`Session`对象。
 
@@ -56,15 +56,15 @@
     const ses = session.fromPartition('persist:name')
     console.log(ses.getUserAgent())
 
-<h3 id="instance-events">实例的事件</h3>
+### 实例的事件
 
 以下事件在`Session`的实例中有效：
 
-<h4 id="event-will-download">事件：'will-download'</h4>
+#### 事件: 'will-download'
 
  * `event` Event类型
  * `item` [DownloadItem](https://github.com/electron/electron/blob/master/docs/api/download-item.md)类型
- * `webContents` [WebContents](./webContents.html)类型
+ * `webContents` [WebContents](./webContents.md)类型
 
 当`Electron`要下载`webContents`中的`item`的时候被分发。
 
@@ -78,24 +78,24 @@
         })
     })
 
-<h3 id="instance-methods">实例的方法</h3>
+### 实例的方法
 
 以下方法在`Session`的实例中有效：
 
-<h4 id="ses-getCacheSize"><code>ses.getCacheSize(callback)</code></h4>
+#### `ses.getCacheSize(callback)`
 
  * `callback` Function类型
      * `size` Integer类型 - 使用的缓存大小，以字节为单位。
 
 回调会返回这个会话的当前缓存大小。
 
-<h4 id="ses-clearCache"><code>ses.clearCache(callback)</code></h4>
+#### `ses.clearCache(callback)`
 
  * `callback` Function类型 - 当操作完成时被调用
 
 清空会话的HTTP缓存。
 
-<h4 id="ses-clearStorageData"><code>ses.clearStorageData([options, callback])</code></h4>
+#### `ses.clearStorageData([options, callback])`
 
  * `options` Object类型（可选参数）
      * `origin` String类型 - 应该遵循`window.location.origin`的表述方式`scheme://host:port`。
@@ -105,11 +105,11 @@
 
 清除网络存储数据。
 
-<h4 id="ses-flushStorageData"><code>ses.flushStorageData()</code></h4>
+#### `ses.flushStorageData()`
 
 将还没有写入的DOMStorage写入磁盘。
 
-<h4 id="ses-setProxy"><code>ses.setProxy(config, callback)</code></h4>
+#### `ses.setProxy(config, callback)`
 
  * `config` Object类型
      * `pacScript` String类型 - 与PAC文件相关的URL。
@@ -170,7 +170,7 @@
     匹配本地地址。`<local>`的意思是匹配到这之中的任何一个："127.0.0.1"，"::1"，"localhost"。
 
 
-<h4 id="ses-resolveProxy"><code>ses.resolveProxy(url, callback)</code></h4>
+#### `ses.resolveProxy(url, callback)`
 
  * `url` URL类型
  * `callback` Function类型
@@ -178,13 +178,13 @@
 
 解析`url`的协议信息。当请求被执行的时候`callback`将要被`callback(proxy)`调用。
 
-<h4 id="ses-setDownloadPath"><code>ses.setDownloadPath(path)</code></h4>
+#### `ses.setDownloadPath(path)`
 
  * `path` String类型 - 下载位置
 
 设置下载保存目录。默认情况下，下载目录将是在各自应用的文件夹中的`Downloads`文件夹下。
 
-<h4 id="ses-enableNetworkEmulation"><code>ses.enableNetworkEmulation(options)</code></h4>
+#### `ses.enableNetworkEmulation(options)`
 
  * `options` Object类型
      * `offline` Boolean类型（可选参数）- 是否模拟网络断开。默认为`false`。
@@ -204,11 +204,11 @@
     // 模拟一个网络中断。
     window.webContents.session.enableNetworkEmulation({offline: true})
 
-<h4 id="ses-disableNetworkEmulation"><code>ses.disableNetworkEmulation()</code></h4>
+#### `ses.disableNetworkEmulation()`
 
 禁用`session`中已经开启的网络模拟。将重置为原来的网络配置。
 
-<h4 id="ses-setCertificateVerifyProc"><code>ses.setCertificateVerifyProc(proc)</code></h4>
+#### `ses.setCertificateVerifyProc(proc)`
 
  * `proc` Function类型
      * `request` Object类型
@@ -221,7 +221,7 @@
              * `-2` - 表示失败。
              * `-3` - 使用chromium的验证结果。
 
-设置`session`的证书验证过程，当一个服务器证书验证被请求，`proc`将会被`proc(request, callback)`调用 whenever a server certificate verification is requested. 调用`callback(0)`接受这个证书，调用`callback(-2)`拒绝这个证书。
+设置`session`的证书验证过程，当一个服务器证书验证被请求，`proc`将会被`proc(request, callback)`调用。调用`callback(0)`接受这个证书，调用`callback(-2)`拒绝这个证书。
 
 调用`setCertificateVerifyProc(null)`将会恢复回默认的证书验证过程。
 
@@ -237,10 +237,10 @@
         }
     })
 
-<h4 id="ses-setPermissionRequestHandler"><code>ses.setPermissionRequestHandler(handler)</code></h4>
+#### `ses.setPermissionRequestHandler(handler)`
 
  * `handler` Function类型
-     * `webContents` Object类型 - [WebContents](./webContents.html)请求许可。
+     * `webContents` Object类型 - [WebContents](./webContents.md)请求许可。
      * `permission` String类型 - 枚举值为'media'，'geolocation'，'notifications'，'midiSysex'，'pointerLock'，'fullscreen'，'openExternal'。
      * `callback` Function类型
          * `permissionGranted` Boolean类型 - 允许或者拒绝这个许可。
@@ -256,13 +256,13 @@
         callback(true)
     })
 
-<h4 id="ses-clearHostResolverCache"><code>ses.clearHostResolverCache([callback])</code></h4>
+#### `ses.clearHostResolverCache([callback])`
 
  * `callback` Function类型（可选参数）- 当操作完成时被调用。
 
 清空主机解析器的缓存。
 
-<h4 id="ses-allowNTLMCredentialsForDomains"><code>ses.allowNTLMCredentialsForDomains(domains)</code></h4>
+#### `ses.allowNTLMCredentialsForDomains(domains)`
 
  * `domains` String类型 - A comma-seperated list of servers for which integrated authentication is enabled.
 
@@ -275,7 +275,7 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
     // 考虑到所有的url的集成认证。
     session.defaultSession.allowNTLMCredentialsForDomains('*')
 
-<h4 id="ses-setUserAgent"><code>ses.setUserAgent(userAgent[, acceptLanguages])</code></h4>
+#### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
  * `userAgent` String类型
  * `acceptLanguages` String类型（可选参数）
@@ -286,11 +286,11 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
 
 这个不能影响到当前存在的`WebContents`，每个`WebContents`可以使用`webContents.setUserAgent`来重写会话范围内的用户代理。
 
-<h4 id="ses-getUserAgent"><code>ses.getUserAgent()</code></h4>
+#### `ses.getUserAgent()`
 
 返回值为`String`类型 - 这个会话的用户代理
 
-<h4 id="ses-getBlobData"><code>ses.getBlobData(identifier, callback)</code></h4>
+#### `ses.getBlobData(identifier, callback)`
 
  * `identifier` String类型 - 有效的UUID。
  * `callback` Function类型
@@ -298,7 +298,7 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
 
 返回值为`Blob`类型 - 与`identifier`相关的blob数据。
 
-<h4 id="ses-createInterruptedDownload"><code>ses.createInterruptedDownload(options)</code></h4>
+#### `ses.createInterruptedDownload(options)`
 
  * `options` Object类型
      * `path` String类型 - 下载的绝对路径。
@@ -310,28 +310,28 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
      * `eTag` String类型 - ETag头的值。
      * `startTime` Double类型（可选参数）- Time when download was started in number of seconds since UNIX epoch.
 
-允许在之前的`Session`中重新开始`cancelled`或`interrupted`下载。这个接口将生成一个可以被[will-download](#event-will-download)事件使用的[DownloadItem]()https://github.com/electron/electron/blob/master/docs/api/download-item.md。这个[DownloadItem](https://github.com/electron/electron/blob/master/docs/api/download-item.md)将没有任何和它相关的`WebContents`，并且最开始的状态将会被`interrupted`。这个下载将只在[DownloadItem](https://github.com/electron/electron/blob/master/docs/api/download-item.md)中调用`resume`接口时启动。
+允许在之前的`Session`中重新开始`cancelled`或`interrupted`下载。这个接口将生成一个可以被[will-download](#事件-will-download)事件使用的[DownloadItem]()https://github.com/electron/electron/blob/master/docs/api/download-item.md。这个[DownloadItem](https://github.com/electron/electron/blob/master/docs/api/download-item.md)将没有任何和它相关的`WebContents`，并且最开始的状态将会被`interrupted`。这个下载将只在[DownloadItem](https://github.com/electron/electron/blob/master/docs/api/download-item.md)中调用`resume`接口时启动。
 
-<h4 id="ses-clearAuthCache"><code>ses.clearAuthCache(options[, callback])</code></h4>
+#### `ses.clearAuthCache(options[, callback])`
 
  * `options` ([RemovePassword](https://github.com/electron/electron/blob/master/docs/api/structures/remove-password.md) | [RemoveClientCertificate](https://github.com/electron/electron/blob/master/docs/api/structures/remove-client-certificate.md))类型
  * `callback` Function类型（可选参数）- 当操作完成时被调用。
 
 清空会话的HTTP验证缓存。
 
-<h3 id="instance-properties">实例的属性</h3>
+### 实例的属性
 
 以下属性在`Session`的实例中有效：
 
-<h4 id="ses-cookies"><code>ses.cookies</code></h4>
+#### `ses.cookies`
 
 这个会话的Cookie对象。
 
-<h4 id="ses-webRequest"><code>ses.webRequest</code></h4>
+#### `ses.webRequest`
 
 这个会话的WebRequest对象。
 
-<h4 id="ses-protocol"><code>ses.protocol</code></h4>
+#### `ses.protocol`
 
 这个会话的Protocol对象（一个[protocol](./protocol.md)模块的实例）。
 

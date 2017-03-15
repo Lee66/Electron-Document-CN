@@ -6,7 +6,7 @@
 
 Electron支持[Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools)，可以使用流行的调试网页框架的工具来扩展。   
 
-### 如何加载一个DevTools Extension    
+## 如何加载一个DevTools Extension    
 
 本篇文档概述来手动加载一个扩展的过程。你可能还需要试一下[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer)，一个第三方的工具，能够直接从Chrome WebStore下载扩展。   
 
@@ -30,7 +30,7 @@ Electron中加载一个扩展，你需要先在Chrome浏览器中下载它，找
 
 扩展的名字将由接口`BrowserWindow.addDevToolsExtension`返回来，你可以将接口的名字传入`BrowserWindow.removeDevToolsExtension`接口来卸载它。   
 
-### 支持的工具扩展
+## 支持的工具扩展
 
 Electron仅支持一小部分`chrome.*`接口，如果一些扩展使用不支持的`chrome.*`接口会导致一些Chrome扩展的功能不能使用。以下工具扩展经过测试保证可以在Electron中工作：   
 
@@ -43,7 +43,7 @@ Electron仅支持一小部分`chrome.*`接口，如果一些扩展使用不支�
  * [Cerebral Debugger](http://www.cerebraljs.com/documentation/the_debugger)   
  * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)   
 
-##### 如果一个工具扩展没有工作我应该怎么办？
+### 如果一个工具扩展没有工作我应该怎么办？
 
 请确保这个扩展仍然在被维护中，一些扩展不能工作是因为Chorme浏览器的版本问题，而我们不能做任何事情来使它工作。   
 

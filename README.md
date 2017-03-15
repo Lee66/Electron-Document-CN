@@ -27,14 +27,14 @@
 [15.在Headless CI Systems中测试(Travis, Jenkins)](guides/testing-on-headless-ci-systems.md)   
 [16.离屏渲染](guides/offscreen-rendering.md)   
 
-##教程
+## 教程
 
 [1.快速开始](tutorials/quick-start.md)   
 [2.桌面环境整合](tutorials/desktop-environment-integration.md)   
 [3.联网／脱机事件监听](tutorials/online-offline-event-detection.md)   
 [4.REPL](tutorials/REPL.md)   
 
-##接口参考
+## 接口参考
 
 [1.Synopsis](APIs/synopsis.md)   
 [2.process对象](APIs/process-object.md)   
@@ -42,13 +42,13 @@
 [4.环境变量](APIs/environment-variables.md)   
 
 
-#####自定义DOM元素
+### 自定义DOM元素
 
 [1.`File` Object](APIs/DOM/file-object.md)   
 [2.`<webview>` Tag](APIs/DOM/webview-tag.md)   
 [3.`window.open` Function](APIs/DOM/window-open-function.md)   
 
-#####主进程模块
+### 主进程模块
 
 [1.app](APIs/main/app.md)    
 [2.autoUpdater](APIs/main/autoUpdater.md)    
@@ -68,14 +68,14 @@
 [16.Tray](APIs/main/Tray.md)   
 [17.webContents](APIs/main/webContents.md)   
 
-#####渲染进程模块（网页）
+### 渲染进程模块（网页）
 
 [1.desktopCapturer](APIs/renderer/desktopCapturer.md)    
 [2.ipcRenderer](APIs/renderer/ipcRenderer.md)   
 [3.remote](APIs/renderer/remote.md)   
 [4.webFrame](APIs/renderer/webFrame.md) 
 
-#####共享模块  
+### 共享模块  
 
 [1.clipboard](APIs/both/clipboard.md)    
 [2.crashReporter](APIs/both/crashReporter.md)   
@@ -83,7 +83,7 @@
 [4.screen](APIs/both/screen.md)   
 [5.shell](APIs/both/shell.md)   
 
-###进阶
+## 进阶
 
 [1.Coding Style](development/coding-style.md)    
 [2.Using clang-format on C++ Code](development/using-clang-format-on-cpp-code.md)   
@@ -98,7 +98,7 @@
 [11.Setting Up Symbol Server in debugger](development/setting-up-symbol-server-in-debugger.md)   
 [12.Documentation Styleguide](development/documentation-styleguide.md)   
 
-###FAQ
+## FAQ
 
 [Electron FAQ](FAQ/electron-faq.md)    
 

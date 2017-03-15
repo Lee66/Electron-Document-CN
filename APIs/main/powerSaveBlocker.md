@@ -3,6 +3,7 @@
 > 原文：https://github.com/electron/electron/blob/master/docs/api/power-save-blocker.md    
 译者：[Lin](https://github.com/ShmilyLin)   
 
+
 > 阻止系统进入低功耗（休眠）模式
 
 进程：[主进程](../../guides/glossary-of-terms.md#main-process)
@@ -16,11 +17,11 @@
 
     powerSaveBlocker.stop(id)
 
-<h2 id="methods">Methods</h2>
+## 方法
 
 `powerSaveBlocker`模块有下面的方法：
 
-<h3 id="powerSaveBlocker-start"><code>powerSaveBlocker.start(type)</code></h3>
+### `powerSaveBlocker.start(type)`
 
  * `type` String类型 - 电量保持拦截器类型。
      * `prevent-app-suspension` - 防止系统暂停。保持系统活动，但是允许关闭屏幕。例如在这种情况下使用：下载一个文件或者播放音频。
@@ -34,13 +35,13 @@
 
 例如，一个接口A调用一个`prevent-app-suspension`请求，并且其他接口B调用`prevent-display-sleep`请求。`prevent-display-sleep`将会被使用直到B停止它的请求。然后，`prevent-app-suspension`才会被使用。
 
-<h3 id="powerSaveBlocker-stop"><code>powerSaveBlocker.stop(id)</code></h3>
+### `powerSaveBlocker.stop(id)`
 
  * `id` Integer类型 - `powerSaveBlocker.start`返回的电量保持拦截器ID。
 
 停止设置电量保持拦截器。
 
-<h3 id="powerSaveBlocker-isStarted"><code>powerSaveBlocker.isStarted(id)</code></h3>
+### `powerSaveBlocker.isStarted(id)`
 
  * `id` Integer类型 - `powerSaveBlocker.start`返回的电量保持拦截器ID。
 
