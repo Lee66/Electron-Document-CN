@@ -1208,10 +1208,10 @@
 <p>&#x521B;&#x5EFA;&#x5E76;&#x4E14;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x3002;</p>
 </blockquote>
 <p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../../guides/glossary-of-terms.html#main-process">&#x4E3B;&#x8FDB;&#x7A0B;</a>   </p>
-<pre><code>// In the main process.
+<pre><code>// &#x4E3B;&#x8FDB;&#x7A0B;&#x4E2D;
 const {BrowserWindow} = require(&apos;electron&apos;)
 
-// Or use `remote` from the renderer process.
+// &#x6216;&#x8005;&#x4F7F;&#x7528;&#x6E32;&#x67D3;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684;`remote`
 // const {BrowserWindow} = require(&apos;electron&apos;).remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -1219,19 +1219,16 @@ win.on(&apos;closed&apos;, () =&gt; {
     win = null
 })
 
-// Load a remote URL
+// &#x52A0;&#x8F7D;&#x7F51;&#x7EDC;&#x5730;&#x5740;
 win.loadURL(&apos;https://github.com&apos;)
 
-// Or load a local HTML file
+// &#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x672C;&#x5730;HTML&#x6587;&#x4EF6;
 win.loadURL(`file://${__dirname}/app/index.html`)
-</code></pre><h2 id="frameless-window">&#x65E0;&#x6846;&#x67B6;&#x7A97;&#x53E3;</h2>
-
+</code></pre><h2 id="&#x65E0;&#x6846;&#x67B6;&#x7A97;&#x53E3;">&#x65E0;&#x6846;&#x67B6;&#x7A97;&#x53E3;</h2>
 <p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;chrome&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x4EFB;&#x610F;&#x5F62;&#x72B6;&#x7684;&#x900F;&#x660E;&#x7A97;&#x53E3;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="https://github.com/electron/electron/blob/master/docs/api/frameless-window.md" target="_blank">Frameless Window</a>&#x63A5;&#x53E3;&#x3002;   </p>
-<h2 id="showing-window-gracefully">&#x4F18;&#x96C5;&#x7684;&#x5C55;&#x793A;&#x7A97;&#x53E3;</h2>
-
+<h2 id="&#x4F18;&#x96C5;&#x7684;&#x5C55;&#x793A;&#x7A97;&#x53E3;">&#x4F18;&#x96C5;&#x7684;&#x5C55;&#x793A;&#x7A97;&#x53E3;</h2>
 <p>&#x5F53;&#x76F4;&#x63A5;&#x5728;&#x7A97;&#x53E3;&#x4E2D;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x770B;&#x5230;&#x9875;&#x9762;&#x9010;&#x6E10;&#x52A0;&#x8F7D;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x539F;&#x751F;&#x5E94;&#x7528;&#x6765;&#x8BF4;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x4F53;&#x9A8C;&#x3002;&#x4E3A;&#x4E86;&#x4F7F;&#x7A97;&#x53E3;&#x6CA1;&#x6709;&#x89C6;&#x89C9;&#x4E0A;&#x7684;&#x95EA;&#x70C1;&#xFF0C;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x8FD9;&#x91CC;&#x53C8;&#x4E24;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
-<h3 id="using-ready-to-show-event">&#x4F7F;&#x7528;<code>ready-to-show</code>&#x4E8B;&#x4EF6;</h3>
-
+<h3 id="&#x4F7F;&#x7528;ready-to-show&#x4E8B;&#x4EF6;">&#x4F7F;&#x7528;<code>ready-to-show</code>&#x4E8B;&#x4EF6;</h3>
 <p>&#x9875;&#x9762;&#x52A0;&#x8F7D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6E32;&#x67D3;&#x8FDB;&#x7A0B;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x9996;&#x6B21;&#x7ED8;&#x5236;&#x65F6;<code>ready-to-show</code>&#x4E8B;&#x4EF6;&#x5C06;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x5C55;&#x793A;&#x7A97;&#x53E3;&#x5C06;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x89C6;&#x89C9;&#x4E0A;&#x7684;&#x95EA;&#x70C1;&#xFF1A;   </p>
 <pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
 let win = new BrowserWindow({show: false})
@@ -1239,16 +1236,14 @@ win.once(&apos;ready-to-show&apos;, () =&gt; {
     win.show()
 })
 </code></pre><p>&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x901A;&#x5E38;&#x5728;<code>did-finish-load</code>&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x4F46;&#x662F;&#x5305;&#x542B;&#x4E86;&#x5F88;&#x591A;&#x8FDC;&#x7A0B;&#x8D44;&#x6E90;&#x7684;&#x9875;&#x9762;&#x53EF;&#x80FD;&#x4F1A;&#x5728;<code>did-finish-load</code>&#x4E8B;&#x4EF6;&#x4E4B;&#x524D;&#x88AB;&#x5206;&#x53D1;&#x3002;   </p>
-<h3 id="setting-backgroundColor">&#x8BBE;&#x7F6E;<code>backgroundColor`</code></h3>
-
+<h3 id="&#x8BBE;&#x7F6E;backgroundcolor">&#x8BBE;&#x7F6E;<code>backgroundColor</code></h3>
 <p>&#x5728;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;<code>ready-to-show</code>&#x4E8B;&#x4EF6;&#x53EF;&#x80FD;&#x5F88;&#x665A;&#x624D;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x8FD9;&#x4F1A;&#x4F7F;&#x5F97;&#x5E94;&#x7528;&#x611F;&#x89C9;&#x5F88;&#x6162;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5EFA;&#x8BAE;&#x7ACB;&#x523B;&#x5C55;&#x793A;&#x7A97;&#x53E3;&#xFF0C;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;<code>backgroundColor</code>&#x8986;&#x76D6;&#x4F4F;&#x4F60;&#x5E94;&#x7528;&#x7684;&#x80CC;&#x666F;&#xFF1A;</p>
 <pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
 
 let win = new BrowserWindow({backgroundColor: &apos;#2e2c29&apos;})
 win.loadURL(&apos;https://github.com&apos;)
 </code></pre><p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5373;&#x4F7F;&#x5E94;&#x7528;&#x4F7F;&#x7528;&#x4E86;<code>ready-to-show</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x4E5F;&#x4F9D;&#x7136;&#x5EFA;&#x8BAE;&#x8BBE;&#x7F6E;<code>backgroundColor</code>&#x6765;&#x4F7F;&#x5F97;&#x5E94;&#x7528;&#x66F4;&#x50CF;&#x539F;&#x751F;&#x5E94;&#x7528;&#x3002;</p>
-<h2 id="parent-and-child-windows">&#x7236;&#x7A97;&#x53E3;&#x548C;&#x5B50;&#x7A97;&#x53E3;</h2>
-
+<h2 id="&#x7236;&#x7A97;&#x53E3;&#x548C;&#x5B50;&#x7A97;&#x53E3;">&#x7236;&#x7A97;&#x53E3;&#x548C;&#x5B50;&#x7A97;&#x53E3;</h2>
 <p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;<code>parent</code>&#x9009;&#x9879;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B50;&#x7A97;&#x53E3;&#xFF1A;</p>
 <pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
 
@@ -1257,8 +1252,7 @@ let child = new BrowserWindow({parent: top})
 child.show()
 top.show()
 </code></pre><p>&#x8FD9;&#x4E2A;<code>child</code>&#x7A97;&#x53E3;&#x5C06;&#x603B;&#x5C55;&#x793A;&#x5728;<code>top</code>&#x7A97;&#x53E3;&#x7684;&#x4E0A;&#x9762;&#x3002;</p>
-<h3 id="modal-windows">&#x6A21;&#x6001;&#x7A97;&#x53E3;</h3>
-
+<h3 id="&#x6A21;&#x6001;&#x7A97;&#x53E3;">&#x6A21;&#x6001;&#x7A97;&#x53E3;</h3>
 <p>&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x662F;&#x4E00;&#x4E2A;&#x7981;&#x7528;&#x7236;&#x7A97;&#x53E3;&#x7684;&#x5B50;&#x7A97;&#x53E3;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8BBE;&#x7F6E;<code>parent</code>&#x548C;<code>modal</code>&#x9009;&#x9879;&#xFF1A;</p>
 <pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
 
@@ -1267,8 +1261,7 @@ child.loadURL(&apos;https://github.com&apos;)
 child.once(&apos;ready-to-show&apos;, () =&gt; {
   child.show()
 })
-</code></pre><h3 id="platform-notices">&#x5E73;&#x53F0;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3>
-
+</code></pre><h3 id="&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;">&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3>
 <ul>
 <li>MacOS&#x4E2D;&#xFF0C;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x5C06;&#x88AB;&#x4F5C;&#x4E3A;&#x9644;&#x52A0;&#x9875;&#x5C55;&#x793A;&#x5728;&#x7236;&#x7A97;&#x53E3;&#x4E2D;&#x3002;   </li>
 <li>MacOS&#x4E2D;&#xFF0C;&#x5F53;&#x7236;&#x7A97;&#x53E3;&#x79FB;&#x52A8;&#x65F6;&#x5B50;&#x7A97;&#x53E3;&#x5C06;&#x4E0E;&#x7236;&#x7A97;&#x53E3;&#x4FDD;&#x6301;&#x76F8;&#x5BF9;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x800C;&#x5728;Windows&#x548C;Linux&#x4E2D;&#x5B50;&#x7A97;&#x53E3;&#x5C06;&#x4E0D;&#x4F1A;&#x79FB;&#x52A8;&#x3002;   </li>
@@ -1276,16 +1269,14 @@ child.once(&apos;ready-to-show&apos;, () =&gt; {
 <li>Linux&#x4E2D;&#xFF0C;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x7684;&#x7C7B;&#x578B;&#x5C06;&#x4F1A;&#x53D8;&#x4E3A;&#x5BF9;&#x8BDD;&#x6846;&#x3002;   </li>
 <li>Linux&#x4E2D;&#xFF0C;&#x591A;&#x6570;&#x684C;&#x9762;&#x73AF;&#x5883;&#x4E0D;&#x652F;&#x6301;&#x9690;&#x85CF;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x3002;</li>
 </ul>
-<h2 id="class-browserWindow">&#x7C7B;&#xFF1A;BrowserWindow</h2>
-
+<h2 id="&#x7C7B;-browserwindow">&#x7C7B;: BrowserWindow</h2>
 <blockquote>
 <p>&#x521B;&#x5EFA;&#x5E76;&#x4E14;&#x63A7;&#x5236;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x3002;   </p>
 </blockquote>
 <p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../../guides/glossary-of-terms.html#main-process">&#x4E3B;&#x8FDB;&#x7A0B;</a>    </p>
 <p><code>BrowserWindow</code>&#x662F;&#x4E00;&#x4E2A;<a href="http://nodejs.org/api/events.html#events_class_events_eventemitter" target="_blank">EventEmitter</a>&#x3002;   </p>
 <p>&#x5B83;&#x4F7F;&#x7528;<code>options</code>&#x8BBE;&#x7F6E;&#x7684;&#x672C;&#x5730;&#x5C5E;&#x6027;&#x7684;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>BrowserWindow</code>&#x3002;</p>
-<h3 id="new-browserWindow"><code>new BrowserWindow([options])</code></h3>
-
+<h3 id="new-browserwindowoptions"><code>new BrowserWindow([options])</code></h3>
 <ul>
 <li><code>options</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;   <ul>
 <li><code>width</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x4EE5;&#x50CF;&#x7D20;&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#x7A97;&#x53E3;&#x7684;&#x5BBD;&#x5EA6;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>800</code>&#x3002;   </li>
@@ -1310,7 +1301,7 @@ child.once(&apos;ready-to-show&apos;, () =&gt; {
 <li><code>skipTaskbar</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x4E0A;&#x663E;&#x793A;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>false</code>&#x3002;</li>
 <li><code>kiosk</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- kiosk&#x6A21;&#x5F0F;&#xFF08;&#x9501;&#x5B9A;&#x8FD0;&#x884C;&#x6A21;&#x5F0F;&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>false</code>&#x3002;   </li>
 <li><code>title</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x9ED8;&#x8BA4;&#x6807;&#x9898;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>&quot;Electron&quot;</code>&#x3002;   </li>
-<li><code>icon</code> (<a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a> | String)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x56FE;&#x6807;&#x3002;Windows&#x4E2D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>ICO</code>&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x6807;&#x6765;&#x83B7;&#x5F97;&#x6700;&#x597D;&#x7684;&#x89C6;&#x89C9;&#x6548;&#x679C;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;&#x8FD9;&#x6837;executable&#x7684;&#x56FE;&#x6807;&#x5C31;&#x4F1A;&#x9ED8;&#x8BA4;&#x7684;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;</li>
+<li><code>icon</code> (<a href="../both/nativeImage.html">NativeImage</a> | String)&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;&#x56FE;&#x6807;&#x3002;Windows&#x4E2D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;<code>ICO</code>&#x683C;&#x5F0F;&#x7684;&#x56FE;&#x6807;&#x6765;&#x83B7;&#x5F97;&#x6700;&#x597D;&#x7684;&#x89C6;&#x89C9;&#x6548;&#x679C;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4E0D;&#x8BBE;&#x7F6E;&#x8FD9;&#x6837;executable&#x7684;&#x56FE;&#x6807;&#x5C31;&#x4F1A;&#x9ED8;&#x8BA4;&#x7684;&#x88AB;&#x8BBE;&#x7F6E;&#x3002;</li>
 <li><code>show</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x663E;&#x793A;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;   </li>
 <li><code>frame</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<a href="https://github.com/electron/electron/blob/master/docs/api/frameless-window.md" target="_blank">Frameless Window</a>&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
 <li><code>parent</code> BrowserWindow&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5236;&#x5B9A;&#x7236;&#x7A97;&#x53E3;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>null</code>&#x3002;   </li>
@@ -1336,8 +1327,8 @@ child.once(&apos;ready-to-show&apos;, () =&gt; {
 <li><code>webPreferences</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x7F51;&#x9875;&#x7684;&#x7279;&#x5F81;&#x3002;<ul>
 <li><code>devTools</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x542F;&#x7528;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x3002;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<code>false</code>&#xFF0C;&#x5C06;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;<code>BrowserWindow.webContents.openDevTools()</code>&#x6765;&#x6253;&#x5F00;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
 <li><code>nodeIntegration</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x662F;&#x5426;&#x542F;&#x7528;node&#x5B8C;&#x6574;&#x6027;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;<code>true</code>&#x3002;</li>
-<li><code>preload</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x811A;&#x672C;&#x5BB6;&#x5728;&#x4E4B;&#x524D;&#x52A0;&#x8F7D;&#x3002;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x5C06;&#x6709;&#x6743;&#x4F7F;&#x7528;node&#x63A5;&#x53E3;&#xFF0C;&#x65E0;&#x8BBA;<code>nodeIntegration</code>&#x662F;&#x5426;&#x5F00;&#x542F;&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x5FC5;&#x987B;&#x662F;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x5F53;<code>nodeIntegration</code>&#x8BBE;&#x4E3A;<code>false</code>&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x9884;&#x52A0;&#x8F7D;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x4ECE;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x5185;&#x91CD;&#x65B0;&#x5F15;&#x7528;Node&#x5168;&#x5C40;&#x6807;&#x8BC6;&#x7B26;&#x3002;<a href="https://github.com/electron/electron/blob/master/docs/api/process.md#event-loaded" target="_blank">&#x4F8B;&#x5B50;</a>&#x8BF7;&#x770B;&#x8FD9;&#x91CC;&#x3002;</li>
-<li><code>session</code> <a href="https://github.com/electron/electron/blob/master/docs/api/session.md#class-session" target="_blank">Session</a>&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x7684;&#x4F1A;&#x8BDD;&#x3002;Instead of passing the Session object directly&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F7F;&#x7528;<code>partition</code>&#x9009;&#x9879;&#x4EE3;&#x66FF;&#xFF0C;which accepts a partition string. &#x5F53;<code>session</code>&#x548C;<code>partition</code>&#x90FD;&#x88AB;&#x63D0;&#x4F9B;&#xFF0C;<code>session</code>&#x5C06;&#x4F1A;&#x88AB;&#x4F5C;&#x4E3A;&#x9996;&#x9009;&#x3002;&#x9ED8;&#x8BA4;&#x662F;default session&#x3002;</li>
+<li><code>preload</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5236;&#x5B9A;&#x4E00;&#x4E2A;&#x811A;&#x672C;&#x5728;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x811A;&#x672C;&#x5BB6;&#x5728;&#x4E4B;&#x524D;&#x52A0;&#x8F7D;&#x3002;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#x5C06;&#x6709;&#x6743;&#x4F7F;&#x7528;node&#x63A5;&#x53E3;&#xFF0C;&#x65E0;&#x8BBA;<code>nodeIntegration</code>&#x662F;&#x5426;&#x5F00;&#x542F;&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x5FC5;&#x987B;&#x662F;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x5F53;<code>nodeIntegration</code>&#x8BBE;&#x4E3A;<code>false</code>&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x9884;&#x52A0;&#x8F7D;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x4ECE;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x5185;&#x91CD;&#x65B0;&#x5F15;&#x7528;Node&#x5168;&#x5C40;&#x6807;&#x8BC6;&#x7B26;&#x3002;<a href="../process.md#&#x4E8B;&#x4EF6;-loaded">&#x4F8B;&#x5B50;</a>&#x8BF7;&#x770B;&#x8FD9;&#x91CC;&#x3002;</li>
+<li><code>session</code> <a href="session.html#&#x7C7B;-session">Session</a>&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x7684;&#x4F1A;&#x8BDD;&#x3002;Instead of passing the Session object directly&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F7F;&#x7528;<code>partition</code>&#x9009;&#x9879;&#x4EE3;&#x66FF;&#xFF0C;which accepts a partition string. &#x5F53;<code>session</code>&#x548C;<code>partition</code>&#x90FD;&#x88AB;&#x63D0;&#x4F9B;&#xFF0C;<code>session</code>&#x5C06;&#x4F1A;&#x88AB;&#x4F5C;&#x4E3A;&#x9996;&#x9009;&#x3002;&#x9ED8;&#x8BA4;&#x662F;default session&#x3002;</li>
 <li><code>partition</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- Sets the session used by the page according to the session&apos;s partition string. If partition starts with persist:, the page will use a persistent session available to all pages in the app with the same partition. If there is no persist: prefix, the page will use an in-memory session. By assigning the same partition, multiple pages can share the same session. Default is the default session.</li>
 <li><code>zoomFactor</code> Number&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x9875;&#x9762;&#x7684;&#x9ED8;&#x8BA4;&#x7F29;&#x653E;&#x56E0;&#x5B50;&#xFF0C;<code>3.0</code>&#x8868;&#x793A;<code>300%</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;<code>1.0</code>&#x3002;   </li>
 <li><code>javascript</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x80FD;&#x591F;&#x652F;&#x6301;JavaScript&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>true</code>&#x3002;   </li>
@@ -1386,20 +1377,17 @@ child.once(&apos;ready-to-show&apos;, () =&gt; {
 </li>
 <li>Windows&#x4E2D;&#xFF0C;&#x53EF;&#x80FD;&#x503C;&#x662F;<code>toolbar</code>&#x3002;</li>
 </ul>
-<h3 id="instance-events">&#x5BF9;&#x8C61;&#x7684;&#x4E8B;&#x4EF6;</h3>
-
-<p>&#x4F7F;&#x7528;<code>new BrowserWindow</code>&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x4F1A;&#x5206;&#x53D1;&#x4EE5;&#x4E0B;&#x4E8B;&#x4EF6;&#xFF1A;   </p>
+<h3 id="&#x5BF9;&#x8C61;&#x7684;&#x4E8B;&#x4EF6;">&#x5BF9;&#x8C61;&#x7684;&#x4E8B;&#x4EF6;</h3>
+<p>&#x4F7F;&#x7528;<code>new BrowserWindow</code>&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x4F1A;&#x5206;&#x53D1;&#x4EE5;&#x4E0B;&#x4E8B;&#x4EF6;:    </p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x4E00;&#x4E9B;&#x4E8B;&#x4EF6;&#x53EA;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x6709;&#x6548;&#xFF0C;&#x5DF2;&#x7ECF;&#x88AB;&#x6807;&#x8BB0;&#x51FA;&#x6765;&#x3002;</p>
-<h4 id="event-page-title-updated">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;page-title-updated&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-page-title-updated">&#x4E8B;&#x4EF6;: &#x2018;page-title-updated&#x2019;</h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#xFF1A;</p>
 <ul>
 <li><code>event</code> Event&#x7C7B;&#x578B;</li>
 <li><code>title</code> String&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x5F53;&#x6587;&#x6863;&#x6539;&#x53D8;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x6807;&#x9898;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x8C03;&#x7528;<code>event.preventDefault()</code>&#x5C06;&#x963B;&#x6B62;&#x672C;&#x5730;&#x7A97;&#x53E3;&#x7684;&#x6807;&#x9898;&#x6539;&#x53D8;&#x3002;</p>
-<h4 id="event-close">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;close&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-close">&#x4E8B;&#x4EF6;: &#x2018;close&#x2019;</h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#xFF1A;</p>
 <ul>
 <li><code>event</code> Event&#x7C7B;&#x578B;</li>
@@ -1412,66 +1400,46 @@ child.once(&apos;ready-to-show&apos;, () =&gt; {
   // &#x5EFA;&#x8BAE;&#x4F7F;&#x7528;dialog&#x63A5;&#x53E3;&#x6765;&#x8BA9;&#x7528;&#x6237;&#x786E;&#x8BA4;&#x5173;&#x95ED;&#x5E94;&#x7528;&#x3002;
   e.returnValue = false
 </code></pre><p>   }</p>
-<h4 id="event-closed">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;closed&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-closed">&#x4E8B;&#x4EF6;: &#x2018;closed&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x88AB;&#x5173;&#x95ED;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x4F60;&#x6536;&#x5230;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x4E4B;&#x540E;&#x4F60;&#x9700;&#x8981;&#x79FB;&#x9664;&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x907F;&#x514D;&#x518D;&#x6B21;&#x4F7F;&#x7528;&#x5B83;&#x3002;</p>
-<h4 id="event-unresponsive">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;unresponsive&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-unresponsive">&#x4E8B;&#x4EF6;: &#x2018;unresponsive&#x2019;</h4>
 <p>&#x5F53;&#x7F51;&#x9875;&#x53D8;&#x6210;&#x65E0;&#x5E94;&#x7B54;&#x72B6;&#x6001;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-responsive">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;responsive&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-responsive">&#x4E8B;&#x4EF6;: &#x2018;responsive&#x2019;</h4>
 <p>&#x5F53;&#x65E0;&#x5E94;&#x7B54;&#x7684;&#x7F51;&#x9875;&#x518D;&#x6B21;&#x6709;&#x53CD;&#x5E94;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-blur">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;blur&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-blur">&#x4E8B;&#x4EF6;: &#x2018;blur&#x2019;</h4>
 <p>&#x5F53;&#x7126;&#x70B9;&#x4E0D;&#x5728;&#x7A97;&#x53E3;&#x4E0A;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-focus">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;focus&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-focus">&#x4E8B;&#x4EF6;: &#x2018;focus&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-show">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;show&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-show">&#x4E8B;&#x4EF6;: &#x2018;show&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x88AB;&#x5C55;&#x793A;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-hide">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;hide&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-hide">&#x4E8B;&#x4EF6;: &#x2018;hide&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-ready-to-show">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;ready-to-show&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-ready-to-show">&#x4E8B;&#x4EF6;: &#x2018;ready-to-show&#x2019;</h4>
 <p>&#x5F53;&#x7F51;&#x9875;&#x5DF2;&#x7ECF;&#x88AB;&#x6E32;&#x67D3;&#x5B8C;&#x6210;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6CA1;&#x6709;&#x89C6;&#x89C9;&#x4E0A;&#x7684;&#x95EA;&#x70C1;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x88AB;&#x5C55;&#x793A;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-maximize">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;maximize&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-maximize">&#x4E8B;&#x4EF6;: &#x2018;maximize&#x2019;</h4>
 <p>&#x7A97;&#x53E3;&#x6700;&#x5927;&#x5316;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-unmaximize">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;unmaximize&#x2019;</h4>
-
+<p>v&#x4E8B;&#x4EF6;: &#x2018;unmaximize&#x2019;</p>
 <p>&#x7A97;&#x53E3;&#x9000;&#x51FA;&#x6700;&#x5927;&#x5316;&#x72B6;&#x6001;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-minimize">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;minimize&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-minimize">&#x4E8B;&#x4EF6;: &#x2018;minimize&#x2019;</h4>
 <p>&#x7A97;&#x53E3;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-restore">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;restore&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-restore">&#x4E8B;&#x4EF6;: &#x2018;restore&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x4ECE;&#x6700;&#x5C0F;&#x5316;&#x72B6;&#x6001;&#x88AB;&#x6062;&#x590D;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-resize">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;resize&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-resize">&#x4E8B;&#x4EF6;: &#x2018;resize&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x5F00;&#x59CB;&#x88AB;&#x8C03;&#x6574;&#x5927;&#x5C0F;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-move">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;move&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-move">&#x4E8B;&#x4EF6;: &#x2018;move&#x2019;</h4>
 <p>&#x7A97;&#x53E3;&#x5F00;&#x59CB;&#x88AB;&#x79FB;&#x52A8;&#x5230;&#x65B0;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>MacOS&#x4E2D;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x4EC5;&#x4EC5;&#x662F;<code>moved</code>&#x4E8B;&#x4EF6;&#x7684;&#x4E00;&#x4E2A;&#x522B;&#x540D;&#x3002;</p>
-<h4 id="event-moved">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;moved&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-moved-macos">&#x4E8B;&#x4EF6;: &#x2018;moved&#x2019; <em>MacOS</em></h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x5DF2;&#x7ECF;&#x88AB;&#x79FB;&#x52A8;&#x5230;&#x65B0;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x4E00;&#x6B21;&#x3002;</p>
-<h4 id="event-enter-full-screen">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;enter-full-screen&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-enter-full-screen">&#x4E8B;&#x4EF6;: &#x2018;enter-full-screen&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x8FDB;&#x5165;&#x5168;&#x5C4F;&#x72B6;&#x6001;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-leave-full-screen">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;leave-full-screen&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-leave-full-screen">&#x4E8B;&#x4EF6;: &#x2018;leave-full-screen&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x4ECE;&#x5168;&#x5C4F;&#x72B6;&#x6001;&#x4E2D;&#x63A8;&#x51FA;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-enter-html-full-screen">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;enter-html-full-screen&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-enter-html-full-screen">&#x4E8B;&#x4EF6;: &#x2018;enter-html-full-screen&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x56E0;&#x4E3A;HTML&#x63A5;&#x53E3;&#x800C;&#x8FDB;&#x5165;&#x5168;&#x5C4F;&#x72B6;&#x6001;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-leave-html-full-screen">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;leave-html-full-screen&#x2019;</h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-leave-html-full-screen">&#x4E8B;&#x4EF6;: &#x2018;leave-html-full-screen&#x2019;</h4>
 <p>&#x5F53;&#x7A97;&#x53E3;&#x56E0;&#x4E3A;HTML&#x63A5;&#x53E3;&#x800C;&#x4ECE;&#x5168;&#x5C4F;&#x72B6;&#x6001;&#x4E2D;&#x9000;&#x51FA;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-app-command">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;app-command&#x2019; <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-app-command-windows">&#x4E8B;&#x4EF6;: &#x2018;app-command&#x2019; <em>Windows</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#xFF1A;</p>
 <ul>
 <li><code>event</code> Event&#x7C7B;&#x578B;</li>
@@ -1487,46 +1455,36 @@ win.on(&apos;app-command&apos;, (e, cmd) =&gt; {
         win.webContents.goBack()
     }
 })
-</code></pre><h4 id="event-scroll-touch-begin">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;scroll-touch-begin&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+</code></pre><h4 id="&#x4E8B;&#x4EF6;-scroll-touch-begin-macos">&#x4E8B;&#x4EF6;: &#x2018;scroll-touch-begin&#x2019; <em>MacOS</em></h4>
 <p>&#x5F53;&#x6EDA;&#x8F6E;&#x4E8B;&#x4EF6;&#x5F00;&#x59CB;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-scroll-touch-end">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;scroll-touch-end&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-scroll-touch-end-macos">&#x4E8B;&#x4EF6;: &#x2018;scroll-touch-end&#x2019; <em>MacOS</em></h4>
 <p>&#x5F53;&#x6EDA;&#x8F6E;&#x4E8B;&#x4EF6;&#x7ED3;&#x675F;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-scroll-touch-edge">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;scroll-touch-edge&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-scroll-touch-edge-macos">&#x4E8B;&#x4EF6;: &#x2018;scroll-touch-edge&#x2019; <em>MacOS</em></h4>
 <p>&#x5F53;&#x6EDA;&#x8F6E;&#x4E8B;&#x4EF6;&#x5230;&#x8FBE;&#x5143;&#x7D20;&#x8FB9;&#x7F18;&#x7684;&#x65F6;&#x5019;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="event-swipe">&#x4E8B;&#x4EF6;&#xFF1A;&#x2018;swipe&#x2019; <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="&#x4E8B;&#x4EF6;-swipe-macos">&gt;&#x4E8B;&#x4EF6;: &#x2018;swipe&#x2019; <em>MacOS</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#xFF1A;</p>
 <ul>
 <li><code>event</code> Event&#x7C7B;&#x578B;</li>
 <li><code>direction</code> String&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x5F53;&#x4E09;&#x4E2A;&#x624B;&#x6307;&#x6ED1;&#x52A8;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;&#x53EF;&#x80FD;&#x7684;&#x65B9;&#x5411;&#x6709;<code>up</code>&#xFF0C;<code>right</code>&#xFF0C;<code>down</code>&#xFF0C;<code>left</code>&#x3002;</p>
-<h3 id="static-methods">&#x9759;&#x6001;&#x65B9;&#x6CD5;</h3>
-
+<h3 id="&#x9759;&#x6001;&#x65B9;&#x6CD5;">&#x9759;&#x6001;&#x65B9;&#x6CD5;</h3>
 <p><code>BrowserWindow</code>&#x7C7B;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x8FD9;&#x4E9B;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<h4 id="BrowserWindow-getAllWindows">BrowserWindow.getAllWindows()</h4>
-
+<h4 id="browserwindowgetallwindows"><code>BrowserWindow.getAllWindows()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>BrowserWindow[]</code>&#x7C7B;&#x578B; - &#x6240;&#x6709;&#x6253;&#x5F00;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x7684;&#x6570;&#x7EC4;&#x3002;</p>
-<h4 id="BrowserWindow-getFocusedWindow">BrowserWindow.getFocusedWindow()</h4>
-
+<h4 id="browserwindowgetfocusedwindow"><code>BrowserWindow.getFocusedWindow()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>BrowserWindow</code>&#x7C7B;&#x578B; - &#x5E94;&#x7528;&#x4E2D;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5219;&#x8FD4;&#x56DE;<code>null</code>&#x3002;</p>
-<h4 id="BrowserWindow-fromWebContents">BrowserWindow.fromWebContents(webContents)</h4>
-
+<h4 id="browserwindowfromwebcontentswebcontents"><code>BrowserWindow.fromWebContents(webContents)</code></h4>
 <ul>
 <li><code>webContents</code> WebContents&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>BrowserWindow</code> - &#x901A;&#x8FC7;&#x7ED9;&#x5B9A;&#x7684;<code>webContents</code>&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x7684;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="BrowserWindow-fromId">BrowserWindow.fromId(id)</h4>
-
+<h4 id="browserwindowfromidid"><code>BrowserWindow.fromId(id)</code></h4>
 <ul>
 <li><code>id</code> Integer&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>BrowserWindow</code>&#x7C7B;&#x578B; - &#x901A;&#x8FC7;&#x7ED9;&#x5B9A;&#x7684;<code>id</code>&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x7684;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="BrowserWindow-addDevToolsExtension">BrowserWindow.addDevToolsExtension(path)</h4>
-
+<h4 id="browserwindowadddevtoolsextensionpath"><code>BrowserWindow.addDevToolsExtension(path)</code></h4>
 <ul>
 <li><code>path</code> String&#x7C7B;&#x578B;</li>
 </ul>
@@ -1534,15 +1492,13 @@ win.on(&apos;app-command&apos;, (e, cmd) =&gt; {
 <p>&#x6269;&#x5C55;&#x5C06;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4E00;&#x6B21;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5C1D;&#x8BD5;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x88AB;&#x52A0;&#x8F7D;&#x7684;&#x6269;&#x5C55;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C06;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8FD4;&#x56DE;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x8B66;&#x544A;&#x3002;   </p>
 <p>&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6269;&#x5C55;&#x7684;&#x8BC1;&#x4E66;&#x4E22;&#x5931;&#x6216;&#x8005;&#x7F3A;&#x5931;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E5F;&#x4E0D;&#x4F1A;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x503C;&#x3002;   </p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4E0D;&#x4F1A;&#x5728;<code>app</code>&#x6A21;&#x5757;&#x4E2D;&#x7684;<code>ready</code>&#x4E8B;&#x4EF6;&#x88AB;&#x5206;&#x53D1;&#x4E4B;&#x524D;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
-<h4 id="BrowserWindow-removeDevToolsExtension">BrowserWindow.removeDevToolsExtension(name)</h4>
-
+<h4 id="browserwindowremovedevtoolsextensionname"><code>BrowserWindow.removeDevToolsExtension(name)</code></h4>
 <ul>
 <li><code>name</code> String&#x7C7B;&#x578B;   </li>
 </ul>
 <p>&#x901A;&#x8FC7;&#x540D;&#x5B57;&#x79FB;&#x9664;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x6269;&#x5C55;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4E0D;&#x4F1A;&#x5728;<code>app</code>&#x6A21;&#x5757;&#x4E2D;&#x7684;<code>ready</code>&#x4E8B;&#x4EF6;&#x88AB;&#x5206;&#x53D1;&#x4E4B;&#x524D;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
-<h4 id="BrowserWindow-getDevToolsExtensions">BrowserWindow.getDevToolsExtensions()</h4>
-
+<h4 id="browserwindowgetdevtoolsextensions"><code>BrowserWindow.getDevToolsExtensions()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Object</code>&#x7C7B;&#x578B; - &#x952E;&#x662F;&#x6269;&#x5C55;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x503C;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;<code>name</code>&#x548C;<code>version</code>&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
 <p>&#x4F60;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x6765;&#x68C0;&#x67E5;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x6269;&#x5C55;&#x662F;&#x5426;&#x88AB;&#x5B89;&#x88C5;&#xFF1A;</p>
 <pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
@@ -1550,86 +1506,62 @@ win.on(&apos;app-command&apos;, (e, cmd) =&gt; {
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty(&apos;devtron&apos;)
 console.log(installed)
 </code></pre><p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x4E0D;&#x4F1A;&#x5728;<code>app</code>&#x6A21;&#x5757;&#x4E2D;&#x7684;<code>ready</code>&#x4E8B;&#x4EF6;&#x88AB;&#x5206;&#x53D1;&#x4E4B;&#x524D;&#x88AB;&#x8C03;&#x7528;&#x3002;</p>
-<h3 id="instance-properties">&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;</h3>
-
+<h3 id="&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;">&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;</h3>
 <p>&#x901A;&#x8FC7;<code>new BrowserWindow</code>&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x5177;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x5C5E;&#x6027;&#xFF1A;</p>
 <pre><code>const {BrowserWindow} = require(&apos;electron&apos;)
 // &#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#x201C;win&#x201D;&#x662F;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x4F8B;
 let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL(&apos;https://github.com&apos;)
-</code></pre><h4 id="win-webContents">win.webContents</h4>
-
+</code></pre><h4 id="winwebcontents"><code>win.webContents</code></h4>
 <p>&#x7A97;&#x53E3;&#x62E5;&#x6709;&#x7684;&#x4E00;&#x4E2A;<code>WebContents</code>&#x5BF9;&#x8C61;&#x3002;&#x6240;&#x6709;&#x4E0E;&#x7F51;&#x9875;&#x6709;&#x5173;&#x7684;&#x4E8B;&#x4EF6;&#x548C;&#x64CD;&#x4F5C;&#x90FD;&#x4F1A;&#x901A;&#x8FC7;&#x5B83;&#x6765;&#x5B8C;&#x6210;&#x3002;</p>
 <p>&#x67E5;&#x770B;<a href="webContents.html"><code>webContents</code> documentation</a>&#x6765;&#x4E86;&#x89E3;&#x5B83;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x4E8B;&#x4EF6;&#x3002;</p>
-<h4 id="win-id">win.id</h4>
-
+<h4 id="winid"><code>win.id</code></h4>
 <p>&#x4E00;&#x4E2A;<code>Integer</code>&#x7C7B;&#x578B;&#x7684;&#x4EE3;&#x8868;&#x7740;&#x7A97;&#x53E3;&#x7684;&#x552F;&#x4E00;ID&#x3002;</p>
-<h3 id="instance-methods">&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;</h3>
-
+<h3 id="&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;">&#x5B9E;&#x4F8B;&#x7684;&#x65B9;&#x6CD5;</h3>
 <p>&#x901A;&#x8FC7;<code>new BrowserWindow</code>&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;&#x5177;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#x53EA;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#x6709;&#x6548;&#xFF0C;&#x5DF2;&#x7ECF;&#x88AB;&#x6807;&#x8BB0;&#x51FA;&#x6765;&#x3002;</p>
-<h4 id="win-destroy">win.destroy()</h4>
-
+<h4 id="windestroy"><code>win.destroy()</code></h4>
 <p>&#x5F3A;&#x5236;&#x5173;&#x95ED;&#x7A97;&#x53E3;&#xFF0C;&#x7F51;&#x9875;&#x7684;<code>unload</code>&#x548C;<code>beforeunload</code>&#x4E8B;&#x4EF6;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x7A97;&#x53E3;&#x7684;<code>close</code>&#x4E8B;&#x4EF6;&#x4E5F;&#x4E0D;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4FDD;&#x8BC1;<code>closed</code>&#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
-<h4 id="win-close">win.close()</h4>
-
+<h4 id="winclose"><code>win.close()</code></h4>
 <p>&#x5C1D;&#x8BD5;&#x5173;&#x95ED;&#x7A97;&#x53E3;&#x3002;&#x8FD9;&#x4E2A;&#x548C;&#x7528;&#x6237;&#x624B;&#x52A8;&#x70B9;&#x51FB;&#x7A97;&#x53E3;&#x7684;&#x5173;&#x95ED;&#x6309;&#x94AE;&#x662F;&#x4E00;&#x6837;&#x7684;&#x6548;&#x679C;&#x3002;&#x7F51;&#x9875;&#x53EF;&#x80FD;&#x4F1A;&#x53D6;&#x6D88;&#x5173;&#x95ED;&#x3002;&#x8BF7;&#x67E5;&#x770B;<a href="#event-close">close&#x4E8B;&#x4EF6;</a>&#x3002;</p>
-<h4 id="win-focus">win.focus()</h4>
-
+<h4 id="winfocus"><code>win.focus()</code></h4>
 <p>&#x7A97;&#x53E3;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x3002;</p>
-<h4 id="win-blur">win.blur()</h4>
-
+<h4 id="winblur"><code>win.blur()</code></h4>
 <p>&#x7A97;&#x53E3;&#x79FB;&#x9664;&#x7126;&#x70B9;&#x3002;</p>
-<h4 id="win-isFocused">win.isFocused()</h4>
-
+<h4 id="winisfocused"><code>win.isFocused()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x3002;</p>
-<h4 id="win-isDestroyed">win.isDestroyed()</h4>
-
+<h4 id="winisdestroyed"><code>win.isDestroyed()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x88AB;&#x9500;&#x6BC1;&#x3002;</p>
-<h4 id="win-show">win.show()</h4>
-
+<h4 id="winshow"><code>win.show()</code></h4>
 <p>&#x5C55;&#x793A;&#x7A97;&#x53E3;&#x5E76;&#x4E14;&#x4F7F;&#x7A97;&#x53E3;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x3002;</p>
-<h4 id="win-showInactive">win.showInactive()</h4>
-
+<h4 id="winshowinactive"><code>win.showInactive()</code></h4>
 <p>&#x5C55;&#x793A;&#x7A97;&#x53E3;&#x4F46;&#x4E0D;&#x7ED9;&#x7A97;&#x53E3;&#x7126;&#x70B9;&#x3002;</p>
-<h4 id="win-hide">win.hide()</h4>
-
+<h4 id="winhide"><code>win.hide()</code></h4>
 <p>&#x9690;&#x85CF;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-isVisible">win.isVisible()</h4>
-
+<h4 id="winisvisible"><code>win.isVisible()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x5F53;&#x524D;&#x7A97;&#x53E3;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x662F;&#x5426;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;</p>
-<h4 id="win-isModal">win.isModal()</h4>
-
+<h4 id="winismodal"><code>win.isModal()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x5F53;&#x524D;&#x7A97;&#x53E3;&#x662F;&#x5426;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x6001;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-maximize">win.maximize()</h4>
-
+<h4 id="winmaximize"><code>win.maximize()</code></h4>
 <p>&#x6700;&#x5927;&#x5316;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-unmaximize">win.unmaximize()</h4>
-
+<h4 id="winunmaximize"><code>win.unmaximize()</code></h4>
 <p>&#x53D6;&#x6D88;&#x6700;&#x5927;&#x5316;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-isMaximized">win.isMaximized()</h4>
-
+<h4 id="winismaximized"><code>win.isMaximized()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x6700;&#x5927;&#x5316;&#x3002;</p>
-<h4 id="win-minimize">win.minimize()</h4>
-
+<h4 id="winminimize"><code>win.minimize()</code></h4>
 <p>&#x6700;&#x5C0F;&#x5316;&#x7A97;&#x53E3;&#x3002;&#x5728;&#x4E00;&#x4E9B;&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x7A97;&#x53E3;&#x5C06;&#x4F1A;&#x88AB;&#x5C55;&#x793A;&#x5728;dock&#x4E0A;&#x3002;</p>
-<h4 id="win-restore">win.restore()</h4>
-
+<h4 id="winrestore"><code>win.restore()</code></h4>
 <p>&#x5C06;&#x6700;&#x5C0F;&#x5316;&#x7684;&#x7A97;&#x53E3;&#x6062;&#x590D;&#x5230;&#x4EE5;&#x524D;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
-<h4 id="win-isMinimized">win.isMinimized()</h4>
-
+<h4 id="winisminimized"><code>win.isMinimized()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x6700;&#x5C0F;&#x5316;&#x3002;</p>
-<h4 id="win-setFullScreen">win.setFullScreen(flag)</h4>
-
+<h4 id="winsetfullscreenflag"><code>win.setFullScreen(flag)</code></h4>
 <ul>
 <li><code>flag</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x662F;&#x5426;&#x8FDB;&#x5165;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;&#x3002;</p>
-<h4 id="win-isFullScreen">win.isFullScreen()</h4>
-
+<h4 id="winisfullscreen"><code>win.isFullScreen()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x5728;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;&#x4E0B;&#x3002;</p>
-<h4 id="win-setAspectRatio">win.setAspectRatio (aspectRatio[, extraSize]) <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winsetaspectratio-aspectratio-extrasize-macos"><code>win.setAspectRatio (aspectRatio[, extraSize])</code> <em>MacOS</em></h4>
 <ul>
 <li><code>aspectRatio</code> Float&#x7C7B;&#x578B; - &#x4FDD;&#x6301;&#x7684;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x89C6;&#x56FE;&#x7684;&#x7EB5;&#x6A2A;&#x6BD4;&#x3002;</li>
 <li><code>extraSize</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x4E0D;&#x5728;&#x4FDD;&#x6301;&#x7684;&#x7EB5;&#x6A2A;&#x6BD4;&#x5185;&#x7684;&#x989D;&#x5916;&#x7684;&#x5C3A;&#x5BF8;&#x3002;<ul>
@@ -1640,174 +1572,140 @@ win.loadURL(&apos;https://github.com&apos;)
 </ul>
 <p>&#x8FD9;&#x5C06;&#x4F7F;&#x7A97;&#x53E3;&#x4FDD;&#x6301;&#x4E00;&#x4E2A;&#x7EB5;&#x6A2A;&#x6BD4;&#x3002;&#x4F7F;&#x7528;&#x50CF;&#x7D20;&#x8BBE;&#x7F6E;&#x7684;&#x989D;&#x5916;&#x5C3A;&#x5BF8;&#x5C06;&#x5141;&#x8BB8;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x8005;&#x6709;&#x4E0D;&#x5305;&#x542B;&#x5728;&#x7EB5;&#x6A2A;&#x6BD4;&#x8BA1;&#x7B97;&#x4E4B;&#x5185;&#x7684;&#x7A7A;&#x95F4;&#x3002;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5DF2;&#x7ECF;&#x8003;&#x8651;&#x5230;&#x4E86;&#x4E0D;&#x540C;&#x7A97;&#x53E3;&#x4E4B;&#x95F4;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x7A97;&#x53E3;&#x7684;&#x5185;&#x5BB9;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
 <p>&#x8003;&#x8651;&#x5230;&#x4E00;&#x4E2A;HD&#x89C6;&#x9891;&#x64AD;&#x653E;&#x5668;&#x548C;&#x76F8;&#x5173;&#x63A7;&#x4EF6;&#x7684;&#x4E00;&#x822C;&#x7A97;&#x53E3;&#x3002;&#x53EF;&#x80FD;&#x5728;&#x5DE6;&#x8FB9;&#x6846;&#x4F1A;&#x6709;15&#x50CF;&#x7D20;&#x7684;&#x63A7;&#x4EF6;&#xFF0C;&#x6709;&#x8FB9;&#x6846;&#x6709;25&#x50CF;&#x7D20;&#x63A7;&#x4EF6;&#xFF0C;&#x64AD;&#x653E;&#x5668;&#x4E0B;&#x65B9;&#x8FD8;&#x4F1A;&#x6709;50&#x50CF;&#x7D20;&#x7684;&#x63A7;&#x4EF6;&#x3002;&#x4E3A;&#x4E86;&#x5728;&#x64AD;&#x653E;&#x5668;&#x5185;&#x4FDD;&#x6301;&#x5B83;&#x81EA;&#x5DF1;&#x7684;<code>16:9</code>&#x7684;&#x7EB5;&#x6A2A;&#x6BD4;&#xFF08;1920x1080HD&#x7684;&#x6807;&#x51C6;&#x7EB5;&#x6A2A;&#x6BD4;&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x53C2;&#x6570;<code>16/9</code>&#x548C;<code>[40,50]</code>&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E0D;&#x5173;&#x5FC3;&#x989D;&#x5916;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x5728;&#x5185;&#x5BB9;&#x89C6;&#x56FE;&#x7684;&#x4EC0;&#x4E48;&#x4F4D;&#x7F6E;&#x2014;&#x2014;&#x53EA;&#x5173;&#x5FC3;&#x662F;&#x5426;&#x5B58;&#x5728;&#x3002;&#x53EA;&#x4F1A;&#x5728;&#x6574;&#x4E2A;&#x5185;&#x5BB9;&#x89C6;&#x56FE;&#x4E2D;&#x8BA1;&#x7B97;&#x4F60;&#x8981;&#x7684;&#x989D;&#x5916;&#x7684;&#x5BBD;&#x9AD8;&#x5C31;&#x3002;</p>
-<h4 id="win-previewFile">win.win.previewFile(path[, displayName]) <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winwinpreviewfilepath-displayname-macos"><code>win.win.previewFile(path[, displayName])</code> <em>MacOS</em></h4>
 <ul>
 <li><code>path</code> String&#x7C7B;&#x578B; - &#x8981;&#x4F7F;&#x7528;QuickLook&#x67E5;&#x770B;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x5BF9;&#x4E8E;Quick Look&#x8FD9;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x8981;&#x4F7F;&#x7528;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x548C;&#x6269;&#x5C55;&#x540D;&#x6765;&#x51B3;&#x5B9A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x7684;&#x7C7B;&#x578B;&#x3002;</li>
 <li><code>displayName</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x5728;Quick Look&#x6A21;&#x6001;&#x89C6;&#x56FE;&#x4E0A;&#x5C55;&#x793A;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;&#x3002;&#x53EA;&#x662F;&#x7528;&#x6765;&#x5C55;&#x793A;&#x800C;&#x4E0D;&#x4F1A;&#x51B3;&#x5B9A;&#x6587;&#x4EF6;&#x7684;&#x6253;&#x5F00;&#x65B9;&#x5F0F;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>path</code>&#x4E2D;&#x7684;&#x3002;</li>
 </ul>
 <p>&#x4F7F;&#x7528;<a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a> &#x67E5;&#x770B;&#x7ED9;&#x5B9A;&#x8DEF;&#x5F84;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
-<h4 id="win-closeFilePreview">win.closeFilePreview() <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winclosefilepreview-macos"><code>win.closeFilePreview()</code> <em>MacOS</em></h4>
 <p>&#x5173;&#x95ED;&#x5F53;&#x524D;&#x6253;&#x5F00;&#x7684;<a href="https://en.wikipedia.org/wiki/Quick_Look" target="_blank">Quick Look</a>&#x9762;&#x677F;</p>
-<h4 id="win-setBounds">win.setBounds(bounds[, animate])</h4>
-
+<h4 id="winsetboundsbounds-animate"><code>win.setBounds(bounds[, animate])</code></h4>
 <ul>
 <li><code>bounds</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B;</li>
 <li><code>animate</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;MacOS&#x6709;&#x6548;</li>
 </ul>
 <p>&#x8C03;&#x6574;&#x5927;&#x5C0F;&#x548C;&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x7684;&#x754C;&#x9650;&#x3002;</p>
-<h4 id="win-getBounds">win.getBounds()</h4>
-
+<h4 id="wingetbounds"><code>win.getBounds()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B;&#x3002;</p>
-<h4 id="win-setContentBounds">win.setContentBounds(bounds[, animate])</h4>
-
+<h4 id="winsetcontentboundsbounds-animate"><code>win.setContentBounds(bounds[, animate])</code></h4>
 <ul>
 <li><code>bounds</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B;</li>
 <li><code>animate</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;MacOS&#x6709;&#x6548;</li>
 </ul>
 <p>&#x8C03;&#x6574;&#x5927;&#x5C0F;&#x548C;&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x533A;&#x57DF;&#xFF08;&#x4F8B;&#x5982;&#x7F51;&#x9875;&#xFF09;&#x7684;&#x8303;&#x56F4;&#x3002;</p>
-<h4 id="win-getContentBounds">win.getContentBounds()</h4>
-
+<h4 id="wingetcontentbounds"><code>win.getContentBounds()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B;&#x3002;</p>
-<h4 id="win-setSize">win.setSize(width, height[, animate])</h4>
-
+<h4 id="winsetsizewidth-height-animate"><code>win.setSize(width, height[, animate])</code></h4>
 <ul>
 <li><code>width</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>height</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>animate</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;MacOS&#x6709;&#x6548;</li>
 </ul>
 <p>&#x8C03;&#x6574;&#x7A97;&#x53E3;&#x5927;&#x5C0F;&#x7684;<code>width</code>&#x548C;<code>height</code>&#x3002;</p>
-<h4 id="win-getSize">win.getSize()</h4>
-
+<h4 id="wingetsize"><code>win.getSize()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Integer[]</code>&#x7C7B;&#x578B; - &#x5305;&#x542B;&#x7A97;&#x53E3;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x3002;</p>
-<h4 id="win-setContentSize">win.setContentSize(width, height[, animate]</h4>
-
+<h4 id="winsetcontentsizewidth-height-animate"><code>win.setContentSize(width, height[, animate]</code></h4>
 <ul>
 <li><code>width</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>height</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>animate</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;MacOS&#x6709;&#x6548;</li>
 </ul>
 <p>&#x8C03;&#x6574;&#x7A97;&#x53E3;&#x5BA2;&#x6237;&#x7AEF;&#x533A;&#x57DF;&#x5927;&#x5C0F;&#x7684;<code>width</code>&#x548C;<code>height</code>&#x3002;</p>
-<h4 id="win-getContentSize">win.getContentSize()</h4>
-
+<h4 id="wingetcontentsize"><code>win.getContentSize()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Integer[]</code>&#x7C7B;&#x578B; - &#x5305;&#x542B;&#x7A97;&#x53E3;&#x5BA2;&#x6237;&#x7AEF;&#x533A;&#x57DF;&#x7684;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#x3002;</p>
-<h4 id="win-setMinimumSize">win.setMinimumSize(width, height)</h4>
-
+<h4 id="winsetminimumsizewidth-height"><code>win.setMinimumSize(width, height)</code></h4>
 <ul>
 <li><code>width</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>height</code> Integer&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x7684;<code>width</code>&#x548C;<code>height</code>&#x7684;&#x6700;&#x5C0F;&#x5C3A;&#x5BF8;&#x3002;</p>
-<h4 id="win-getMinimumSize">win.getMinimumSize()</h4>
-
+<h4 id="wingetminimumsize"><code>win.getMinimumSize()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Integer[]</code>&#x7C7B;&#x578B; - &#x5305;&#x542B;&#x7A97;&#x53E3;&#x7684;&#x5BBD;&#x9AD8;&#x7684;&#x6700;&#x5C0F;&#x5C3A;&#x5BF8;&#x3002;</p>
-<h4 id="win-setMaximumSize">win.setMaximumSize(width, height)</h4>
-
+<h4 id="winsetmaximumsizewidth-height"><code>win.setMaximumSize(width, height)</code></h4>
 <ul>
 <li><code>width</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>height</code> Integer&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x7684;<code>width</code>&#x548C;<code>height</code>&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;&#x3002;</p>
-<h4 id="win-getMaximumSize">win.getMaximumSize()</h4>
-
+<h4 id="wingetmaximumsize"><code>win.getMaximumSize()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Integer[]</code>&#x7C7B;&#x578B; - &#x5305;&#x542B;&#x7A97;&#x53E3;&#x7684;&#x5BBD;&#x9AD8;&#x7684;&#x6700;&#x5927;&#x5C3A;&#x5BF8;&#x3002;</p>
-<h4 id="win-setResizable">win.setResizable(resizable)</h4>
-
+<h4 id="winsetresizableresizable"><code>win.setResizable(resizable)</code></h4>
 <ul>
 <li><code>resizable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x8C03;&#x6574;&#x5927;&#x5C0F;&#x3002;</p>
-<h4 id="win-isResizable">win.isResizable()</h4>
-
+<h4 id="winisresizable"><code>win.isResizable()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x8C03;&#x6574;&#x7A97;&#x53E3;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
-<h4 id="win-setMovable">win.setMovable(movable) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetmovablemovable-macoswindows"><code>win.setMovable(movable)</code> <em>MacOS,Windows</em></h4>
 <ul>
 <li><code>movable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x3002;Linux&#x4E0B;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;</p>
-<h4 id="win-isMovable">win.isMovable() <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winismovable-macoswindows"><code>win.isMovable()</code> <em>MacOS,Windows</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x3002;</p>
 <p>Linux&#x4E0B;&#x662F;&#x603B;&#x4F1A;&#x8FD4;&#x56DE;<code>true</code>&#x3002;</p>
-<h4 id="win-setMinimizable">win.setMinimizable(minimizable) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetminimizableminimizable-macoswindows"><code>win.setMinimizable(minimizable)</code> <em>MacOS,Windows</em></h4>
 <ul>
 <li><code>minimizable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x6700;&#x5C0F;&#x5316;&#x7A97;&#x53E3;&#x3002;Linux&#x4E0B;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;</p>
-<h4 id="win-isMinimizable">win.isMinimizable() <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winisminimizable-macoswindows"><code>win.isMinimizable()</code> <em>MacOS,Windows</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x6700;&#x5C0F;&#x5316;&#x7A97;&#x53E3;&#x3002;</p>
 <p>Linux&#x4E0B;&#x662F;&#x603B;&#x4F1A;&#x8FD4;&#x56DE;<code>true</code>&#x3002;</p>
-<h4 id="win-setMaximizable">win.setMaximizable(maximizable) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetmaximizablemaximizable-macoswindows"><code>win.setMaximizable(maximizable)</code> <em>MacOS,Windows</em></h4>
 <ul>
 <li><code>maximizable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x6700;&#x5927;&#x5316;&#x7A97;&#x53E3;&#x3002;Linux&#x4E0B;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;</p>
-<h4 id="win-isMaximizable">win.isMaximizable() <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winismaximizable-macoswindows"><code>win.isMaximizable()</code> <em>MacOS,Windows</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x6700;&#x5927;&#x5316;&#x7A97;&#x53E3;&#x3002;</p>
 <p>Linux&#x4E0B;&#x662F;&#x603B;&#x4F1A;&#x8FD4;&#x56DE;<code>true</code>&#x3002;</p>
-<h4 id="win-setFullScreenable">win.setFullScreenable(fullscreenable)</h4>
-
+<h4 id="winsetfullscreenablefullscreenable"><code>win.setFullScreenable(fullscreenable)</code></h4>
 <ul>
 <li><code>fullscreenable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x6700;&#x5927;&#x5316;&#xFF0F;&#x7F29;&#x653E;&#x7A97;&#x53E3;&#x6309;&#x94AE;&#x5207;&#x6362;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;&#x6216;&#x6700;&#x5927;&#x5316;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-isFullScreenable">win.isFullScreenable()</h4>
-
+<h4 id="winisfullscreenable"><code>win.isFullScreenable()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;Boolean&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x5141;&#x8BB8;&#x6700;&#x5927;&#x5316;&#xFF0F;&#x7F29;&#x653E;&#x7A97;&#x53E3;&#x6309;&#x94AE;&#x5207;&#x6362;&#x5168;&#x5C4F;&#x6A21;&#x5F0F;&#x6216;&#x6700;&#x5927;&#x5316;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-setClosable">win.setClosable(closable) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetclosableclosable-macoswindows"><code>win.setClosable(closable)</code> <em>MacOS,Windows</em></h4>
 <ul>
 <li><code>closable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x5173;&#x95ED;&#x7A97;&#x53E3;&#x3002;Linux&#x4E0B;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;</p>
-<h4 id="win-isClosable">win.isClosable() <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winisclosable-macoswindows"><code>win.isClosable()</code> <em>MacOS,Windows</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x662F;&#x5426;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x624B;&#x52A8;&#x5173;&#x95ED;&#x7A97;&#x53E3;&#x3002;</p>
 <p>Linux&#x4E0B;&#x662F;&#x603B;&#x4F1A;&#x8FD4;&#x56DE;<code>true</code>&#x3002;</p>
-<h4 id="win-setAlwaysOnTop">win.setAlwaysOnTop(flag[, level][, relativeLevel])</h4>
-
+<h4 id="winsetalwaysontopflag-level-relativelevel"><code>win.setAlwaysOnTop(flag[, level][, relativeLevel])</code></h4>
 <ul>
 <li><code>flag</code> Boolean&#x7C7B;&#x578B;</li>
 <li><code>level</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;MacOS&#x6709;&#x6548; - &#x503C;&#x5305;&#x62EC;&#x4E86;<code>normal</code>&#xFF0C;<code>floating</code>&#xFF0C;<code>torn-off-menu</code>&#xFF0C;<code>modal-panel</code>&#xFF0C;<code>main-menu</code>&#xFF0C;<code>status</code>&#xFF0C;<code>pop-up-menu</code>&#xFF0C;<code>screen-saver</code>&#x548C; <del><code>dock</code></del>&#xFF08;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#xFF09;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>floating</code>&#x3002;&#x67E5;&#x770B;<a href="https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels" target="_blank">MacOS&#x6587;&#x6863;</a>&#x83B7;&#x53D6;&#x66F4;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x3002;</li>
 <li><code>relativeLevel</code> Integer&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;MacOS&#x6709;&#x6548; - &#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;<code>level</code>&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x66F4;&#x9AD8;&#x5C42;&#x6570;&#x3002;&#x9ED8;&#x8BA4;&#x662F;<code>0</code>&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x82F9;&#x679C;&#x7981;&#x6B62;&#x8BBE;&#x7F6E;&#x7684;&#x5C42;&#x7EA7;&#x9AD8;&#x4E8E;1&#x5728;&#x5C4F;&#x5E55;&#x4FDD;&#x62A4;&#x7A0B;&#x5E8F;&#x4E4B;&#x4E0A;&#x7684;&#x3002;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x662F;&#x5426;&#x9700;&#x8981;&#x603B;&#x662F;&#x663E;&#x793A;&#x5728;&#x5176;&#x4ED6;&#x7A97;&#x53E3;&#x7684;&#x4E0A;&#x9762;&#x3002;&#x8BBE;&#x7F6E;&#x4E4B;&#x540E;&#xFF0C;&#x7A97;&#x53E3;&#x4ECD;&#x7136;&#x662F;&#x4E00;&#x4E2A;&#x6B63;&#x5E38;&#x7684;&#x7A97;&#x53E3;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x80FD;&#x88AB;&#x805A;&#x7126;&#x7684;&#x5DE5;&#x5177;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-isAlwaysOnTop">win.isAlwaysOnTop()</h4>
-
+<h4 id="winisalwaysontop"><code>win.isAlwaysOnTop()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x603B;&#x662F;&#x5728;&#x5176;&#x4ED6;&#x7A97;&#x53E3;&#x7684;&#x4E0A;&#x9762;&#x3002;</p>
-<h4 id="win-center">win.center()</h4>
-
+<h4 id="wincenter"><code>win.center()</code></h4>
 <p>&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x5230;&#x5C4F;&#x5E55;&#x4E2D;&#x95F4;&#x3002;</p>
-<h4 id="win-setPosition">win.setPosition(x, y[, animate])</h4>
-
+<h4 id="winsetpositionx-y-animate"><code>win.setPosition(x, y[, animate])</code></h4>
 <ul>
 <li><code>x</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>y</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>animate</code> Boolean&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;MacOS&#x53EF;&#x7528;</li>
 </ul>
 <p>&#x79FB;&#x52A8;&#x7A97;&#x53E3;&#x5230;<code>x</code>&#x548C;<code>y</code>&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
-<h4 id="win-getPosition">win.getPosition()</h4>
-
+<h4 id="wingetposition"><code>win.getPosition()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Integer[]</code>&#x7C7B;&#x578B; - &#x5305;&#x542B;&#x7A97;&#x53E3;&#x7684;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x3002;</p>
-<h4 id="win-setTitle">win.setTitle(title)</h4>
-
+<h4 id="winsettitletitle"><code>win.setTitle(title)</code></h4>
 <ul>
 <li><p><code>title</code> String&#x7C7B;&#x578B;</p>
 <p>&#x4F7F;&#x7528;<code>title</code>&#x6539;&#x53D8;&#x539F;&#x751F;&#x7A97;&#x53E3;&#x7684;&#x6807;&#x9898;&#x3002;</p>
 </li>
 </ul>
-<h4 id="win-getTitle">win.getTitle()</h4>
-
+<h4 id="wingettitle"><code>win.getTitle()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x539F;&#x751F;&#x7A97;&#x53E3;&#x7684;&#x6807;&#x9898;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x7F51;&#x9875;&#x7684;&#x6807;&#x9898;&#x53EF;&#x80FD;&#x548C;&#x539F;&#x751F;&#x7A97;&#x53E3;&#x7684;&#x6807;&#x9898;&#x4E0D;&#x540C;&#x3002;</p>
-<h4 id="win-setSheetOffset">win.setSheetOffset(offsetY[, offsetX]) <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winsetsheetoffsetoffsety-offsetx-macos"><code>win.setSheetOffset(offsetY[, offsetX])</code> <em>MacOS</em></h4>
 <ul>
 <li><code>offsetY</code> Float&#x7C7B;&#x578B;</li>
 <li><code>offsetX</code> Float&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
@@ -1818,85 +1716,70 @@ let win = new BrowserWindow()
 
 let toolbarRect = document.getElementById(&apos;toolbar&apos;).getBoundingClientRect()
 win.setSheetOffset(toolbarRect.height)
-</code></pre><h4 id="win-flashFrame">win.flashFrame(flag)</h4>
-
+</code></pre><h4 id="winflashframeflag"><code>win.flashFrame(flag)</code></h4>
 <ul>
 <li><code>flag</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x5F00;&#x59CB;&#x6216;&#x505C;&#x6B62;&#x95EA;&#x52A8;&#x7A97;&#x53E3;&#x6765;&#x5438;&#x5F15;&#x7528;&#x6237;&#x6CE8;&#x610F;&#x529B;&#x3002;</p>
-<h4 id="win-setSkipTaskbar">win.setSkipTaskbar(skip)</h4>
-
+<h4 id="winsetskiptaskbarskip"><code>win.setSkipTaskbar(skip)</code></h4>
 <ul>
 <li><code>skip</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x4F7F;&#x7A97;&#x53E3;&#x4E0D;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x4E2D;&#x663E;&#x793A;&#x3002;</p>
-<h4 id="win-setKiosk">win.setKiosk(flag)</h4>
-
+<h4 id="winsetkioskflag"><code>win.setKiosk(flag)</code></h4>
 <ul>
 <li><code>flag</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8FDB;&#x5165;&#x6216;&#x8005;&#x79BB;&#x5F00;kiosk&#x6A21;&#x5F0F;&#x3002;</p>
-<h4 id="win-isKiosk">win.isKiosk()</h4>
-
+<h4 id="winiskiosk"><code>win.isKiosk()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x5728;kiosk&#x6A21;&#x5F0F;&#x4E0B;&#x3002;</p>
-<h4 id="win-getNativeWindowHandle">win.getNativeWindowHandle()</h4>
-
+<h4 id="wingetnativewindowhandle"><code>win.getNativeWindowHandle()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Buffer</code>&#x7C7B;&#x578B; - The platform-specific handle of the window.</p>
 <p>&#x539F;&#x751F;&#x64CD;&#x4F5C;&#x7C7B;&#x578B;&#x5728;Windows&#x4E0B;&#x662F;<code>HWND</code>&#xFF0C;&#x5728;MacOS&#x4E0B;&#x662F;<code>NSView*</code>&#xFF0C;&#x5728;Linux&#x4E0B;&#x662F;<code>Window</code>&#xFF08;<code>unsigned long</code>&#xFF09;&#x3002;</p>
-<h4 id="win-hookWindowMessage">win.hookWindowMessage(message, callback) <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winhookwindowmessagemessage-callback-windows"><code>win.hookWindowMessage(message, callback)</code> <em>Windows</em></h4>
 <ul>
 <li><code>message</code> Integer&#x7C7B;&#x578B;</li>
 <li><code>callback</code> Function&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8054;&#x64AD;&#x4E00;&#x4E2A;&#x7A97;&#x53E3;&#x4FE1;&#x606F;&#x3002;&#x5F53;&#x6D88;&#x606F;&#x5728;WndProc&#x88AB;&#x6536;&#x5230;&#x65F6;&#x4F1A;&#x8C03;&#x7528;<code>callback</code>&#x3002;</p>
-<h4 id="win-isWindowMessageHooked">win.isWindowMessageHooked(message) <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winiswindowmessagehookedmessage-windows"><code>win.isWindowMessageHooked(message)</code> <em>Windows</em></h4>
 <ul>
 <li><code>message</code> Integer&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - <code>true</code>&#x8FD8;&#x662F;<code>false</code>&#x53D6;&#x51B3;&#x4E8E;&#x6D88;&#x606F;&#x662F;&#x5426;&#x88AB;&#x8054;&#x64AD;&#x3002;</p>
-<h4 id="win-unhookWindowMessage">win.unhookWindowMessage(message) <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winunhookwindowmessagemessage-windows"><code>win.unhookWindowMessage(message)</code> <em>Windows</em></h4>
 <ul>
 <li><code>message</code> Integer&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x53D6;&#x6D88;&#x8054;&#x64AD;&#x7A97;&#x53E3;&#x7684;&#x6D88;&#x606F;&#x3002;</p>
-<h4 id="win-unhookAllWindowMessages">win.unhookAllWindowMessages() <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winunhookallwindowmessages-windows"><code>win.unhookAllWindowMessages()</code> <em>Windows</em></h4>
 <p>&#x53D6;&#x6D88;&#x8054;&#x64AD;&#x7A97;&#x53E3;&#x7684;&#x6240;&#x6709;&#x6D88;&#x606F;&#x3002;</p>
-<h4 id="win-setRepresentedFilename">win.setRepresentedFilename(filename) <i>&#xFF08;macOS&#xFF09;</i></h4>
-
+<h4 id="winsetrepresentedfilenamefilename-macos"><code>win.setRepresentedFilename(filename)</code> <em>MacOS</em></h4>
 <ul>
 <li><code>filename</code> String&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x4EE3;&#x8868;&#x7A97;&#x53E3;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x540D;&#x4EE5;&#x53CA;&#x6587;&#x4EF6;&#x7684;&#x56FE;&#x6807;&#xFF0C;&#x6587;&#x4EF6;&#x5C06;&#x4F1A;&#x88AB;&#x5C55;&#x793A;&#x5728;&#x7A97;&#x53E3;&#x7684;&#x6807;&#x9898;&#x680F;&#x3002;</p>
-<h4 id="win-getRepresentedFilename">win.getRepresentedFilename() <i>&#xFF08;macOS&#xFF09;</i></h4>
-
+<h4 id="wingetrepresentedfilename-macos"><code>win.getRepresentedFilename()</code> <em>MacOS</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code> - &#x4EE3;&#x8868;&#x7A97;&#x53E3;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x540D;&#x3002;</p>
-<h4 id="win-setDocumentEdited">win.setDocumentEdited(edited) <i>&#xFF08;macOS&#xFF09;</i></h4>
-
+<h4 id="winsetdocumenteditededited-macos"><code>win.setDocumentEdited(edited)</code> <em>MacOS</em></h4>
 <ul>
 <li><code>edited</code> Boolean</li>
 </ul>
 <p>&#x6307;&#x5B9A;&#x7A97;&#x53E3;&#x7684;&#x6587;&#x6863;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x88AB;&#x7F16;&#x8F91;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;<code>true</code>&#x90A3;&#x4E48;&#x6807;&#x9898;&#x680F;&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x5C06;&#x4F1A;&#x53D8;&#x6210;&#x7070;&#x8272;&#x3002;</p>
-<h4 id="win-isDocumentEdited">win.isDocumentEdited() <i>&#xFF08;macOS&#xFF09;</i></h4>
-
+<h4 id="winisdocumentedited-macos"><code>win.isDocumentEdited()</code> <em>MacOS</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x7684;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x88AB;&#x7F16;&#x8F91;&#x3002;</p>
-<h4 id="win-focusOnWebView">win.focusOnWebView()</h4>
-<h4 id="win-blurWebView">win.blurWebView()</h4>
-<h4 id="win-capturePage">win.capturePage([rect, ]callback)</h4>
-
+<h4 id="winfocusonwebview"><code>win.focusOnWebView()</code></h4>
+<h4 id="winblurwebview"><code>win.blurWebView()</code></h4>
+<h4 id="wincapturepagerect-callback"><code>win.capturePage([rect, ]callback)</code></h4>
 <ul>
 <li><code>rect</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a>&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x6355;&#x6349;&#x5230;&#x7684;&#x8FB9;&#x754C;&#x3002;</li>
 <li><code>callback</code> Function&#x7C7B;&#x578B;<ul>
-<li><code>image</code> <a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a></li>
+<li><code>image</code> <a href="../both/nativeImage.html">NativeImage</a></li>
 </ul>
 </li>
 </ul>
 <p>&#x540C;<code>webContents.capturePage([rect, ]callback)</code>&#x4E00;&#x6837;&#x3002;</p>
-<h4 id="win-loadURL">win.loadURL(url[, options])</h4>
-
+<h4 id="winloadurlurl-options"><code>win.loadURL(url[, options])</code></h4>
 <ul>
 <li><code>url</code> String&#x7C7B;&#x578B;</li>
 <li><code>options</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;<ul>
@@ -1925,17 +1808,14 @@ win.loadURL(url)
     }],
     extraHeaders: &apos;Content-Type: application/x-www-form-urlencoded&apos;
 })
-</code></pre><h4 id="win-reload">win.reload()</h4>
-
+</code></pre><h4 id="winreload"><code>win.reload()</code></h4>
 <p>&#x540C;<code>webContents.reload</code>&#x4E00;&#x6837;&#x3002;</p>
-<h4 id="win-setMenu">win.setMenu(menu) <i>&#xFF08;Linux&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetmenumenu-linuxwindows"><code>win.setMenu(menu)</code> <em>Linux,Windows</em></h4>
 <ul>
 <li><code>menu</code> Menu&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;<code>menu</code>&#x4F5C;&#x4E3A;&#x7A97;&#x53E3;&#x7684;&#x83DC;&#x5355;&#x680F;&#xFF0C;&#x8BBE;&#x7F6E;&#x5B83;&#x4E3A;<code>null</code>&#x5219;&#x5C06;&#x4F1A;&#x79FB;&#x9664;&#x83DC;&#x5355;&#x680F;&#x3002;</p>
-<h4 id="win-setProgressBar">win.setProgressBar(progress[, options])</h4>
-
+<h4 id="winsetprogressbarprogress-options"><code>win.setProgressBar(progress[, options])</code></h4>
 <ul>
 <li><code>progress</code> Double&#x7C7B;&#x578B;</li>
 <li><code>options</code> Object&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;<ul>
@@ -1947,25 +1827,21 @@ win.loadURL(url)
 <p>&#x5F53;&#x8FDB;&#x5EA6; &lt; 0&#x5219;&#x79FB;&#x9664;&#x8FDB;&#x5EA6;&#x6761;&#xFF1B;&#x5F53;&#x8FDB;&#x5EA6; &gt; 1&#x65F6;&#x53D8;&#x4E3A;&#x4E0D;&#x786E;&#x5B9A;&#x6A21;&#x5F0F;&#x3002;</p>
 <p>Linux&#x5E73;&#x53F0;&#x4E2D;&#xFF0C;&#x53EA;&#x652F;&#x6301;Unity&#x684C;&#x9762;&#x73AF;&#x5883;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5728;<code>package.json</code>&#x6587;&#x4EF6;&#x4E2D;&#x7684;<code>desktopName</code>&#x4E2D;&#x6307;&#x5B9A;<code>*.desktop</code>&#x6587;&#x4EF6;&#x540D;&#x5B57;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x5047;&#x8BBE;&#x4E3A;<code>app.getName().desktop</code>&#x7684;&#x503C;&#x3002;</p>
 <p>Windows&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x63A5;&#x53D7;&#x7684;&#x503C;&#x4E3A;<code>none</code>&#xFF0C;<code>normal</code>&#xFF0C;<code>indeterminate</code>&#xFF0C;<code>error</code>&#x548C;<code>paused</code>&#x3002;&#x5982;&#x679C;&#x4F60;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6A21;&#x5F0F;&#xFF08;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x503C;&#x5728;&#x6709;&#x6548;&#x8303;&#x56F4;&#x5185;&#xFF09;&#x5C31;&#x8C03;&#x7528;<code>setProgressBar</code>&#xFF0C;&#x503C;&#x5C06;&#x4F1A;&#x5047;&#x8BBE;&#x4E3A;<code>normal</code>&#x3002;</p>
-<h4 id="win-setOverlayIcon">win.setOverlayIcon(overlay, description) <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetoverlayiconoverlay-description-windows"><code>win.setOverlayIcon(overlay, description)</code> <em>Windows</em></h4>
 <ul>
-<li><code>overlay</code> <a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a>&#x7C7B;&#x578B; - &#x5C55;&#x793A;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x53F3;&#x4E0B;&#x89D2;&#x6309;&#x94AE;&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;<code>null</code>&#xFF0C;&#x5219;&#x8986;&#x76D6;&#x7269;&#x5C06;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#x3002;</li>
+<li><code>overlay</code> <a href="../both/nativeImage.html">NativeImage</a>&#x7C7B;&#x578B; - &#x5C55;&#x793A;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x53F3;&#x4E0B;&#x89D2;&#x6309;&#x94AE;&#x4E0A;&#x7684;&#x56FE;&#x6807;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;<code>null</code>&#xFF0C;&#x5219;&#x8986;&#x76D6;&#x7269;&#x5C06;&#x4F1A;&#x88AB;&#x6E05;&#x9664;&#x3002;</li>
 <li><code>description</code> String&#x7C7B;&#x578B; - &#x4E00;&#x4E2A;&#x5C06;&#x63D0;&#x4F9B;&#x7ED9;&#x7ED9;&#x5C4F;&#x5E55;&#x9605;&#x8BFB;&#x5668;&#x7684;&#x63CF;&#x8FF0;&#x3002;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;16 x 16&#x50CF;&#x7D20;&#x7684;&#x8986;&#x76D6;&#x7269;&#x5230;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x680F;&#x56FE;&#x6807;&#x4E0A;&#xFF0C;&#x901A;&#x5E38;&#x88AB;&#x7528;&#x6765;&#x4F20;&#x8FBE;&#x67D0;&#x79CD;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x6216;&#x8005;&#x88AB;&#x52A8;&#x7684;&#x901A;&#x77E5;&#x7528;&#x6237;&#x3002;</p>
-<h4 id="win-setHasShadow">win.setHasShadow(hasShadow) <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winsethasshadowhasshadow-macos"><code>win.setHasShadow(hasShadow)</code> <em>MacOS</em></h4>
 <ul>
 <li><code>hasShadow</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x662F;&#x5426;&#x56E0;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x9634;&#x5F71;&#x3002;Windows&#x548C;Linux&#x4E0B;&#x65E0;&#x6548;&#x3002;</p>
-<h4 id="win-hasShadow">win.hasShadow() <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winhasshadow-macos"><code>win.hasShadow()</code> <em>MacOS</em></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x6709;&#x4E00;&#x4E2A;&#x9634;&#x5F71;&#x3002;</p>
 <p>Windows&#x548C;Linux&#x4E0B;&#x603B;&#x662F;&#x8FD4;&#x56DE;<code>true</code>&#x3002;</p>
-<h4 id="win-setThumbarButtons">win.setThumbarButtons(buttons) <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetthumbarbuttonsbuttons-windows"><code>win.setThumbarButtons(buttons)</code> <em>Windows</em></h4>
 <ul>
 <li><code>buttons</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/thumbar-button.md" target="_blank">ThumbarButton[]</a>&#x7C7B;&#x578B;</li>
 </ul>
@@ -1991,20 +1867,17 @@ win.loadURL(url)
 <li><code>hidden</code> - &#x6309;&#x94AE;&#x4E0D;&#x5C55;&#x793A;&#x7ED9;&#x7528;&#x6237;&#x3002;</li>
 <li><code>noninteractive</code> - &#x6309;&#x94AE;&#x5DF2;&#x7ECF;&#x542F;&#x7528;&#x4F46;&#x662F;&#x4E0D;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#xFF1B;&#x6309;&#x4E0B;&#x6309;&#x94AE;&#x7684;&#x72B6;&#x6001;&#x4E0D;&#x4F1A;&#x88AB;&#x7ED8;&#x5236;&#x3002;&#x8FD9;&#x4E2A;&#x503C;&#x9002;&#x7528;&#x4E8E;&#x88AB;&#x7528;&#x5728;&#x901A;&#x77E5;&#x4E2D;&#x7684;&#x6309;&#x94AE;&#x4E2D;&#x3002;</li>
 </ul>
-<h4 id="win-setThumbnailClip">win.setThumbnailClip(region) <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetthumbnailclipregion-windows"><code>win.setThumbnailClip(region)</code> <em>Windows</em></h4>
 <ul>
 <li><code>region</code> <a href="https://github.com/electron/electron/blob/master/docs/api/structures/rectangle.md" target="_blank">Rectangle</a> - &#x7A97;&#x53E3;&#x7684;&#x533A;&#x57DF;&#x3002;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x5F53;&#x9F20;&#x6807;&#x60AC;&#x505C;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x4E0A;&#x65F6;&#xFF0C;&#x7A97;&#x53E3;&#x4E2D;&#x5C55;&#x793A;&#x7F29;&#x7565;&#x56FE;&#x7684;&#x533A;&#x57DF;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x533A;&#x57DF;<code>{x: 0, y: 0, width: 0, height: 0}</code>&#x6765;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x6574;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x7F29;&#x7565;&#x56FE;&#x3002;</p>
-<h4 id="win-setThumbnailToolTip">win.setThumbnailToolTip(toolTip) <i>Windows</i></h4>
-
+<h4 id="winsetthumbnailtooltiptooltip-windows"><code>win.setThumbnailToolTip(toolTip)</code> <em>Windows</em></h4>
 <ul>
 <li><code>toolTip</code> String&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x5F53;&#x9F20;&#x6807;&#x60AC;&#x505C;&#x5728;&#x4EFB;&#x52A1;&#x680F;&#x7684;&#x7F29;&#x7565;&#x56FE;&#x7A97;&#x53E3;&#x4E0A;&#x65F6;&#x5C55;&#x793A;&#x7684;&#x63D0;&#x793A;&#x6587;&#x5B57;&#x3002;</p>
-<h4 id="win-setAppDetails">win.setAppDetails(options) <i>&#xFF08;Windows&#xFF09;<i></i></i></h4>
-
+<h4 id="winsetappdetailsoptions-windows"><code>win.setAppDetails(options)</code> <em>Windows</em></h4>
 <ul>
 <li><code>options</code> Object&#x7C7B;&#x578B;<ul>
 <li><code>appId</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- &#x7A97;&#x53E3;&#x7684;<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85" target="_blank">App User Model ID</a>.aspx)&#x3002;&#x5B83;&#x5FC5;&#x987B;&#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;&#x5426;&#x5219;&#x5176;&#x4ED6;&#x7684;&#x8BBE;&#x7F6E;&#x9009;&#x9879;&#x5C06;&#x6CA1;&#x6709;&#x6548;&#x679C;&#x3002;</li>
@@ -2017,82 +1890,67 @@ win.loadURL(url)
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x7684;&#x4EFB;&#x52A1;&#x680F;&#x6309;&#x94AE;&#x7684;&#x7279;&#x6027;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong><code>relaunchCommand</code>&#x548C;<code>relaunchDisplayName</code>&#x5FC5;&#x987B;&#x88AB;&#x4E00;&#x8D77;&#x8BBE;&#x7F6E;&#x3002;&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x88AB;&#x8BBE;&#x7F6E;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4EEC;&#x90FD;&#x4E0D;&#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p>
-<h4 id="win-showDefinitionForSelection">win.showDefinitionForSelection() <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winshowdefinitionforselection-macos"><code>win.showDefinitionForSelection()</code> <em>MacOS</em></h4>
 <p>&#x540C;<code>webContents.showDefinitionForSelection()</code>&#x4E00;&#x6837;&#x3002;</p>
-<h4 id="win-setIcon">win.setIcon(icon) <i>&#xFF08;Windows&#xFF0C;Linux&#xFF09;</i></h4>
-
+<h4 id="winseticonicon-windowslinux"><code>win.setIcon(icon)</code> <em>Windows,Linux</em></h4>
 <ul>
-<li><code>icon</code> <a href="https://github.com/electron/electron/blob/master/docs/api/native-image.md" target="_blank">NativeImage</a></li>
+<li><code>icon</code> <a href="../both/nativeImage.html">NativeImage</a></li>
 </ul>
 <p>&#x6539;&#x53D8;&#x7A97;&#x53E3;&#x7684;&#x56FE;&#x6807;&#x3002;</p>
-<h4 id="win-setAutoHideMenuBar">win.setAutoHideMenuBar(hide)</h4>
-
+<h4 id="winsetautohidemenubarhide"><code>win.setAutoHideMenuBar(hide)</code></h4>
 <ul>
 <li><code>hide</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x7684;&#x83DC;&#x5355;&#x680F;&#x662F;&#x5426;&#x81EA;&#x52A8;&#x9690;&#x85CF;&#x3002;&#x4E00;&#x65E6;&#x8BBE;&#x7F6E;&#xFF0C;&#x83DC;&#x5355;&#x680F;&#x5C06;&#x53EA;&#x4F1A;&#x5728;&#x7528;&#x6237;&#x6309;&#x4E0B;<code>Alt</code>&#x952E;&#x65F6;&#x5C55;&#x793A;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x83DC;&#x5355;&#x680F;&#x5DF2;&#x7ECF;&#x662F;&#x53EF;&#x89C1;&#x7684;&#xFF0C;&#x8C03;&#x7528;<code>setAutoHideMenuBar(true)</code>&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x7ACB;&#x523B;&#x9690;&#x85CF;&#x3002;</p>
-<h4 id="win-isMenuBarVisible">win.isMenuBarVisible()</h4>
-
+<h4 id="winismenubarvisible"><code>win.isMenuBarVisible()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x83DC;&#x5355;&#x680F;&#x662F;&#x5426;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;</p>
-<h4 id="win-setVisibleOnAllWorkspaces">win.setVisibleOnAllWorkspaces(visible)</h4>
-
+<h4 id="winsetvisibleonallworkspacesvisible"><code>win.setVisibleOnAllWorkspaces(visible)</code></h4>
 <ul>
 <li><code>visible</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x7A97;&#x53E3;&#x5728;&#x6240;&#x6709;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x662F;&#x5426;&#x53EF;&#x89C1;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5C06;&#x4E0D;&#x4F1A;&#x5728;Windows&#x4E0B;&#x5DE5;&#x4F5C;&#x3002;</p>
-<h4 id="win-isVisibleOnAllWorkspaces">win.isVisibleOnAllWorkspaces()</h4>
-
+<h4 id="winisvisibleonallworkspaces"><code>win.isVisibleOnAllWorkspaces()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x7A97;&#x53E3;&#x662F;&#x5426;&#x5728;&#x6240;&#x6709;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x662F;&#x5426;&#x53EF;&#x89C1;&#x3002;</p>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5C06;&#x4E0D;&#x4F1A;&#x5728;Windows&#x4E0B;&#x5DE5;&#x4F5C;&#x3002;</p>
-<h4 id="win-setIgnoreMouseEvents">win.setIgnoreMouseEvents(ignore)</h4>
-
+<h4 id="winsetignoremouseeventsignore"><code>win.setIgnoreMouseEvents(ignore)</code></h4>
 <ul>
 <li><code>ignore</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x4F7F;&#x7A97;&#x53E3;&#x5FFD;&#x7565;&#x6240;&#x6709;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x3002;</p>
 <p>&#x6240;&#x6709;&#x5728;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x4E2D;&#x53D1;&#x751F;&#x7684;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x90FD;&#x4F1A;&#x88AB;&#x8F6C;&#x79FB;&#x5230;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x4E0B;&#x9762;&#x7A97;&#x53E3;&#x4E2D;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x7A97;&#x53E3;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF0C;&#x5B83;&#x4ECD;&#x7136;&#x4F1A;&#x63A5;&#x6536;&#x952E;&#x76D8;&#x4E8B;&#x4EF6;&#x3002;</p>
-<h4 id="win-setContentProtection">win.setContentProtection(enable) <i>&#xFF08;MacOS&#xFF0C;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetcontentprotectionenable-macoswindows"><code>win.setContentProtection(enable)</code> <em>MacOS,Windows</em></h4>
 <ul>
 <li><code>enable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x9632;&#x6B62;&#x7A97;&#x53E3;&#x7684;&#x5185;&#x5BB9;&#x88AB;&#x5176;&#x4ED6;&#x7684;&#x5E94;&#x7528;&#x6355;&#x83B7;&#x3002;</p>
 <p>MacOS&#x4E2D;&#x5B83;&#x4F1A;&#x8BBE;&#x7F6E;<code>NSWindow</code>&#x7684;<code>sharingType</code>&#x4E3A;<code>NSWindowSharingNone</code>&#x3002;Windows&#x4E2D;&#x5B83;&#x4F1A;&#x8C03;&#x7528;<code>SetWindowDisplayAffinity</code>&#x4F20;&#x5165;<code>WDA_MONITOR</code>&#x3002;</p>
-<h4 id="win-setFocusable">win.setFocusable(focusable) <i>&#xFF08;Windows&#xFF09;</i></h4>
-
+<h4 id="winsetfocusablefocusable-windows"><code>win.setFocusable(focusable)</code> <em>Windows</em></h4>
 <ul>
 <li><code>focusable</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x6539;&#x53D8;&#x7A97;&#x53E3;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x88AB;&#x805A;&#x7126;&#x3002;</p>
-<h4 id="win-setParentWindow">win.setParentWindow(parent) <i>&#xFF08;Linux&#xFF0C;MacOS&#xFF09;</i></h4>
-
+<h4 id="winsetparentwindowparent-linuxmacos"><code>win.setParentWindow(parent)</code> <em>Linux,MacOS</em></h4>
 <ul>
 <li><code>parent</code> BrowserWindow&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;<code>parent</code>&#x4E3A;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x7684;&#x7236;&#x7A97;&#x53E3;&#xFF0C;&#x8BBE;&#x7F6E;<code>null</code>&#x5C06;&#x4F1A;&#x4F7F;&#x5F53;&#x524D;&#x7A97;&#x53E3;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x9876;&#x7EA7;&#x7A97;&#x53E3;&#x4E2D;&#x3002;</p>
-<h4 id="win-getParentWindow">win.getParentWindow()</h4>
-
+<h4 id="wingetparentwindow"><code>win.getParentWindow()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>BrowserWindow</code>&#x7C7B;&#x578B; - &#x7236;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-getChildWindows">win.getChildWindows()</h4>
-
+<h4 id="wingetchildwindows"><code>win.getChildWindows()</code></h4>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>BrowserWindow[]</code>&#x7C7B;&#x578B; - &#x6240;&#x6709;&#x5B50;&#x7A97;&#x53E3;&#x3002;</p>
-<h4 id="win-setAutoHideCursor">win.setAutoHideCursor(autoHide) <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winsetautohidecursorautohide-macos"><code>win.setAutoHideCursor(autoHide)</code> <em>MacOS</em></h4>
 <ul>
 <li><code>autoHide</code> Boolean&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x63A7;&#x5236;&#x662F;&#x5426;&#x5728;&#x8F93;&#x5165;&#x65F6;&#x9690;&#x85CF;&#x5149;&#x6807;&#x3002;</p>
-<h4 id="win-setVibrancy">win.setVibrancy(type) <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winsetvibrancytype-macos"><code>win.setVibrancy(type)</code> <em>MacOS</em></h4>
 <ul>
 <li><code>type</code> String&#x7C7B;&#x578B; - &#x53EF;&#x4EE5;&#x662F;<code>appearance-based</code>&#xFF0C;<code>light</code>&#xFF0C;<code>dark</code>&#xFF0C;<code>titlebar</code>&#xFF0C;<code>selection</code>&#xFF0C;<code>menu</code>&#xFF0C;<code>popover</code>&#xFF0C;<code>sidebar</code>&#xFF0C;<code>medium-light</code>&#x6216;<code>ultra-dark</code>&#x3002;&#x67E5;&#x770B;<a href="https://developer.apple.com/reference/appkit/nsvisualeffectview?language=objc" target="_blank">macOS documentation</a>&#x83B7;&#x53D6;&#x66F4;&#x591A;&#x5185;&#x5BB9;&#x3002;</li>
 </ul>
 <p>&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x7A97;&#x53E3;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x9707;&#x52A8;&#x6548;&#x679C;&#x3002;&#x4F20;&#x5165;<code>null</code>&#x6216;&#x8005;&#x662F;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x5C06;&#x4F1A;&#x79FB;&#x9664;&#x7A97;&#x53E3;&#x7684;&#x9707;&#x52A8;&#x6548;&#x679C;&#x3002;</p>
-<h4 id="win-setTouchBar">win.setTouchBar(touchBar) <i>&#xFF08;MacOS&#xFF09;</i></h4>
-
+<h4 id="winsettouchbartouchbar-macos"><code>win.setTouchBar(touchBar)</code> <em>MacOS</em></h4>
 <ul>
 <li><code>touchBar</code> TouchBar&#x7C7B;&#x578B;</li>
 </ul>
@@ -2140,7 +1998,7 @@ win.loadURL(url)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.BrowserWindow","level":"1.4.6.3","depth":3,"next":{"title":"4.contentTracing","level":"1.4.6.4","depth":3,"path":"APIs/main/contentTracing.md","ref":"APIs/main/contentTracing.md","articles":[]},"previous":{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/BrowserWindow.md","mtime":"2017-03-06T06:26:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-09T10:29:45.429Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.BrowserWindow","level":"1.4.6.3","depth":3,"next":{"title":"4.contentTracing","level":"1.4.6.4","depth":3,"path":"APIs/main/contentTracing.md","ref":"APIs/main/contentTracing.md","articles":[]},"previous":{"title":"2.autoUpdater","level":"1.4.6.2","depth":3,"path":"APIs/main/autoUpdater.md","ref":"APIs/main/autoUpdater.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/main/BrowserWindow.md","mtime":"2017-03-15T02:55:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T02:49:51.565Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

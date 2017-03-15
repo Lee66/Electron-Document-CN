@@ -1209,10 +1209,8 @@
 </blockquote>
 <p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../guides/glossary-of-terms.html#main-process">&#x4E3B;&#x8FDB;&#x7A0B;</a>&#xFF0C;<a href="../guides/glossary-of-terms.html#renderer-process">&#x6E32;&#x67D3;&#x8FDB;&#x7A0B;</a></p>
 <p>Electron&#x7684;<code>process</code>&#x5BF9;&#x8C61;&#x662F;&#x4ECE;<a href="https://nodejs.org/api/process.html" target="_blank">Node.js&#x7684;<code>process</code>&#x5BF9;&#x8C61;</a>&#x6269;&#x5C55;&#x800C;&#x6765;&#x7684;&#x3002;&#x5B83;&#x6DFB;&#x52A0;&#x4E86;&#x4E0B;&#x9762;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x5C5E;&#x6027;&#xFF0C;&#x548C;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<h2 id="Methods">&#x4E8B;&#x4EF6;</h2>
-
-<h3 id="event-">&#x4E8B;&#x4EF6;&#xFF1A;&apos;loaded&apos;</h3>
-
+<h2 id="&#x4E8B;&#x4EF6;">&#x4E8B;&#x4EF6;</h2>
+<h3 id="&#x4E8B;&#x4EF6;-loaded">&#x4E8B;&#x4EF6;: &apos;loaded&apos;</h3>
 <p>&#x5F53;Electron&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5B83;&#x5185;&#x90E8;&#x7684;&#x521D;&#x59CB;&#x5316;&#x811A;&#x672C;&#x5E76;&#x4E14;&#x5DF2;&#x7ECF;&#x5F00;&#x59CB;&#x52A0;&#x8F7D;&#x7F51;&#x9875;&#x6216;&#x8005;&#x4E3B;&#x8981;&#x811A;&#x672C;&#x65F6;&#x88AB;&#x5206;&#x53D1;&#x3002;</p>
 <p>&#x5F53;node&#x96C6;&#x6210;&#x88AB;&#x5173;&#x95ED;&#x65F6;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x9884;&#x52A0;&#x8F7D;&#x811A;&#x672C;&#x7528;&#x6765;&#x6DFB;&#x52A0;&#x5DF2;&#x7ECF;&#x79FB;&#x9664;&#x7684;Node&#x5168;&#x5C40;&#x6807;&#x8BC6;&#x56DE;&#x5230;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#xFF1A;</p>
 <pre><code>// preload.js
@@ -1222,49 +1220,35 @@ process.once(&apos;loaded&apos;, () =&gt; {
     global.setImmediate = _setImmediate
     global.clearImmediate = _clearImmediate
 })
-</code></pre><h2 id="properties">&#x5C5E;&#x6027;</h2>
-
-<h3 id="process-noAsar"><code>process.noAsar</code></h3>
-
+</code></pre><h2 id="&#x5C5E;&#x6027;">&#x5C5E;&#x6027;</h2>
+<h3 id="processnoasar"><code>process.noAsar</code></h3>
 <p>&#x8BBE;&#x7F6E;&#x4E3A;<code>true</code>&#x53EF;&#x4EE5;&#x7981;&#x7528;Node&#x7684;&#x5185;&#x7F6E;&#x6A21;&#x5757;&#x5BF9;<code>asar</code>&#x6587;&#x6863;&#x7684;&#x652F;&#x6301;&#x3002;</p>
-<h3 id="process-type"><code>process.type</code></h3>
-
+<h3 id="processtype"><code>process.type</code></h3>
 <p>&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;<code>&quot;browser&quot;</code>&#xFF08;&#x5373;&#x4E3B;&#x8FDB;&#x7A0B;&#xFF09;&#x6216;<code>&quot;renderer&quot;</code>&#x3002;</p>
-<h3 id="process-versions-electron"><code>process.versions.electron</code></h3>
-
+<h3 id="processversionselectron"><code>process.versions.electron</code></h3>
 <p>Electron&#x7684;&#x7248;&#x672C;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
-<h3 id="process-versions-chrome"><code>process.versions.chrome</code></h3>
-
+<h3 id="processversionschrome"><code>process.versions.chrome</code></h3>
 <p>Chrome&#x7684;&#x7248;&#x672C;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
-<h3 id="process-resourcesPath"><code>process.resourcesPath</code></h3>
-
+<h3 id="processresourcespath"><code>process.resourcesPath</code></h3>
 <p>&#x8D44;&#x6E90;&#x76EE;&#x5F55;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
-<h3 id="process-mas"><code>process.mas</code></h3>
-
+<h3 id="processmas"><code>process.mas</code></h3>
 <p>&#x5BF9;&#x4E8E;Mac App Store&#x7248;&#x672C;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;<code>true</code>&#xFF0C;&#x5176;&#x4ED6;&#x7248;&#x672C;&#x662F;<code>undefined</code>&#x3002;</p>
-<h3 id="process-windowsStore"><code>process.windowsStore</code></h3>
-
+<h3 id="processwindowsstore"><code>process.windowsStore</code></h3>
 <p>&#x5982;&#x679C;&#x5E94;&#x7528;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;Windows Store&#x5E94;&#x7528;&#xFF08;appx&#xFF09;&#x8FD0;&#x884C;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;<code>true</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A;<code>undefined</code>&#x3002;</p>
-<h3 id="process-defaultApp"><code>process.defaultApp</code></h3>
-
+<h3 id="processdefaultapp"><code>process.defaultApp</code></h3>
 <p>&#x5F53;&#x5E94;&#x7528;&#x88AB;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x9ED8;&#x8BA4;&#x5E94;&#x7528;&#x542F;&#x52A8;&#x65F6;, &#x5728;&#x4E3B;&#x8FDB;&#x7A0B;&#x4E2D;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;<code>true</code>&#xFF0C;&#x5426;&#x5219;&#x662F;<code>undefined</code>&#x3002;</p>
-<h2 id="methods">&#x65B9;&#x6CD5;</h2>
-
+<h2 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h2>
 <p><code>process</code>&#x5BF9;&#x8C61;&#x6709;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
-<h3 id="process-crash"><code>process.crash()</code></h3>
-
+<h3 id="processcrash"><code>process.crash()</code></h3>
 <p>&#x5BFC;&#x81F4;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x7684;&#x4E3B;&#x7EBF;&#x7A0B;&#x5D29;&#x6E83;&#x3002;</p>
-<h3 id="process-hang"><code>process.hang()</code></h3>
-
+<h3 id="processhang"><code>process.hang()</code></h3>
 <p>&#x5BFC;&#x81F4;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x7684;&#x4E3B;&#x7EBF;&#x7A0B;&#x6302;&#x8D77;&#x3002;</p>
-<h3 id="process-setFdLimit"><code>process.setFdLimit(maxDescriptors) &#xFF08;MacOS&#xFF0C;Linux&#xFF09;</code></h3>
-
+<h3 id="processsetfdlimitmaxdescriptorsmacoslinux"><code>process.setFdLimit(maxDescriptors)</code><em>MacOS,Linux</em></h3>
 <ul>
 <li><code>maxDescriptors</code> Integer&#x7C7B;&#x578B;</li>
 </ul>
 <p>&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x8F6F;&#x9650;&#x5236;&#x4E3A;<code>maxDescriptors</code>&#x6216;&#x8005;&#x7CFB;&#x7EDF;&#x786C;&#x9650;&#x5236;&#xFF0C;&#x5BF9;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x6765;&#x8BF4;&#x4EE5;&#x8F83;&#x4F4E;&#x8005;&#x4E3A;&#x51C6;&#x3002;</p>
-<h3 id="process-getProcessMemoryInfo"><code>process.getProcessMemoryInfo()</code></h3>
-
+<h3 id="processgetprocessmemoryinfo"><code>process.getProcessMemoryInfo()</code></h3>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Object</code>&#x7C7B;&#x578B;&#xFF1A;</p>
 <ul>
 <li><code>workingSetSize</code> Integer&#x7C7B;&#x578B; - &#x5F53;&#x524D;&#x88AB;&#x56FA;&#x5B9A;&#x4F4F;&#x7684;&#x771F;&#x5B9E;&#x7269;&#x7406;&#x5185;&#x5B58;&#x7684;&#x6700;&#x5927;&#x7684;&#x5185;&#x5B58;&#x91CF;&#x3002;</li>
@@ -1273,8 +1257,7 @@ process.once(&apos;loaded&apos;, () =&gt; {
 <li><code>sharedBytes</code> Integer&#x7C7B;&#x578B; - &#x8FDB;&#x7A0B;&#x95F4;&#x5171;&#x4EAB;&#x7684;&#x5185;&#x5B58;&#x91CF;&#xFF0C;&#x901A;&#x5E38;&#x5185;&#x5B58;&#x88AB;Electron&#x4EE3;&#x7801;&#x81EA;&#x5DF1;&#x6D88;&#x8017;&#x3002;</li>
 </ul>
 <p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4E86;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x7684;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x7EDF;&#x8BA1;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x6240;&#x6709;&#x7EDF;&#x8BA1;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x5343;&#x5B57;&#x8282;&#x6765;&#x62A5;&#x544A;&#x7684;&#x3002;</p>
-<h3 id="process-getSystemMemoryInfo"><code>process.getSystemMemoryInfo()</code></h3>
-
+<h3 id="processgetsystemmemoryinfo"><code>process.getSystemMemoryInfo()</code></h3>
 <p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Object</code>&#x7C7B;&#x578B;&#xFF1A;</p>
 <ul>
 <li><code>total</code> Integer&#x7C7B;&#x578B; - &#x4EE5;&#x5343;&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;&#x7684;&#x7CFB;&#x7EDF;&#x7684;&#x53EF;&#x7528;&#x7684;&#x7269;&#x7406;&#x5185;&#x5B58;&#x603B;&#x91CF;&#x3002;</li>
@@ -1326,7 +1309,7 @@ process.once(&apos;loaded&apos;, () =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.process对象","level":"1.4.2","depth":2,"next":{"title":"3.Supported Chrome Command Line Switches","level":"1.4.3","depth":2,"path":"APIs/supported-chrome-command-line-switches.md","ref":"APIs/supported-chrome-command-line-switches.md","articles":[]},"previous":{"title":"1.Synopsis","level":"1.4.1","depth":2,"path":"APIs/synopsis.md","ref":"APIs/synopsis.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/process-object.md","mtime":"2017-03-07T08:50:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-09T10:29:45.429Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.process对象","level":"1.4.2","depth":2,"next":{"title":"3.Supported Chrome Command Line Switches","level":"1.4.3","depth":2,"path":"APIs/supported-chrome-command-line-switches.md","ref":"APIs/supported-chrome-command-line-switches.md","articles":[]},"previous":{"title":"1.Synopsis","level":"1.4.1","depth":2,"path":"APIs/synopsis.md","ref":"APIs/synopsis.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/process-object.md","mtime":"2017-03-15T02:55:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T02:49:51.565Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
