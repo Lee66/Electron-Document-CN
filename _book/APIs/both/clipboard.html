@@ -1203,6 +1203,135 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="1clipboard">1.clipboard</h1>
+<blockquote>
+<p>&#x539F;&#x6587;&#xFF1A;<a href="https://github.com/electron/electron/blob/master/docs/api/clipboard.md" target="_blank">https://github.com/electron/electron/blob/master/docs/api/clipboard.md</a><br>&#x8BD1;&#x8005;&#xFF1A;<a href="https://github.com/ShmilyLin" target="_blank">Lin</a>   </p>
+<p>&#x4F7F;&#x7528;&#x7CFB;&#x7EDF;&#x526A;&#x8D34;&#x677F;&#x6267;&#x884C;&#x590D;&#x5236;&#x548C;&#x7C98;&#x8D34;&#x64CD;&#x4F5C;&#x3002;</p>
+</blockquote>
+<p>&#x8FDB;&#x7A0B;&#xFF1A;<a href="../../guides/glossary-of-terms.html#main-process">&#x4E3B;&#x8FDB;&#x7A0B;</a>&#xFF0C;<a href="../../guides/glossary-of-terms.html#renderer-process">&#x6E32;&#x67D3;&#x8FDB;&#x7A0B;</a></p>
+<p>&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5C06;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5199;&#x5165;&#x526A;&#x8D34;&#x677F;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> {clipboard} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron&apos;</span>)
+clipboard.writeText(<span class="hljs-string">&apos;Example String&apos;</span>)
+</code></pre>
+<p>On X Window systems, there is also a selection clipboard. To manipulate it you need to pass <code>selection</code> to each method:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> {clipboard} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron&apos;</span>)
+clipboard.writeText(<span class="hljs-string">&apos;Example String&apos;</span>, <span class="hljs-string">&apos;selection&apos;</span>)
+<span class="hljs-built_in">console</span>.log(clipboard.readText(<span class="hljs-string">&apos;selection&apos;</span>))
+</code></pre>
+<h2 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h2>
+<p><code>clipboard</code>&#x6A21;&#x5757;&#x6709;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x5B9E;&#x9A8C;&#x6027;&#x7684;&#x63A5;&#x53E3;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;<code>Experimental</code>&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x5728;&#x672A;&#x6765;&#x7684;&#x7248;&#x672C;&#x4E2D;&#x79FB;&#x9664;&#x3002;</p>
+<h3 id="clipboardreadtexttype"><code>clipboard.readText([type])</code></h3>
+<ul>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x7EAF;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="clipboardwritetexttext-type"><code>clipboard.writeText(text[, type])</code></h3>
+<ul>
+<li><code>text</code> String&#x7C7B;&#x578B;</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x4EE5;&#x7EAF;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x5C06;&#x6587;&#x672C;&#x5199;&#x5165;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x3002;</p>
+<h3 id="clipboardreadhtmltype"><code>clipboard.readHTML([type])</code></h3>
+<ul>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x6807;&#x8BB0;&#x8BED;&#x8A00;&#x683C;&#x5F0F;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="clipboardwritehtmlmarkup-type"><code>clipboard.writeHTML(markup[, type])</code></h3>
+<ul>
+<li><code>markup</code> String&#x7C7B;&#x578B;</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x4EE5;&#x6807;&#x8BB0;&#x8BED;&#x8A00;&#x683C;&#x5F0F;&#x5C06;&#x6587;&#x672C;&#x5199;&#x5165;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x3002;</p>
+<h3 id="clipboardreadimagetype"><code>clipboard.readImage([type])</code></h3>
+<ul>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<a href="nativeImage.html"><code>NativeImage</code></a>&#x7C7B;&#x578B; - &#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;&#x56FE;&#x50CF;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="clipboardwriteimageimage-type"><code>clipboard.writeImage(image[, type])</code></h3>
+<ul>
+<li><code>image</code> <a href="nativeImage.html"><code>NativeImage</code></a></li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x8BB2;&#x56FE;&#x50CF;&#x5199;&#x5165;&#x526A;&#x8D34;&#x677F;&#x3002;</p>
+<h3 id="clipboardreadrtftype"><code>clipboard.readRTF([type])</code></h3>
+<ul>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x526A;&#x8D34;&#x677F;&#x4E2D;&#x7684;RTF&#x683C;&#x5F0F;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="clipboardwritertftext-type"><code>clipboard.writeRTF(text[, type])</code></h3>
+<ul>
+<li><code>text</code> String&#x7C7B;&#x578B;</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x5C06;&#x6587;&#x672C;&#x4EE5;RTF&#x683C;&#x5F0F;&#x5199;&#x5165;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x3002;</p>
+<h3 id="clipboardreadbookmark-macos-windows"><code>clipboard.readBookmark()</code> <em>MacOS Windows</em></h3>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Object</code>&#x7C7B;&#x578B;&#xFF1A;</p>
+<ul>
+<li><code>title</code> String&#x7C7B;&#x578B;</li>
+<li><code>url</code> String&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x542B;<code>title</code>&#x548C;<code>url</code>&#x952E;&#x8868;&#x793A;&#x7684;&#x4E66;&#x7B7E;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x4E66;&#x7B7E;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#xFF0C;&#x90A3;&#x4E48;<code>title</code>&#x548C;<code>url</code>&#x7684;&#x503C;&#x4E3A;&#x7A7A;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<h3 id="clipboardwritebookmarktitle-url-type-macos-windows"><code>clipboard.writeBookmark(title, url[, type])</code> <em>MacOS Windows</em></h3>
+<ul>
+<li><code>title</code> String&#x7C7B;&#x578B;</li>
+<li><code>url</code> String&#x7C7B;&#x578B;</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x5C06;&#x4E00;&#x4E2A;<code>title</code>&#x548C;<code>url</code>&#x8868;&#x793A;&#x7684;&#x4E66;&#x7B7E;&#x5199;&#x5165;&#x5230;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x5927;&#x591A;&#x6570;Windows&#x5E94;&#x7528;&#x4E2D;&#x4E0D;&#x652F;&#x6301;&#x7C98;&#x8D34;&#x4E66;&#x7B7E;&#x5230;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>clipboard.write</code>&#x6765;&#x540C;&#x65F6;&#x5199;&#x5165;&#x4E00;&#x4E2A;&#x4E66;&#x7B7E;&#x548C;&#x4E00;&#x4E2A;&#x5907;&#x7528;&#x6587;&#x672C;&#x5230;&#x526A;&#x8D34;&#x677F;&#x3002;</p>
+<pre><code class="lang-javascript">clipboard.write({
+    text: <span class="hljs-string">&apos;https://electron.atom.io&apos;</span>,
+    bookmark: <span class="hljs-string">&apos;Electron Homepage&apos;</span>
+})
+</code></pre>
+<h3 id="clipboardreadfindtext-macos"><code>clipboard.readFindText()</code> <em>MacOS</em></h3>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - find pasteboard&#x4E2D;&#x7684;&#x6587;&#x672C;&#x3002;&#x5F53;&#x5728;&#x6E32;&#x67D3;&#x7EBF;&#x7A0B;&#x4E2D;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x540C;&#x6B65;&#x8FDB;&#x7A0B;&#x901A;&#x8BAF;&#x3002;&#x6BCF;&#x5F53;&#x5E94;&#x7528;&#x88AB;&#x6FC0;&#x6D3B;&#x90FD;&#x4F1A;&#x4ECE;&#x5C06;find pasteboard&#x4E2D;&#x7684;&#x503C;&#x5B58;&#x5165;&#x7F13;&#x5B58;&#x3002;</p>
+<h3 id="clipboardwritefindtexttext-macos"><code>clipboard.writeFindText(text)</code> <em>MacOS</em></h3>
+<ul>
+<li><code>text</code> String&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x5C06;&#x6587;&#x672C;&#x4EE5;&#x7EAF;&#x6587;&#x672C;&#x683C;&#x5F0F;&#x5199;&#x5165;&#x5230;find pasteboard&#x4E2D;&#x3002;&#x5F53;&#x5728;&#x6E32;&#x67D3;&#x7EBF;&#x7A0B;&#x4E2D;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x540C;&#x6B65;&#x8FDB;&#x7A0B;&#x901A;&#x8BAF;&#x3002;</p>
+<h3 id="clipboardcleartype"><code>clipboard.clear([type])</code></h3>
+<ul>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x6E05;&#x7A7A;&#x526A;&#x8D34;&#x677F;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h3 id="clipboardavailableformatstype"><code>clipboard.availableFormats([type])</code></h3>
+<ul>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String[]</code>&#x7C7B;&#x578B; - &#x526A;&#x8D34;&#x677F;<code>type</code>&#x652F;&#x6301;&#x7684;&#x7C7B;&#x578B;&#x7684;&#x7EC4;&#x6210;&#x7684;&#x6570;&#x7EC4;&#x3002;</p>
+<h3 id="clipboardhasformat-type-experimental"><code>clipboard.has(format[, type])</code> <em>Experimental</em></h3>
+<ul>
+<li><code>format</code> String&#x7C7B;&#x578B;</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Boolean</code>&#x7C7B;&#x578B; - &#x526A;&#x8D34;&#x677F;&#x662F;&#x5426;&#x652F;&#x6301;&#x6307;&#x5B9A;&#x7684;<code>format</code>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> {clipboard} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;electron&apos;</span>)
+<span class="hljs-built_in">console</span>.log(clipboard.has(<span class="hljs-string">&apos;&lt;p&gt;selection&lt;/p&gt;&apos;</span>))
+</code></pre>
+<h3 id="clipboardreadformat-experimental"><code>clipboard.read(format)</code> <em>Experimental</em></h3>
+<ul>
+<li><code>format</code> String&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>String</code>&#x7C7B;&#x578B; - &#x4ECE;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x8BFB;&#x53D6;<code>format</code>&#x7C7B;&#x578B;&#x3002;</p>
+<h3 id="clipboardreadbufferformat-experimental"><code>clipboard.readBuffer(format)</code> <em>Experimental</em></h3>
+<ul>
+<li><code>format</code> String&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x503C;&#x4E3A;<code>Buffer</code>&#x7C7B;&#x578B; - &#x4ECE;&#x526A;&#x8D34;&#x677F;&#x4E2D;&#x8BFB;&#x53D6;<code>format</code>&#x7C7B;&#x578B;&#x3002;</p>
+<h3 id="clipboardwritedata-type"><code>clipboard.write(data[, type])</code></h3>
+<ul>
+<li><code>data</code> Object&#x7C7B;&#x578B;<ul>
+<li><code>text</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>html</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>image</code> NativeImage&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>rtf</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+<li><code>bookmark</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;- <code>text</code>&#x4E2D;&#x7684;&#x5730;&#x5740;&#x5BF9;&#x5E94;&#x7684;&#x6807;&#x9898;&#x3002;</li>
+</ul>
+</li>
+<li><code>type</code> String&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
 
                                 
                                 </section>
@@ -1246,7 +1375,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.clipboard","level":"1.4.8.1","depth":3,"next":{"title":"2.crashReporter","level":"1.4.8.2","depth":3,"path":"APIs/both/crashReporter.md","ref":"APIs/both/crashReporter.md","articles":[]},"previous":{"title":"共享模块","level":"1.4.8","depth":2,"path":"APIs/both/README.md","ref":"APIs/both/README.md","articles":[{"title":"1.clipboard","level":"1.4.8.1","depth":3,"path":"APIs/both/clipboard.md","ref":"APIs/both/clipboard.md","articles":[]},{"title":"2.crashReporter","level":"1.4.8.2","depth":3,"path":"APIs/both/crashReporter.md","ref":"APIs/both/crashReporter.md","articles":[]},{"title":"3.nativeImage","level":"1.4.8.3","depth":3,"path":"APIs/both/nativeImage.md","ref":"APIs/both/nativeImage.md","articles":[]},{"title":"4.screen","level":"1.4.8.4","depth":3,"path":"APIs/both/screen.md","ref":"APIs/both/screen.md","articles":[]},{"title":"5.shell","level":"1.4.8.5","depth":3,"path":"APIs/both/shell.md","ref":"APIs/both/shell.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/both/clipboard.md","mtime":"2017-03-02T15:30:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-15T08:51:40.268Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.clipboard","level":"1.4.8.1","depth":3,"next":{"title":"2.crashReporter","level":"1.4.8.2","depth":3,"path":"APIs/both/crashReporter.md","ref":"APIs/both/crashReporter.md","articles":[]},"previous":{"title":"共享模块","level":"1.4.8","depth":2,"path":"APIs/both/README.md","ref":"APIs/both/README.md","articles":[{"title":"1.clipboard","level":"1.4.8.1","depth":3,"path":"APIs/both/clipboard.md","ref":"APIs/both/clipboard.md","articles":[]},{"title":"2.crashReporter","level":"1.4.8.2","depth":3,"path":"APIs/both/crashReporter.md","ref":"APIs/both/crashReporter.md","articles":[]},{"title":"3.nativeImage","level":"1.4.8.3","depth":3,"path":"APIs/both/nativeImage.md","ref":"APIs/both/nativeImage.md","articles":[]},{"title":"4.screen","level":"1.4.8.4","depth":3,"path":"APIs/both/screen.md","ref":"APIs/both/screen.md","articles":[]},{"title":"5.shell","level":"1.4.8.5","depth":3,"path":"APIs/both/shell.md","ref":"APIs/both/shell.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"APIs/both/clipboard.md","mtime":"2017-03-21T07:33:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-27T09:36:17.265Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
